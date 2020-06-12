@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 export class ChatPageComponent extends React.Component<any,any> {
     render() {
         return(
             <div>
-                <h1>Chat App</h1>
+                <Helmet>
+                    <title>Chat Application</title>
+                </Helmet>
+                <div id="white-background">
+                    
+                </div>
             </div>
         )
     }

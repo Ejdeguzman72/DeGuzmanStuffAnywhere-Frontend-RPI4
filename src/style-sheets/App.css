@@ -52,3 +52,17 @@
   border-color: grey;
   border-style: solid;
 }
+
+#white-background {
+  background-image: url('../assets/roystudio120900008.jpg');
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: 0;
+  height: 100vh;
+  width: auto;
+  /* position: relative; */
+}
+

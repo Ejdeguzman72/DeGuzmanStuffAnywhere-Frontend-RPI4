@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 export class PhotoPageComponent extends React.Component<any,any> {
     render() {
         return (
             <div>
-                <h1>Photo Page</h1>
+                <Helmet>
+                    <title>Photos</title>
+                </Helmet>
+                <div id="white-backgound">
+                    <h1>Photos</h1>
+                </div>
             </div>
         )
     }
