@@ -9,6 +9,7 @@ export class HomePageComponent extends React.Component<any, any> {
                 <Helmet>
                     <title>Home</title>
                 </Helmet>
+                <br></br><br></br>
                 <div className="hero-home">
 
                 </div>
