@@ -4,13 +4,14 @@ import MaterialTable from 'material-table';
 export default function BirthdayPageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'transactionid' },
-      { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'payment_date'},
-      { title: 'Transaction Type',field: 'transaction_type'},
+      { title: 'Person ID', field: 'person_id' },
+      { title: 'First Name', field: 'firstname' },
+      { title: 'Last Name', field: 'lastname'},
+      { title: 'Birth Date',field: 'birthdate'},
+      { title: 'Age', field: 'age'}
     ],
     data: [
-      { transactionid: '1', amount: 25.00, payment_date: '06/19/2020', transaction_type: 'Gas' }
+      { person_id: '1', firstname: 'Edgar', lastname: 'DeGuzman', birthdate: '03/07/1996', age: 24 }
     ],
   });
 
