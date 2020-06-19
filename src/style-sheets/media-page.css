@@ -1,0 +1,47 @@
+.media-photo-page-container-component {
+    padding: 20px;
+    margin: 10px;
+    float: left;
+    box-shadow: 5px 10px 18px #888888;
+    height: 400px;
+    width: 40%;
+    border-color: black;
+    border-style: solid;
+    font-family: fantasy;
+}
+
+.media-photo-page-container-background {
+    background-image: url('../assets/camera-lens-video-camera-photography-png-clipart-balloon-cartoon-cartoon-camera-lens-png-728_508.jpg');
+    background-size: cover;
+    background-position: center center;
+    top: 0; 
+    bottom: 0;
+    margin: 0;
+    z-index: -1;
+    width: auto;
+    height: 100%;
+}
+
+.media-video-page-container-component {
+    padding: 20px;
+    margin: 10px;
+    float: right;
+    box-shadow: 5px 10px 18px #888888;
+    height: 400px;
+    width: 40%;
+    border-color: black;
+    border-style: solid;
+    font-family: fantasy;
+}
+
+.media-video-page-container-background {
+    background-image: url('../assets/download.jpg');
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: -1;
+    width: auto;
+    height: 100%;
+}

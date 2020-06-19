@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Form } from 'react-bootstrap';
 import '../../style-sheets/login-page.css';
+import { FooterComponent } from '../footer-component/footer-component';
 
 export class LoginPageComponent extends React.Component<any, any> {
     render() {
@@ -30,6 +31,7 @@ export class LoginPageComponent extends React.Component<any, any> {
                         </Form>
                     </div>
                 </div>
+                <FooterComponent />
             </div>
         )
     }
