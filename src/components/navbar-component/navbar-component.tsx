@@ -14,7 +14,7 @@ export class NavBarComponent extends React.Component<any, any> {
                             {/* <Nav.Link href="#home" className="navbar-item">Home</Nav.Link> */}
                             <Nav.Link href="#media" className="navbar-item">Photos/Videos</Nav.Link>
                             <Nav.Link href="#chat" className="navbar-item">Chat</Nav.Link>
-                            <NavDropdown title="General Info" className="navbar-item" id="basic-nav-dropdown">
+                            <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                 <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item>
                                 <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
