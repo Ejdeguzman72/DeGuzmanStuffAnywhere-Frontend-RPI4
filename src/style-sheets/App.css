@@ -79,3 +79,25 @@
 .footer-text {
   margin: 10px;
 }
+
+/* ------------------------------------------------------Tabs CSS----------------------------------------------------------- */
+
+#tabs {
+  background-color: #FFF5EE;
+  font-family: fantasy;
+  font-size: 30px;
+  width: 100%;
+  color: black;
+  margin: 5px;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: black;
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------------Table CSS----------------------------------------------------------- */
+
+.table {
+  border-style: solid;
+  border-color: black;
+}

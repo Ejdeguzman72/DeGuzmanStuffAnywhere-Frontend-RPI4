@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import  FinancePageTableComponent  from '../../general-info-components/finance-page-component/finance-page-table-component';
 import { FooterComponent } from '../../footer-component/footer-component';
-import { GeneralFinanceTabsComponent } from '../../tab-components/tab-components';
+import { GeneralFinanceTabsComponent } from '../../tab-components/general-finance-tabs-components';
+import GeneralFinancePageTableComponent from './general-finance-page-table-component';
 
-export class FinancePageComponent extends React.Component<any,any> {
+export class GeneralFinancePageComponent extends React.Component<any,any> {
     render() {
         return (
             <div>
@@ -15,7 +15,7 @@ export class FinancePageComponent extends React.Component<any,any> {
                     <br></br>
                     <GeneralFinanceTabsComponent />
                     <br></br>
-                    <FinancePageTableComponent />
+                    <GeneralFinancePageTableComponent />
                 </div>
                 <FooterComponent />
             </div>

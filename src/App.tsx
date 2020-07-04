@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './style-sheets/App.css';
 // import './style-sheets/chat-page.css';
 // import './style-sheets/home-page.css';
@@ -18,9 +17,11 @@ import { PhotoPageComponent } from './components/photos-videos-page-component/ph
 import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
 import { BirthdayPageComponent } from './components/general-info-components/birthday-page-component/birthday-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
-import { FinancePageComponent } from './components/general-info-components/finance-page-component/finance-page-component';
+import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
 import { RecipePageComponent } from './components/general-info-components/recipe-page-component/recipe-page-component';
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
+import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
+import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
 
 function App() {
   return (
@@ -35,9 +36,13 @@ function App() {
             <Route path="/photos" exact component={PhotoPageComponent} />
             {/* <Route path="/videos" exaxt component={VideoPageComponent} /> */}
             <Route path="/chat" exact component={ChatPageComponent} />
+
+            <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+            <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+            <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+
             <Route path="/birthdays" exact component={BirthdayPageComponent} />
             <Route path="/contact-info" exact component={ContactPageComponent} />
-            <Route path="/finance" exact component={FinancePageComponent} />
             <Route path="/recipes" exact component={RecipePageComponent} />
             <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
             <Route component={LoginPageComponent} />

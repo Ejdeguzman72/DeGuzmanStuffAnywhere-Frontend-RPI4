@@ -14,13 +14,17 @@ export class NavBarComponent extends React.Component<any, any> {
                             {/* <Nav.Link href="#home" className="navbar-item">Home</Nav.Link> */}
                             <Nav.Link href="#media" className="navbar-item">Photos/Videos</Nav.Link>
                             <Nav.Link href="#chat" className="navbar-item">Chat</Nav.Link>
+                            <NavDropdown title="Finance" className="navbar-item" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#general-finance" className="navbar-item">General Finances</NavDropdown.Item>
+                                <NavDropdown.Item href="#auto-finance" className="navbar-item">Auto Finances</NavDropdown.Item>
+                                <NavDropdown.Item href="#medical-finance" className="navbar-item">Medical Finances</NavDropdown.Item>
+                            </NavDropdown>
                             <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                 <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item>
                                 <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
-                                <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#finance" className="navbar-item">Finance</NavDropdown.Item>
+                                <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form inline>

@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-export default function FinancePageTableComponent() {
+export default function MedicalFinancePageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
       { title: 'Transaction ID', field: 'transactionid' },
