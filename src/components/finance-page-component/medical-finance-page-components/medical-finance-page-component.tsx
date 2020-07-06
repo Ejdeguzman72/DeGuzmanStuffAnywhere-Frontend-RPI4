@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { MedicalTabsComponent } from '../../tab-components/medical-tabs-component';
 import MedicalFinancePageTableComponent from './medical-finance-table-component';
+import { FooterComponent } from '../../footer-component/footer-component';
 
 export class MedicalFinancePageComponent extends React.Component<any,any> {
     render() {
@@ -18,6 +19,7 @@ export class MedicalFinancePageComponent extends React.Component<any,any> {
                     <br></br>
                     <MedicalFinancePageTableComponent />
                 </div>
+                <FooterComponent />
             </div>
         )
     }

@@ -16,7 +16,7 @@ export default function GeneralFinancePageTableComponent() {
 
   return (
     <MaterialTable
-      title="Finance Information"
+      title="General Finances"
       columns={state.columns}
       data={state.data}
       editable={{

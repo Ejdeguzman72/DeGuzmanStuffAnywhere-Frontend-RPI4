@@ -16,7 +16,7 @@ export default function AutoFinancePageTableComponent() {
 
   return (
     <MaterialTable
-      title="Finance Information"
+      title="Auto Finances"
       columns={state.columns}
       data={state.data}
       editable={{

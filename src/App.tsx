@@ -22,6 +22,10 @@ import { RecipePageComponent } from './components/general-info-components/recipe
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
 import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
+import {  MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
+import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
+import { AutoFinanceUploadComponent } from './components/file-upload-components/auto-finance-upload-component';
+import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
 
 function App() {
   return (
@@ -38,8 +42,13 @@ function App() {
             <Route path="/chat" exact component={ChatPageComponent} />
 
             <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+            <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
+
             <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+            <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
+
             <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+            <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
 
             <Route path="/birthdays" exact component={BirthdayPageComponent} />
             <Route path="/contact-info" exact component={ContactPageComponent} />

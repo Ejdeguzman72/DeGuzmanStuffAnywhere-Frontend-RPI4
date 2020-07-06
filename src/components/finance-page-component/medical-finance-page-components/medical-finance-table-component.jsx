@@ -16,7 +16,7 @@ export default function MedicalFinancePageTableComponent() {
 
   return (
     <MaterialTable
-      title="Finance Information"
+      title="Medical Finances"
       columns={state.columns}
       data={state.data}
       editable={{
