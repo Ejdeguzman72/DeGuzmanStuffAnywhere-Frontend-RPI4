@@ -4,7 +4,7 @@ import MaterialTable from 'material-table';
 export default function GeneralFinancePageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'transactionid' },
+      { title: 'Transaction ID', field: 'transactionid'},
       { title: 'Amount', field: 'amount' },
       { title: 'Payment Date', field: 'payment_date'},
       { title: 'Transaction Type',field: 'transaction_type'},

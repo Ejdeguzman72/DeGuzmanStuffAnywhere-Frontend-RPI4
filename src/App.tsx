@@ -18,7 +18,7 @@ import { ChatPageComponent } from './components/chat-page-component/chat-page-co
 import { BirthdayPageComponent } from './components/general-info-components/birthday-page-component/birthday-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
 import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
-import { RecipePageComponent } from './components/general-info-components/recipe-page-component/recipe-page-component';
+import { RecipePageComponent } from './components/recipe-page-component/main-recipe-page-component';
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
 import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';

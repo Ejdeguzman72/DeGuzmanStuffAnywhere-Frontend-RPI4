@@ -60,7 +60,7 @@
   bottom: 0;
   z-index: -1;
   margin: 0;
-  height: 100vh;
+  height: auto;
   width: 100% auto;
   /* position: relative; */
 }
@@ -100,4 +100,6 @@
 .table {
   border-style: solid;
   border-color: black;
+  background-color: '#e57373' !important;
+  color: red;
 }
