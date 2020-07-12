@@ -17,8 +17,6 @@ export class RecipePageComponent extends React.Component<any,any> {
                     <br></br>
                     <RecipeNotesContainerComponent />
                     <br></br>
-                    <DeGuzmanRecipeTabCompoent />
-                    <br></br>
                     <RecipeTableComponent />
                     <br></br>
                     <br></br>

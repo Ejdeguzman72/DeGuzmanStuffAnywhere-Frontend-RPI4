@@ -13,6 +13,7 @@ import PulledPorkBtn from './recipe-buttons/pulled-pork-btn-component';
 import PotRoastBtn from './recipe-buttons/pot-roast-btn-';
 import MeatballBtnComponent from './recipe-buttons/meatballs-recipe-btn';
 import SalisburySteakBtnComponent from './recipe-buttons/salisbury-steaks-btn';
+import AdoboBtnComponent from './recipe-buttons/adobo-recipe-btn';
 
 export class RecipeTableComponent extends React.Component<any, any> {
     render() {
@@ -79,8 +80,8 @@ export class RecipeTableComponent extends React.Component<any, any> {
                             <td> <SalisburySteakBtnComponent /> </td>
                         </tr>
                         <tr>
-                            <td>Pot Roast</td>
-                            <td> <PotRoastBtn /> </td>
+                            <td>Adobo</td>
+                            <td> <AdoboBtnComponent /> </td>
                         </tr>
                     </tbody>
                 </Table>
