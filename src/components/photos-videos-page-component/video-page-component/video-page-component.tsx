@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import VideoUplaodsTabComponent from '../../tab-components/video-uploads-tab-component';
 
 export class VideoPageComponent extends React.Component<any,any> {
     render() {
@@ -9,7 +10,8 @@ export class VideoPageComponent extends React.Component<any,any> {
                     <title>Videos</title>
                 </Helmet>
                 <div id="white-background">
-                    <h1>Video Page</h1>
+                    <br></br>
+                    <VideoUplaodsTabComponent />
                 </div>
             </div>
         )

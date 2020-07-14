@@ -5,4 +5,187 @@
     border-color: style;
     border-color: black;
     color: black;
+    text-align: center;
+}
+
+.adobo-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.beef-stew-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.beefaroni-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.black-eyed-peas-and-hamhocks-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.chili-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.fajitas-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.marinara-sauce-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.meatball-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.meatloaf-recipe-contianer {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.pot-roast-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.pulled-pork-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.salisbury-steaks-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+}
+
+.stuffed-green-peppers-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-color: #FFF5EE;
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
 }

@@ -1,8 +1,8 @@
-import React from  'react';
+import React from 'react';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
 import { Helmet } from 'react-helmet';
 
-export class MarinaraRecipePageComponent extends React.Component<any,any> {
+export class MarinaraRecipePageComponent extends React.Component<any, any> {
     render() {
         return (
             <div>
@@ -10,6 +10,7 @@ export class MarinaraRecipePageComponent extends React.Component<any,any> {
                     <title>Basic Marinara Sauce Recipe</title>
                 </Helmet>
                 <div id="white-background">
+                    <br></br>
                     <DeGuzmanRecipeTabCompoent />
 
                 </div>

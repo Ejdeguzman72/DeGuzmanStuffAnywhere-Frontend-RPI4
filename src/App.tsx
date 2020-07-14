@@ -26,6 +26,21 @@ import {  MedicalFinanceUploadPageComponent } from './components/finance-page-co
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
 import { AutoFinanceUploadComponent } from './components/file-upload-components/auto-finance-upload-component';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
+import {  AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/adobo-recipe-page-component';
+import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/beefaroni-recipe-page-component';
+import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/beef-stew-recipe-page-component';
+import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/black-eyed-peas-and-hamhocks-recipe-page-component';
+import ChiliBtnComponent from './components/recipe-page-component/recipe-buttons/chili-recipe-btn';
+import { ChiliRecipePageComponent } from './components/recipe-page-component/recipe-pages/chii-recipe-page-component';
+import { FajitasRecipePageComponent } from './components/recipe-page-component/recipe-pages/fajitas-recipe-page-component';
+import { MarinaraRecipePageComponent } from './components/recipe-page-component/recipe-pages/marinara-recipe-page-component';
+import { MeatSaucePageComponent } from './components/recipe-page-component/recipe-pages/meat-sauce-page-component';
+import { MeatballsPageComponent } from './components/recipe-page-component/recipe-pages/meatball-page-component';
+import { PotRoastRecipePageComponent } from './components/recipe-page-component/recipe-pages/pot-roast-recipe-page-component';
+import { PulledPorkRecipePageComponent } from './components/recipe-page-component/recipe-pages/puled-pork-recipe-page-component';
+import { SalisburySteaksRecipePageComponent } from './components/recipe-page-component/recipe-pages/salisbury-steaks-recipe-page-component';
+import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
+import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 
 function App() {
   return (
@@ -37,8 +52,13 @@ function App() {
             {/* <Route path="register" exact component={RegisterPageComponent} /> */}
             <Route path="/home" exact component={HomePageComponent} />
             <Route path="/media" exact component={PhotoVideoPageComponent} />
+
             <Route path="/photos" exact component={PhotoPageComponent} />
-            {/* <Route path="/videos" exaxt component={VideoPageComponent} /> */}
+            
+
+            <Route path="/videos" exaxt component={VideoPageComponent} />
+
+
             <Route path="/chat" exact component={ChatPageComponent} />
 
             <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
@@ -52,8 +72,23 @@ function App() {
 
             <Route path="/birthdays" exact component={BirthdayPageComponent} />
             <Route path="/contact-info" exact component={ContactPageComponent} />
-            <Route path="/recipes" exact component={RecipePageComponent} />
             <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
+
+            <Route path="/recipes" exact component={RecipePageComponent} />
+            <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
+            <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
+            <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
+            <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
+            <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
+            <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
+            <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
+            <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
+            <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+            <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
+            <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
+            <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
+            <Route path="stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+            
             <Route component={LoginPageComponent} />
           </Switch>
       </HashRouter>
