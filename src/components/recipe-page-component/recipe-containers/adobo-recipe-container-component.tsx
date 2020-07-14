@@ -6,8 +6,7 @@ const AdoboRecipeContainerComponent = () => {
     return (
         <Container className="adobo-recipe-container">
             <h1>Adobo</h1>
-            <p>Ingredients</p>
-            <ul list-style="none">
+            <ul>
                 <li>Chicken/Pork</li>
                 <li>Soy Sauce</li>
                 <li>Vinegar</li>
@@ -15,7 +14,6 @@ const AdoboRecipeContainerComponent = () => {
                 <li>Garlic</li>
                 <li>Black Pepper</li>
             </ul>
-            <p>Directions</p>
             <ol>
                 <li>Rinse meat and place in pot with cover</li>
                 <li>Addthree cook  spoons of soy sauce</li>

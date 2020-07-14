@@ -1,6 +1,7 @@
 import React from 'react';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
 import { Helmet } from 'react-helmet';
+import FajitasRecipeContainer from '../recipe-containers/fajitas-recipe-container-component';
 
 export class FajitasRecipePageComponent extends React.Component<any, any> {
     render() {
@@ -14,6 +15,8 @@ export class FajitasRecipePageComponent extends React.Component<any, any> {
                 <div id="white-background">
                     <br></br>
                     <DeGuzmanRecipeTabCompoent />
+                    <br></br>
+                    <FajitasRecipeContainer />
                 </div>
             </div>
         )
