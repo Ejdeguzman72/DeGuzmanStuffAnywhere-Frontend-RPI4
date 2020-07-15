@@ -4,9 +4,9 @@ import { Container } from 'react-bootstrap';
 const BeefStewRecipeContainerComponent = () => {
     return (
         <Container className="beef-stew-recipe-container">
-            <h1>Beef Stew (Red Sauce)</h1>
-            <p>Ingredients</p>
-            <ul>
+            <h1 className="App">Beef Stew (Red Sauce)</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Beef Chuck</li>
                 <li>Tomato</li>
                 <li>Carrots</li>
@@ -14,7 +14,7 @@ const BeefStewRecipeContainerComponent = () => {
                 <li>Green Pepper</li>
                 <li>Onion</li>
             </ul>
-            <p>Directions</p>
+            <h3>Directions</h3>
             <ol>
                 <li>Chop onion</li>
                 <li>Slice beef into small slices</li>
@@ -27,9 +27,9 @@ const BeefStewRecipeContainerComponent = () => {
                 <li>can eat as is or over rice</li>
             </ol>
             <br></br>
-            <h1>Brown Sauce</h1>
-            <p>Ingredients</p>
-            <ul>
+            <h1 className="App">Brown Sauce</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Beef Chuck</li>
                 <li>Onion</li>
                 <li>Potatoes</li>
@@ -37,7 +37,7 @@ const BeefStewRecipeContainerComponent = () => {
                 <li>Celery</li>
                 <li>Brown gravy mix</li>
             </ul>
-            <p>Directions</p>
+            <h3>Directions</h3>
             <ol>
                 <li>slice beef chuck into small cubes</li>
                 <li>chop onion</li>

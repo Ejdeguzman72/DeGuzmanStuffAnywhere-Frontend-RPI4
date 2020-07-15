@@ -4,9 +4,9 @@ import { Container } from 'react-bootstrap';
 const ChiliRecipeContainer = () => {
     return (
         <Container className="chili-recipe-container">
-            <h1>Chili Recipe</h1>
-            <p>Ingredients</p>
-            <ul>
+            <h1 className="App">Chili Recipe</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Garlic</li>
                 <li>Onion</li>
                 <li>Ground beef</li>
@@ -17,7 +17,7 @@ const ChiliRecipeContainer = () => {
                 <li>Can crushed tomatoes</li>
                 <li>2-3 cans of dark red kidney beans</li>
             </ul>
-            <p>Directions</p>
+            <h3>Directions</h3>
             <ul>
                 <li>Mince garlic</li>
                 <li>Chop onion</li>

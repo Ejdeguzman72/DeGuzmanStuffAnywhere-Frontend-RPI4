@@ -41,6 +41,7 @@ import { PulledPorkRecipePageComponent } from './components/recipe-page-componen
 import { SalisburySteaksRecipePageComponent } from './components/recipe-page-component/recipe-pages/salisbury-steaks-recipe-page-component';
 import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
 import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
+import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/meatloaf-recipe-page-component';
 
 function App() {
   return (
@@ -84,10 +85,11 @@ function App() {
             <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
             <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
             <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+            <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
             <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
             <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
             <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
-            <Route path="stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+            <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
             
             <Route component={LoginPageComponent} />
           </Switch>

@@ -5,14 +5,14 @@ import '../../../style-sheets/recipe-styles.css';
 const BlacyEyedPeasAndHamHockContainer = () => {
     return (
         <Container className="black-eyed-peas-and-hamhocks-container">
-            <h1>Black Eyed Peas and Ham Hocks</h1>
-            <p>Ingredients</p>
-            <ul>
+            <h1 className="App">Black Eyed Peas and Ham Hocks</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Smoked Ham Hocks</li>
                 <li>Onions</li>
                 <li>Black eyed peas</li>
             </ul>
-            <p>Directions</p>
+            <h3>Directions</h3>
             <ol>
                 <li>Rinse off the smoked ham hocks and place them in the slow cooker</li>
                 <li>Cut onion into quarters and place in the slow cooker</li>

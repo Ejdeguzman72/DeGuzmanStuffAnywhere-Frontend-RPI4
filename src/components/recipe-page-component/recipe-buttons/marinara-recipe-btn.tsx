@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const MarinaraRecipeBtnComponent = () => {
     return (
     <Button variant="outline-info">
-        <Link to="/marinara-sauce">
+        <Link to="/marinara-recipe">
             Click Here!
         </Link>
     </Button>

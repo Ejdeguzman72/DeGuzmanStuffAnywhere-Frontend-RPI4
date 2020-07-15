@@ -4,14 +4,14 @@ import { Container } from 'react-bootstrap';
 const BeefaroniRecipeContainer = () => {
     return (
         <Container className="beefaroni-recipe-container">
-            <h1>Beefaroni</h1>
-            <p>Ingredients</p>
-            <ul>
+            <h1 className="App">Beefaroni</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Marinara Sauce</li>
                 <li>Meat</li>
                 <li>Macaroni</li>
             </ul>
-            <p>Directions</p>
+            <h3>Directions</h3>
             <p>make the marinara sauce and add the meat as described above.  
                 Let it simmer while you cook the macaroni.  
                 After macaroni is cooked, drain and rinse with cold water.  

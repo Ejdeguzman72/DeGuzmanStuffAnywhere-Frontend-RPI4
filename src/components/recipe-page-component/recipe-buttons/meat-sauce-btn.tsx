@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const MeatsauceBtnComponent = () => {
     return (
         <Button variant="outline-info">
-            <Link to="/meatloaf-recipe">
+            <Link to="/meat-sauce-recipe">
                 Click Here!
             </Link>
         </Button>

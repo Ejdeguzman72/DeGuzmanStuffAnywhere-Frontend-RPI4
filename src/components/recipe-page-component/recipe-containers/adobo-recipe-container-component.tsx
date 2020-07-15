@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { AdoboRecipePageComponent } from '../recipe-pages/adobo-recipe-page-component';
 
 const AdoboRecipeContainerComponent = () => {
     return (
         <Container className="adobo-recipe-container">
-            <h1>Adobo</h1>
-            <ul>
+            <h1 className="App">Adobo</h1>
+            <h3>Ingredients</h3>
+            <ul className="list">
                 <li>Chicken/Pork</li>
                 <li>Soy Sauce</li>
                 <li>Vinegar</li>
@@ -14,9 +14,10 @@ const AdoboRecipeContainerComponent = () => {
                 <li>Garlic</li>
                 <li>Black Pepper</li>
             </ul>
+            <h3>Directions</h3>
             <ol>
                 <li>Rinse meat and place in pot with cover</li>
-                <li>Addthree cook  spoons of soy sauce</li>
+                <li>Add three cook  spoons of soy sauce</li>
                 <li>Slice an onion and place in pot</li>
                 <li>Smash and mince several cloves of garlic and put in pot</li>
                 <li>Sprinkle some crushed black pepper</li>

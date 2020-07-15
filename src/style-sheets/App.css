@@ -41,6 +41,10 @@
   margin: 10px;
 }
 
+.list {
+  list-style-type: none;
+}
+
 /* ------------------------------------------------------NavBar CSS----------------------------------------------------------- */
 
 .navbar-item {
@@ -60,7 +64,7 @@
   bottom: 0;
   z-index: -1;
   margin: 0;
-  height: 100vh;
+  height: 200vh;
   width: 100% auto;
   /* position: relative; */
 }

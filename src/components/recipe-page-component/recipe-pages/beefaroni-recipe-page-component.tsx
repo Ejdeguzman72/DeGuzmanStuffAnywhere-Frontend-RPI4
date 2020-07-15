@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
 import BeefaroniRecipeContainer from '../recipe-containers/beefaroni-recipe-container-component';
+import { FooterComponent } from '../../footer-component/footer-component';
+
 
 export class BeefaroniRecipePageComponent extends React.Component<any, any> {
     render() {
@@ -17,7 +19,10 @@ export class BeefaroniRecipePageComponent extends React.Component<any, any> {
                     <DeGuzmanRecipeTabCompoent />
                     <br></br>
                     <BeefaroniRecipeContainer />
+                    <br></br>
+                    <br></br>
                 </div>
+                <FooterComponent />
             </div>
         )
     }

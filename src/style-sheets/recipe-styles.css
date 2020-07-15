@@ -15,11 +15,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .beef-stew-recipe-container {
@@ -29,11 +30,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .beefaroni-recipe-container {
@@ -43,11 +45,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .black-eyed-peas-and-hamhocks-container {
@@ -57,11 +60,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .chili-recipe-container {
@@ -71,11 +75,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .fajitas-recipe-container {
@@ -85,11 +90,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .marinara-sauce-recipe-container {
@@ -99,12 +105,31 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
-    list-style: none;
+    list-style-type: none;
+    text-align: left;
+    text-align: left;
 }
+
+.meat-sauce-recipe-container {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-image:  linear-gradient(#FFF5EE,silver);
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style-type: none;
+    text-align: left;
+    text-align: left;
+}
+
 
 .meatball-recipe-container {
     width: auto;
@@ -113,11 +138,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .meatloaf-recipe-contianer {
@@ -127,11 +153,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .pot-roast-recipe-container {
@@ -141,11 +168,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .pulled-pork-recipe-container {
@@ -155,11 +183,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .salisbury-steaks-recipe-container {
@@ -169,11 +198,12 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
 
 .stuffed-green-peppers-recipe-container {
@@ -183,9 +213,10 @@
     border-color: black;
     border-style: solid;
     color: black;
-    background-color: #FFF5EE;
+    background-image:  linear-gradient(#FFF5EE,silver);
     height: auto;
     font-family: fantasy;
     border-radius: 25px;
     list-style: none;
+    text-align: left;
 }
