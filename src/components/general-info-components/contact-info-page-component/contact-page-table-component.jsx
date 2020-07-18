@@ -4,16 +4,29 @@ import MaterialTable from 'material-table';
 export default function ContactPageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
+      {title: 'ID No:', field: 'personid'},
       { title: 'First Name', field: 'firstname' },
       { title: 'Last Name', field: 'lastname' },
+      { title: 'Birth Date', field: 'birthdate'},
       { title: 'Phone', field: 'phone', type: 'text' },
       { title: 'Email',field: 'email'
       },
     ],
-    data: [
-      { firstname: 'Edgar', lastname: 'DeGUzman', phone: '201-546-0750', email: 'ejdeguzman72@outlook.com' }
-    ],
+    // data: [
+    //   { firstname: 'Edgar', lastname: 'DeGUzman', phone: '201-546-0750', email: 'ejdeguzman72@outlook.com' }
+    // ],
   });
+
+//   componentDidMount() {
+//     axios.get('http://localhost:8080/app/person-info/all').then(response => {
+      
+//       console.log(response.date);
+//       this.setState({
+//         contactInfo: response.data
+//       });
+//     });
+//   }
+// }
 
   return (
     <MaterialTable

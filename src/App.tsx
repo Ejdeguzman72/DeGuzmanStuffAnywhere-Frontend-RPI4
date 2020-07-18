@@ -42,6 +42,9 @@ import { SalisburySteaksRecipePageComponent } from './components/recipe-page-com
 import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
 import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/meatloaf-recipe-page-component';
+import { PhotoUploadComponent } from './components/file-upload-components/photo-upload-component';
+import { PhotoUploadPageComponent } from './components/photos-videos-page-component/photo-upload-page-component/photo-upload-page-component';
+import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 
 function App() {
   return (
@@ -55,10 +58,10 @@ function App() {
             <Route path="/media" exact component={PhotoVideoPageComponent} />
 
             <Route path="/photos" exact component={PhotoPageComponent} />
-            
+            <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
 
             <Route path="/videos" exaxt component={VideoPageComponent} />
-
+            <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
 
             <Route path="/chat" exact component={ChatPageComponent} />
 
@@ -71,7 +74,7 @@ function App() {
             <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
             <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
 
-            <Route path="/birthdays" exact component={BirthdayPageComponent} />
+            {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
             <Route path="/contact-info" exact component={ContactPageComponent} />
             <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
 

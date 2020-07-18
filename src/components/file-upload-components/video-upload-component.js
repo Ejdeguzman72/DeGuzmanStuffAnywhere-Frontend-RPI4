@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class PhotoUploadComponent extends React.Component {
+export class VideosUploadComponent extends React.Component {
     constructor(props) {
         super(props);
 

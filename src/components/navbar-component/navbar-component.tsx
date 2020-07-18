@@ -21,7 +21,7 @@ export class NavBarComponent extends React.Component<any, any> {
                             </NavDropdown>
                             <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
-                                <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item>
+                                {/* <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item> */}
                                 <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
