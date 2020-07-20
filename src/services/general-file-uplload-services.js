@@ -1,23 +1,23 @@
 import React from 'react';
-// import http from '../http-common';
+import Axios from 'axios';
 
 class UploadGeneralFileUploadService {
-    // upload(file, onUploadProgress) {
-    //     let formData = new formData();
+    uploadGeneralFile(file, onUploadProgress) {
+        let formData = new FormData();
 
-    //     formData.append("file",file);
+        formData.append("file",file);
 
-    //     return http.post("/upload", formData, {
-    //         headers: {
-    //             "Content-Type": "multipart/form-data",
-    //         },
-    //         onUploadProgress,
-    //     });
-    // }
+        return Axios.post("http://localhost:8080/app/general-transaction-documents/upload", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            onUploadProgress,
+        });
+    }
 
-    // getFiles() {
-    //     return http.get("/files");
-    // }
+    getGeneralFiles() {
+        return Axios.get('http://localhost:8080/app/general-transaction-documents/files');
+    }
 }
 
-export default UploadGeneralFileUploadService;
+export default new UploadGeneralFileUploadService();

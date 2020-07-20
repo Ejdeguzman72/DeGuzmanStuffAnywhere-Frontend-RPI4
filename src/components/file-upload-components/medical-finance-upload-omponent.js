@@ -1,9 +1,12 @@
 import React from 'react';
-import UploadGeneralFileUploadService from '../../services/general-file-uplload-services';
+import UploadMedicalFileUploadService from '../../services/medical-file-upload-service';
 
 export class MedicalFileUploadFiles extends React.Component {
     constructor(props) {
         super(props);
+
+        this.selectFile = this.selectFile.bind(this);
+        this.upload = this.upload.bind(this);
 
         this.state = {
             selectedFiles: undefined,
@@ -11,7 +14,7 @@ export class MedicalFileUploadFiles extends React.Component {
             progress: 0,
             message: "",
 
-            fileInfos: []
+            medicalFileInfos: []
         };
     }
 
@@ -21,45 +24,45 @@ export class MedicalFileUploadFiles extends React.Component {
         });
     }
 
-    // upload() {
-    //     let currentFile = this.state.selectedFiles[0];
+    upload() {
+        let currentFile = this.state.selectedFiles[0];
 
-    //     this.setState({
-    //         progress: 0,
-    //         currentFile: currentFile
-    //     });
+        this.setState({
+            progress: 0,
+            currentFile: currentFile
+        });
 
-    //     UploadGeneralFileUploadService.upload(currentFile, (event) => {
-    //         this.setState({
-    //             progress: Math.round((100 * event.loaded) / event.total),
-    //         });
-    //     })
-    //         .then((response) => {
-    //             this.setState({
-    //                 message: response.data.message,
-    //             });
-    //             return UploadGeneralFileUploadService.getFiles();
-    //         })
-    //         .then((files) => {
-    //             this.setState({
-    //                 progress: 0,
-    //                 message: "Could not upload the file!",
-    //                 currentFile: undefined,
-    //             });
-    //         });
+        UploadMedicalFileUploadService.uploadMedicalFile(currentFile, (event) => {
+            this.setState({
+                progress: Math.round((100 * event.loaded) / event.total),
+            });
+        })
+            .then((response) => {
+                this.setState({
+                    message: response.data.message,
+                });
+                return UploadMedicalFileUploadService.getMedicalFiles();
+            })
+            // .then((files) => {
+            //     this.setState({
+            //         progress: 0,
+            //         message: "Could not upload the file!",
+            //         currentFile: undefined,
+            //     });
+            // });
 
-    //     this.setState({
-    //         selectedFiles: undefined,
-    //     });
-    // }
+        this.setState({
+            selectedFiles: undefined,
+        });
+    }
 
-    // componentDidMount() {
-    //     UploadGeneralFileUploadService.getFiles().then((response) => {
-    //         this.setState({
-    //             fileInfos: response.data,
-    //         })
-    //     });
-    // }
+    componentDidMount() {
+        UploadMedicalFileUploadService.getMedicalFiles().then((response) => {
+            this.setState({
+                medicalFileInfos: response.data,
+            })
+        });
+    }
 
     render() {
         const {
@@ -67,7 +70,7 @@ export class MedicalFileUploadFiles extends React.Component {
             currentFile,
             progress,
             message,
-            fileInfos
+            medicalFileInfos
         } = this.state;
 
         return (
@@ -105,8 +108,8 @@ export class MedicalFileUploadFiles extends React.Component {
                 <div className="card">
                     <div className="card-header">List of Files</div>
                     <ul className="list-group list-group-flush">
-                        {fileInfos &&
-                            fileInfos.map((file, index) => (
+                        {medicalFileInfos &&
+                            medicalFileInfos.map((file, index) => (
                                 <li className="list-group-item" key={index}>
                                     <a href={file.url}>{file.name}</a>
                                 </li>

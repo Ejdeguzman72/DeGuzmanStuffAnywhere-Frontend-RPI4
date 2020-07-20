@@ -9,9 +9,9 @@ export default function ContactPageTableComponent() {
       { title: 'Last Name', field: 'lastname' },
       { title: 'Birth Date', field: 'birthdate'},
       { title: 'Phone', field: 'phone', type: 'text' },
-      { title: 'Email',field: 'email'
-      },
+      { title: 'Email',field: 'email'},
     ],
+    contactInfo: []
     // data: [
     //   { firstname: 'Edgar', lastname: 'DeGUzman', phone: '201-546-0750', email: 'ejdeguzman72@outlook.com' }
     // ],

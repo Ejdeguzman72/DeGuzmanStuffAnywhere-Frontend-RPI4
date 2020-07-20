@@ -5,6 +5,9 @@ export class GeneralFileUploadFiles extends React.Component {
     constructor(props) {
         super(props);
 
+        this.selectFile = this.selectFile.bind(this);
+        this.upload = this.upload.bind(this);
+
         this.state = {
             selectedFiles: undefined,
             currentFile: undefined,
@@ -21,45 +24,45 @@ export class GeneralFileUploadFiles extends React.Component {
         });
     }
 
-    // upload() {
-    //     let currentFile = this.state.selectedFiles[0];
+    upload() {
+        let currentFile = this.state.selectedFiles[0];
 
-    //     this.setState({
-    //         progress: 0,
-    //         currentFile: currentFile
-    //     });
+        this.setState({
+            progress: 0,
+            currentFile: currentFile
+        });
 
-    //     UploadGeneralFileUploadService.upload(currentFile, (event) => {
-    //         this.setState({
-    //             progress: Math.round((100 * event.loaded) / event.total),
-    //         });
-    //     })
-    //         .then((response) => {
-    //             this.setState({
-    //                 message: response.data.message,
-    //             });
-    //             return UploadGeneralFileUploadService.getFiles();
-    //         })
-    //         .then((files) => {
-    //             this.setState({
-    //                 progress: 0,
-    //                 message: "Could not upload the file!",
-    //                 currentFile: undefined,
-    //             });
-    //         });
+        UploadGeneralFileUploadService.uploadGeneralFile(currentFile, (event) => {
+            this.setState({
+                progress: Math.round((100 * event.loaded) / event.total),
+            });
+        })
+            .then((response) => {
+                this.setState({
+                    message: response.data.message,
+                });
+                return UploadGeneralFileUploadService.getGeneralFiles();
+            })
+            // .then((files) => {
+            //     this.setState({
+            //         progress: 0,
+            //         message: "Could not upload the file!",
+            //         currentFile: undefined,
+            //     });
+            // });
 
-    //     this.setState({
-    //         selectedFiles: undefined,
-    //     });
-    // }
+        this.setState({
+            selectedFiles: undefined,
+        });
+    }
 
-    // componentDidMount() {
-    //     UploadGeneralFileUploadService.getFiles().then((response) => {
-    //         this.setState({
-    //             fileInfos: response.data,
-    //         })
-    //     });
-    // }
+    componentDidMount() {
+        UploadGeneralFileUploadService.getGeneralFiles().then((response) => {
+            this.setState({
+                fileInfos: response.data,
+            })
+        });
+    }
 
     render() {
         const {

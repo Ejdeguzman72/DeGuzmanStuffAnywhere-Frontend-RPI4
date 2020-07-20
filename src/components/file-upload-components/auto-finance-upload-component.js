@@ -1,21 +1,66 @@
 import React from 'react';
+import UploadAutoFilesService from '../../services/auto-file-upload-services';
 
 export class AutoFinanceUploadComponent extends React.Component {
     constructor(props) {
         super(props);
+
+        this.selectFile = this.selectFile.bind(this);
+        this.upload = this.upload.bind(this);
 
         this.state = {
             selectedFiles: undefined,
             currentFile: undefined,
             progress: 0,
             message: "",
+
             fileInfos: []
         };
     }
 
     selectFile(event) {
         this.setState({
-            selectedFiles: event.target.file
+            selectedFiles: event.target.files
+        });
+    }
+
+    upload() {
+        let currentFile = this.state.selectedFiles[0];
+
+        this.setState({
+            progress: 0,
+            currentFile: currentFile
+        });
+
+        UploadAutoFilesService.uploadAutoFiles(currentFile, (event) => {
+            this.setState({
+                progress: Math.round((100 * event.loaded) / event.total),
+            });
+        })
+            .then((response) => {
+                this.setState({
+                    message: response.data.message,
+                });
+                return UploadAutoFilesService.getAutoFiles();
+            })
+            // .then((files) => {
+            //     this.setState({
+            //         progress: 0,
+            //         message: "Could not upload the file!",
+            //         currentFile: undefined,
+            //     });
+            // });
+
+        this.setState({
+            selectedFiles: undefined,
+        });
+    }
+
+    componentDidMount() {
+        UploadAutoFilesService.getAutoFiles().then((response) => {
+            this.setState({
+                fileInfos: response.data,
+            })
         });
     }
 
@@ -26,12 +71,10 @@ export class AutoFinanceUploadComponent extends React.Component {
             progress,
             message,
             fileInfos
-        }  =  this.state;
-        
+        } = this.state;
+
         return (
             <div>
-                <div id="white-background">
-                    <div>
                 {currentFile && (
                     <div className="progress">
                         <div
@@ -72,8 +115,6 @@ export class AutoFinanceUploadComponent extends React.Component {
                                 </li>
                             ))}
                     </ul>
-                </div>
-            </div>
                 </div>
             </div>
         )
