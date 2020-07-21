@@ -22,6 +22,7 @@ export class GeneralFileUploadFiles extends React.Component {
         this.setState({
             selectedFiles: event.target.files
         });
+        console.log(this.state.selectedFiles + "this is selectedFiles for general");
     }
 
     upload() {
@@ -43,6 +44,7 @@ export class GeneralFileUploadFiles extends React.Component {
                 });
                 return UploadGeneralFileUploadService.getGeneralFiles();
             })
+            console.log(UploadGeneralFileUploadService.getGeneralFiles() + "this is getGeneralFiles");
             // .then((files) => {
             //     this.setState({
             //         progress: 0,
@@ -61,6 +63,7 @@ export class GeneralFileUploadFiles extends React.Component {
             this.setState({
                 fileInfos: response.data,
             })
+            console.log(this.state.fileInfos + this);
         });
     }
 
@@ -114,6 +117,7 @@ export class GeneralFileUploadFiles extends React.Component {
                                     <a href={file.url}>{file.name}</a>
                                 </li>
                             ))}
+                            {console.log.fileInfos + "Hello"}
                     </ul>
                 </div>
             </div>

@@ -13,10 +13,10 @@ class UploadAutoFilesService {
             },
             onUploadProgress,
         });
-    }
+    };
 
     getAutoFiles() {
-        return Axios.get('http://localhost:8080/app/auto-transaction-documents/upload');
+        return Axios.get('http://localhost:8080/app/auto-transaction-documents/files');
     }
 }
 

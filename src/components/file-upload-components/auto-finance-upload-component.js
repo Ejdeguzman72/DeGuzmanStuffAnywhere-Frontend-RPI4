@@ -22,6 +22,7 @@ export class AutoFinanceUploadComponent extends React.Component {
         this.setState({
             selectedFiles: event.target.files
         });
+        console.log(this.state.selectedFiles + "this is selectedFiles for auto");
     }
 
     upload() {
@@ -61,6 +62,7 @@ export class AutoFinanceUploadComponent extends React.Component {
             this.setState({
                 fileInfos: response.data,
             })
+            console.log(this.state.fileInfos + "alksjhflkajsdjsfkdfkalh");
         });
     }
 
@@ -111,7 +113,7 @@ export class AutoFinanceUploadComponent extends React.Component {
                         {fileInfos &&
                             fileInfos.map((file, index) => (
                                 <li className="list-group-item" key={index}>
-                                    <a href={file.url}>{file.name}</a>
+                                    <a href={file.autoTrxFileUrl}>{file.autoTrxFilename}</a>
                                 </li>
                             ))}
                     </ul>

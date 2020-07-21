@@ -42,7 +42,7 @@ import { SalisburySteaksRecipePageComponent } from './components/recipe-page-com
 import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
 import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/meatloaf-recipe-page-component';
-import { PhotoUploadComponent } from './components/file-upload-components/photo-upload-component';
+// import { PhotoUploadComponent } from './components/file-upload-components/photo-upload-component';
 import { PhotoUploadPageComponent } from './components/photos-videos-page-component/photo-upload-page-component/photo-upload-page-component';
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 

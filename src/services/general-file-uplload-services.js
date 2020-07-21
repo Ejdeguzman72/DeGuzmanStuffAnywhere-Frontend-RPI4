@@ -7,6 +7,7 @@ class UploadGeneralFileUploadService {
 
         formData.append("file",file);
 
+
         return Axios.post("http://localhost:8080/app/general-transaction-documents/upload", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
