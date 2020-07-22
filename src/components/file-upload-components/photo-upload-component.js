@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import UploadPhotosService from '../../services/photo-file-upload-services';
 
 const PhotoUploadComponent = () => {
@@ -14,7 +14,35 @@ const PhotoUploadComponent = () => {
             setFileInfos(response.data);
         });
     }, []);
-    
+
+    const selectFile = (event) => {
+        setSelectedFiles(event.target.files);
+    };
+
+    const upload = () => {
+        let currentFile = selectedFiles[0];
+
+        setProgress(0);
+        setCurrentFile(currentFile);
+
+        UploadPhotosService.uploadPhotosService(currentFile, (event) => {
+            setProgress(Math.round((100*event.loaded) / event.total));
+        })
+        .then((response) => {
+            setMessage(response.data.message);
+            return UploadPhotosService.getPhotoFiles();
+        })
+        .then((files) => {
+            setFileInfos(files.data);
+        })
+        .catch(() => {
+            setProgress(0);
+            setMessage("Could not upload the file");
+            setCurrentFile(undefined);
+        });
+        setSelectedFiles(undefined);
+    }
+
     return (
         <div>
             <div id="white-background">
@@ -36,12 +64,12 @@ const PhotoUploadComponent = () => {
                     )}
 
                     <label className="btn btn-default">
-                        <input type="file" onChange={this.selectFile} />
+                        <input type="file" onChange={selectFile} />
                     </label>
 
                     <button className="btn btn-success"
                         disabled={!selectedFiles}
-                        onClick={this.upload}
+                        onClick={upload}
                     >
                         Upload
         </button>
@@ -56,7 +84,7 @@ const PhotoUploadComponent = () => {
                             {fileInfos &&
                                 fileInfos.map((file, index) => (
                                     <li className="list-group-item" key={index}>
-                                        <a href={file.url}>{file.name}</a>
+                                        <a href={file.photosFileUrl}>{file.photosFileName}</a>
                                     </li>
                                 ))}
                         </ul>
@@ -66,3 +94,5 @@ const PhotoUploadComponent = () => {
         </div>
     )
 }
+
+export default PhotoUploadComponent;

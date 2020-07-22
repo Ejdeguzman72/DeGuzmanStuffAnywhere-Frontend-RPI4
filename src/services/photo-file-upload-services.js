@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-const UploadPhotosService = (file, onUploadProgress) => {
+const uploadPhotosService = (file, onUploadProgress) => {
     let formData = new FormData();
 
     formData.append("file",file);
@@ -19,6 +19,6 @@ const getPhotoFiles = () => {
 }
 
 export default {
-    UploadPhotosService,
+    uploadPhotosService,
     getPhotoFiles
 };

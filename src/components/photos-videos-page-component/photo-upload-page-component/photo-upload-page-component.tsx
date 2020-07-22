@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import PhotoUploadsTabComponent from '../../tab-components/photo-uploads-tab-component';
-// import { PhotoUploadComponent } from '../../file-upload-components/photo-upload-component';
+import PhotoUploadComponent from '../../file-upload-components/photo-upload-component';
 
 export class PhotoUploadPageComponent extends React.Component<any,any> {
     render() {
@@ -15,7 +15,7 @@ export class PhotoUploadPageComponent extends React.Component<any,any> {
                 <PhotoUploadsTabComponent />
                 <br></br>
                 <br></br>
-                {/* <PhotoUploadComponent /> */}
+                <PhotoUploadComponent />
                 <br></br>
             </div>
         </div>
