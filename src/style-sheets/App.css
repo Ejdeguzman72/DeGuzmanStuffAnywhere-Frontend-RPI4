@@ -67,6 +67,7 @@
   margin: 0;
   height: 200vh;
   width: 100% auto;
+  overflow-x: auto;
   /* position: relative; */
 }
 
