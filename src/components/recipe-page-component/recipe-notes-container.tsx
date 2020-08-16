@@ -7,8 +7,8 @@ export class RecipeNotesContainerComponent extends React.Component<any,any> {
         return (
             <Container className="recipe-container">
                 <p>
-                    I look at cooking as art so I really don't look to measure things that often. So when I have an amount listed, it is just as a reference.
-                    So when I have an amount listed,  it is just as a reference. Since cooking is an art, modify the amounts based on your tastes.
+                    I look at cooking as art so I really don't look to measure things that often.So when I have an amount listed,  it is just as a reference. 
+                    Since cooking is an art, modify the amounts based on your tastes.
                     In doing this, it takes a little bit of experience cooking the dishes listed. 
                 </p>
                 <p>

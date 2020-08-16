@@ -15,7 +15,6 @@ import { PhotoVideoPageComponent } from './components/photos-videos-page-compone
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
 // import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component';
 import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
-import { BirthdayPageComponent } from './components/general-info-components/birthday-page-component/birthday-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
 import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
 import { RecipePageComponent } from './components/recipe-page-component/main-recipe-page-component';
@@ -24,13 +23,11 @@ import { AutoFinancePageComponent } from './components/finance-page-component/au
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
 import {  MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
-import { AutoFinanceUploadComponent } from './components/file-upload-components/auto-finance-upload-component';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
 import {  AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/adobo-recipe-page-component';
 import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/beefaroni-recipe-page-component';
 import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/beef-stew-recipe-page-component';
 import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/black-eyed-peas-and-hamhocks-recipe-page-component';
-import ChiliBtnComponent from './components/recipe-page-component/recipe-buttons/chili-recipe-btn';
 import { ChiliRecipePageComponent } from './components/recipe-page-component/recipe-pages/chii-recipe-page-component';
 import { FajitasRecipePageComponent } from './components/recipe-page-component/recipe-pages/fajitas-recipe-page-component';
 import { MarinaraRecipePageComponent } from './components/recipe-page-component/recipe-pages/marinara-recipe-page-component';
@@ -45,6 +42,7 @@ import { MeatloadRecipePageComponent } from './components/recipe-page-component/
 // import { PhotoUploadComponent } from './components/file-upload-components/photo-upload-component';
 import { PhotoUploadPageComponent } from './components/photos-videos-page-component/photo-upload-page-component/photo-upload-page-component';
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
+import UtilityPageComponent from './components/utility-components/utility-page-component';
 
 function App() {
   return (
@@ -76,6 +74,7 @@ function App() {
 
             {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
             <Route path="/contact-info" exact component={ContactPageComponent} />
+            <Route path="/utility-tracker" exact component={UtilityPageComponent} />
             <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
 
             <Route path="/recipes" exact component={RecipePageComponent} />
