@@ -5,11 +5,12 @@ const getAllGeneralTransactions = () => {
     return Axios.get('http://localhost:8080/app/general-transaction/all');
 }
 
-const addGeneralTransactionInformation = () => {
-    return Axios.post("http://localhost:8080/app/general-transactions/add-transaction-information");
+const addGeneralTransactionInformation = (newData: any) => {
+    return Axios.post("http://localhost:8080/app/general-transaction/add-transaction-information", newData);
 }
 
 
 export default {
-    getAllGeneralTransactions
+    getAllGeneralTransactions,
+    addGeneralTransactionInformation
 }
