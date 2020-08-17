@@ -19,8 +19,6 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 
-
-
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -40,7 +38,6 @@ const tableIcons = {
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
-
 
 const api = Axios.create({
   baseURL: 'http://localhost:8080/app/general-transactions'
@@ -154,7 +151,7 @@ export default function GeneralFinancePageTableComponent() {
         onRowDelete: (oldData) =>
           new Promise((resolve) => {
             handleRowDelete(oldData, resolve);
-          }),
+          })
       }}
     />
   );
