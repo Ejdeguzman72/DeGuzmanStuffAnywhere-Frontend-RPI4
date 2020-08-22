@@ -18,7 +18,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
-
+import Box from '@material-ui/core/Box';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,11 +43,11 @@ const tableIcons = {
 export default function AutoFinancePageTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'autoTransactionId' },
-      { title: 'Date', field: 'autoTransactionDate' },
-      { title: 'Repair Shop Name', field: 'shopName'},
-      { title: 'Amount',field: 'amount'},
-      { title: 'Person Name', field: 'person'}
+      { title: 'Transaction ID', field: 'autoTransactionId',  hidden: true },
+      { title: 'Amount', field: 'amount' },
+      { title: 'Repair Shop Name', field: 'shopName' },
+      { title: 'Person Name', field: 'person' },
+      { title: 'Date', field: 'autoTransactionDate' }
     ],
   });
 
@@ -55,10 +55,10 @@ export default function AutoFinancePageTableComponent() {
     data: [
       {
         autoTransactionId: 0,
-        autoTransactionDate: "",
-        shopName: "",
         amount: 0,
-        person: ""
+        shopName: "",
+        person: "",
+        autoTransactionDate: "",
       }
     ]
   });
@@ -78,32 +78,78 @@ export default function AutoFinancePageTableComponent() {
       });
       setEntries({ data: data })
     })
-    .catch(function(error) {
-      console.log(error);
-    });
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
+  const handleRowAdd = (newData, resolve) => {
+    Axios.post('http://localhost:8080/app/auto-transactions/add-auto-transaction-information', newData)
+      .then(res => {
+        console.log(newData + "this is newData");
+        let dataToAdd = [...entries.data]
+        dataToAdd.push(newData);
+        setEntries(dataToAdd)
+        resolve();
+        window.location.reload();
+      })
+  }
+
+  const handleRowUpdate = (newData, oldData, resolve) => {
+    Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
+    .then(res => {
+      const dataUpdate = [...entries.data];
+      const index = oldData.tabledata.autoTransactionId;
+      console.log(index + "this is index")
+      dataUpdate[index] = newData;
+      setEntries([...dataUpdate]);
+      resolve();
+    })
+    .catch(error => {
+      console.log(error);
+      resolve();
+    });
+  }
+
+  const handleRowDelete = (oldData,resolve) => {
+    console.log(oldData.tableData.autoTransactionId);
+    Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
+    .then(res => {
+      const dataDelete = [...entries.data];
+      const index = oldData.tableData.autoTransactionId;
+      dataDelete.splice(index, 1);
+      setEntries([...dataDelete]);
+      resolve();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
 
   return (
-    <MaterialTable
-      title="Auto Finances"
-      icons={tableIcons}
-      columns={state.columns}
-      data={entries.data}
-      editable={{
-        onRowAdd: (newData) =>
-          new Promise((resolve) => {
-            
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise((resolve) => {
-            
-          }),
-        onRowDelete: (oldData) =>
-          new Promise((resolve) => {
-         
-          }),
-      }}
-    />
+    <div>
+      <Box border={3} borderRadius={16}>
+        <MaterialTable
+          title="Auto Finances"
+          icons={tableIcons}
+          columns={state.columns}
+          data={entries.data}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                handleRowAdd(newData,resolve)
+              }),
+            // onRowUpdate: (newData, oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowUpdate(newData, oldData, resolve)
+            //   }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve) => {
+                handleRowDelete(oldData, resolve)
+              }),
+          }}
+        />
+      </Box>
+    </div>
   );
 }

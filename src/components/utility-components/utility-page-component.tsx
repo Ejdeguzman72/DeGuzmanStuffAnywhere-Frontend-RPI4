@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import UtilityTrackerTable from './utility-tracker-table-component';
+
 import UtilityContainerComponent from './utility-container-component';
+import UtilityTableComponent from './utility-tracker-table-component';
 
 const UtilityPageComponent = () => {
     return (
@@ -16,7 +17,7 @@ const UtilityPageComponent = () => {
                 <UtilityContainerComponent />
                 <br></br>
                 <br></br>
-                <UtilityTrackerTable />
+             <UtilityTableComponent />
             </div>
         </div>
     )

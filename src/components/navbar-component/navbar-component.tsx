@@ -1,9 +1,12 @@
 import React from 'react';
 import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';  
 import { jwtHelper } from '../../helper/jwt';
+import { jwtUsernameHelper } from '../../helper/username-helper';
 
 const jwt = jwtHelper();
+// const username = jwtUsernameHelper();
+// console.log(username + "this is username")
 
 export class NavBarComponent extends React.Component<any, any> {
     constructor(props: any) {
@@ -45,7 +48,6 @@ export class NavBarComponent extends React.Component<any, any> {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-
                             {
                                 jwt ? 
                                 <Nav.Link href="#media" className="navbar-item">Photos/Videos</Nav.Link> : null
@@ -75,9 +77,10 @@ export class NavBarComponent extends React.Component<any, any> {
                             }
                         </Nav>
                         <Form inline>
+                            {/* Hello {username} */}
                             {
                                 jwt ?
-                                <FormControl type="text" placeholder="Search" className="mr-sm-2" /> : null
+                                <FormControl type="text" placeholder="Search" className="mr-sm-2" id="button-margin"/> : null
                             }
                             {
                                 jwt ?

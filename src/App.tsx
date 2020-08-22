@@ -1,11 +1,5 @@
 import React from 'react';
 import './style-sheets/App.css';
-// import './style-sheets/chat-page.css';
-// import './style-sheets/home-page.css';
-// import './style-sheets/login-page.css';
-// import './style-sheets/photo-page.css';
-// import './style-sheets/register-page.css';
-// import './style-sheets/video-page.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBarComponent } from './components/navbar-component/navbar-component';
 import { HashRouter, Switch, Route } from 'react-router-dom';
@@ -13,7 +7,6 @@ import { HomePageComponent } from './components/home-page-component/home-page-co
 import { LoginPageComponent } from './components/login-page-component/login-page-component';
 import { PhotoVideoPageComponent } from './components/photos-videos-page-component/media-page-component/photo-video-page-component';
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
-// import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component';
 import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
 import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
@@ -37,12 +30,12 @@ import { PotRoastRecipePageComponent } from './components/recipe-page-component/
 import { PulledPorkRecipePageComponent } from './components/recipe-page-component/recipe-pages/puled-pork-recipe-page-component';
 import { SalisburySteaksRecipePageComponent } from './components/recipe-page-component/recipe-pages/salisbury-steaks-recipe-page-component';
 import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
-import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/meatloaf-recipe-page-component';
-// import { PhotoUploadComponent } from './components/file-upload-components/photo-upload-component';
+import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 import { PhotoUploadPageComponent } from './components/photos-videos-page-component/photo-upload-page-component/photo-upload-page-component';
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 import UtilityPageComponent from './components/utility-components/utility-page-component';
+import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/creamy-pasta-and-crispy-mushrooms-recipe-page';
 
 function App() {
   return (
@@ -92,6 +85,7 @@ function App() {
             <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
             <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
             <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+            <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
             
             <Route component={LoginPageComponent} />
           </Switch>

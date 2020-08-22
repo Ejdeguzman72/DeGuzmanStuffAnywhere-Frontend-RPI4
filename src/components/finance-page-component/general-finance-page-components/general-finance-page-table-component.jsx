@@ -18,6 +18,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
+import Box from '@material-ui/core/Box';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -134,25 +135,30 @@ export default function GeneralFinancePageTableComponent() {
   }
 
   return (
-    <MaterialTable
-      title="General Finances"
-      columns={state.columns}
-      data={entries.data}
-      icons={tableIcons}
-      editable={{
-        onRowAdd: (newData) =>
-          new Promise((resolve) => {
-            handleRowAdd(newData, resolve)
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise((resolve) => {
-            handleRowUpdate(newData, oldData, resolve);
-          }),
-        onRowDelete: (oldData) =>
-          new Promise((resolve) => {
-            handleRowDelete(oldData, resolve);
-          })
-      }}
-    />
-  );
+    <div>
+      <Box border={3} borderRadius={16}>
+        <MaterialTable
+          title="General Finances"
+          columns={state.columns}
+          data={entries.data}
+          icons={tableIcons}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                handleRowAdd(newData, resolve)
+              }),
+            onRowUpdate: (newData, oldData) =>
+              new Promise((resolve) => {
+                handleRowUpdate(newData, oldData, resolve);
+              }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve) => {
+                handleRowDelete(oldData, resolve);
+              })
+          }}
+        />
+      </Box>
+
+    </div>
+  )
 }

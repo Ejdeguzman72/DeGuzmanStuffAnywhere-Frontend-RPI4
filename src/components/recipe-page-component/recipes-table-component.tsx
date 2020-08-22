@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Pagination } from 'react-bootstrap';
 import MarinaraRecipeBtnComponent from './recipe-buttons/marinara-recipe-btn';
 import MeatsauceBtnComponent from './recipe-buttons/meat-sauce-btn';
 import BeefaroniBtnComponent from './recipe-buttons/beefaroni-recipe-btn';
@@ -14,6 +14,9 @@ import PotRoastBtn from './recipe-buttons/pot-roast-btn-';
 import MeatballBtnComponent from './recipe-buttons/meatballs-recipe-btn';
 import SalisburySteakBtnComponent from './recipe-buttons/salisbury-steaks-btn';
 import AdoboBtnComponent from './recipe-buttons/adobo-recipe-btn';
+import creamyPastaAndCrunchyMushroomButton from './recipe-buttons/creamy-mushroom-with-crispy-mushroom-pasta';
+import CreamyPastaAndCrunchyMushroomButton from './recipe-buttons/creamy-mushroom-with-crispy-mushroom-pasta';
+import PaginationComponent from './recipe-page-pagination-component/recipe-page-pagination-component';
 
 export class RecipeTableComponent extends React.Component<any, any> {
     render() {
@@ -83,8 +86,13 @@ export class RecipeTableComponent extends React.Component<any, any> {
                             <td>Adobo</td>
                             <td> <AdoboBtnComponent /> </td>
                         </tr>
+                        <tr>
+                            <td>Creamy Pasta and Creamy Mushrooms</td>
+                            <td> <CreamyPastaAndCrunchyMushroomButton /> </td>
+                        </tr>
                     </tbody>
                 </Table>
+                <PaginationComponent />
             </div>
         )
     }

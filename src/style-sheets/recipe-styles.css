@@ -220,3 +220,18 @@
     list-style: none;
     text-align: left;
 }
+
+.creamy-pasta-and-crispy-mushrooms {
+    width: auto;
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-image:  linear-gradient(#FFF5EE,silver);
+    height: auto;
+    font-family: fantasy;
+    border-radius: 25px;
+    list-style: none;
+    text-align: left;
+}
