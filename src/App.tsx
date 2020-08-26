@@ -36,6 +36,7 @@ import { PhotoUploadPageComponent } from './components/photos-videos-page-compon
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 import UtilityPageComponent from './components/utility-components/utility-page-component';
 import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/creamy-pasta-and-crispy-mushrooms-recipe-page';
+import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
 
             <Route path="/chat" exact component={ChatPageComponent} />
+            <Route path="/deguzman-family-chat" exact component ={ChatApplicationComponent} />
 
             <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
             <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
