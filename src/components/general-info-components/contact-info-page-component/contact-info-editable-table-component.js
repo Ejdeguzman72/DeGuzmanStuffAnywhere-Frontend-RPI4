@@ -89,6 +89,9 @@ export default function ContactInfoEditableTableComponent() {
 
 
   const handleRowAdd = (newData,resolve) => {
+    if(newData.firstname === null) {
+      alert("First name entry is required");
+    }
     Axios.post('http://localhost:8080/app/person-info/add-person-information', newData)
     .then(res => {
       console.log(newData);

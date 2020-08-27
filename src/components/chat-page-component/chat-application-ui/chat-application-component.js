@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import SockJsClient from 'react-stomp';
 import NameComponent from './name-component';
+import '../../../style-sheets/chat-page.css';
 
 export default class ChatApplicationComponent extends React.Component {
     clientRef

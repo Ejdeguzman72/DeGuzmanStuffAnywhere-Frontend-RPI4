@@ -16,9 +16,11 @@ export class ChatPageComponent extends React.Component<any,any> {
                     <br></br>
                     <br></br>
                     <Container className="chat-page-container">
-                        <h3>DeGuzman Family Chat</h3>
-                        <p>Click the button to enter the chat application. Talk with family around the world, ranging from New Jersey, New York, Florida, and Haiti.</p><br></br>
-                        <p>Have fun, catch up, make jokes, share memes, share memories, etc</p><br></br>
+                        <h1>DeGuzmanStuffAnywhere Chat</h1>
+                        <hr></hr>
+                        <p>Click the button to enter the chat application.</p>
+                        <p>Talk with family around the world, ranging from New Jersey, New York, Florida, and Haiti.</p>
+                        <p>Have fun, catch up, make jokes, share memes, share memories, etc</p>
                         <p>If any trouble, contact EJ DeGuzman (201-546-0750) / (ejdeguzmna72@gmail.com)</p>
                         <ChatPageButtonComponent />
                     </Container>
