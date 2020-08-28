@@ -5,6 +5,9 @@ import '../../style-sheets/login-page.css';
 import { FooterComponent } from '../footer-component/footer-component';
 import Axios from 'axios';
 import { Redirect } from 'react-router';
+import { jwtHelper } from '../../helper/jwt';
+
+const jwt = jwtHelper;
 
 export class LoginPageComponent extends React.Component<any, any> {
     constructor(props: any) {
@@ -42,6 +45,10 @@ export class LoginPageComponent extends React.Component<any, any> {
         }).catch(() => {
             alert("Incorrect username/password. Please try again");
         })
+    }
+
+    onLogout = (event:any) => {
+        localStorage.removeItem("DeGuzmanStuffAnywhere_Token");
     }
 
     render() {

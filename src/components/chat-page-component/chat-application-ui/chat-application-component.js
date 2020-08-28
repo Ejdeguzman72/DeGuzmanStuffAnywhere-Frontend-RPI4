@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import SockJsClient from 'react-stomp';
+import SockJsClient from './sockjs-client';
 import NameComponent from './name-component';
 import '../../../style-sheets/chat-page.css';
 
 export default class ChatApplicationComponent extends React.Component {
-    clientRef
+    
     constructor(props) {
         super(props);
 
@@ -55,10 +55,11 @@ export default class ChatApplicationComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="white-background">
+                <br></br>
                 <NameComponent setName={this.setName} />
                 <div className="align-center">
-                    <h1>Welcome to Web Sockets</h1>
+                    <h1 className="tabs">DeGuzmanStuffAnywhere Chat Application</h1>
                     <br /><br />
                 </div>
                 <div className="align-center">

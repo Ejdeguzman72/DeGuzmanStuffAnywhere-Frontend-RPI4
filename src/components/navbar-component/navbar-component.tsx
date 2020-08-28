@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-bootstrap';
+import { Nav, NavDropdown, Form, FormControl, Button, Navbar, Alert } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';  
 import { jwtHelper } from '../../helper/jwt';
 import { jwtUsernameHelper } from '../../helper/username-helper';
@@ -27,16 +27,7 @@ export class NavBarComponent extends React.Component<any, any> {
 
     logout() {
         localStorage.removeItem('DeGuzmanStuffAnywhere_Token');
-
         window.location.reload();
-
-        this.setState({
-            shouldRedirect: true
-        });
-
-        const history = useHistory();
-
-        history.push("/login");
     }
 
 
