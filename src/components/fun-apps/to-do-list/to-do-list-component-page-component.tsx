@@ -2,7 +2,7 @@ import React from 'react';
 
 const toDoList = () => {
     return (
-        <div>
+        <div id="white-background">
             
         </div>
     )
