@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 
 let active = 2;
-let items = [];
+let items = []
 for (let number = 1; number <= 5; number++) {
   items.push(
     <Pagination.Item key={number} active={number === active}>

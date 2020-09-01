@@ -37,6 +37,7 @@ import { VideoUploadPageComponent } from './components/photos-videos-page-compon
 import UtilityPageComponent from './components/utility-components/utility-page-component';
 import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/creamy-pasta-and-crispy-mushrooms-recipe-page';
 import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
+import AdmimPortalPageComponent from './components/admin-portal/admin-portal-page-component';
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
             {/* <Route path="register" exact component={RegisterPageComponent} /> */}
             <Route path="/home" exact component={HomePageComponent} />
             <Route path="/media" exact component={PhotoVideoPageComponent} />
+
+            <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
 
             <Route path="/photos" exact component={PhotoPageComponent} />
             <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />

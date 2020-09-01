@@ -4,6 +4,8 @@ import '../../style-sheets/home-page.css';
 import { FooterComponent } from '../footer-component/footer-component';
 import MidSectionContainerComponent from './mid-section-container-component';
 import ControlledCarousel from './photo-slideshow-component';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 export class HomePageComponent extends React.Component<any, any> {
@@ -13,10 +15,17 @@ export class HomePageComponent extends React.Component<any, any> {
                 <Helmet>
                     <title>Home</title>
                 </Helmet>
+                        <Button variant="outline-info" size="lg" className="admin-button">
+                            <Link to="admin-portal">
+                                Admin Portal
+                            </Link>
+                        </Button>
+                        <br></br>
                 <br></br>
                 <br></br>
                 <div className="hero-home">
-
+                    
+                    
                 </div>
                 <br></br>
                 <div id="white-background">

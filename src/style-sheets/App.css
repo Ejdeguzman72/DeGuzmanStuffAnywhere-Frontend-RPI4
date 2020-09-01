@@ -41,6 +41,12 @@
   margin: 10px;
 }
 
+.admin-button {
+  float: right;
+  margin: 10px;
+  top: 0px;
+}
+
 .list {
   list-style-type: none;
   color: black;

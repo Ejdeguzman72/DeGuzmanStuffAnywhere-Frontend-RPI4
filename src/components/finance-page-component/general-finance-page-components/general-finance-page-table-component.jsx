@@ -98,6 +98,7 @@ export default function GeneralFinancePageTableComponent() {
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -114,6 +115,7 @@ export default function GeneralFinancePageTableComponent() {
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
