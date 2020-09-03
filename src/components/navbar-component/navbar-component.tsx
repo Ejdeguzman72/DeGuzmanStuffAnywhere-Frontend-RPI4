@@ -3,25 +3,36 @@ import { Nav, NavDropdown, Form, FormControl, Button, Navbar, Alert } from 'reac
 import { Link, useHistory } from 'react-router-dom';  
 import { jwtHelper } from '../../helper/jwt';
 import { jwtUsernameHelper } from '../../helper/username-helper';
+import cookie from 'react-cookies';
+import jwt_decode from 'jwt-decode';
 
 const jwt = jwtHelper();
-// const username = jwtUsernameHelper();
-// console.log(username + "this is username")
 
 export class NavBarComponent extends React.Component<any, any> {
+    static async getInitialProps() {
+        const token = cookie.load("DeguzmanStuffAnywhere_Token")
+        return { token };
+    }
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            shouldRedirect: false
-        }
+        this.state = props.token
     }
 
+    parseJwt = (token: any) => {
+        if (!token) {
+            return;
+        }
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace('-', '+').replace('_', '/');
+        return JSON.parse(window.atob(base64));
+    }
+    
     checkLoggedIn() {
         const jwt = jwtHelper();
-
+        
         if (!jwt) {
-
+            
         }
     }
 
@@ -32,6 +43,7 @@ export class NavBarComponent extends React.Component<any, any> {
 
 
     render() {
+        console.log(this.parseJwt(localStorage.getItem('DeGuzmanStuffAnywhere_Token')))
         return (
             <div>
                 <Navbar bg="light" expand="lg" id="navbar-border">
