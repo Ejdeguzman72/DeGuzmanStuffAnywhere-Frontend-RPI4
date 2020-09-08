@@ -10,7 +10,7 @@ const AdminPortalTabComponent = () => {
                 <Col md={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#recipes" eventKey="first" id="tabs">Find a User</Nav.Link>
+                            <Nav.Link href="#find-a-user" eventKey="first" id="tabs">Find a User</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>
@@ -21,7 +21,7 @@ const AdminPortalTabComponent = () => {
                 <Col md={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#recipes" eventKey="first" id="tabs">Add a New User</Nav.Link>
+                            <Nav.Link href="#add-user" eventKey="first" id="tabs">Add a New User</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>
@@ -32,7 +32,7 @@ const AdminPortalTabComponent = () => {
                 <Col md={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#recipes" eventKey="first" id="tabs">Approve a New User</Nav.Link>
+                            <Nav.Link href="#approve-user" eventKey="first" id="tabs">Approve a New User</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>

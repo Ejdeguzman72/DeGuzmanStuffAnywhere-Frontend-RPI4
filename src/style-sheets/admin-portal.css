@@ -1,0 +1,22 @@
+.admin-portal-add-user-container {
+    font-family: fantasy;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-image: linear-gradient(#FFF5EE,#FFF5EE);
+    font-family: fantasy;
+    border-radius: 25px;
+    margin: 15px;
+    margin-top: 15px;
+    width: auto;
+    padding: 15px;
+}
+
+.input-at-portal {
+    margin: 10px;
+}
+
+.add-user-admin-portal-button {
+    margin: 20px;
+    /* padding: 20px; */
+}

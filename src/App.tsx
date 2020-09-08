@@ -38,6 +38,9 @@ import UtilityPageComponent from './components/utility-components/utility-page-c
 import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/creamy-pasta-and-crispy-mushrooms-recipe-page';
 import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
 import AdmimPortalPageComponent from './components/admin-portal/admin-portal-page-component';
+import AddUserPageComponent from './components/admin-portal/add-user/add-user-page-component';
+import FindUserInfoPageComponent from './components/admin-portal/find-user-info/find-user-info-page-component';
+import ApproveUserPageComponent from './components/admin-portal/approve-user/approve-user-page-component';
 
 function App() {
   return (
@@ -74,6 +77,10 @@ function App() {
             <Route path="/contact-info" exact component={ContactPageComponent} />
             <Route path="/utility-tracker" exact component={UtilityPageComponent} />
             <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
+
+            <Route path="/add-user" exact component={AddUserPageComponent} />
+            <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
+            <Route path="/approve-user" exact component={ApproveUserPageComponent} />
 
             <Route path="/recipes" exact component={RecipePageComponent} />
             <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />

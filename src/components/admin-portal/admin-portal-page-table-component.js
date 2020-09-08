@@ -60,9 +60,9 @@ export default function AdminPortalPageUserTableComponent() {
 
   const [state] = React.useState({
     columns: [
-      { title: 'User ID', field: 'transactionId', hidden: true },
+      { title: 'User ID', field: 'userid'},
       { title: 'Username', field: 'username' },
-      { title: 'Password', field: 'password' },
+      { title: 'Password', field: 'password', hidden: true },
       { title: 'Name', field: 'name' },
       { title: 'User Status', field: 'user_status' }
     ],
@@ -146,20 +146,20 @@ export default function AdminPortalPageUserTableComponent() {
           columns={state.columns}
           data={entries.data}
           icons={tableIcons}
-          editable={{
-            onRowAdd: (newData) =>
-              new Promise((resolve) => {
-                handleRowAdd(newData, resolve)
-              }),
-            onRowUpdate: (newData, oldData) =>
-              new Promise((resolve) => {
-                handleRowUpdate(newData, oldData, resolve);
-              }),
-            onRowDelete: (oldData) =>
-              new Promise((resolve) => {
-                handleRowDelete(oldData, resolve);
-              })
-          }}
+        //   editable={{
+        //     onRowAdd: (newData) =>
+        //       new Promise((resolve) => {
+        //         handleRowAdd(newData, resolve)
+        //       }),
+        //     onRowUpdate: (newData, oldData) =>
+        //       new Promise((resolve) => {
+        //         handleRowUpdate(newData, oldData, resolve);
+        //       }),
+        //     onRowDelete: (oldData) =>
+        //       new Promise((resolve) => {
+        //         handleRowDelete(oldData, resolve);
+        //       })
+        //   }}
         />
       </Box>
 
