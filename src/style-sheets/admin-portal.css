@@ -12,6 +12,33 @@
     padding: 15px;
 }
 
+.admin-portal-find-user-container {
+    font-family: fantasy;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-image: linear-gradient(#FFF5EE,#FFF5EE);
+    font-family: fantasy;
+    border-radius: 25px;
+    margin: 15px;
+    margin-top: 15px;
+    width: auto;
+    padding: 15px;
+}
+
+.admin-portal-user-info-container {
+    background-color: #CCD6DD;
+    font-family: fantasy;
+    border-color: black;
+    border-style: solid;
+    border-radius: 25px;
+    width: auto;
+    padding: 30px;
+    margin: 15px;
+    color: black;
+    font-size: 30px;
+}
+
 .input-at-portal {
     margin: 10px;
 }

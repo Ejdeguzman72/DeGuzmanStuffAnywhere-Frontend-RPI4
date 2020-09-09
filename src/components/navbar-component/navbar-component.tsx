@@ -15,10 +15,10 @@ export class NavBarComponent extends React.Component<any, any> {
     }
     constructor(props: any) {
         super(props);
-
+        
         this.state = props.token
     }
-
+    
     parseJwt = (token: any) => {
         if (!token) {
             return;
@@ -27,6 +27,7 @@ export class NavBarComponent extends React.Component<any, any> {
         const base64 = base64Url.replace('-', '+').replace('_', '/');
         return JSON.parse(window.atob(base64));
     }
+    
     
     checkLoggedIn() {
         const jwt = jwtHelper();

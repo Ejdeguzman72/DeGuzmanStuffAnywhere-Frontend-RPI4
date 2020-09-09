@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import AdminPortalPendingUsersTableComponent from './approve-users-table-component';
 
 const ApproveUserPageComponent = () => {
     return (
@@ -10,7 +11,8 @@ const ApproveUserPageComponent = () => {
                 </title>
             </Helmet>
             <div id="white-background">
-
+                <br></br>
+                <AdminPortalPendingUsersTableComponent />
             </div>
         </div>
     )
