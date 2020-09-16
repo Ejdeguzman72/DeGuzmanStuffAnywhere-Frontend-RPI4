@@ -41,6 +41,7 @@ import AdmimPortalPageComponent from './components/admin-portal/admin-portal-pag
 import AddUserPageComponent from './components/admin-portal/add-user/add-user-page-component';
 import FindUserInfoPageComponent from './components/admin-portal/find-user-info/find-user-info-page-component';
 import ApproveUserPageComponent from './components/admin-portal/approve-user/approve-user-page-component';
+import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/pad-thai-recipe-page-component';
 
 function App() {
   return (
@@ -98,6 +99,7 @@ function App() {
             <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
             <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
             <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
+            <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
             
             <Route component={LoginPageComponent} />
           </Switch>

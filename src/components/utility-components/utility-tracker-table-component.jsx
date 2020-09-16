@@ -57,7 +57,7 @@ export default function UtilityTableComponent() {
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'utilityid' },
+            { title: 'ID No:', field: 'utilityid', hidden: true },
             { title: 'Entity', field: 'name' },
             { title: 'Phone Number', field: 'phone' },
             { title: 'Website Link', field: 'url' },

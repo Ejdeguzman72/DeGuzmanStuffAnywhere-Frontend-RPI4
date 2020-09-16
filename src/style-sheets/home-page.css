@@ -34,6 +34,10 @@
     /* display: table-cell; */
 }
 
+.disabled-link {
+  pointer-events: none;
+}
+
 .square1 {
     border: 1px solid black;
     float: center;

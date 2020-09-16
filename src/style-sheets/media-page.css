@@ -8,6 +8,7 @@
     border-color: black;
     border-style: solid;
     font-family: fantasy;
+    border-radius: 50px;
 }
 
 .media-photo-page-container-background {
@@ -32,6 +33,7 @@
     border-color: black;
     border-style: solid;
     font-family: fantasy;
+    border-radius: 50px;
 }
 
 .media-video-page-container-background {

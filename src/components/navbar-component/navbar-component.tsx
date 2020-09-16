@@ -68,6 +68,7 @@ export class NavBarComponent extends React.Component<any, any> {
                                     <NavDropdown.Item href="#medical-finance" className="navbar-item">Medical Finances</NavDropdown.Item>
                                 </NavDropdown> : null
                             }
+                            
                             {
                                 jwt ?
                                 <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
@@ -77,6 +78,8 @@ export class NavBarComponent extends React.Component<any, any> {
                                     <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
+                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Agenda</NavDropdown.Item>
+                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Calendar</NavDropdown.Item>
                                 </NavDropdown> : null
                             }
                         </Nav>
