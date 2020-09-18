@@ -14,10 +14,10 @@ import { RecipePageComponent } from './components/recipe-page-component/main-rec
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
 import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
-import {  MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
+import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
-import {  AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/adobo-recipe-page-component';
+import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/adobo-recipe-page-component';
 import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/beefaroni-recipe-page-component';
 import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/beef-stew-recipe-page-component';
 import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/black-eyed-peas-and-hamhocks-recipe-page-component';
@@ -42,67 +42,180 @@ import AddUserPageComponent from './components/admin-portal/add-user/add-user-pa
 import FindUserInfoPageComponent from './components/admin-portal/find-user-info/find-user-info-page-component';
 import ApproveUserPageComponent from './components/admin-portal/approve-user/approve-user-page-component';
 import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/pad-thai-recipe-page-component';
+import { jwtHelper } from './helper/jwt';
+import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component-page-component';
+
+const jwt = jwtHelper();
 
 function App() {
   return (
     <div className="App">
       <HashRouter>
         <NavBarComponent />
-          <Switch>
-            <Route path="/login" exact component={LoginPageComponent} />
-            {/* <Route path="register" exact component={RegisterPageComponent} /> */}
-            <Route path="/home" exact component={HomePageComponent} />
-            <Route path="/media" exact component={PhotoVideoPageComponent} />
+        <Switch>
+          <Route path="/login" exact component={LoginPageComponent} />
+          {/* <Route path="register" exact component={RegisterPageComponent} /> */}
+          {
+            jwt ?
+            <Route path="/home" exact component={HomePageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/media" exact component={PhotoVideoPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/admin-portal" exact component={AdmimPortalPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/photos" exact component={PhotoPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/videos" exaxt component={VideoPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/video-uploads" exact component={VideoUploadPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/chat" exact component={ChatPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/deguzman-family-chat" exact component={ChatApplicationComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/general-finance" exact component={GeneralFinancePageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/auto-finance" exact component={AutoFinancePageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/medical-finance" exact component={MedicalFinancePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} /> : null
+          }
 
-            <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
+          {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
+          {
+            jwt ?
+              <Route path="/contact-info" exact component={ContactPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/utility-tracker" exact component={UtilityPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/run-tracker" exact component={RunTrackerPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/add-user" exact component={AddUserPageComponent} /> : null
+          }
+          {
+            jwt ? 
+            <Route path="/find-a-user" exact component={FindUserInfoPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/approve-user" exact component={ApproveUserPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/agenda" exact component={AgendaPageApp}/> : null
+          }
+          {
+            jwt ?
+            <Route path="/recipes" exact component={RecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/meatball-recipe" exact component={MeatballsPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} /> : null
+          }
 
-            <Route path="/photos" exact component={PhotoPageComponent} />
-            <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
-
-            <Route path="/videos" exaxt component={VideoPageComponent} />
-            <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
-
-            <Route path="/chat" exact component={ChatPageComponent} />
-            <Route path="/deguzman-family-chat" exact component ={ChatApplicationComponent} />
-
-            <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
-            <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
-
-            <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
-            <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
-
-            <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
-            <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
-
-            {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
-            <Route path="/contact-info" exact component={ContactPageComponent} />
-            <Route path="/utility-tracker" exact component={UtilityPageComponent} />
-            <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
-
-            <Route path="/add-user" exact component={AddUserPageComponent} />
-            <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
-            <Route path="/approve-user" exact component={ApproveUserPageComponent} />
-
-            <Route path="/recipes" exact component={RecipePageComponent} />
-            <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
-            <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
-            <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
-            <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
-            <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
-            <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
-            <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
-            <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
-            <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
-            <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
-            <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
-            <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
-            <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
-            <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
-            <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
-            <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
-            
-            <Route component={LoginPageComponent} />
-          </Switch>
+          <Route component={LoginPageComponent} />
+        </Switch>
       </HashRouter>
     </div>
   );

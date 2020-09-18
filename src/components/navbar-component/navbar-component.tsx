@@ -78,8 +78,7 @@ export class NavBarComponent extends React.Component<any, any> {
                                     <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
-                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Agenda</NavDropdown.Item>
-                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Calendar</NavDropdown.Item>
+                                    <NavDropdown.Item href="#agenda" className="navbar-item">Agenda</NavDropdown.Item>
                                 </NavDropdown> : null
                             }
                         </Nav>

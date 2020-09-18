@@ -1,0 +1,79 @@
+.agenda-app {
+    /* background: #FFF5EE; */
+    padding: 30px;
+    height: auto;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.agenda-app-container {
+    width: auto;
+    font-family: fantasy;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    background-image:  linear-gradient(#FFF5EE,#FFF5EE);
+    font-family: fantasy;
+    border-radius: 50px;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.to-do-list {
+    background: #e8e8e8;
+    padding: 25px;
+    /* border-radius: 50px; */
+    /* max-width: 900px; */
+    width: 100%;
+    /* border-color: black;
+    border-style: solid; */
+    box-shadow: 30px 30px 10px rgba(0,0,0,0.15);
+    padding: 20px;
+}
+
+.todo {
+    background: #fff;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+    /* padding: 15x 15px; */
+    font-size: 25px;
+    /* margin-bottom: 6px; */
+    /* border-radius: 50px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* text-align: center; */
+    width: 100%;
+    /* justify-content: space-between; */
+    /* margin: 20px; */
+    border-color: black;
+    border-style: solid;
+    text-align: left;
+}
+
+.todo-completed-button {
+    float: center;
+    margin: 5px;
+}
+
+.todo-deleted-button {
+    float: center;
+    margin: 5px;
+}
+
+.agenda-input {
+    background: #fff;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+    /* padding: 15x 15px; */
+    font-size: 25px;
+    /* margin-bottom: 6px; */
+    /* border-radius: 50px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* text-align: center; */
+    width: 100%;
+    /* justify-content: space-between; */
+    /* margin: 20px; */
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+}

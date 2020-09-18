@@ -27,9 +27,10 @@
 .login-container-title {
     font-size: 5vw;
     font-family: candara;
-    background-color: #ADD8E6    ;
+    background-color: #ADD8E6;
     width: auto;
     opacity: 0.8;
+    border-radius: 50px;
 }
 
 hr {
