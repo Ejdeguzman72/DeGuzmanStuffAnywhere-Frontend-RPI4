@@ -74,6 +74,7 @@
   height: 200vh;
   width: 100% auto;
   overflow-x: auto;
+  overflow-y:hidden;
   /* position: relative; */
 }
 

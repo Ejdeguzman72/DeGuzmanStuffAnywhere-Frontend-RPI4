@@ -3,8 +3,9 @@ import { Helmet } from 'react-helmet';
 import { MediaPhotoPageContainerComponent } from './photo-page-container-component';
 import { VideoPageContainerComponent } from './video-page-container-component';
 import { FooterComponent } from '../../footer-component/footer-component';
+import { Row, Col } from 'react-bootstrap';
 
-export class PhotoVideoPageComponent extends React.Component<any,any> {
+export class PhotoVideoPageComponent extends React.Component<any, any> {
     render() {
         return (
             <div>
@@ -12,8 +13,17 @@ export class PhotoVideoPageComponent extends React.Component<any,any> {
                     <title>Media</title>
                 </Helmet>
                 <div id="white-background">
-                    <MediaPhotoPageContainerComponent />
-                    <VideoPageContainerComponent />
+                    <Row>
+                        <Col md={4}>
+                            <MediaPhotoPageContainerComponent />
+                        </Col>
+                        <Col md={4}>
+
+                        </Col>
+                        <Col md={4}>
+                            <VideoPageContainerComponent />
+                        </Col>
+                    </Row>
                 </div>
                 <FooterComponent />
             </div>
