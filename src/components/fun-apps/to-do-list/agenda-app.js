@@ -25,13 +25,13 @@ const ToDoForm = ({ addTodo }) => {
     );
 }
 
-const Todo = ( {todo}) => {
-    return (
-        <div className="todo">
-            {todo.text}
-        </div>
-    );
-};
+// const Todo = ( {todo}) => {
+//     return (
+//         <div className="todo">
+//             {todo.text}
+//         </div>
+//     );
+// };
 
 const AgendaApp = () => {
     const [todos, setTodos] = useState([

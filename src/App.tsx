@@ -44,7 +44,7 @@ import ApproveUserPageComponent from './components/admin-portal/approve-user/app
 import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/pad-thai-recipe-page-component';
 import { jwtHelper } from './helper/jwt';
 import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component-page-component';
-import DSAAgendaPageApp from './components/fun-apps/to-do-list copy/dsa-to-do-list-component-page-component';
+import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
 
 const jwt = jwtHelper();
 

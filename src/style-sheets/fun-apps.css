@@ -15,7 +15,7 @@
     background-image:  linear-gradient(#FFF5EE,#FFF5EE);
     font-family: fantasy;
     border-radius: 50px;
-    width: 100%;
+    width: auto;
     height: 100vh;
     overflow: auto;
 }
@@ -36,7 +36,7 @@
     background: #fff;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
     /* padding: 15x 15px; */
-    font-size: 25px;
+    font-size: 1em;
     /* margin-bottom: 6px; */
     /* border-radius: 50px; */
     /* display: flex; */

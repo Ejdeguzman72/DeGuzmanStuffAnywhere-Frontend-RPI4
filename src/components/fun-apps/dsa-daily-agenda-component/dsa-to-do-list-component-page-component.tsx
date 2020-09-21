@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import DSAAgendaApp from './dsa-agenda-app';
+import DSAAgendaApp from './dsa-agenda-app';
+
 
 
 const DSAAgendaPageApp = () => {
@@ -11,7 +12,7 @@ const DSAAgendaPageApp = () => {
             </Helmet>
             <div id="white-background">
                 <br></br>
-                {/* <DSAAgendaApp /> */}
+                <DSAAgendaApp />
             </div>
         </div>
 
