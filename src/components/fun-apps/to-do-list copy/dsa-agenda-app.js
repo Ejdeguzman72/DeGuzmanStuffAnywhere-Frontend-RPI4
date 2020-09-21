@@ -47,29 +47,47 @@
 //       ]
 //     });
 
-//     useEffect(() => {
-//         DailyAgendaService.GetAllDailyAgendaItems().then(response =>  {
-//             let data = [];
-//             response.data.forEach(e1 => {
-//                 data.push({
-//                     agendaId: e1.agendaId,
-//                     name: e1.name,
-//                     c: e1.complete
-//                 });
-//                 console.log(data);
-//             });
-//             setTodos({ data: data});
-//         })
-//         .catch(function(error) {
-//             console.log(error);
-//         });
-//     }, []);
+//     // useEffect(() => {
+//     //     DailyAgendaService.GetAllDailyAgendaItems().then(response =>  {
+//     //         let data = [];
+//     //         response.data.forEach(e1 => {
+//     //             data.push({
+//     //                 agendaId: e1.agendaId,
+//     //                 name: e1.name,
+//     //                 c: e1.complete
+//     //             });
+//     //             console.log(data);
+//     //         });
+//     //         setTodos({ data: data});
+//     //     })
+//     //     .catch(function(error) {
+//     //         console.log(error);
+//     //     });
+//     // }, []);
 
 //     const DSATodo = ({ todo, index, completeTodo }) => {
+//         console.log(todo + "this is data")
+//         useEffect(() => {
+//             DailyAgendaService.GetAllDailyAgendaItems().then(response =>  {
+//                 let data = [];
+//                 response.data.forEach(e1 => {
+//                     data.push({
+//                         agendaId: e1.agendaId,
+//                         name: e1.name,
+//                         complete: e1.complete
+//                     });
+//                     console.log(data + "this is data");
+//                 });
+//                 setTodos({ data: data});
+//             })
+//             .catch(function(error) {
+//                 console.log(error);
+//             });
+//         }, []);
 //         return (
 //         <div 
 //             className="todo"
-//             style={{ textDecoration: todo.complete ? "line-through" : ""}}
+//             style={{ textDecoration: todo.data.complete ? "line-through" : ""}}
 //         >
 //             {todo.name} 
 //             <div>
