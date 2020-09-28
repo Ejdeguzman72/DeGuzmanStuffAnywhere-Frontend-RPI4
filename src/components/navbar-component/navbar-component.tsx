@@ -7,7 +7,6 @@ import cookie from 'react-cookies';
 import jwt_decode from 'jwt-decode';
 
 const jwt = jwtHelper();
-
 export class NavBarComponent extends React.Component<any, any> {
     static async getInitialProps() {
         const token = cookie.load("DeguzmanStuffAnywhere_Token")
@@ -28,6 +27,7 @@ export class NavBarComponent extends React.Component<any, any> {
         return JSON.parse(window.atob(base64));
     }
     
+    tokenExtracted = this.parseJwt(localStorage.getItem('DeGuzmanStuffAnywhere_Token'));
     
     checkLoggedIn() {
         const jwt = jwtHelper();
@@ -84,7 +84,12 @@ export class NavBarComponent extends React.Component<any, any> {
                             }
                         </Nav>
                         <Form inline>
-                            {/* Hello {username} */}
+                            {
+                                jwt ?
+                            <p>
+                                <b>Hello {this.tokenExtracted.sub}!</b>
+                            </p>  : null
+                            }
                             {
                                 jwt ?
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" id="button-margin"/> : null

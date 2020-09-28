@@ -19,7 +19,8 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-import utilityTrackerService from '../../services/utility-tracker-service';
+import ExportUtilityInformationCSV from './ExportUtilityInformationCSV';
+import { Col,Row } from 'react-bootstrap';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -55,6 +56,8 @@ export default function UtilityTableComponent() {
         ]
     });
 
+    const [fileName] = useState("Utility_Tracker_Information");
+
     const [state] = React.useState({
         columns: [
             { title: 'ID No:', field: 'utilityid', hidden: true },
@@ -66,7 +69,7 @@ export default function UtilityTableComponent() {
     });
 
     useEffect(() => {
-        utilityTrackerService.getAllUtilityTrackerInformation().then(response => {
+        UtilityTrackerService.getAllUtilityTrackerInformation().then(response => {
             let data = [];
             response.data.forEach(e1 => {
                 data.push({
@@ -134,6 +137,21 @@ export default function UtilityTableComponent() {
 
     return (
         <div>
+            <Row>
+        <Col md={4}>
+
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+
+        </Col>
+        <Col md={2}>
+          <ExportUtilityInformationCSV csvData={entries.data} fileName={fileName} />
+        </Col>
+      </Row>
+      <br></br>
             <Box border={3} borderRadius={16}>
                 <MaterialTable
                     title="Utility Tracker"

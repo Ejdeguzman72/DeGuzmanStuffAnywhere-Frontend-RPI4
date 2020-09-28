@@ -18,8 +18,9 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
-import { isCompositeComponent } from 'react-dom/test-utils';
 import Box from '@material-ui/core/Box';
+import { Col,Row } from 'react-bootstrap';
+import ExportMedicalFinanceCSV from './ExportMedicalFinanceCSV';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -63,6 +64,8 @@ export default function MedicalFinancePageTableComponent() {
       }
     ]
   });
+
+  const [fileName] = useState("Medical_Finance");
 
   useEffect(() => {
     MedicalTransactionService.getAllMedicalTransactions().then(response => {
@@ -126,6 +129,22 @@ export default function MedicalFinancePageTableComponent() {
   }
 
   return (
+    <div>
+    <Row>
+        <Col md={4}>
+
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+          
+        </Col>
+        <Col md={2}>
+          <ExportMedicalFinanceCSV csvData={medicalTrxData.data} fileName={fileName} />
+        </Col>
+      </Row>
+      <br></br>
     <Box border={3} borderRadius={16}> 
       <MaterialTable
         title="Medical Finances"
@@ -148,5 +167,6 @@ export default function MedicalFinancePageTableComponent() {
         }}
       />
     </Box>
+    </div>
   );
 }

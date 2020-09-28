@@ -19,6 +19,8 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
+import ExportGeneralFinanceCSV from './ExportGeneralFinanceCSV';
+import { Row, Col} from 'react-bootstrap';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -56,6 +58,8 @@ export default function GeneralFinancePageTableComponent() {
       }
     ]
   });
+
+  const [fileName, setFileName] = useState("General_Finance")
 
   const [state] = React.useState({
     columns: [
@@ -138,6 +142,21 @@ export default function GeneralFinancePageTableComponent() {
 
   return (
     <div>
+      <Row>
+        <Col md={4}>
+
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+          
+        </Col>
+        <Col md={2}>
+          <ExportGeneralFinanceCSV csvData={entries.data} fileName={fileName} />
+        </Col>
+      </Row>
+      <br></br>
       <Box border={3} borderRadius={16}>
         <MaterialTable
           title="General Finances"

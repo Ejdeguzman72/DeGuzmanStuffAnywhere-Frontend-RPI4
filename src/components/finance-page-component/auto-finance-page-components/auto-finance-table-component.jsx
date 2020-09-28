@@ -19,6 +19,8 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
+import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
+import { Col,Row } from 'react-bootstrap';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,7 +45,7 @@ const tableIcons = {
 export default function AutoFinancePageTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'autoTransactionId',  hidden: true },
+      { title: 'Transaction ID', field: 'autoTransactionId', hidden: true },
       { title: 'Amount', field: 'amount' },
       { title: 'Repair Shop Name', field: 'shopName' },
       { title: 'Person Name', field: 'person' },
@@ -62,6 +64,8 @@ export default function AutoFinancePageTableComponent() {
       }
     ]
   });
+
+  const [fileName, setFileName] = useState("Auto_Transaction");
 
   useEffect(() => {
     AutoTransactionService.getAllAutoTransations().then(response => {
@@ -97,37 +101,52 @@ export default function AutoFinancePageTableComponent() {
 
   const handleRowUpdate = (newData, oldData, resolve) => {
     Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
-    .then(res => {
-      const dataUpdate = [...entries.data];
-      const index = oldData.tabledata.autoTransactionId;
-      console.log(index + "this is index")
-      dataUpdate[index] = newData;
-      setEntries([...dataUpdate]);
-      resolve();
-    })
-    .catch(error => {
-      console.log(error);
-      resolve();
-    });
+      .then(res => {
+        const dataUpdate = [...entries.data];
+        const index = oldData.tabledata.autoTransactionId;
+        console.log(index + "this is index")
+        dataUpdate[index] = newData;
+        setEntries([...dataUpdate]);
+        resolve();
+      })
+      .catch(error => {
+        console.log(error);
+        resolve();
+      });
   }
 
-  const handleRowDelete = (oldData,resolve) => {
+  const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.autoTransactionId);
     Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
-    .then(res => {
-      const dataDelete = [...entries.data];
-      const index = oldData.tableData.autoTransactionId;
-      dataDelete.splice(index, 1);
-      setEntries([...dataDelete]);
-      resolve();
-    })
-    .catch(error => {
-      console.log(error);
-    });
+      .then(res => {
+        const dataDelete = [...entries.data];
+        const index = oldData.tableData.autoTransactionId;
+        dataDelete.splice(index, 1);
+        setEntries([...dataDelete]);
+        resolve();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   return (
     <div>
+      <Row>
+        <Col md={4}>
+
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+
+        </Col>
+        <Col md={2}>
+          <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} />
+        </Col>
+      </Row>
+      <br></br>
       <Box border={3} borderRadius={16}>
         <MaterialTable
           title="Auto Finances"
@@ -137,7 +156,7 @@ export default function AutoFinancePageTableComponent() {
           editable={{
             onRowAdd: (newData) =>
               new Promise((resolve) => {
-                handleRowAdd(newData,resolve)
+                handleRowAdd(newData, resolve)
               }),
             // onRowUpdate: (newData, oldData) =>
             //   new Promise((resolve) => {
