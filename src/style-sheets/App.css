@@ -105,6 +105,13 @@
   margin: 10px;
 }
 
+.username {
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  float: right;
+}
+
 /* ------------------------------------------------------Tabs CSS----------------------------------------------------------- */
 
 #tabs {

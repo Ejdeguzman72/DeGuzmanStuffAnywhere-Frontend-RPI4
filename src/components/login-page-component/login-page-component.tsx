@@ -44,9 +44,12 @@ export class LoginPageComponent extends React.Component<any, any> {
             alert(`${this.state.username} has logged in!`);
         }).catch(() => {
             alert("Incorrect username/password. Please try again");
+        }).catch(() => {
+            alert(`${this.state.username} is not enabled`);
         })
+        console.log(localStorage.getItem("DeGuzmanStuffAnwhere_Token") + "This is the token");
     }
-
+    
     onLogout = (event:any) => {
         localStorage.removeItem("DeGuzmanStuffAnywhere_Token");
     }

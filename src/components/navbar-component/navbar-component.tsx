@@ -20,7 +20,7 @@ export class NavBarComponent extends React.Component<any, any> {
     
     parseJwt = (token: any) => {
         if (!token) {
-            return;
+            return "";
         }
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace('-', '+').replace('_', '/');
@@ -44,7 +44,6 @@ export class NavBarComponent extends React.Component<any, any> {
 
 
     render() {
-        console.log(this.parseJwt(localStorage.getItem('DeGuzmanStuffAnywhere_Token')))
         return (
             <div>
                 <Navbar bg="light" expand="lg" id="navbar-border">
@@ -86,7 +85,7 @@ export class NavBarComponent extends React.Component<any, any> {
                         <Form inline>
                             {
                                 jwt ?
-                            <p>
+                            <p className="username">
                                 <b>Hello {this.tokenExtracted.sub}!</b>
                             </p>  : null
                             }
