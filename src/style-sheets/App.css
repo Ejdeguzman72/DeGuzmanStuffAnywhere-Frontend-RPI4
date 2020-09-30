@@ -41,6 +41,10 @@
   margin: 10px;
 }
 
+.button-margin {
+  margin: 10px;
+}
+
 .admin-button {
   float: right;
   margin: 10px;
@@ -106,7 +110,7 @@
 }
 
 .username {
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 10px;
   float: right;

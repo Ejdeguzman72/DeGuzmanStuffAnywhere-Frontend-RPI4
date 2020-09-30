@@ -6,6 +6,7 @@ import { FooterComponent } from '../footer-component/footer-component';
 import Axios from 'axios';
 import { Redirect } from 'react-router';
 import { jwtHelper } from '../../helper/jwt';
+import { Link } from 'react-router-dom';
 
 const jwt = jwtHelper;
 
@@ -43,7 +44,7 @@ export class LoginPageComponent extends React.Component<any, any> {
             console.log(res.data.token);
             alert(`${this.state.username} has logged in!`);
         }).catch(() => {
-            alert("Incorrect username/password. Please try again");
+            alert("Incorrect username/passwor or check if user is enabled. Please try again");
         }).catch(() => {
             alert(`${this.state.username} is not enabled`);
         })
@@ -100,6 +101,14 @@ export class LoginPageComponent extends React.Component<any, any> {
                                 variant="dark"
                                 onClick={(event:any) => this.onSubmit(event)}>
                                     Login
+                            </Button>
+                            <Button 
+                                size="lg" 
+                                variant="dark"
+                                onClick={(event:any) => this.onSubmit(event)}
+                                className="button-margin"
+                            >
+                                <Link to="/register" className="register-btn">Register</Link>        
                             </Button>
                         </Form>
                     </div>
