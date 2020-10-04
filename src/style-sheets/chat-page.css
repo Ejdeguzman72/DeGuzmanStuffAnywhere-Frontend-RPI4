@@ -16,17 +16,17 @@
 .title1 {
     text-align: left;
     color: #269CEB;
-    margin-top: 0px;
+    font-size: 20px;
+    width: auto;
+}
+
+.title1-left {
     float: left;
-    clear: both;
 }
 
 .title2 {
-    text-align: left;
+    text-align: center;
     color: #FF9D00;
-    margin-top: 0px;
-    float: left;
-    clear: both;
 }
 
 .align-center {
@@ -34,6 +34,18 @@
     justify-content: center;
 }
 
+.align-center-msg {
+    display: flex;
+    justify-content: center;
+    border-color: solid;
+    border-style: solid;
+    background-color: white;
+    height: 70vh;
+    width:100%;
+    overflow: auto;
+    float: left;
+}
+ 
 .chat-app-container {
     margin: auto;
     padding: 20px;
@@ -51,7 +63,7 @@
     background-color: #FFF5EE;
     font-family: fantasy;
     font-size: 40px;
-    width: 100%;
+    width: auto;
     color: black;
     margin: 5px;
     border-radius: 50px;
@@ -61,3 +73,20 @@
     padding: 20px;
   }
   
+  .chat-input-row {
+      width: 80%;
+      box-shadow: 5px 10px 18px #888888;
+  }
+
+  .chat-input {
+      width: 100%;
+      background-color: white;
+      border-color: black;
+      border-style: solid;
+
+      font-size: 20px;
+  }
+
+  .user-title {
+      font-size: 20px;
+  }

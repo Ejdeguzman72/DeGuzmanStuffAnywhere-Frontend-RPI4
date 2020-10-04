@@ -36,7 +36,8 @@ export class LoginPageComponent extends React.Component<any, any> {
             username: this.state.username,
             password: this.state.password
         }).then(res => {
-            localStorage.setItem("DeGuzmanStuffAnywhere_Token", res.data.token)
+            localStorage.setItem("DeGuzmanStuffAnywhere_Token", res.data.token);
+            console.log(res.data.token);
             this.setState({
                 shouldRedirect: true
             });
@@ -44,7 +45,7 @@ export class LoginPageComponent extends React.Component<any, any> {
             console.log(res.data.token);
             alert(`${this.state.username} has logged in!`);
         }).catch(() => {
-            alert("Incorrect username/passwor or check if user is enabled. Please try again");
+            alert("Incorrect username/password. Please try again");
         }).catch(() => {
             alert(`${this.state.username} is not enabled`);
         })
@@ -105,7 +106,6 @@ export class LoginPageComponent extends React.Component<any, any> {
                             <Button 
                                 size="lg" 
                                 variant="dark"
-                                onClick={(event:any) => this.onSubmit(event)}
                                 className="button-margin"
                             >
                                 <Link to="/register" className="register-btn">Register</Link>        

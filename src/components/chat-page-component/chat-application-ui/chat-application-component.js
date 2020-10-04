@@ -6,7 +6,7 @@ import NameComponent from './name-component';
 import '../../../style-sheets/chat-page.css';
 
 export default class ChatApplicationComponent extends React.Component {
-    
+
     constructor(props) {
         super(props);
 
@@ -63,30 +63,25 @@ export default class ChatApplicationComponent extends React.Component {
                     <br /><br />
                 </div>
                 <div className="align-center">
-                    User : <p className="title1"> {this.state.name}</p>
+                    <p className="user-title">User : </p><p className="title1"> {this.state.name}</p>
                 </div>
                 <div className="align-center">
                     <br /><br />
-                    <table>
-                        <tr>
-                            <td>
-                                <TextField id="outlined-basic" label="Enter Message to Send" variant="outlined"
-                                    onChange={(event) => {
-                                        this.setState({ typedMessage: event.target.value });
-                                    }} />
-                            </td>
-                            <td>
-                                <Button variant="contained" color="primary"
-                                    onClick={this.sendMessage}>Send</Button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div className="chat-input-row">
+                        <TextField id="outlined-basic" label="Enter Message to Send" variant="outlined" className="chat-input"
+                            onChange={(event) => {
+                                this.setState({ typedMessage: event.target.value });
+                            }} />
+                    </div>
+
+                    <Button variant="contained" color="primary"
+                        onClick={this.sendMessage}>Send</Button>
                 </div>
                 <br /><br />
-                <div className="align-center">
+                <div className="align-center-msg">
                     {this.displayMessages()}
                 </div>
-                <SockJsClient url='http://localhost:8080/websocket-chat'
+                <SockJsClient url='http://ec2-18-220-162-122.us-east-2.compute.amazonaws.com:8080/websocket-chat'
                     topics={['/topic/user']}
                     onConnect={() => {
                         console.log("connected");

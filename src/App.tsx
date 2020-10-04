@@ -45,6 +45,7 @@ import PadThaiRecipePageComponent from './components/recipe-page-component/recip
 import { jwtHelper } from './helper/jwt';
 import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component-page-component';
 import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
+import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 
 const jwt = jwtHelper();
 
@@ -54,11 +55,12 @@ function App() {
       <HashRouter>
         <NavBarComponent />
         <Switch>
+          <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
           {/* <Route path="register" exact component={RegisterPageComponent} /> */}
           {
             jwt ?
-            <Route path="/home" exact component={HomePageComponent} /> : null
+              <Route path="/home" exact component={HomePageComponent} /> : null
           }
           {
             jwt ?
@@ -114,7 +116,7 @@ function App() {
           }
           {
             jwt ?
-            <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} /> : null
+              <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} /> : null
           }
 
           {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
@@ -124,101 +126,100 @@ function App() {
           }
           {
             jwt ?
-            <Route path="/utility-tracker" exact component={UtilityPageComponent} /> : null
+              <Route path="/utility-tracker" exact component={UtilityPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/run-tracker" exact component={RunTrackerPageComponent} /> : null
+              <Route path="/run-tracker" exact component={RunTrackerPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/add-user" exact component={AddUserPageComponent} /> : null
-          }
-          {
-            jwt ? 
-            <Route path="/find-a-user" exact component={FindUserInfoPageComponent} /> : null
+              <Route path="/add-user" exact component={AddUserPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/approve-user" exact component={ApproveUserPageComponent} /> : null
+              <Route path="/find-a-user" exact component={FindUserInfoPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/agenda" exact component={AgendaPageApp}/> : null
+              <Route path="/approve-user" exact component={ApproveUserPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} /> :  null
+              <Route path="/agenda" exact component={AgendaPageApp} /> : null
           }
           {
             jwt ?
-            <Route path="/recipes" exact component={RecipePageComponent} /> : null
+              <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} /> : null
           }
           {
             jwt ?
-            <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} /> : null
+              <Route path="/recipes" exact component={RecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} /> : null
+              <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} /> : null
+              <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} /> : null
+              <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} /> : null
+              <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} /> : null
+              <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} /> : null
+              <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} /> : null
+              <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/meatball-recipe" exact component={MeatballsPageComponent} /> : null
+              <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} /> : null
+              <Route path="/meatball-recipe" exact component={MeatballsPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} /> : null
+              <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} /> : null
+              <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} /> : null
+              <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} /> : null
+              <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} /> : null
+              <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} /> : null
+              <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} /> : null
           }
-
+          {
+            jwt ?
+              <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} /> : null
+          }
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>

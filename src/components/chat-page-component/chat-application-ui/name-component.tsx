@@ -62,7 +62,7 @@ export default class NameComponent extends React.Component<any, any> {
                             margin="dense"
                             id="name"
                             label="Name"
-                            type="name" onChange={this.setEnteredName}
+                            type="name" onChange={this.setEnteredName} value={this.state.name} 
                             fullWidth
                         />
                     </DialogContent>
