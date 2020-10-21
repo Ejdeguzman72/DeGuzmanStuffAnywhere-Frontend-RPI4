@@ -8,7 +8,7 @@ export default class NameComponent extends React.Component<any, any> {
 
         this.state = {
             open: true,
-            name: "" 
+            name: this.tokenExtracted.sub
         }
     }
     parseJwt = (token: any) => {

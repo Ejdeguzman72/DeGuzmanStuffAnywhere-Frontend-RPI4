@@ -40,10 +40,11 @@
     border-color: solid;
     border-style: solid;
     background-color: white;
-    height: 70vh;
+    height: 100vh;
     width:100%;
     overflow: auto;
     float: left;
+    border-radius: 50px;
 }
  
 .chat-app-container {

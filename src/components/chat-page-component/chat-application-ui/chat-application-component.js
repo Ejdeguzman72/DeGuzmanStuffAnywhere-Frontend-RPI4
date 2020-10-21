@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import SockJsClient from './sockjs-client';
 import NameComponent from './name-component';
 import '../../../style-sheets/chat-page.css';
+import { Col } from 'react-bootstrap';
 
 export default class ChatApplicationComponent extends React.Component {
 
@@ -24,11 +25,19 @@ export default class ChatApplicationComponent extends React.Component {
         console.log(`${this.state.name} was entered into the chat`);
     }
 
-    sendMessage = () => {
+    sendMessage = (event) => {
+        event.preventDefault();
         this.clientRef.sendMessage('/app/user-all', JSON.stringify({
             name: this.state.name,
-            message: this.state.typedMessage
+            message: this.state.typedMessage,
         }));
+        this.setState({message: ""});
+    }
+
+    reset = () => {
+        this.setState({
+            message: ''
+        })
     }
 
     displayMessages = () => {
@@ -39,11 +48,15 @@ export default class ChatApplicationComponent extends React.Component {
                         <div>
                             {this.state.name == msg.name ?
                                 <div>
-                                    <p className="title1"> {msg.name} : </p><br></br>
-                                    <p> {msg.message} </p>
+                                    <Col md={3}>
+                                        <p className="title1"> {msg.name}</p>
+                                    </Col>
+                                    <Col md={7}>
+                                        <p> {msg.message} </p>
+                                    </Col>
                                 </div> :
                                 <div>
-                                    <p className="title2"> {msg.name} : </p><br></br>
+                                    <p className="title2"> {msg.name} : </p>
                                     <p> {msg.message} </p>
                                 </div>
                             }
