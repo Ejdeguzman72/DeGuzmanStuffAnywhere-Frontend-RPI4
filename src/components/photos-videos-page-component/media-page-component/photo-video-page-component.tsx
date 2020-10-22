@@ -24,6 +24,19 @@ export class PhotoVideoPageComponent extends React.Component<any, any> {
                             <VideoPageContainerComponent />
                         </Col>
                     </Row>
+                    <br></br>
+                    <br></br>
+                    <Row>
+                        <Col md={4}>
+
+                        </Col>
+                        <Col md={4}>
+
+                        </Col>
+                        <Col md={4}>
+                            
+                        </Col>
+                    </Row>
                 </div>
                 <FooterComponent />
             </div>
