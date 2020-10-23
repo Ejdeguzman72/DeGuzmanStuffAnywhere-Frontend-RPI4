@@ -26,12 +26,12 @@ export default class ChatApplicationComponent extends React.Component {
     }
 
     sendMessage = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         this.clientRef.sendMessage('/app/user-all', JSON.stringify({
             name: this.state.name,
             message: this.state.typedMessage,
         }));
-        this.setState({message: ""});
+        this.setState({message: ''});
     }
 
     reset = () => {
@@ -94,7 +94,7 @@ export default class ChatApplicationComponent extends React.Component {
                 <div className="align-center-msg">
                     {this.displayMessages()}
                 </div>
-                <SockJsClient url='http://ec2-18-220-162-122.us-east-2.compute.amazonaws.com:8080/websocket-chat'
+                <SockJsClient url='http://localhost:8080/websocket-chat'
                     topics={['/topic/user']}
                     onConnect={() => {
                         console.log("connected");

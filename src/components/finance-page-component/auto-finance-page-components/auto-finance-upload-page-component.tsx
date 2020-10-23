@@ -19,8 +19,7 @@ export class AutoFinanceUploadPageComponent extends React.Component<any, any> {
                         <div style={{ margin: "20px" }}>
                             <h3>Auto Finance</h3>
                             <h4>Upload Files</h4>
-                        </div>
-                        
+                        </div> 
                         <AutoFinanceUploadComponent />
                     </Container>
                 </div>

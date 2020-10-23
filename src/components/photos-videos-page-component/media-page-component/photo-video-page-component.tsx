@@ -4,6 +4,7 @@ import { MediaPhotoPageContainerComponent } from './photo-page-container-compone
 import { VideoPageContainerComponent } from './video-page-container-component';
 import { FooterComponent } from '../../footer-component/footer-component';
 import { Row, Col } from 'react-bootstrap';
+import { FireBasePhotoGalleryContainer } from './firebase-photo-gallery-container';
 
 export class PhotoVideoPageComponent extends React.Component<any, any> {
     render() {
@@ -31,7 +32,7 @@ export class PhotoVideoPageComponent extends React.Component<any, any> {
 
                         </Col>
                         <Col md={4}>
-
+                            < FireBasePhotoGalleryContainer />
                         </Col>
                         <Col md={4}>
                             

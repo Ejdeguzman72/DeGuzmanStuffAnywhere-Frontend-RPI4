@@ -15,6 +15,9 @@ export class AutoFinanceTabsComponent extends React.Component<any, any> {
                                 <Nav.Item>
                                     <Nav.Link href="#auto-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
                                 </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link href="#view-cars" eventKey="third" id="tabs">View Cars</Nav.Link>
+                                </Nav.Item>
                             </Nav>
                         </Col>
                     </Tab.Container>

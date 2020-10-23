@@ -47,6 +47,7 @@ import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component
 import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
 import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 import FirebasePhotoGalleryPageComponent from './components/photos-videos-page-component/firebase-photo-gallery/components/firebase-photo-gallery-page-component';
+import CarInformationPageComponent from './components/car-information-page-component/car-information-page-component';
 
 const jwt = jwtHelper();
 
@@ -81,7 +82,7 @@ function App() {
           }
           {
             jwt ?
-            <Route path="firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} /> : null
+            <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} /> : null
           }
           {
             jwt ?
@@ -114,6 +115,10 @@ function App() {
           {
             jwt ?
               <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/view-cars" exact component={CarInformationPageComponent} /> : null
           }
           {
             jwt ?
