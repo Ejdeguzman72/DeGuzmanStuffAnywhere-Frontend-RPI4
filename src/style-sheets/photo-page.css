@@ -6,15 +6,6 @@
     --error: #ff4a4a;
 }
 
-/* base styles & title */
-body{
-    font-family: "Noto Serif";
-    color: var(--secondary);
-  }
-  .App{
-    max-width: 960px;
-    margin: 0 auto;
-  }
   .title h1{
     color: var(--primary);
     font-size: 1.2rem;
@@ -29,47 +20,6 @@ body{
     font-size: 2.6rem;
   }
   
-  /* upload form styles */
-  form{
-    margin: 30px auto 10px;
-    text-align: center;
-  }
-  label input{
-    height: 0;
-    width: 0;
-    opacity: 0;
-  }
-  label{
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--primary);
-    border-radius: 50%;
-    margin: 10px auto;
-    line-height: 30px;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 24px;
-  }
-  label:hover{
-    background: var(--primary);
-    color: white;
-  }
-  .output{
-    height: 60px;
-    font-size: 0.8rem;
-  }
-  .error{
-    color: var(--error);
-  }
-  
-  /* progress bar styles */
-  .progress-bar{
-    height: 5px;
-    background: var(--primary);
-    margin-top: 20px;
-  }
-  
   /* image grid styles */
   .img-grid{
     margin: 20px auto;
@@ -82,7 +32,7 @@ body{
     height: 0;
     padding: 50% 0;
     /* padding controls height, will always be perfectly square regardless of width */
-    position: relative;
+    position: absolute;
     opacity: 0.8;
   }
   .img-wrap img{
@@ -110,4 +60,38 @@ body{
     margin: 60px auto;
     box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
     border: 3px solid white;
+  }
+
+  .photo-gallery-title {
+    background-color: #FFF5EE;
+    font-family: fantasy;
+    font-size: 40px;
+    width: auto;
+    color: black;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: black;
+    opacity: 0.8;
+    text-align: center;
+  }
+
+  .photo-gallery-upload-label {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary);
+    border-radius:  50px;
+    margin: 20px auto;
+    line-height: 30px;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .photo-gallery-label-input {
+    height: 0;
+    width: 0;
+    opacity: 0;
   }
