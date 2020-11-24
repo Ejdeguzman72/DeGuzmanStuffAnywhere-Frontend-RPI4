@@ -21,7 +21,7 @@
     "bootstrap": "^4.5.0",
     "file-save": "^0.2.0",
     "file-saver": "^2.0.2",
-    "firebase": "^7.24.0",
+    "firebase": "^7.14.6",
     "firebase-firestore-timestamp": "^1.0.4",
     "framer-motion": "^2.9.4",
     "from": "^0.1.7",

@@ -48,6 +48,16 @@ import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/d
 import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 import FirebasePhotoGalleryPageComponent from './components/photos-videos-page-component/firebase-photo-gallery/components/firebase-photo-gallery-page-component';
 import CarInformationPageComponent from './components/car-information-page-component/car-information-page-component';
+import AsianRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/AsianRecipesCategoryPageComponent';
+import BarbequeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/BarbequeCategoryPageComponent';
+import BreakfeastCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/BreakfeastCategoryPageComponent';
+import ComfortFoodCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/ComfortFoodCategoryPageComponent';
+import DesertsCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/DesertsCategoryPageComponent';
+import FilipinoRecipesCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/FilipnoRecipesCategoryPageComponent';
+import HispanicRecipesCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/HispanicRecipesCategoryPageComponent';
+import ItalianRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/ItalianRecipeCategoryPageComponent';
+import SeafoodRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SeafoodRecipesCategoryPageComponent';
+import SlowCookerRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SlowCookerRecipesCategoryPageComponent';
 
 const jwt = jwtHelper();
 
@@ -165,6 +175,46 @@ function App() {
           {
             jwt ?
               <Route path="/recipes" exact component={RecipePageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/deserts-recipes" exact component={DesertsCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} /> : null
           }
           {
             jwt ?

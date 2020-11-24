@@ -4,20 +4,41 @@ import { FooterComponent } from '../footer-component/footer-component';
 import { DeGuzmanRecipeTabCompoent } from '../tab-components/deguzman-recipe-tab-component';
 import { RecipeTableComponent } from './recipes-table-component';
 import { RecipeNotesContainerComponent } from './recipe-notes-container';
+import { BarbequeTabsComponent } from './recipe-tabs/BarbequeTabsComponent';
+import { BreakfeastRecipeTabsComponent } from './recipe-tabs/BreakfeastTabsRecipeComponent';
+import { DesertsTabComponent } from './recipe-tabs/DesertstTabComponent';
+import { FilipinoDishesTabComponent } from './recipe-tabs/FilipinoDishesTabComponent';
+import { ItalianRecipesTabComponent } from './recipe-tabs/ItalianRecipesTabComponent';
+import { SeafoodRecipeTabComponent } from './recipe-tabs/SeafoodRecipeTabComponent';
+import { SlowCookerRecipes } from './recipe-tabs/SlowCookerRecipes';
+import { ComfortFoodRecipesTabComponent } from './recipe-tabs/ComfortFoodRecipeTabComponent';
+import { HispanicRecipesTabComponent } from './recipe-tabs/HispanicRecipesTabComponent';
+import { AsianRecipeTabsComponent } from './recipe-tabs/AsianRecipesTabComponent';
+
 
 
 export class RecipePageComponent extends React.Component<any,any> {
     render() {
         return (
             <div>
-                <Helmet>
+                <Helmet>  
                     <title>Recipes</title>
                 </Helmet>
                 <div id="white-background">
                     <br></br>
                     <RecipeNotesContainerComponent />
                     <br></br>
-                    <RecipeTableComponent />
+                    <AsianRecipeTabsComponent />
+                    <BarbequeTabsComponent />
+                    <BreakfeastRecipeTabsComponent />
+                    <ComfortFoodRecipesTabComponent />
+                    <DesertsTabComponent />
+                    <FilipinoDishesTabComponent />
+                    <HispanicRecipesTabComponent />
+                    <ItalianRecipesTabComponent />
+                    <SeafoodRecipeTabComponent />
+                    <SlowCookerRecipes />
+                    {/* <RecipeTableComponent /> */}
                     <br></br>
                     <br></br>
                 </div>

@@ -16,7 +16,6 @@ import SalisburySteakBtnComponent from './recipe-buttons/salisbury-steaks-btn';
 import AdoboBtnComponent from './recipe-buttons/adobo-recipe-btn';
 import creamyPastaAndCrunchyMushroomButton from './recipe-buttons/creamy-mushroom-with-crispy-mushroom-pasta';
 import CreamyPastaAndCrunchyMushroomButton from './recipe-buttons/creamy-mushroom-with-crispy-mushroom-pasta';
-import PaginationComponent from './recipe-page-pagination-component/recipe-page-pagination-component';
 import PadThaiRecipeBtnComponent from './recipe-buttons/pad-thai-recipe-btn';
 
 export class RecipeTableComponent extends React.Component<any, any> {
@@ -97,7 +96,6 @@ export class RecipeTableComponent extends React.Component<any, any> {
                         </tr>
                     </tbody>
                 </Table>
-                <PaginationComponent />
             </div>
         )
     }

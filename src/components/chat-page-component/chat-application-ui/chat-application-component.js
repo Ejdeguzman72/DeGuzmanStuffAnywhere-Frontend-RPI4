@@ -107,6 +107,7 @@ export default class ChatApplicationComponent extends React.Component {
                         jobs.push(msg);
                         this.setState({ messages: jobs });
                         console.log(this.state);
+                        this.reset();
                     }}
                     ref={(client => {
                         this.clientRef = client
