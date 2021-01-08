@@ -61,7 +61,7 @@ import SlowCookerRecipeCategoryPageComponent from './components/recipe-page-comp
 import PecanPieRecipePage from './components/recipe-page-component/recipe-pages/PecanPieRecipePage';
 import RestaurantRecommendationPageComponent from './components/restaurant-recomendation-component/RestaurantRecommendationPageComponent';
 import DownloadsPageComponent from './components/downloads-component/DownloadsPageComponent';
-import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
+// import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
 const jwt = jwtHelper();
 
@@ -296,10 +296,10 @@ function App() {
             jwt ?
             <Route path="/downloads" exact component={DownloadsPageComponent} /> : null
           }
-          {
+          {/* {
             jwt ?
             <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} /> : null
-          }
+          } */}
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>
