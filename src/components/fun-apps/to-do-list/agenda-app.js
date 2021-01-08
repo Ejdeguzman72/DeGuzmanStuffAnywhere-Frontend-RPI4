@@ -25,26 +25,54 @@ const ToDoForm = ({ addTodo }) => {
     );
 }
 
-// const Todo = ( {todo}) => {
-//     return (
-//         <div className="todo">
-//             {todo.text}
-//         </div>
-//     );
-// };
+const Todo = ( {todo}) => {
+    return (
+        <div className="todo">
+            {todo.text}
+        </div>
+    );
+};
 
 const AgendaApp = () => {
     const [todos, setTodos] = useState([
         { 
-            text: "Learn about React" ,
+            text: "WAKE UP - 8:00AM" ,
             isCompleted: false
         },
         { 
-            text: "Meet friend for lunch",
+            text: "BRUSH TEETH - 8:15AM",
             isCompleted: false
         },
         { 
-            text: "Build application",
+            text: "GET READY - 8:30AM",
+            isCompleted: false
+        },
+        {
+            text: "WORK FROM HOME - 9:00AM",
+            isCompleted: false
+        },
+        {
+            text: "LUNCH - 1:00PM",
+            isCompleted: false
+        },
+        {
+            text: "WORK FROM HOME - 2:00PM",
+            isCompleted: false
+        },
+        {
+            text: "GYM - 6:30PM",
+            isCompleted: false
+        },
+        {
+            text: "DINNER - 8:00PM",
+            isCompleted: false
+        },
+        {
+            text: "FREE TIME - 9:00PM",
+            isCompleted: false
+        },
+        {
+            text: "SLEEP - 12:00AM",
             isCompleted: false
         }
     ]);

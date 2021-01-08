@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import BlackEyedPeasAndHamHock from '../../recipe-buttons/black-eyed-peas-and-hamhock-recipe-btn';
+import PecanPieBtnComponent from '../../recipe-buttons/PecanPieRecipeButton';
 
 const DesertsRecipeTable = () => {
     return (
@@ -15,8 +16,8 @@ const DesertsRecipeTable = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>Pecan Pie</td>
+                            <td><PecanPieBtnComponent /></td>
                         </tr>
                     </tbody>
                 </Table>

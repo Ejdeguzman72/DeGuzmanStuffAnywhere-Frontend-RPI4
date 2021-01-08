@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const getAllAutoTransations = () => {
+const getAllAutoTransactions = () => {
     return Axios.get('http://localhost:8080/app/auto-transactions/all');
 }
 
@@ -9,6 +9,6 @@ const addAutoTransactionInformation = (newData: any, resolve: any) => {
 }
 
 export default {
-    getAllAutoTransations,
+    getAllAutoTransactions,
     addAutoTransactionInformation
 }

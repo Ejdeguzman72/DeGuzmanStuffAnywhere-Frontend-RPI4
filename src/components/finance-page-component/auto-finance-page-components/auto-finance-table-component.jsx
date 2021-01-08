@@ -68,7 +68,7 @@ export default function AutoFinancePageTableComponent() {
   const [fileName, setFileName] = useState("Auto_Transaction");
 
   useEffect(() => {
-    AutoTransactionService.getAllAutoTransations().then(response => {
+    AutoTransactionService.getAllAutoTransactions().then(response => {
       let data = [];
       response.data.forEach(e1 => {
         data.push({

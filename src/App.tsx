@@ -58,6 +58,10 @@ import HispanicRecipesCategoryPageComponent from './components/recipe-page-compo
 import ItalianRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/ItalianRecipeCategoryPageComponent';
 import SeafoodRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SeafoodRecipesCategoryPageComponent';
 import SlowCookerRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SlowCookerRecipesCategoryPageComponent';
+import PecanPieRecipePage from './components/recipe-page-component/recipe-pages/PecanPieRecipePage';
+import RestaurantRecommendationPageComponent from './components/restaurant-recomendation-component/RestaurantRecommendationPageComponent';
+import DownloadsPageComponent from './components/downloads-component/DownloadsPageComponent';
+import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
 const jwt = jwtHelper();
 
@@ -194,7 +198,11 @@ function App() {
           }
           {
             jwt ?
-              <Route path="/deserts-recipes" exact component={DesertsCategoryPageComponent} /> : null
+              <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} /> : null
           }
           {
             jwt ?
@@ -279,6 +287,18 @@ function App() {
           {
             jwt ?
               <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} /> : null
+          }
+          {
+            jwt ? 
+            <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null 
+          }
+          {
+            jwt ?
+            <Route path="/downloads" exact component={DownloadsPageComponent} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} /> : null
           }
           <Route component={LoginPageComponent} />
         </Switch>

@@ -60,6 +60,10 @@ export class NavBarComponent extends React.Component<any, any> {
                                 <Nav.Link href="#chat" className="navbar-item">Chat</Nav.Link> : null
                             }
                             {
+                                jwt ?
+                                <Nav.Link href="#downloads" className="navbar-item">Downloads</Nav.Link> : null
+                            }
+                            {
                                 jwt ? 
                                 <NavDropdown title="Finance" className="navbar-item" id="basic-nav-dropdown">
                                     <NavDropdown.Item href="#general-finance" className="navbar-item">General Finances</NavDropdown.Item>
@@ -71,14 +75,16 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                 <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="#agenda" className="navbar-item">Agenda</NavDropdown.Item>
+                                    <NavDropdown.Item href="#book-recommendations" className="navbar-item">Book Recommendations</NavDropdown.Item>
+                                    {/* <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA- Agenda</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                     {/* <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
+                                    <NavDropdown.Item  href="#restaurant-recommendations" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
+                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
                                     <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
-                                    <NavDropdown.Item href="#agenda" className="navbar-item">Agenda</NavDropdown.Item>
-                                    <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA-Agenda</NavDropdown.Item>
                                 </NavDropdown> : null
                             }
                         </Nav>

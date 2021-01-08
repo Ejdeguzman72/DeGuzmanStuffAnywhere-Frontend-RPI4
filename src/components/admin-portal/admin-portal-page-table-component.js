@@ -48,23 +48,26 @@ export default function AdminPortalPageUserTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        userid: 0,
+        user_id: 0,
+        name: "",
         username: "",
         password: "",
-        name: "",
-        user_status: 0,
-        roleid: 0
+        email: "",
+        user_status_descr: "",
+        role_descr: ""
       }
     ]
   });
 
   const [state] = React.useState({
     columns: [
-      { title: 'User ID', field: 'userid'},
+      { title: 'User ID', field: 'user_id'},
+      { title: 'Name', field: 'name' },
       { title: 'Username', field: 'username' },
       { title: 'Password', field: 'password', hidden: true },
-      { title: 'Name', field: 'name' },
-      { title: 'User Status', field: 'user_status' }
+      { title: 'Email',field: 'email'},
+      { title: 'User Status', field: 'user_status_descr' },
+      { title: 'Role', field: 'role_descr'}
     ],
   });
 
@@ -74,14 +77,15 @@ export default function AdminPortalPageUserTableComponent() {
         let data = [];
         response.data.forEach(e1 => {
           data.push({
-            userid: e1.userid,
+            user_id: e1.userid,
+            name: e1.name,
             username: e1.username,
             password: e1.password,
-            name: e1.name,
-            user_status: e1.user_status,
-            role_id: e1.role_id
+            email: e1.email,
+            role_descr: e1.role_descr,
+            user_status_descr: e1.user_status_descr
           });
-          console.log(data);
+          console.log(e1.user_id);
         });
         setEntries({ data: data })
       })
@@ -91,12 +95,12 @@ export default function AdminPortalPageUserTableComponent() {
   }, []);
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    console.log(oldData.userid + "this is old data");
-    console.log(newData.userid + "this is new data");
-    Axios.put(`http://localhost:8080/app/users/${newData.userid}`, newData)
+    console.log(oldData.user_id + "this is old data");
+    console.log(newData.user_id + "this is new data");
+    Axios.put(`http://localhost:8080/app/users/${newData.user_id}`, newData)
       .then(res => {
         const dataUpdate = [...entries];
-        const index = oldData.tableData.userid;
+        const index = oldData.tableData.user_id;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
@@ -110,10 +114,10 @@ export default function AdminPortalPageUserTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.userid);
-    Axios.delete(`http://localhost:8080/app/users/${oldData.userid}`)
+    Axios.delete(`http://localhost:8080/app/users/${oldData.user_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.userid;
+        const index = oldData.tableData.user_id;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();

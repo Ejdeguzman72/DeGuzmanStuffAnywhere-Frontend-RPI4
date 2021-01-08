@@ -16,7 +16,9 @@ export class HomePageComponent extends React.Component<any, any> {
                     <title>Home</title>
                 </Helmet>
                         <Button variant="outline-info" size="lg" className="admin-button" disabled={true}>
-                            <Link to="admin-portal" className="disabled-link">
+                            <Link to="admin-portal" 
+                                //className="disabled-link"
+                            >
                                 Admin Portal
                             </Link>
                         </Button>
