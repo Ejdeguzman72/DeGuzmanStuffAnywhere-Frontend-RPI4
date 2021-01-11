@@ -8,7 +8,7 @@ const AddBookRecommendationTabComponent = () => {
                 <Col md={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#add-book-recommendation" eventKey="first" id="tabs">Add Book Recommendation</Nav.Link>
+                            <Nav.Link href="#add-book-information" eventKey="first" id="tabs">Add Book Recommendation</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>

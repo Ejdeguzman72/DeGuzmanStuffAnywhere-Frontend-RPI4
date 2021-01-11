@@ -24,7 +24,7 @@ const AddBookRecommendation = () => {
     const saveBook = () => {
         
         let data = {
-            title: book.name,
+            name: book.name,
             author: book.author
         };
 

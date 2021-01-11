@@ -5,6 +5,21 @@
     border-style: solid;
     box-shadow: 5px 10px 18px #888888;
     height: 60vh;
+    width: auto;
+    overflow: auto;
+    font-size: 25px;
+    background-image:  linear-gradient(#FFF5EE,silver);
+    font-family: fantasy;
+    border-radius: 50px;
+}
+
+.update-book-container {
+    margin: auto;
+    padding: 20px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 5px 10px 18px #888888;
+    height: 60vh;
     width: 600px;
     overflow: auto;
     font-size: 25px;
@@ -32,3 +47,35 @@
     font-family: fantasy;
     text-align: center;
 }
+
+.list {
+    text-align: left;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 20px;
+}
+
+/* .submit-form {
+    max-width: 300px;
+    margin: auto;
+} */
+
+.edit-form {
+    max-width: 300px;
+    margin: auto;
+}
+
+#add-book-information-btn {
+    color: white;
+    width: 200px;
+}
+
+#update-book-information-btn {
+    color: white;
+    width: 200px;
+}
+
+.selected-book {
+    background-image: linear-gradient(silver,white);
+}
+

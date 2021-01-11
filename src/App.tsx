@@ -63,6 +63,8 @@ import RestaurantRecommendationPageComponent from './components/restaurant-recom
 import DownloadsPageComponent from './components/downloads-component/DownloadsPageComponent';
 import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 import AddBookRecommendation from './components/book-recommendations-component/AddBookRecommendation';
+import BookUpdate from './components/book-recommendations-component/BookUpdate';
+// import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
 const jwt = jwtHelper();
@@ -305,6 +307,10 @@ function App() {
           {
             jwt ? 
             <Route path="/add-book-information" exact component={AddBookRecommendation} /> : null
+          }
+          {
+            jwt ?
+            <Route path="/update-book-information" exact component={BookUpdate} /> : null
           }
           <Route component={LoginPageComponent} />
         </Switch>
