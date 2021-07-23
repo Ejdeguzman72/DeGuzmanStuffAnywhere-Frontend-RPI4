@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import BooksService from '../../services/BookService';
+import MusicService from '../../services/MusicService';
 import { Link } from 'react-router-dom';
-import AddBookRecommendation from './AddBookRecommendation';
+import { Row, Button } from 'react-bootstrap';
+import AddSongModal from './AddSongModal'
 import Pagination from "@material-ui/lab/Pagination";
 
-const BooksList = () => {
-    const [books, setBooks] = useState([]);
-    const [currentBook, setCurrentBook] = useState(null);
+const SongList = () => {
+    const [songs, setSong] = useState([]);
+    const [currentSong, setCurrentSong] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -39,27 +40,26 @@ const BooksList = () => {
         return params;
     }
 
-    const retrieveBooks = () => {
+    const retrieveMusic = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
 
-        BooksService.getAllBookInformation(params)
+        MusicService.getAllMusicPagination(params)
             .then(response => {
-                const { books, totalPages } = response.data;
-
-                setBooks(books);
+                const { songs, totalPages } = response.data;
+                setSong(songs);
                 setCount(totalPages);
-                console.log(response.data);
+                console.log(response.data + "skjdhfkjsdhfkjskjdfh");
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    useEffect(retrieveBooks, [page, pageSize]);
+    useEffect(retrieveMusic, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveBooks();
-        setCurrentBook(null);
+        retrieveMusic();
+        setCurrentSong(null);
         setCurrentIndex(-1);
     }
 
@@ -72,15 +72,16 @@ const BooksList = () => {
         setpage(1);
     }
 
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
+    const setActiveMusic = (music, index) => {
+        setCurrentSong(music);
+        console.log(music + " this is the music");
         setCurrentIndex(index);
     }
 
-    const removeAllBooks = () => {
-        BooksService.deleteAllBookInformation
+    const removeAllMusic = () => {
+        MusicService.deleteAllSongs
             .then(response => {
-                setBooks(response.data);
+                setSong(response.data);
                 console.log(response.data);
             })
             .catch(error => {
@@ -89,9 +90,9 @@ const BooksList = () => {
     };
 
     const findByName = () => {
-        BooksService.findBookByName(searchTitle)
+        MusicService.getSongByTitle(searchTitle)
             .then(response => {
-                setBooks(response.data);
+                setSong(response.data);
                 console.log(response.data);
             })
     }
@@ -119,7 +120,7 @@ const BooksList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Book List</h4>
+                <h4>Music List</h4>
 
 
                 <div className="mt-3">
@@ -146,60 +147,58 @@ const BooksList = () => {
 
 
                 <ul className="list-group">
-                    {books &&
-                        books.map((book, index) => (
+                    {songs &&
+                        songs.map((song, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveBook(book, index)}
+                                onClick={() => setActiveMusic(song, index)}
                                 key={index}
                             >
-                                {book.name}
+                                {song.title}
                             </li>
                         ))}
                 </ul>
-
-                <button
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllBooks}
-                >
-                    Delete All
-                </button>
-                {/* <button
-                    className="m-3 btn btn-primary"
-                    onClick={removeAllBooks}
-                >
-                    Add Book Information
-                </button> */}
-                <AddBookRecommendation />
+                <br></br>
+                <Row>
+                    <AddSongModal />
+                    <Button
+                        size="sm"
+                        className="btn-danger delete-all-btn" 
+                        onClick={removeAllMusic}
+                    >
+                        Delete All
+                    </Button>
+                </Row>
             </div>
+            {console.log(currentSong + "sdlkfsdlkjflksdjflksdjflkj")}
             <div className="col-md-6">
-                {currentBook ? (
+                {currentSong ? (
                     <div>
-                        <h4>Book Information</h4>
+                        <h4>Music</h4>
                         <div>
                             <label>
                                 <strong>Title:</strong>
                             </label>{" "}
-                            {currentBook.name}
+                            {currentSong.title}
                         </div>
                         <div>
                             <label>
-                                <strong>Author:</strong>
+                                <strong>Arist:</strong>
                             </label>{" "}
-                            {currentBook.author}
+                            {currentSong.artist}
                         </div>
                         <div>
                             <label>
-                                <strong>Description:</strong>
+                                <strong>Genre:</strong>
                             </label>{" "}
-                            {currentBook.descr}
+                            {currentSong.genre}
                         </div>
 
                         <Link
-                            to={"/update-book-information" + currentBook.book_id}
+                            to={"/update-book-information" + currentSong.book_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -216,4 +215,4 @@ const BooksList = () => {
     )
 }
 
-export default BooksList;
+export default SongList;

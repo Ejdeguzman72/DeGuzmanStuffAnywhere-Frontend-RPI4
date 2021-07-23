@@ -21,6 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import { Col,Row } from 'react-bootstrap';
 import ExportMedicalFinanceCSV from './ExportMedicalFinanceCSV';
+import AddMedicalFinanceModalComponent from './AddMedicalTransactionModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -46,10 +47,11 @@ export default function MedicalFinancePageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
       { title: 'Medical Transaction ID', field: 'medicalTransactionId', hidden: true },
-      { title: 'Medical Facility', field: 'facillity' },
-      { title: 'Amount', field: 'amount' },
       { title: 'Payment Date', field: 'medicalTransactionDate' },
-      { title: 'Person', field: 'person' },
+      { title: 'Amount', field: 'amount' },
+      { title: 'Medical Facility', field: 'facility' },
+      { title: 'Transaction Type', field: 'transactionType'},
+      { title: 'Name', field: 'user' },
     ],
   });
 
@@ -57,10 +59,11 @@ export default function MedicalFinancePageTableComponent() {
     data: [
       {
         medicalTransactionId: 0,
-        facillity: "",
         amount: 0.00,
         medicalTransactionDate: "",
-        person: ""
+        facillity: "",
+        transactionType:"",
+        user: ""
       }
     ]
   });
@@ -73,10 +76,11 @@ export default function MedicalFinancePageTableComponent() {
       response.data.forEach(e1 => {
         data.push({
           medicalTransactionId: e1.medicalTransactionId,
-          facillity: e1.facillity,
-          amount: e1.amount,
           medicalTransactionDate: e1.medicalTransactionDate,
-          person: e1.person
+          amount: e1.amount,
+          facility: e1.facility.name,
+          transactionType: e1.transactionType.descr,
+          user: e1.user.name
         });
         console.log(data);
       });
@@ -134,13 +138,11 @@ export default function MedicalFinancePageTableComponent() {
         <Col md={4}>
 
         </Col>
-        <Col md={4}>
+        <Col md={3}>
 
         </Col>
-        <Col md={2}>
-          
-        </Col>
-        <Col md={2}>
+        <Col md={5}>
+          <AddMedicalFinanceModalComponent />
           <ExportMedicalFinanceCSV csvData={medicalTrxData.data} fileName={fileName} />
         </Col>
       </Row>
@@ -152,10 +154,10 @@ export default function MedicalFinancePageTableComponent() {
         data={medicalTrxData.data}
         icons={tableIcons}
         editable={{
-          onRowAdd: (newData) =>
-            new Promise((resolve) => {
-              handleRowAdd(newData, resolve)
-            }),
+          // onRowAdd: (newData) =>
+          //   new Promise((resolve) => {
+          //     handleRowAdd(newData, resolve)
+          //   }),
           // onRowUpdate: (newData, oldData) =>
           //   new Promise((resolve) => {
           //     handleRowUpdate(newData, oldData, resolve)

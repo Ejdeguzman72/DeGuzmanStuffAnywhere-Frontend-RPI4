@@ -64,6 +64,7 @@ import DownloadsPageComponent from './components/downloads-component/DownloadsPa
 import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 import AddBookRecommendation from './components/book-recommendations-component/AddBookRecommendation';
 import BookUpdate from './components/book-recommendations-component/BookUpdate';
+import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -85,6 +86,10 @@ function App() {
           {
             jwt ?
               <Route path="/media" exact component={PhotoVideoPageComponent} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/music" exact component={MusicRecommendationPageComponent} /> : null
           }
           {
             jwt ?

@@ -21,6 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import ExportCarInformationCSV from './ExportCarInfoCSV';
 import { Col,Row } from 'react-bootstrap';
+import AddCarInfoModalComponent from './AddCarInfoModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -48,7 +49,8 @@ export default function ViewCarsTableComponent() {
       { title: 'Car ID', field: 'carid', hidden: true },
       { title: 'Make', field: 'make' },
       { title: 'Model', field: 'model' },
-      { title: 'Capacity', field: 'capacity' },
+      { title: 'Year', field: 'year'},
+      { title: 'Capacity', field: 'capactity' },
       { title: 'Transmission', field: 'transmission' }
     ],
   });
@@ -59,7 +61,8 @@ export default function ViewCarsTableComponent() {
         carid: 0,
         make: 0,
         model: "",
-        capacity: "",
+        year:"",
+        capactity: 0,
         transmission: "",
       }
     ]
@@ -75,7 +78,8 @@ export default function ViewCarsTableComponent() {
           carid: e1.carid,
           make: e1.make,
           model: e1.model,
-          capacity: e1.capacity,
+          year: e1.year,
+          capactity: e1.capactity,
           transmission: e1.transmission
         });
         console.log(data);
@@ -100,7 +104,7 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/cars/car/${oldData.carid}`)
+    Axios.put(`http://localhost:8080/app/cars/car/${oldData.carid}`,newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.carid;
@@ -136,13 +140,11 @@ export default function ViewCarsTableComponent() {
         <Col md={4}>
 
         </Col>
-        <Col md={4}>
+        <Col md={5}>
 
         </Col>
-        <Col md={2}>
-
-        </Col>
-        <Col md={2}>
+        <Col md={3}>
+          < AddCarInfoModalComponent />
           <ExportCarInformationCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>
@@ -154,10 +156,10 @@ export default function ViewCarsTableComponent() {
           columns={state.columns}
           data={entries.data}
           editable={{
-            onRowAdd: (newData) =>
-              new Promise((resolve) => {
-                handleRowAdd(newData, resolve)
-              }),
+            // onRowAdd: (newData) =>
+            //   new Promise((resolve) => {
+            //     handleRowAdd(newData, resolve)
+            //   }),
             onRowUpdate: (newData, oldData) =>
               new Promise((resolve) => {
                 handleRowUpdate(newData, oldData, resolve)

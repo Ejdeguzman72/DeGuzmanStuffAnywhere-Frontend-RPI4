@@ -21,6 +21,7 @@ import Box from '@material-ui/core/Box';
 // import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
 import { Col,Row } from 'react-bootstrap';
 import RestaurantRecommendationsService from '../../services/RestaurantRecommendationsService';
+import AddRestaurantModalComponent from './AddRestaurantModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -51,20 +52,20 @@ export default function RestaurantRecommendationTableComponent() {
       { title: 'City', field: 'city' },
       { title: 'State', field: 'state' },
       { title: 'Zip Code', field: 'zip'},
-      { title: 'Restaurant Type', field: 'type'}
+      { title: 'Restaurant Type', field: 'restaurantDescr'}
     ],
   });
 
   const [entries, setEntries] = useState({
     data: [
       {
-        restaurant_id: 0,
+        restauant_id: 0,
         name: "",
         address: "",
         city: "",
         state: "",
         zip: "",
-        type: ""
+        restaurantDescr: "",
       }
     ]
   });
@@ -76,15 +77,14 @@ export default function RestaurantRecommendationTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          restaurant_id: e1.restaurant_id,
+          restauant_id: e1.restauant_id,
           name: e1.name,
           address: e1.address,
           city: e1.city,
           zip: e1.zip,
           state: e1.state,
-          type: e1.type
+          restaurantDescr: e1.restaurantType.descr
         });
-        console.log(data);
       });
       setEntries({ data: data })
     })
@@ -149,6 +149,7 @@ export default function RestaurantRecommendationTableComponent() {
 
         </Col>
         <Col md={2}>
+          <AddRestaurantModalComponent />
           {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
         </Col>
       </Row>

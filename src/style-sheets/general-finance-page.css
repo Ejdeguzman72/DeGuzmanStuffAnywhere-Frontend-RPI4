@@ -1,3 +1,27 @@
 .export-btn {
     float: right;
 }
+
+.modal-container {
+    /* width: auto; */
+    font-family: fantasy;
+    overflow: auto;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    text-align: center;
+    background-image: url('../assets/roystudio120900008.jpg');
+    height: auto;
+    font-family: fantasy;
+    /* border-radius: 25px; */
+    list-style: none;
+    height: 200px;
+    /* text-align: left; */
+    padding: 15px;
+}
+
+.input {
+    border: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+}

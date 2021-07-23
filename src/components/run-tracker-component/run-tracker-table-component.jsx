@@ -19,6 +19,8 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
+import AddRunInfoModalComponent from './AddRunInfoModalComponent';
+import { Row, Col} from 'react-bootstrap';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -48,6 +50,8 @@ export default function RunTrackerTableComponent() {
                 runid: 0,
                 firstname: "",
                 lastname: "",
+                city: "",
+                state: "",
                 runDate: "",
                 runDistance: 0,
                 runTime: 0
@@ -60,8 +64,10 @@ export default function RunTrackerTableComponent() {
             { title: 'ID No:', field: 'runid', hidden: true},
             { title: 'First Name', field: 'firstname' },
             { title: 'Last Name', field: 'lastname' },
+            { title: 'City', field: 'city'},
+            { title: 'State', field: 'state'},
             { title: 'Date of Run', field: 'runDate' },
-            { title: 'Distance', field: 'distance' },
+            { title: 'Distance', field: 'runDistance' },
             { title: 'Time', field: 'runTime' }
         ]
     });
@@ -137,6 +143,22 @@ export default function RunTrackerTableComponent() {
 
     return (
         <div>
+            <Row>
+        <Col md={4}>
+
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+
+        </Col>
+        <Col md={2}>
+          <AddRunInfoModalComponent />
+          {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
+        </Col>
+      </Row>
+      <br></br>
             <Box border={3} borderRadius={16}>
                 <MaterialTable
                     title="Run Tracker"

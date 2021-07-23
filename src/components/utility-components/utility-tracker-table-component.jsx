@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import UtilityTrackerService from '../../services/utility-tracker-service';
 import { forwardRef } from 'react';
@@ -51,7 +52,8 @@ export default function UtilityTableComponent() {
                 name: "",
                 phone: "",
                 url: "",
-                dueDate: 0
+                dueDate: 0,
+                utilityTypeDescr: ""
             }
         ]
     });
@@ -64,7 +66,8 @@ export default function UtilityTableComponent() {
             { title: 'Entity', field: 'name' },
             { title: 'Phone Number', field: 'phone' },
             { title: 'Website Link', field: 'url' },
-            { title: 'Expected Due Date', field: 'dueDate' }
+            { title: 'Expected Due Date', field: 'dueDate' },
+            { title: "Type Description", field: 'utilityType'}
         ]
     });
 
@@ -77,9 +80,11 @@ export default function UtilityTableComponent() {
                     name: e1.name,
                     phone: e1.phone,
                     url: e1.url,
-                    dueDate: e1.dueDate
+                    dueDate: e1.dueDate,
+                    utilityType: e1.utiltityType
                 });
                 console.log(data);
+                //console.log(e1.utilityType.utility_type_descr);
             });
             setEntries({ data: data })
         })
@@ -145,7 +150,7 @@ export default function UtilityTableComponent() {
 
         </Col>
         <Col md={2}>
-
+            
         </Col>
         <Col md={2}>
           <ExportUtilityInformationCSV csvData={entries.data} fileName={fileName} />

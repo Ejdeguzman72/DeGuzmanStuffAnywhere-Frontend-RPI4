@@ -1,7 +1,7 @@
 import http from '../http-common';
 
-const getAllBookInformation = () => {
-    return http.get('/all');
+const getAllBookInformation = (params) => {
+    return http.get('/all-books', { params } );
 };
 
 const getBookInformationById = (book_id) => {

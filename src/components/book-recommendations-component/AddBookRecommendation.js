@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import BookService from '../../services/BookService';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import '../../style-sheets/book-recommendations.css';
-import AddBookRecommendationTabComponent from '../tab-components/AddBookRecommendationTabComponent';
-import BookrecommendationsTabComponent from '../tab-components/BookRecommendationsTabComponent';
 
 const AddBookRecommendation = () => {
     const initialState = {
         book_id: 0,
         name: "",
-        author: ""
+        author: "",
+        descr:""
     };
 
     const [book, setBook] = useState(initialState);
@@ -22,10 +21,11 @@ const AddBookRecommendation = () => {
     };
 
     const saveBook = () => {
-        
+
         let data = {
             name: book.name,
-            author: book.author
+            author: book.author,
+            descr: book.descr
         };
 
         BookService.addBookInformation(data)
@@ -33,11 +33,12 @@ const AddBookRecommendation = () => {
                 setBook({
                     book_id: response.data.book_id,
                     name: response.data.name,
-                    author: response.data.author
+                    author: response.data.author,
+                    descr: response.data.descr
                 });
                 setSubmitted(true);
-                alert(`${book.name} has been added`)
-                console.log(response.data);
+               
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -49,29 +50,46 @@ const AddBookRecommendation = () => {
         setSubmitted(false);
     }
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
-        <div id="white-background">
-            <br></br>
-            <BookrecommendationsTabComponent />
-            <AddBookRecommendationTabComponent />
-            <br></br>
-            <div className="add-book-recommendation-container">
-                <div className="submit-form">
-                    {submitted ? (
+        <><Button variant="info" size="sm" onClick={handleShow}>
+            Add Book
+        </Button>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Book</Modal.Title>
+                </Modal.Header>
+
+                {submitted ? (
+                    <Modal.Body>
                         <div>
-                            <h4>Book Information has been submitted successfully</h4>
+                            <h4>{book.name} has been added successfully</h4>
                             <Button className="btn btn-success" onClick={newBook} size="lg" variant="info">
                                 Add
                             </Button>
                         </div>
-                    ) : (
-                            <div>
+                    </Modal.Body>
+                ) : (
+                        <Modal.Body>
+                            Please fill out the following information:
+                            <br></br>
+                            <div className="modal-container">
                                 <div className="form-group">
                                     <label htmlFor="name">Title</label>
                                     <br></br>
                                     <input
                                         type="text"
-                                        className="book-name-input"
+                                        // className="book-name-input"
                                         id="name"
                                         required
                                         value={book.name}
@@ -79,13 +97,12 @@ const AddBookRecommendation = () => {
                                         name="name"
                                     />
                                 </div>
-
                                 <div className="form-group">
                                     <label htmlFor="author">Author</label>
                                     <br></br>
                                     <input
                                         type="text"
-                                        className="author-input"
+                                        // className="author-input"
                                         id="author"
                                         required
                                         value={book.author}
@@ -93,15 +110,30 @@ const AddBookRecommendation = () => {
                                         name="author"
                                     />
                                 </div>
-
-                                <Button onClick={saveBook} variant="dark" size="lg">
-                                    Submit
-                                </Button>
+                                <div className="form-group">
+                                    <label htmlFor="descr">Summary</label>
+                                    <br></br>
+                                    <textarea
+                                        type="text"
+                                        // className="author-input"
+                                        id="descr"
+                                        required
+                                        value={book.descr}
+                                        onChange={handleInputChange}
+                                        name="descr"
+                                    />
+                                </div>
                             </div>
-                        )}
-                </div>
-            </div>
-        </div>
+
+                        </Modal.Body>
+                    )}
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={saveBook}>Submit</Button>
+                </Modal.Footer>
+            </Modal></>
     )
 }
 

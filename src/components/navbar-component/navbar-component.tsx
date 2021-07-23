@@ -79,6 +79,7 @@ export class NavBarComponent extends React.Component<any, any> {
                                     <NavDropdown.Item href="#book-recommendations" className="navbar-item">Book Recommendations</NavDropdown.Item>
                                     {/* <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA- Agenda</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
+                                    <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
                                     {/* <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
                                     <NavDropdown.Item  href="#restaurant-recommendations" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
@@ -95,10 +96,10 @@ export class NavBarComponent extends React.Component<any, any> {
                                 <b>Hello {this.tokenExtracted.sub}!</b>
                             </p>  : null
                             }
-                            {
+                            {/* {
                                 jwt ?
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" id="button-margin"/> : null
-                            }
+                            } */}
                             {
                                 jwt ?
                                 <Button variant="outline-info" size="lg" id="button-margin">Search</Button> : null

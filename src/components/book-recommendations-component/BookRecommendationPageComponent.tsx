@@ -1,8 +1,7 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
-import AddBookRecommendationTabComponent from '../tab-components/AddBookRecommendationTabComponent';
+import { FooterComponent } from '../footer-component/footer-component';
 import BookrecommendationsTabComponent from '../tab-components/BookRecommendationsTabComponent';
 import BooksList from './BooksList';
 
@@ -15,7 +14,6 @@ const BookRecommendationPageComponent = () => {
             <div id="white-background">
                 <br></br>
                 <BookrecommendationsTabComponent />
-                <AddBookRecommendationTabComponent />
                 <br></br>
                 <Row>
                     {/* <Col md={6}>
@@ -39,6 +37,7 @@ const BookRecommendationPageComponent = () => {
                 <br></br>
                 <BooksList />
             </div>
+            <FooterComponent />
         </div>
     )
 }

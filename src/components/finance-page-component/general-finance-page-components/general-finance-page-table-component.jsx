@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import GeneralTransactionService from '../../../services/general-tranascttion-service';
 import { forwardRef } from 'react';
@@ -20,7 +21,8 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import ExportGeneralFinanceCSV from './ExportGeneralFinanceCSV';
-import { Row, Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import AddGeneralFinanceModalComponent from '../general-finance-page-components/AddGeneralFinanceModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -53,6 +55,7 @@ export default function GeneralFinancePageTableComponent() {
         transactionId: 0,
         amount: 0,
         paymentDate: "",
+        transactionType:"",
         entity: "",
         person: ""
       }
@@ -67,7 +70,8 @@ export default function GeneralFinancePageTableComponent() {
       { title: 'Amount', field: 'amount' },
       { title: 'Payment Date', field: 'paymentDate' },
       { title: 'Entity', field: 'entity' },
-      { title: 'Person', field: 'person' }
+      {title: 'Transaction Type', field: 'transactionType'},
+      { title: 'User', field: 'user' }
     ],
   });
 
@@ -81,7 +85,8 @@ export default function GeneralFinancePageTableComponent() {
             amount: e1.amount,
             paymentDate: e1.paymentDate,
             entity: e1.entity,
-            person: e1.person
+            transactionType: e1.transactionType.transaction_type_descr,
+            user: e1.user.name
           });
           console.log(data);
         });
@@ -146,13 +151,13 @@ export default function GeneralFinancePageTableComponent() {
         <Col md={4}>
 
         </Col>
-        <Col md={4}>
+        <Col md={5}>
 
         </Col>
-        <Col md={2}>
-          
-        </Col>
-        <Col md={2}>
+        {/* <Col md={2}>
+        </Col> */}
+        <Col md={3}>
+          <AddGeneralFinanceModalComponent />
           <ExportGeneralFinanceCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>

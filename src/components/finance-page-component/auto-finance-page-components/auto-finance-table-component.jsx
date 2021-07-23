@@ -21,6 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
 import { Col,Row } from 'react-bootstrap';
+import AddAutoTransactionModalComponent from '../auto-finance-page-components/AddAutoTransactionModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -47,9 +48,11 @@ export default function AutoFinancePageTableComponent() {
     columns: [
       { title: 'Transaction ID', field: 'autoTransactionId', hidden: true },
       { title: 'Amount', field: 'amount' },
-      { title: 'Repair Shop Name', field: 'shopName' },
-      { title: 'Person Name', field: 'person' },
-      { title: 'Date', field: 'autoTransactionDate' }
+      { title: 'Repair Shop Name', field: 'autoShop' },
+      { title: 'Transaction Type', field: 'transactionType'},
+      { title: 'Name', field: 'user' },
+      { title: 'Car', field: 'car'},
+      { title: 'Date', field: 'autoTransactionDate' },
     ],
   });
 
@@ -58,8 +61,10 @@ export default function AutoFinancePageTableComponent() {
       {
         autoTransactionId: 0,
         amount: 0,
-        shopName: "",
-        person: "",
+        car: "",
+        autoShop: "",
+        user: "",
+        transactionType: "",
         autoTransactionDate: "",
       }
     ]
@@ -74,9 +79,11 @@ export default function AutoFinancePageTableComponent() {
         data.push({
           autoTransactionId: e1.autoTransactionId,
           autoTransactionDate: e1.autoTransactionDate,
-          shopName: e1.shopName,
+          car: e1.car.make + " " + e1.car.model,
+          autoShop: e1.autoShop.autoShopName,
           amount: e1.amount,
-          person: e1.person
+          transactionType: e1.transactionType.descr,
+          user: e1.user.name,
         });
         console.log(data);
       });
@@ -136,13 +143,11 @@ export default function AutoFinancePageTableComponent() {
         <Col md={4}>
 
         </Col>
-        <Col md={4}>
+        <Col md={5}>
 
         </Col>
-        <Col md={2}>
-
-        </Col>
-        <Col md={2}>
+        <Col md={3}>
+          <AddAutoTransactionModalComponent />
           <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>

@@ -124,7 +124,7 @@ export default function ContactInfoEditableTableComponent() {
   }
 
   const handleRowUpdate = (newData,oldData,resolve) => {
-    Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personid}`)
+    Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personid}`,newData)
     .then(res => {
       console.log(newData);
       const dataUpdate = [...entries.data];

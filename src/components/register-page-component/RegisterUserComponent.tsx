@@ -64,7 +64,7 @@ export class RegisterUserComponent extends React.Component<any,any> {
 
         this.setState({
             ...this.state,
-            username: this.state.password,
+            username: this.state.username,
             password: this.state.password,
             name: this.state.name,
             email: this.state.email
