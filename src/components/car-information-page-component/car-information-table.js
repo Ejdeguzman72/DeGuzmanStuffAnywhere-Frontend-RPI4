@@ -107,7 +107,7 @@ export default function ViewCarsTableComponent() {
     Axios.put(`http://localhost:8080/app/cars/car/${oldData.carid}`,newData)
       .then(res => {
         const dataUpdate = [...entries.data];
-        const index = oldData.tabledata.carid;
+        const index = oldData.tabledata.car_id;
         console.log(index + "this is index");
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);

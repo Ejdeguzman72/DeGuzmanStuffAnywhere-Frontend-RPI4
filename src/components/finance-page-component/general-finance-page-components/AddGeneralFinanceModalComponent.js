@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
+import NameDropdown from '../../dropdown-components/NameDropdown';
+import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 
 export default function AddGeneralFinanceModalComponent() {
 
@@ -140,13 +142,9 @@ export default function AddGeneralFinanceModalComponent() {
                   <option value="Amazon">Amazon</option>
                 </Form.Control><br></br>
                 {/* <input type="text" placeholder="Person" className="input" name="person" onChange={handleInputChange} /><br></br><br></br> */}
-                <Form.Control as="select" name="person" onChange={handleInputChange} >
-                  <option value="" disabled selected>Person</option>
-                  <option value="EJ DeGuzman">EJ DeGuzman</option>
-                  <option value="Jovelie DeGuzman">Jovelie DeGuzman</option>
-                  <option value="Lawrence DeGuzman">Lawrence DeGuzman</option>
-                  <option value="Jasmine DeGuzman">Jasmine DeGuzman</option>
-                </Form.Control><br></br>
+                <NameDropdown />
+                <br></br>
+                <TransactionTypeDropdown />
               </div>
 
             </Modal.Body>

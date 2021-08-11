@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
 import MusicTabComponent from '../tab-components/MusicTabComponent';
 import SongList from './SongList';
-import SongListPageableComponent from './SongList';
+import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 
 const MusicRecommendationPageComponent = () => {
     return (
@@ -17,7 +17,6 @@ const MusicRecommendationPageComponent = () => {
                 <MusicTabComponent />
                 <br></br>
                 <Row>
-                    
                 </Row>
                 <br></br>
                 <br></br>

@@ -53,7 +53,7 @@ export default function UtilityTableComponent() {
                 phone: "",
                 url: "",
                 dueDate: 0,
-                utilityTypeDescr: ""
+                utilityType: ""
             }
         ]
     });
@@ -81,7 +81,7 @@ export default function UtilityTableComponent() {
                     phone: e1.phone,
                     url: e1.url,
                     dueDate: e1.dueDate,
-                    utilityType: e1.utiltityType
+                    utilityType: e1.utilityType.utility_type_descr
                 });
                 console.log(data);
                 //console.log(e1.utilityType.utility_type_descr);

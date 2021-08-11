@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col } from 'react-bootstrap';
+import NameDropdown from '../dropdown-components/NameDropdown';
 
 export default function AddRunInfoModalComponent() {
   const [show, setShow] = useState(false);
@@ -26,11 +27,10 @@ export default function AddRunInfoModalComponent() {
           Please fill out the following information:
           <br></br>
           <div className="modal-container"> 
-            <input type="text" placeholder="First Name" className="input" /><br></br><br></br>
-            <input type="text" placeholder="Last Name" className="input"/><br></br><br></br>
             <input type="text" placeholder="Date of Run" className="input"/><br></br><br></br>
             <input type="text" placeholder="Distance" className="input"/><br></br><br></br>
             <input type="text" placeholder="Time" className="input"/><br></br><br></br>
+            <NameDropdown />
           </div>
         </Modal.Body>
         <Modal.Footer>

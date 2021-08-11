@@ -50,9 +50,9 @@ export default function AutoFinancePageTableComponent() {
       { title: 'Amount', field: 'amount' },
       { title: 'Repair Shop Name', field: 'autoShop' },
       { title: 'Transaction Type', field: 'transactionType'},
-      { title: 'Name', field: 'user' },
       { title: 'Car', field: 'car'},
       { title: 'Date', field: 'autoTransactionDate' },
+      { title: 'Name', field: 'user' },
     ],
   });
 
@@ -91,6 +91,7 @@ export default function AutoFinancePageTableComponent() {
     })
       .catch(function (error) {
         console.log(error);
+        alert('Application is facing issue: ' + error);
       });
   }, []);
 

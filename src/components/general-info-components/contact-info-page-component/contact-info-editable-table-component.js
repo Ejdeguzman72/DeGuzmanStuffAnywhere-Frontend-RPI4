@@ -116,6 +116,7 @@ export default function ContactInfoEditableTableComponent() {
       dataDelete.splice(index,1);
       setEntries([...dataDelete]);
       resolve();
+      window.location.reload();
     })
     .catch(error => {
       console.log(error);
@@ -136,6 +137,7 @@ export default function ContactInfoEditableTableComponent() {
     .catch(error => {
       console.log(error);
       resolve();
+      window.reload();
     });
   }
 
