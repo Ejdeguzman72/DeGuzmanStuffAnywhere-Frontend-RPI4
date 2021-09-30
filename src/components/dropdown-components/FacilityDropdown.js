@@ -9,7 +9,7 @@ const FacilityDropdown = () => {
     }
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/facility/all')
+        Axios.get('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/facility/all')
             .then(response => {
                 let data = response.data
                 setItems(data);

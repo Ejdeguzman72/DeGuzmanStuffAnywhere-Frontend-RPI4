@@ -59,7 +59,7 @@ export default class AddUserForm extends React.Component<any, any> {
             role_id: this.state.role_id
         };
 
-        const url = "http://localhost:8080/app/users/add-user";
+        const url = "http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/users/add-user";
 
         Axios.post(url, userInfo);
 

@@ -65,6 +65,7 @@ import BookRecommendationPageComponent from './components/book-recommendations-c
 import AddBookRecommendation from './components/book-recommendations-component/AddBookRecommendation';
 import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
+import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -316,6 +317,10 @@ function App() {
           {
             jwt ?
             <Route path="/update-book-information" exact component={BookUpdate} /> : null
+          }
+          {
+            jwt ? 
+            <Route path="/gym-tracker" exact component={GymTrackerPageComponent} /> : null
           }
           <Route component={LoginPageComponent} />
         </Switch>

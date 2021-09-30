@@ -92,7 +92,7 @@ export default function ViewCarsTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/cars/add-a-car', newData)
+    Axios.post('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/cars/add-a-car', newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...entries.data]
@@ -104,7 +104,7 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/cars/car/${oldData.carid}`,newData)
+    Axios.put(`http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/cars/car/${oldData.carid}`,newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.car_id;
@@ -121,7 +121,7 @@ export default function ViewCarsTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/cars/car/${oldData.carid}`)
+    Axios.delete(`http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/cars/car/${oldData.carid}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.carid;

@@ -4,6 +4,8 @@ import DownloadLink from 'react-download-link';
 import DSADownloadsLinkComponent from './DSADownloadsLinkComponent';
 import DownloadLinkComponent from './HAPIDownloadLinkComponent';
 import HAPIDownloadLinkComponent from './HAPIDownloadLinkComponent';
+import DSAIOSMobileLink from './DSAIOSMobileLink';
+import DSAAndroidMobileLink from './DSAAndriodMobileLink'
 
 const DownloadsTableComponent = () => {
     return (
@@ -27,12 +29,12 @@ const DownloadsTableComponent = () => {
                     </tr>
                     <tr>
                         <td>
-                           
+                           <DSAIOSMobileLink />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                          
+                          <DSAAndroidMobileLink />
                         </td>
                     </tr>
                 </tbody>

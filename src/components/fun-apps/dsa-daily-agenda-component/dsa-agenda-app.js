@@ -66,7 +66,7 @@ const DSAAgendaApp = () => {
     }
 
     const addTodo = (text, resolve) => {
-        Axios.post('http://localhost:8080/app/fun-apps/to-do-list/add-item',text)
+        Axios.post('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/fun-apps/to-do-list/add-item',text)
             .then(res => {
 
                 const newTodos = [...todos, text];
