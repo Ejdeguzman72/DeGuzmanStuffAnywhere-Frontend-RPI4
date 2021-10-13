@@ -1,8 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
-import { DeGuzmanRecipeTabCompoent } from '../tab-components/deguzman-recipe-tab-component';
-import { RecipeTableComponent } from './recipes-table-component';
 import { RecipeNotesContainerComponent } from './recipe-notes-container';
 import { BarbequeTabsComponent } from './recipe-tabs/BarbequeTabsComponent';
 import { BreakfeastRecipeTabsComponent } from './recipe-tabs/BreakfeastTabsRecipeComponent';

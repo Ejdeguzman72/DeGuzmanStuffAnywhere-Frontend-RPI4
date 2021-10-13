@@ -9,7 +9,7 @@ const TransactionTypeDropdown = () => {
     }
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/transaction-types/all')
+        Axios.get('localhost:8080/app/transaction-types/all')
             .then(response => {
                 let data = response.data
                 setItems(data);

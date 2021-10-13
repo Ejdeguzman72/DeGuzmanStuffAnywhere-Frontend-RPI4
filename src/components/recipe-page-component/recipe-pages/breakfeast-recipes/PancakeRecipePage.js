@@ -1,0 +1,24 @@
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
+import PancakeRecipeContainer from '../../recipe-containers/breakfeast-recipe-containers/PancakeRecipeContainer';
+
+const PancakeRecipePage = () => {
+    return (
+        <div>
+            <Helmet>
+                <title>
+                    Breakfeast Strata Recipe
+                </title>
+            </Helmet>
+            <div id="white-background">
+                <br></br>
+                <DeGuzmanRecipeTabCompoent />
+                <br></br>
+                <PancakeRecipeContainer />
+            </div>
+        </div>
+    )
+}
+
+export default PancakeRecipePage;

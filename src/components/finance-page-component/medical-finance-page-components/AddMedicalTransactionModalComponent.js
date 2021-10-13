@@ -33,7 +33,7 @@ export default function AddMedicalFinanceModalComponent() {
       person: medicalTransaction.person
     };
 
-    Axios.post('http://localhost:8080/app/medical-transactions/add-medical-transaction',data)
+    Axios.post('localhost:8080/app/medical-transactions/add-medical-transaction',data)
       .then(response => {
         setMedicalTransaction({
           medicalTransactionId: response.data.medicalTransactionId,

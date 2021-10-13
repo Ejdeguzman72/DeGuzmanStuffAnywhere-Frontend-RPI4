@@ -30,7 +30,7 @@ export default function AddCarInfoModalComponent() {
       transmission: car.transmission
     };
 
-    Axios.post('http://localhost:8080/app/cars/add-a-car',data)
+    Axios.post('localhost:8080/app/cars/add-a-car',data)
       .then(response => {
         setCar({
           car_id: response.data.car_id,

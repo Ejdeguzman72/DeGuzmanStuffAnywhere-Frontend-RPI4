@@ -21,7 +21,7 @@ const CarDropdown = () => {
     }
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/cars/all')
+        Axios.get('localhost:8080/app/cars/all')
             .then(response => {
                 let data = [];
                 response.data.forEach(e1 => {

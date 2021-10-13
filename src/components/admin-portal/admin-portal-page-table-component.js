@@ -41,7 +41,7 @@ const tableIcons = {
 };
 
 const api = Axios.create({
-  baseURL: 'http://localhost:8080/app/users'
+  baseURL: 'localhost:8080/app/users'
 });
 
 export default function AdminPortalPageUserTableComponent() {
@@ -97,7 +97,7 @@ export default function AdminPortalPageUserTableComponent() {
   const handleRowUpdate = (newData, oldData, resolve) => {
     console.log(oldData.user_id + "this is old data");
     console.log(newData.user_id + "this is new data");
-    Axios.put(`http://localhost:8080/app/users/${newData.user_id}`, newData)
+    Axios.put(`localhost:8080/app/users/${newData.user_id}`, newData)
       .then(res => {
         const dataUpdate = [...entries];
         const index = oldData.tableData.user_id;
@@ -114,7 +114,7 @@ export default function AdminPortalPageUserTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.userid);
-    Axios.delete(`http://localhost:8080/app/users/${oldData.user_id}`)
+    Axios.delete(`localhost:8080/app/users/${oldData.user_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.user_id;
@@ -129,7 +129,7 @@ export default function AdminPortalPageUserTableComponent() {
   }
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post("http://localhost:8080/app/users/add-user-information", newData)
+    Axios.post("localhost:8080/app/users/add-user-information", newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...entries.data];

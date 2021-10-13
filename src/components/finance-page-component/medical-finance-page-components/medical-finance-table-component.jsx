@@ -92,7 +92,7 @@ export default function MedicalFinancePageTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/medical-transactions/add-medical-transaction', newData)
+    Axios.post('localhost:8080/app/medical-transactions/add-medical-transaction', newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...medicalTrxData.data];
@@ -104,7 +104,7 @@ export default function MedicalFinancePageTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medicalTransactionId}`)
+    Axios.put(`localhost:8080/app/medical-transactions/medical-transaction/${oldData.medicalTransactionId}`)
       .then(res => {
         const dataUpdate = [...medicalTrxData.data];
         const index = oldData.tabledata.medicalTransactionId;
@@ -119,7 +119,7 @@ export default function MedicalFinancePageTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medicalTransactionId}`)
+    Axios.delete(`localhost:8080/app/medical-transactions/medical-transaction/${oldData.medicalTransactionId}`)
       .then(res => {
         const dataDelete = [...medicalTrxData.data];
         const index = oldData.tabledata.medicalTransactionId;

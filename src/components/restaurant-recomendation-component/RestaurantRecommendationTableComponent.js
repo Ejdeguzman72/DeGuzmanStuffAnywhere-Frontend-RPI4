@@ -94,7 +94,7 @@ export default function RestaurantRecommendationTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/restaurants/add-restaurant-information', newData)
+    Axios.post('localhost:8080/app/restaurants/add-restaurant-information', newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...entries.data]
@@ -106,7 +106,7 @@ export default function RestaurantRecommendationTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/restaurants/update-restaurat/${oldData.restaurant_id}`)
+    Axios.put(`localhost:8080/app/restaurants/update-restaurat/${oldData.restaurant_id}`)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.restaurant_id;
@@ -123,7 +123,7 @@ export default function RestaurantRecommendationTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/restaurants/delete-restaurant/${oldData.restaurant_id}`)
+    Axios.delete(`localhost:8080/app/restaurants/delete-restaurant/${oldData.restaurant_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.restaurant_id;

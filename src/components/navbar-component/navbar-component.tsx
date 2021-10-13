@@ -51,10 +51,10 @@ export class NavBarComponent extends React.Component<any, any> {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            {
+                            {/* {
                                 jwt ? 
                                 <Nav.Link href="#media" className="navbar-item">Photos/Videos</Nav.Link> : null
-                            }
+                            } */}
                             {
                                 jwt ? 
                                 <Nav.Link href="#chat" className="navbar-item">Chat</Nav.Link> : null
@@ -80,12 +80,18 @@ export class NavBarComponent extends React.Component<any, any> {
                                     {/* <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA- Agenda</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                     <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
-                                    {/* <NavDropdown.Item href="#birthdays" className="navbar-item">Birthdays</NavDropdown.Item> */}
                                     <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
                                     <NavDropdown.Item  href="#restaurant-recommendations" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
-                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
                                     <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
                                     <NavDropdown.Divider />
+                                </NavDropdown> : null
+                            }
+                            {
+                                jwt ?
+                                <NavDropdown title="Fitness" className="navbar-item" id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#gym-tracker" className="navbar-item">Gym Tracker</NavDropdown.Item>
                                 </NavDropdown> : null
                             }
                         </Nav>

@@ -160,7 +160,7 @@ const BooksList = () => {
                             </li>
                         ))}
                 </ul>
-
+{console.log(books + " slkdfjslkdlsdkj")}
                 <button
                     className="m-3 btn btn-sm btn-danger"
                     onClick={removeAllBooks}
@@ -208,7 +208,7 @@ const BooksList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a tutorial...</p>
+                            <p>Please click on a book...</p>
                         </div>
                     )}
             </div>
