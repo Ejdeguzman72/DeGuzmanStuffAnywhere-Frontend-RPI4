@@ -96,6 +96,15 @@ export class LoginPageComponent extends React.Component<any, any> {
                             <p className="login-container-warning">Contact (201)-546-0750
                                 or email (ejdeguzman72@gmail.com) for assistance.
                             </p>
+                            <div className="deguzmanrecipesanywhere-btn">
+                             </div>   
+                            <Button 
+                                size="lg" 
+                                variant="dark"
+                                className="deguzmanrecipesanywhere-btn"
+                                >
+                                    <Link className="deguzmanrecipesanywhere-btn" color="white" to="/recipes">DeGuzmanRecipesAnywhere</Link>
+                            </Button>
                             <br></br>
                             <Button 
                                 size="lg" 

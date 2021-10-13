@@ -9,7 +9,7 @@ export class BreakfeastRecipeTabsComponent extends React.Component<any, any> {
                     <Col md={12}>
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item>
-                                <Nav.Link href="#breakefeast-recipes" eventKey="first" id="tabs">Breakfeast Recipes</Nav.Link>
+                                <Nav.Link href="#breakfeast-recipes" eventKey="first" id="tabs">Breakfeast Recipes</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Col>

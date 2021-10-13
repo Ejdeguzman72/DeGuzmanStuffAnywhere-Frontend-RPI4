@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
-import FilipinoRecipeTable from './category-recipe-tables/FilipinoRecipeTable';
+import FilipinoRecipeTable from '../category-recipe-tables/FilipinoRecipeTable';
 
 const FilipinoRecipesCategoryPageComponent = () => {
     return (

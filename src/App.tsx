@@ -17,31 +17,31 @@ import { MedicalFinancePageComponent } from './components/finance-page-component
 import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
-import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/adobo-recipe-page-component';
-import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/beefaroni-recipe-page-component';
-import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/beef-stew-recipe-page-component';
-import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/black-eyed-peas-and-hamhocks-recipe-page-component';
-import { ChiliRecipePageComponent } from './components/recipe-page-component/recipe-pages/chii-recipe-page-component';
-import { FajitasRecipePageComponent } from './components/recipe-page-component/recipe-pages/fajitas-recipe-page-component';
-import { MarinaraRecipePageComponent } from './components/recipe-page-component/recipe-pages/marinara-recipe-page-component';
-import { MeatSaucePageComponent } from './components/recipe-page-component/recipe-pages/meat-sauce-page-component';
-import { MeatballsPageComponent } from './components/recipe-page-component/recipe-pages/meatball-page-component';
-import { PotRoastRecipePageComponent } from './components/recipe-page-component/recipe-pages/pot-roast-recipe-page-component';
-import { PulledPorkRecipePageComponent } from './components/recipe-page-component/recipe-pages/puled-pork-recipe-page-component';
-import { SalisburySteaksRecipePageComponent } from './components/recipe-page-component/recipe-pages/salisbury-steaks-recipe-page-component';
-import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/stuffed-green-peppers-recipe-page-component';
-import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/meatloaf-recipe-page-component';
+import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/filipino-recipes/adobo-recipe-page-component';
+import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beefaroni-recipe-page-component';
+import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beef-stew-recipe-page-component';
+import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/black-eyed-peas-and-hamhocks-recipe-page-component';
+import { ChiliRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/chii-recipe-page-component';
+import { FajitasRecipePageComponent } from './components/recipe-page-component/recipe-pages/hispanic-recipes/fajitas-recipe-page-component';
+import { MarinaraRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/marinara-recipe-page-component';
+import { MeatSaucePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/meat-sauce-page-component';
+import { MeatballsPageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/meatball-page-component';
+import { PotRoastRecipePageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/pot-roast-recipe-page-component';
+import { PulledPorkRecipePageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/puled-pork-recipe-page-component';
+import { SalisburySteaksRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/salisbury-steaks-recipe-page-component';
+import { StuffedGreenPeppersPageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/stuffed-green-peppers-recipe-page-component';
+import { MeatloadRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/meatloaf-recipe-page-component';
 import { VideoPageComponent } from './components/photos-videos-page-component/video-page-component/video-page-component';
 import { PhotoUploadPageComponent } from './components/photos-videos-page-component/photo-upload-page-component/photo-upload-page-component';
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 import UtilityPageComponent from './components/utility-components/utility-page-component';
-import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/creamy-pasta-and-crispy-mushrooms-recipe-page';
+import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/italian-recipes/creamy-pasta-and-crispy-mushrooms-recipe-page';
 import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
 import AdmimPortalPageComponent from './components/admin-portal/admin-portal-page-component';
 import AddUserPageComponent from './components/admin-portal/add-user/add-user-page-component';
 import FindUserInfoPageComponent from './components/admin-portal/find-user-info/find-user-info-page-component';
 import ApproveUserPageComponent from './components/admin-portal/approve-user/approve-user-page-component';
-import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/pad-thai-recipe-page-component';
+import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/asian-recipes/pad-thai-recipe-page-component';
 import { jwtHelper } from './helper/jwt';
 import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component-page-component';
 import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
@@ -58,7 +58,7 @@ import HispanicRecipesCategoryPageComponent from './components/recipe-page-compo
 import ItalianRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/ItalianRecipeCategoryPageComponent';
 import SeafoodRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SeafoodRecipesCategoryPageComponent';
 import SlowCookerRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/SlowCookerRecipesCategoryPageComponent';
-import PecanPieRecipePage from './components/recipe-page-component/recipe-pages/PecanPieRecipePage';
+import PecanPieRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/PecanPieRecipePage';
 import RestaurantRecommendationPageComponent from './components/restaurant-recomendation-component/RestaurantRecommendationPageComponent';
 import DownloadsPageComponent from './components/downloads-component/DownloadsPageComponent';
 import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
@@ -66,6 +66,16 @@ import AddBookRecommendation from './components/book-recommendations-component/A
 import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
+import { StuffedShellsRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/StuffedShellsRecipePageComponent';
+import { ChickenParmesanRecipePage } from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
+import { LecheFlanRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/LecheFlanRecipePage';
+import { CheeseSpinachQuicheRecipePage } from './components/recipe-page-component/recipe-pages/comfort-recipes/CheeseSpinachQuicheRecipePage';
+import { UkoyRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/UkoyRecipePage';
+import PekingStyleRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/PekingStylePorkchopsRecipePage';
+import PanFriedNoodlesRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/PanFriedNoodlesRecipePage';
+import BeefAndBroccoliRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/BeefAndBroccoliRecipePage'; 
+import BreakfeastStrataRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/BreakfeastStrataRecipePage';
+import PancakeRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/PancakeRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -186,118 +196,44 @@ function App() {
             jwt ?
               <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} /> : null
           }
-          {
-            jwt ?
-              <Route path="/recipes" exact component={RecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-            <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/meatball-recipe" exact component={MeatballsPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} /> : null
-          }
+              <Route path="/recipes" exact component={RecipePageComponent} /> 
+              <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
+              <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
+              <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
+              <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
+              <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
+              <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
+              <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
+              <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
+              <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
+              <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
+              <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
+              <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
+              <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
+              <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
+              <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
+              <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
+              <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
+              <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
+              <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
+              <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
+              <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+              <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
+              <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
+              <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
+              <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
+              <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+              <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
+              <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
+              <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
+              <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
+              <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
+              <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
+              <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
+              <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
+              <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
+              <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
+              <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
           {
             jwt ? 
             <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null 

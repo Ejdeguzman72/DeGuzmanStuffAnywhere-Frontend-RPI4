@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
-import DesertsRecipeTable from './category-recipe-tables/DesertsRecipetable';
+import DesertsRecipeTable from '../category-recipe-tables/DesertsRecipetable';
 
 const DesertsCategoryPageComponent = () => {
     return (
