@@ -6,7 +6,7 @@ const uploadPhotosService = (file, onUploadProgress) => {
 
     formData.append("file",file);
 
-    return Axios.post("http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/photo-uploads/upload", formData, {
+    return Axios.post("localhost:8080/app/photo-uploads/upload", formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
@@ -15,7 +15,7 @@ const uploadPhotosService = (file, onUploadProgress) => {
 };
 
 const getPhotoFiles = () => {
-    return Axios.get("http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/photo-uploads/files");
+    return Axios.get("localhost:8080/app/photo-uploads/files");
 }
 
 export default {

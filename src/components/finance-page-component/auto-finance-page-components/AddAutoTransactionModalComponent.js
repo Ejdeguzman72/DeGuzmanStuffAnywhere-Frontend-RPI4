@@ -32,7 +32,7 @@ export default function AddAutoTransactionModalComponent() {
       person: autoTransaction.person
     };
 
-    Axios.post('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/auto-transactions/add-auto-transaction-information',data)
+    Axios.post('localhost:8080/app/auto-transactions/add-auto-transaction-information',data)
       .then(response => {
         setAutoTransaction({
           autoTransactionId: response.data.autoTransactionId,

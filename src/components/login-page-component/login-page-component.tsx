@@ -32,7 +32,7 @@ export class LoginPageComponent extends React.Component<any, any> {
 
     onSubmit(event:any) {
         event.preventDefault();
-        Axios.post("http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/login", {
+        Axios.post("localhost:8080/login", {
             username: this.state.username,
             password: this.state.password
         }).then(res => {

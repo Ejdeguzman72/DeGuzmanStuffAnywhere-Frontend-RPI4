@@ -38,7 +38,7 @@ export default function AddRestaurantModalComponent(props) {
       restaurantType: restaurant.restaurantType
     }
 
-    Axios.post('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/restaurants/add-restaurant-information')
+    Axios.post('localhost:8080/app/restaurants/add-restaurant-information')
       .then(response => {
         setRestaurant({
           restaurantid: response.data.restaurantid,

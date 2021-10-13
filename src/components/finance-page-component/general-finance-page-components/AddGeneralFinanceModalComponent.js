@@ -33,7 +33,7 @@ export default function AddGeneralFinanceModalComponent() {
       person: generalTransaction.person
     };
 
-    Axios.post('http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/general-transaction/add-transaction-information', data)
+    Axios.post('localhost:8080/app/general-transaction/add-transaction-information', data)
       .then(response => {
         setGeneralTransaction({
           transasction_id: response.data.transction_id,

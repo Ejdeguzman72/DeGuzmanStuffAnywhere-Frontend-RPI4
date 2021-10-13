@@ -88,7 +88,7 @@ export default function RunTrackerTableComponent() {
 
 
     const handleRowAdd = (newData,resolve) => {
-        Axios.post(`http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/run-tracker-app/add-run-tracker-info`)
+        Axios.post(`localhost:8080/app/run-tracker-app/add-run-tracker-info`)
         .then(res => {
             console.log(newData);
             let dataToAdd = [...entries.data];
@@ -103,7 +103,7 @@ export default function RunTrackerTableComponent() {
     }    
 
     const handleRowDelete = (oldData,resolve) => {
-        Axios.delete(`http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/run-tracker-app/run/${oldData.runid}`)
+        Axios.delete(`localhost:8080/app/run-tracker-app/run/${oldData.runid}`)
         .then(res => {
             console.log(`Run entry with ID: ${oldData.runid} is deleted`);
             let dataToDelete = [...entries.data];
@@ -119,7 +119,7 @@ export default function RunTrackerTableComponent() {
     }
 
     const handleRowUpdate = (newData,oldData,resolve) => {
-        Axios.put(`http://ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/run-tracker-app/run/${oldData.runid}`)
+        Axios.put(`localhost:8080/app/run-tracker-app/run/${oldData.runid}`)
         .then(res => {
             console.log(`Run Entry with IDL ${oldData.runid}`);
             let dataToUpdate = [...entries.data];
