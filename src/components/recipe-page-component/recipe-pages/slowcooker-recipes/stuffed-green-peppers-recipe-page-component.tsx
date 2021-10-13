@@ -2,7 +2,7 @@ import React from 'react';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
-import StuffedGreenPeppersRecipeContainer from '../../recipe-containers/slowcooker-container-recipes/stuffed-green-peppers-recipe-container-component';
+import StuffedGreenPeppersRecipeContainer from '../../recipe-containers/slowcooker-container-recipes/StuffedGreenPeppersContainer';
 
 export class StuffedGreenPeppersPageComponent extends React.Component<any,any> {
     render() {
