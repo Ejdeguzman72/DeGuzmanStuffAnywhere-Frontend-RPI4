@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import CreamyPastaAndCrunchyMushroomButton from '../recipe-buttons/italian-category-recipe/creamy-mushroom-with-crispy-mushroom-pasta';
-
+import StuffedFlounderRecipeBtn from './../recipe-buttons/seafood-category-button/StuffedFlounderRecipeBtn';
+import BakedRedSnapperRecipeBtn from './../recipe-buttons/seafood-category-button/BakedRedSnapper';
 
 const SeafoodRecipeTable = () => {
     return (
@@ -16,8 +16,12 @@ const SeafoodRecipeTable = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>  </td>
-                            <td>  </td>
+                            <td>Stuffed Flounder</td>
+                            <td><StuffedFlounderRecipeBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Baked Red Snapper</td>
+                            <td><BakedRedSnapperRecipeBtn /></td>
                         </tr>
                     </tbody>
                 </Table>

@@ -67,7 +67,7 @@ import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
 import { StuffedShellsRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/StuffedShellsRecipePageComponent';
-import { ChickenParmesanRecipePage } from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
+import  ChickenParmesanRecipePage  from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
 import { LecheFlanRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/LecheFlanRecipePage';
 import { CheeseSpinachQuicheRecipePage } from './components/recipe-page-component/recipe-pages/comfort-recipes/CheeseSpinachQuicheRecipePage';
 import { UkoyRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/UkoyRecipePage';
@@ -76,6 +76,13 @@ import PanFriedNoodlesRecipePage from './components/recipe-page-component/recipe
 import BeefAndBroccoliRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/BeefAndBroccoliRecipePage'; 
 import BreakfeastStrataRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/BreakfeastStrataRecipePage';
 import PancakeRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/PancakeRecipePage';
+import ArrozCaldoRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/ArrozCaldoRecipePage';
+import ChickenMarsalaRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenMarsalaRecipePage';
+import StuffedFlounderRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/StuffedFlounderRecipePage';
+import PineappleUpsideDownRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/PineappleUpsideDownRecipePage';
+import CarrotCakeRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/CarrotCakeRecipePage';
+import SinigangRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/SinigangRecipePage';
+import BakedRedSnapperPage from './components/recipe-page-component/recipe-pages/seafood-recipes/RedSnapperRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -234,6 +241,13 @@ function App() {
               <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
               <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
               <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
+              <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
+              <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
+              <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
+              <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
+              <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
+              <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
+              <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
           {
             jwt ? 
             <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null 

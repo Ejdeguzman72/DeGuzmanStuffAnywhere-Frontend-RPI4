@@ -1,8 +1,10 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import AdoboBtnComponent from '../recipe-buttons/filipino-category-button/adobo-recipe-btn';
+import ArrozCaldoBtn from '../recipe-buttons/filipino-category-button/ArrozCaldoRecipeBtn';
 import LecheFlanBtn from '../recipe-buttons/filipino-category-button/LecheFlanBtn';
 import UkoyRecipeBtn from '../recipe-buttons/filipino-category-button/UkoyRecipeBtn';
+import SinigangRecipeBtn from '../recipe-buttons/filipino-category-button/SinigangRecipeBtn';
 
 const FilipinoRecipeTable = () => {
     return (
@@ -29,6 +31,14 @@ const FilipinoRecipeTable = () => {
                         <tr>
                             <td>Ukoy - Leek and Shrimp Fritters</td>
                             <td><UkoyRecipeBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Arroz Caldo (Chicken Rice Porridge)</td>
+                            <td><ArrozCaldoBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Pork Sinigang - Filipino Sour Soup</td>
+                            <td><SinigangRecipeBtn /></td>
                         </tr>
                     </tbody>
                 </Table>

@@ -6,6 +6,7 @@ import ChickenParmesanBtn from '../recipe-buttons/italian-category-recipe/Chicke
 import CreamyPastaAndCrunchyMushroomButton from '../recipe-buttons/italian-category-recipe/creamy-mushroom-with-crispy-mushroom-pasta';
 import MeatballBtnComponent from '../recipe-buttons/italian-category-recipe/meatballs-recipe-btn';
 import StuffedShellsRecipeBtn from './../recipe-buttons/italian-category-recipe/StuffedShellsRecipeBtn';
+import ChickenMarsalaBtn from './../recipe-buttons/italian-category-recipe/ChickenMarsalaRecipeBtn';
 
 const ItalianRecipeTable = () => {
     return (
@@ -42,6 +43,10 @@ const ItalianRecipeTable = () => {
                         <tr>
                             <td>Meatballs</td>
                             <td> <MeatballBtnComponent /> </td>
+                        </tr>
+                        <tr>
+                            <td>Chicken Marsala</td>
+                            <td><ChickenMarsalaBtn /></td>
                         </tr>
                     </tbody>
                 </Table>

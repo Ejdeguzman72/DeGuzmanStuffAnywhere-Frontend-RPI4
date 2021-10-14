@@ -1,5 +1,5 @@
 import React from 'react';
-import DSA from './DSA-Android.apk'
+import DSA from './DSA-Android.zip'
 
 const DSAAndroidMobileLink = () => {
     return (

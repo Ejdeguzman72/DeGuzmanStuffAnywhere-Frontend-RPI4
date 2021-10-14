@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../tab-components/deguzman-recipe-tab-component';
-import { SeafoodRecipeTabComponent } from '../recipe-tabs/SeafoodRecipeTabComponent';
+import SeafoodRecipeTable from '../category-recipe-tables/SeafoodRecipeTable';
 
 const SeafoodRecipeCategoryPageComponent = () => {
     return (
@@ -16,7 +16,7 @@ const SeafoodRecipeCategoryPageComponent = () => {
                 <DeGuzmanRecipeTabCompoent />
                 <br></br>
                 <br></br>
-                <SeafoodRecipeTabComponent />
+                <SeafoodRecipeTable />
             </div>
         </div>
     )
