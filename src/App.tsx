@@ -3,7 +3,7 @@ import './style-sheets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBarComponent } from './components/navbar-component/navbar-component';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { HomePageComponent } from './components/home-page-component/home-page-component';
+import HomePageComponent from './components/home-page-component/home-page-component';
 import { LoginPageComponent } from './components/login-page-component/login-page-component';
 import { PhotoVideoPageComponent } from './components/photos-videos-page-component/media-page-component/photo-video-page-component';
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
@@ -67,13 +67,13 @@ import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
 import { StuffedShellsRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/StuffedShellsRecipePageComponent';
-import  ChickenParmesanRecipePage  from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
+import ChickenParmesanRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
 import { LecheFlanRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/LecheFlanRecipePage';
 import { CheeseSpinachQuicheRecipePage } from './components/recipe-page-component/recipe-pages/comfort-recipes/CheeseSpinachQuicheRecipePage';
 import { UkoyRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/UkoyRecipePage';
 import PekingStyleRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/PekingStylePorkchopsRecipePage';
 import PanFriedNoodlesRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/PanFriedNoodlesRecipePage';
-import BeefAndBroccoliRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/BeefAndBroccoliRecipePage'; 
+import BeefAndBroccoliRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/BeefAndBroccoliRecipePage';
 import BreakfeastStrataRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/BreakfeastStrataRecipePage';
 import PancakeRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/PancakeRecipePage';
 import ArrozCaldoRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/ArrozCaldoRecipePage';
@@ -83,6 +83,10 @@ import PineappleUpsideDownRecipePage from './components/recipe-page-component/re
 import CarrotCakeRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/CarrotCakeRecipePage';
 import SinigangRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/SinigangRecipePage';
 import BakedRedSnapperPage from './components/recipe-page-component/recipe-pages/seafood-recipes/RedSnapperRecipePage';
+import TeriyakiSalmonRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/TeriyakiSalmonRecipePage';
+import ChickenPotPieRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/ChickenPotPie';
+import FrenchToastRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/FrenchToastRecipePage';
+import PandesalRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/PandesalRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -123,7 +127,7 @@ function App() {
           }
           {
             jwt ?
-            <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} /> : null
+              <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} /> : null
           }
           {
             jwt ?
@@ -159,7 +163,7 @@ function App() {
           }
           {
             jwt ?
-            <Route path="/view-cars" exact component={CarInformationPageComponent} /> : null
+              <Route path="/view-cars" exact component={CarInformationPageComponent} /> : null
           }
           {
             jwt ?
@@ -203,74 +207,78 @@ function App() {
             jwt ?
               <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} /> : null
           }
-              <Route path="/recipes" exact component={RecipePageComponent} /> 
-              <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
-              <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
-              <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
-              <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
-              <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
-              <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
-              <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
-              <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
-              <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
-              <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
-              <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
-              <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
-              <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
-              <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
-              <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
-              <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
-              <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
-              <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
-              <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
-              <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
-              <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
-              <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
-              <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
-              <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
-              <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
-              <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
-              <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
-              <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
-              <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
-              <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
-              <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
-              <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
-              <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
-              <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
-              <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
-              <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
-              <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
-              <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
-              <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
-              <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
-              <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
-              <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
-              <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
-              <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
+          <Route path="/recipes" exact component={RecipePageComponent} />
+          <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
+          <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
+          <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
+          <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
+          <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
+          <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
+          <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
+          <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
+          <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
+          <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
+          <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
+          <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
+          <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
+          <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
+          <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
+          <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
+          <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
+          <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
+          <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
+          <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
+          <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+          <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
+          <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
+          <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
+          <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
+          <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+          <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
+          <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
+          <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
+          <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
+          <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
+          <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
+          <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
+          <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
+          <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
+          <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
+          <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
+          <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
+          <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
+          <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
+          <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
+          <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
+          <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
+          <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
+          <Route path="/teriyaki-salmon-recipe" exact component={TeriyakiSalmonRecipePage} />
+          <Route path="/chicken-pot-pie-recipe" exact component={ChickenPotPieRecipePage} />
+          <Route path="/french-toast-recipe" exact component={FrenchToastRecipePage} />
+          <Route path="/pandesal-recipe" exact component={PandesalRecipePage} />
           {
-            jwt ? 
-            <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null 
+            jwt ?
+              <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/downloads" exact component={DownloadsPageComponent} /> : null
+              <Route path="/downloads" exact component={DownloadsPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} /> : null
-          }
-          {
-            jwt ? 
-            <Route path="/add-book-information" exact component={AddBookRecommendation} /> : null
+              <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} /> : null
           }
           {
             jwt ?
-            <Route path="/update-book-information" exact component={BookUpdate} /> : null
+              <Route path="/add-book-information" exact component={AddBookRecommendation} /> : null
           }
           {
-            jwt ? 
-            <Route path="/gym-tracker" exact component={GymTrackerPageComponent} /> : null
+            jwt ?
+              <Route path="/update-book-information" exact component={BookUpdate} /> : null
+          }
+          {
+            jwt ?
+              <Route path="/gym-tracker" exact component={GymTrackerPageComponent} /> : null
           }
           <Route component={LoginPageComponent} />
         </Switch>

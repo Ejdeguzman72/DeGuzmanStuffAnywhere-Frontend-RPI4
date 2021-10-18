@@ -94,7 +94,7 @@ export default class ChatApplicationComponent extends React.Component {
                 <div className="align-center-msg">
                     {this.displayMessages()}
                 </div>
-                <SockJsClient url='localhost:8080/websocket-chat'
+                <SockJsClient url='http://localhost:8080/websocket-chat'
                     topics={['/topic/user']}
                     onConnect={() => {
                         console.log("connected");

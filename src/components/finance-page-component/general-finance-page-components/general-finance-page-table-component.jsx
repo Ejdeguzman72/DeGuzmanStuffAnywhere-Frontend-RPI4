@@ -45,7 +45,7 @@ const tableIcons = {
 };
 
 const api = Axios.create({
-  baseURL: 'localhost:8080/app/general-transactions'
+  baseURL: 'http://localhost:8080/app/general-transactions'
 });
 
 export default function GeneralFinancePageTableComponent() {
@@ -100,7 +100,7 @@ export default function GeneralFinancePageTableComponent() {
   const handleRowUpdate = (newData, oldData, resolve) => {
     console.log(oldData.tranasctionId + "this is old data");
     console.log(newData.tranasctionId + "this is new data");
-    Axios.put(`localhost:8080/app/general-transaction/transaction/${newData.transactionId}`, newData)
+    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.transactionId}`, newData)
       .then(res => {
         const dataUpdate = [...entries];
         const index = oldData.tableData.tranasctionId;
@@ -117,7 +117,7 @@ export default function GeneralFinancePageTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.transactionId);
-    Axios.delete(`localhost:8080/app/general-transaction/transaction/${oldData.transactionId}`)
+    Axios.delete(`http://localhost:8080/app/general-transaction/transaction/${oldData.transactionId}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.transactionId;
@@ -132,7 +132,7 @@ export default function GeneralFinancePageTableComponent() {
   }
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post("localhost:8080/app/general-transaction/add-transaction-information", newData)
+    Axios.post("http://localhost:8080/app/general-transaction/add-transaction-information", newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...entries.data];

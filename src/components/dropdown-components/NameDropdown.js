@@ -11,7 +11,7 @@ const NameDropdown = () => {
     }
 
     useEffect(() => {
-        Axios.get('localhost:8080/app/users/all')
+        Axios.get('http://localhost:8080/app/users/all')
             .then(response => {
                 let data = response.data
                 setItems(data);

@@ -13,8 +13,6 @@ import { ComfortFoodRecipesTabComponent } from './recipe-tabs/ComfortFoodRecipeT
 import { HispanicRecipesTabComponent } from './recipe-tabs/HispanicRecipesTabComponent';
 import { AsianRecipeTabsComponent } from './recipe-tabs/AsianRecipesTabComponent';
 
-
-
 export class RecipePageComponent extends React.Component<any,any> {
     render() {
         return (
@@ -36,7 +34,6 @@ export class RecipePageComponent extends React.Component<any,any> {
                     <ItalianRecipesTabComponent />
                     <SeafoodRecipeTabComponent />
                     <SlowCookerRecipes />
-                    {/* <RecipeTableComponent /> */}
                     <br></br>
                     <br></br>
                 </div>

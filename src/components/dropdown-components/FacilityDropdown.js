@@ -9,7 +9,7 @@ const FacilityDropdown = () => {
     }
 
     useEffect(() => {
-        Axios.get('localhost:8080/app/facility/all')
+        Axios.get('http://localhost:8080/app/facility/all')
             .then(response => {
                 let data = response.data
                 setItems(data);

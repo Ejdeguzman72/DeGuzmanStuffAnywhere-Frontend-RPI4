@@ -95,7 +95,7 @@ export default function ExerciseInfoTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('localhost:8080/app/auto-transactions/add-auto-transaction-information', newData)
+    Axios.post('http://localhost:8080/app/auto-transactions/add-auto-transaction-information', newData)
       .then(res => {
         let dataToAdd = [...entries.data]
         dataToAdd.push(newData);
@@ -106,7 +106,7 @@ export default function ExerciseInfoTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
+    Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.autoTransactionId;
@@ -122,7 +122,7 @@ export default function ExerciseInfoTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
+    Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.autoTransactionId;

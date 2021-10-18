@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import FrenchToastRecipeBtn from '../recipe-buttons/breakfeast-category-button/FrenchToastRecipeBtn';
 import BreakfeastStrataBtn from './../recipe-buttons/breakfeast-category-button/BreakfeastStrataBtn';
 import PancakeRecipeBtn from './../recipe-buttons/breakfeast-category-button/PancakesRecipeBtn';
 
@@ -21,6 +22,10 @@ const BreakfeastRecipeTable = () => {
                     <tr>
                         <td>Pancakes</td>
                         <td><PancakeRecipeBtn /></td>
+                    </tr>
+                    <tr>
+                        <td>French Toast</td>
+                        <td><FrenchToastRecipeBtn /></td>
                     </tr>
                 </tbody>
             </Table>

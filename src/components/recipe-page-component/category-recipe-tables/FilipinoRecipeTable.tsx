@@ -5,6 +5,7 @@ import ArrozCaldoBtn from '../recipe-buttons/filipino-category-button/ArrozCaldo
 import LecheFlanBtn from '../recipe-buttons/filipino-category-button/LecheFlanBtn';
 import UkoyRecipeBtn from '../recipe-buttons/filipino-category-button/UkoyRecipeBtn';
 import SinigangRecipeBtn from '../recipe-buttons/filipino-category-button/SinigangRecipeBtn';
+import PandesalRecipeBtn from '../recipe-buttons/filipino-category-button/PandesalRecipeBtn';
 
 const FilipinoRecipeTable = () => {
     return (
@@ -39,6 +40,10 @@ const FilipinoRecipeTable = () => {
                         <tr>
                             <td>Pork Sinigang - Filipino Sour Soup</td>
                             <td><SinigangRecipeBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Pandesal</td>
+                            <td><PandesalRecipeBtn /></td>
                         </tr>
                     </tbody>
                 </Table>

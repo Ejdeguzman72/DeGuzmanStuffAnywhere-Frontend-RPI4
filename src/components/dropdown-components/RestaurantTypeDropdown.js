@@ -20,7 +20,7 @@ const RestaurantTypeDropdown = (props) => {
 
 
     useEffect(() => {
-        Axios.get('localhost:8080/app/restaurant-types/all')
+        Axios.get('http://localhost:8080/app/restaurant-types/all')
             .then(response => {
                 let data = [];
                 response.data.forEach(e1 => {
