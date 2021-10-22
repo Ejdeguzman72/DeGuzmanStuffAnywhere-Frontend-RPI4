@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import StuffedFlounderRecipeBtn from './../recipe-buttons/seafood-category-button/StuffedFlounderRecipeBtn';
 import BakedRedSnapperRecipeBtn from './../recipe-buttons/seafood-category-button/BakedRedSnapper';
 import TeriyakiSalmonRecipeBtn from '../recipe-buttons/seafood-category-button/TeriyakiSalmonRecipeBtn';
+import StuffedClamsRecipeBtn from '../recipe-buttons/seafood-category-button/StuffedClamsRecipeBtn'
 
 const SeafoodRecipeTable = () => {
     return (
@@ -16,6 +17,10 @@ const SeafoodRecipeTable = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Stuffed Clams</td>
+                            <td><StuffedClamsRecipeBtn /></td>
+                        </tr>
                         <tr>
                             <td>Stuffed Flounder</td>
                             <td><StuffedFlounderRecipeBtn /></td>

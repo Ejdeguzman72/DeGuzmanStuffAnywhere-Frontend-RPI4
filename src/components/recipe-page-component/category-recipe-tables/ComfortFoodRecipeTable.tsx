@@ -3,13 +3,11 @@ import { Table } from 'react-bootstrap';
 import BeefStewBtnComponent from '../recipe-buttons/comfort-food-category-recipe/beef-stew-recipe-btn';
 import BeefaroniBtnComponent from '../recipe-buttons/comfort-food-category-recipe/beefaroni-recipe-btn';
 import ChiliBtnComponent from '../recipe-buttons/comfort-food-category-recipe/chili-recipe-btn';
-import MarinaraRecipeBtnComponent from '../recipe-buttons/comfort-food-category-recipe/marinara-recipe-btn';
 import MeatloafbtnComponent from './../recipe-buttons/comfort-food-category-recipe/mealoaf-recipe-btn-component';
-import MeatsauceBtnComponent from './../recipe-buttons/comfort-food-category-recipe/meat-sauce-btn';
-import MeatballBtnComponent from '../recipe-buttons/italian-category-recipe/meatballs-recipe-btn';
 import SalisburySteakBtnComponent from '../recipe-buttons/comfort-food-category-recipe/salisbury-steaks-btn';
 import CheeseSpinachQuicheRecipeBtn from '../recipe-buttons/comfort-food-category-recipe/CheeseSpinachQuicheRecipeBtn';
 import ChickenPotPieRecipeBtn from '../recipe-buttons/comfort-food-category-recipe/ChickenPotPieRecipeBtn';
+import ChickenNoodleSoupBtn from '../recipe-buttons/comfort-food-category-recipe/ChickenNoodleSoupBtn';
 
 const ComfortFoodRecipeTable = () => {
     return (
@@ -35,6 +33,10 @@ const ComfortFoodRecipeTable = () => {
                         <td>
                             <CheeseSpinachQuicheRecipeBtn />
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Chicken Noodle Soup</td>
+                        <td><ChickenNoodleSoupBtn /></td>
                     </tr>
                     <tr>
                         <td>Chicken Pot Pie</td>

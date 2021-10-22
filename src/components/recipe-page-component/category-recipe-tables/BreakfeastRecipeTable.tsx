@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import FrenchToastRecipeBtn from '../recipe-buttons/breakfeast-category-button/FrenchToastRecipeBtn';
 import BreakfeastStrataBtn from './../recipe-buttons/breakfeast-category-button/BreakfeastStrataBtn';
 import PancakeRecipeBtn from './../recipe-buttons/breakfeast-category-button/PancakesRecipeBtn';
+import CornedBeefRecipeBtn from './../recipe-buttons/breakfeast-category-button/CornedBeefRecipeBtn';
 
 const BreakfeastRecipeTable = () => {
     return (
@@ -18,6 +19,10 @@ const BreakfeastRecipeTable = () => {
                     <tr>
                         <td>Breakfeast Strata</td>
                         <td><BreakfeastStrataBtn /></td>
+                    </tr>
+                    <tr>
+                        <td>Corned Beef Hash</td>
+                        <td><CornedBeefRecipeBtn /></td>
                     </tr>
                     <tr>
                         <td>Pancakes</td>

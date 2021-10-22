@@ -6,6 +6,8 @@ import LecheFlanBtn from '../recipe-buttons/filipino-category-button/LecheFlanBt
 import UkoyRecipeBtn from '../recipe-buttons/filipino-category-button/UkoyRecipeBtn';
 import SinigangRecipeBtn from '../recipe-buttons/filipino-category-button/SinigangRecipeBtn';
 import PandesalRecipeBtn from '../recipe-buttons/filipino-category-button/PandesalRecipeBtn';
+import LumpiaRecipeBtn from '../recipe-buttons/filipino-category-button/LumpiaRecipeBtn';
+import CrispyPataRecipeBtn from '../recipe-buttons/filipino-category-button/CrispyPataRecipeBtn';
 
 const FilipinoRecipeTable = () => {
     return (
@@ -24,26 +26,35 @@ const FilipinoRecipeTable = () => {
                             <td> <AdoboBtnComponent /> </td>
                         </tr>
                         <tr>
+                            <td>Arroz Caldo (Chicken Rice Porridge)</td>
+                            <td><ArrozCaldoBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Crispy Pata Recipe</td>
+                            <td><CrispyPataRecipeBtn /></td>
+                        </tr>
+                        <tr>
                             <td>Leche Flan</td>
                             <td>
                                 <LecheFlanBtn />
                             </td>
                         </tr>
                         <tr>
-                            <td>Ukoy - Leek and Shrimp Fritters</td>
-                            <td><UkoyRecipeBtn /></td>
+                            <td>Lumpia (Spring Rolls)</td>
+                            <td><LumpiaRecipeBtn /></td>
                         </tr>
+
                         <tr>
-                            <td>Arroz Caldo (Chicken Rice Porridge)</td>
-                            <td><ArrozCaldoBtn /></td>
+                            <td>Pandesal</td>
+                            <td><PandesalRecipeBtn /></td>
                         </tr>
                         <tr>
                             <td>Pork Sinigang - Filipino Sour Soup</td>
                             <td><SinigangRecipeBtn /></td>
                         </tr>
                         <tr>
-                            <td>Pandesal</td>
-                            <td><PandesalRecipeBtn /></td>
+                            <td>Ukoy - Leek and Shrimp Fritters</td>
+                            <td><UkoyRecipeBtn /></td>
                         </tr>
                     </tbody>
                 </Table>

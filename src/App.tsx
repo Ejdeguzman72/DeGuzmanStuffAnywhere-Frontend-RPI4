@@ -87,6 +87,14 @@ import TeriyakiSalmonRecipePage from './components/recipe-page-component/recipe-
 import ChickenPotPieRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/ChickenPotPie';
 import FrenchToastRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/FrenchToastRecipePage';
 import PandesalRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/PandesalRecipePage';
+import WontonSoupRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/WontonSoupRecipePage';
+import ChickenNoodleSoupRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/ChickenNoodleSoupRecipePage';
+import CornedBeefRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/CornedBeefRecipePage';
+import EggFuYungRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/EggFuYungRecipePage';
+import LumpiaRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/LumpiaRecipePage';
+import CrispyPataRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/CrispyPataReicpePage';
+import KoreanStyleRibsRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/KoreanStyleRibsRecipePage';
+import StuffedClamsRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/StuffedClamsRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -256,6 +264,14 @@ function App() {
           <Route path="/chicken-pot-pie-recipe" exact component={ChickenPotPieRecipePage} />
           <Route path="/french-toast-recipe" exact component={FrenchToastRecipePage} />
           <Route path="/pandesal-recipe" exact component={PandesalRecipePage} />
+          <Route path="/wonton-soup-recipe" exact component={WontonSoupRecipePage} />
+          <Route path="/chicken-noodle-soup-recipe" exact component={ChickenNoodleSoupRecipePage} />
+          <Route path="/corned-beef-recipe" exact component={CornedBeefRecipePage} />
+          <Route path="/egg-fu-yung-recipe" exact component={EggFuYungRecipePage} />
+          <Route path="/lumpia-recipe" exact component={LumpiaRecipePage} />
+          <Route path="/crispy-pata-recipe" exact component={CrispyPataRecipePage} />
+          <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
+          <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
           {
             jwt ?
               <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null

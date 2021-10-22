@@ -4,6 +4,9 @@ import PadThaiRecipeBtnComponent from '../recipe-buttons/asian-category-button/p
 import PekingStylePorkChopsBtn from '../recipe-buttons/asian-category-button/PekingStylePorkChopsBtn';
 import PanFriedNoodlesBtn from '../recipe-buttons/asian-category-button/PanFriedNoodlesBtn';
 import BeefAndBroccoliRecipeBtn from '../recipe-buttons/asian-category-button/BeefAndBroccoliBtn';
+import WontonSoupRecipeBtn from '../recipe-buttons/asian-category-button/WontonSoupRecipeBtn';
+import EggFuYungRecipeBtn from '../recipe-buttons/asian-category-button/EggFuYoungRecipeBtn';
+import KoreanStyleRibsBtn from '../recipe-buttons/asian-category-button/KoreanStyleRibsBtn';
 
 export class AsianRecipeTable extends React.Component<any, any> {
     render() {
@@ -22,6 +25,14 @@ export class AsianRecipeTable extends React.Component<any, any> {
                             <td><BeefAndBroccoliRecipeBtn /></td>
                         </tr>
                         <tr>
+                            <td>Egg Fu Yung</td>
+                            <td><EggFuYungRecipeBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Korean Style Ribs</td>
+                            <td><KoreanStyleRibsBtn /></td>
+                        </tr>
+                        <tr>
                             <td>Pad Thai</td>
                             <td><PadThaiRecipeBtnComponent /></td>
                         </tr>
@@ -34,6 +45,10 @@ export class AsianRecipeTable extends React.Component<any, any> {
                         <tr>
                             <td>Pan Fried Noodles</td>
                             <td><PanFriedNoodlesBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Wonton Soup</td>
+                            <td><WontonSoupRecipeBtn /></td>
                         </tr>
                     </tbody>
                 </Table>
