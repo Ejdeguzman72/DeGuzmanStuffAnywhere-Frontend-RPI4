@@ -95,6 +95,7 @@ import LumpiaRecipePage from './components/recipe-page-component/recipe-pages/fi
 import CrispyPataRecipePage from './components/recipe-page-component/recipe-pages/filipino-recipes/CrispyPataReicpePage';
 import KoreanStyleRibsRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/KoreanStyleRibsRecipePage';
 import StuffedClamsRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/StuffedClamsRecipePage';
+import CrabCakesRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/CrabCakesRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -272,6 +273,7 @@ function App() {
           <Route path="/crispy-pata-recipe" exact component={CrispyPataRecipePage} />
           <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
           <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
+          <Route path="/crab-cakes-recipe" exact component={CrabCakesRecipePage} />
           {
             jwt ?
               <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null

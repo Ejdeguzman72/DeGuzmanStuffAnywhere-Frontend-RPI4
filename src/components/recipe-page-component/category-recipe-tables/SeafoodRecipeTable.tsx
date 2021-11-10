@@ -4,6 +4,7 @@ import StuffedFlounderRecipeBtn from './../recipe-buttons/seafood-category-butto
 import BakedRedSnapperRecipeBtn from './../recipe-buttons/seafood-category-button/BakedRedSnapper';
 import TeriyakiSalmonRecipeBtn from '../recipe-buttons/seafood-category-button/TeriyakiSalmonRecipeBtn';
 import StuffedClamsRecipeBtn from '../recipe-buttons/seafood-category-button/StuffedClamsRecipeBtn'
+import CrabCakesRecipeBtn from '../recipe-buttons/seafood-category-button/CrabCakesRecipeBtn';
 
 const SeafoodRecipeTable = () => {
     return (
@@ -17,6 +18,10 @@ const SeafoodRecipeTable = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Baltimore-Style Crab Cakes</td>
+                            <td><CrabCakesRecipeBtn /></td>
+                        </tr>
                         <tr>
                             <td>Stuffed Clams</td>
                             <td><StuffedClamsRecipeBtn /></td>
