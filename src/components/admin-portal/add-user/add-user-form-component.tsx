@@ -1,6 +1,5 @@
 import React from 'react';
 import Axios from 'axios';
-import classes from '*.module.css';
 import { TextField } from '@material-ui/core';
 import { Row, Container, Col, Button } from 'react-bootstrap';
 import '../../../style-sheets/admin-portal.css';
@@ -67,15 +66,15 @@ export default class AddUserForm extends React.Component<any, any> {
             return <button>hello</button>
         }
 
-        if (this.state.username == "") {
+        if (this.state.username === "") {
             alert(`Username field must be filled out`);
         }
 
-        if (this.state.password == "") {
+        if (this.state.password === "") {
             alert(`password field must be filled out`)
         }
 
-        if (this.state.name == "") {
+        if (this.state.name === "") {
             alert(`name field must notbe null`)
         }
     }

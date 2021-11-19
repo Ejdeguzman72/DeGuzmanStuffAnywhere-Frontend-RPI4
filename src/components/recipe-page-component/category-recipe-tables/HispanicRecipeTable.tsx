@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import FajitasBtnComponent from '../recipe-buttons/hispanic-category-recipe/fajitas-recipe-btn-component';
+import ChilaquilesRecipeBtn from '../recipe-buttons/hispanic-category-recipe/ChilaquilesRecipeBtn';
+import EnchiladasRecipeBtn from '../recipe-buttons/hispanic-category-recipe/EnchiladasRecipeBtn';
 import { hispanicRecipes } from '../../../assets/json/HispanicRecipesJson';
 
 const HispanicRecipeTable = () => {
@@ -15,6 +17,14 @@ const HispanicRecipeTable = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Chilaquiles</td>
+                            <td> <ChilaquilesRecipeBtn /> </td>
+                        </tr>
+                        <tr>
+                            <td>Echiladas</td>
+                            <td> <EnchiladasRecipeBtn /> </td>
+                        </tr>
                         <tr>
                             <td>Fajitas</td>
                             <td> <FajitasBtnComponent /> </td>

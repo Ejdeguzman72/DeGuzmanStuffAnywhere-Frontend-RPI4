@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import PecanPieBtnComponent from '../recipe-buttons/desert-category-button/PecanPieRecipeButton';
 import PineappleUpsideDownCakeBtn from '../recipe-buttons/desert-category-button/PineappleUpsideDownCakeBtn';
 import CarrotCakeRecipeBtn from '../recipe-buttons/desert-category-button/CarrotCakeRecipeBtn';
+import RedVelvetCakeRecipeBtn from '../recipe-buttons/desert-category-button/RedVelvetCakeBtn';
 
 const DesertsRecipeTable = () => {
     return (
@@ -27,6 +28,10 @@ const DesertsRecipeTable = () => {
                         <tr>
                             <td>Dad's Carrot Cake Recipe</td>
                             <td><CarrotCakeRecipeBtn /></td>
+                        </tr>
+                        <tr>
+                            <td>Red Velvet Cake (EJ's favorite cake)</td>
+                            <td> <RedVelvetCakeRecipeBtn /> </td>
                         </tr>
                     </tbody>
                 </Table>

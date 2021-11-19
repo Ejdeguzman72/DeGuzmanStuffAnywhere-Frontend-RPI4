@@ -96,6 +96,9 @@ import CrispyPataRecipePage from './components/recipe-page-component/recipe-page
 import KoreanStyleRibsRecipePage from './components/recipe-page-component/recipe-pages/asian-recipes/KoreanStyleRibsRecipePage';
 import StuffedClamsRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/StuffedClamsRecipePage';
 import CrabCakesRecipePage from './components/recipe-page-component/recipe-pages/seafood-recipes/CrabCakesRecipePage';
+import RedVelvetCakeRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/RedVelvetCakeRecipePage';
+import ChilaquilesRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/ChilaquilesRecipePage';
+import EnchiladasRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/EnchiladasRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -274,6 +277,9 @@ function App() {
           <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
           <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
           <Route path="/crab-cakes-recipe" exact component={CrabCakesRecipePage} />
+          <Route path="/red-velvet-cake-recipe" exact component={RedVelvetCakeRecipePage} />
+          <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
+          <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
           {
             jwt ?
               <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null
