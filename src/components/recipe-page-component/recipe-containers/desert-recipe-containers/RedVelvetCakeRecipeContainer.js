@@ -26,7 +26,7 @@ const RedVelvetCakeRecipeContainer = () => {
             <h3>Ingredients - Frosting</h3>
             <ul className="list">
                 <li>
-▢14 oz (400 g) Philadelphia Cream Cheese, block , softened but not too soft</li>
+                    ▢14 oz (400 g) Philadelphia Cream Cheese, block , softened but not too soft</li>
                 <li>1/2 cup (115 g) unsalted butter , softened (but not too soft)</li>
                 <li>1 1/2 tsp vanilla extract</li>
                 <li>4 cups (450 g) soft icing sugar / powdered sugar</li>

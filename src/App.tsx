@@ -99,6 +99,7 @@ import CrabCakesRecipePage from './components/recipe-page-component/recipe-pages
 import RedVelvetCakeRecipePage from './components/recipe-page-component/recipe-pages/desert-recipes/RedVelvetCakeRecipePage';
 import ChilaquilesRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/ChilaquilesRecipePage';
 import EnchiladasRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/EnchiladasRecipePage';
+import GnocchiSpinachPestoRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/GnocchiSpinachPestoRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -280,6 +281,7 @@ function App() {
           <Route path="/red-velvet-cake-recipe" exact component={RedVelvetCakeRecipePage} />
           <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
           <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
+          <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
           {
             jwt ?
               <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null
