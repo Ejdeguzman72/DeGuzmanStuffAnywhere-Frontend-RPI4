@@ -66,6 +66,7 @@ import AddBookRecommendation from './components/book-recommendations-component/A
 import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
+import GymWorkoutsPageComponent from './components/gym-tracker/gym-workouts/GyWorkoutsPageComponent';
 import { StuffedShellsRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/StuffedShellsRecipePageComponent';
 import ChickenParmesanRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
 import { LecheFlanRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/LecheFlanRecipePage';
@@ -100,6 +101,8 @@ import RedVelvetCakeRecipePage from './components/recipe-page-component/recipe-p
 import ChilaquilesRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/ChilaquilesRecipePage';
 import EnchiladasRecipePage from './components/recipe-page-component/recipe-pages/hispanic-recipes/EnchiladasRecipePage';
 import GnocchiSpinachPestoRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/GnocchiSpinachPestoRecipePage';
+import HoneyGarlicPorkRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/HoneyGarlicPorkRecipePage';
+import WaffleRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/WaffleRecipePage';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -282,6 +285,8 @@ function App() {
           <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
           <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
           <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
+          <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
+          <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
           {
             jwt ?
               <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null
@@ -305,6 +310,10 @@ function App() {
           {
             jwt ?
               <Route path="/gym-tracker" exact component={GymTrackerPageComponent} /> : null
+          }
+          {
+            jwt ? 
+              <Route path="/gym-workouts" exact component={GymWorkoutsPageComponent} /> : null
           }
           <Route component={LoginPageComponent} />
         </Switch>

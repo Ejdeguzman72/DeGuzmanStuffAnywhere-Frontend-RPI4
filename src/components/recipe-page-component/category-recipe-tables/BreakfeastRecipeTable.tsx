@@ -4,6 +4,7 @@ import FrenchToastRecipeBtn from '../recipe-buttons/breakfeast-category-button/F
 import BreakfeastStrataBtn from './../recipe-buttons/breakfeast-category-button/BreakfeastStrataBtn';
 import PancakeRecipeBtn from './../recipe-buttons/breakfeast-category-button/PancakesRecipeBtn';
 import CornedBeefRecipeBtn from './../recipe-buttons/breakfeast-category-button/CornedBeefRecipeBtn';
+import WaffleRecipeBtn from './../recipe-buttons/breakfeast-category-button/WafflesRecipeBtn';
 
 const BreakfeastRecipeTable = () => {
     return (
@@ -31,6 +32,10 @@ const BreakfeastRecipeTable = () => {
                     <tr>
                         <td>French Toast</td>
                         <td><FrenchToastRecipeBtn /></td>
+                    </tr>
+                    <tr>
+                        <td>Waffles</td>
+                        <td><WaffleRecipeBtn /></td>
                     </tr>
                 </tbody>
             </Table>

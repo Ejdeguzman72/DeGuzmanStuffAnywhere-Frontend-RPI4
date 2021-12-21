@@ -7,6 +7,7 @@ import CreamyPastaAndCrunchyMushroomButton from '../recipe-buttons/italian-categ
 import MeatballBtnComponent from '../recipe-buttons/italian-category-recipe/meatballs-recipe-btn';
 import StuffedShellsRecipeBtn from './../recipe-buttons/italian-category-recipe/StuffedShellsRecipeBtn';
 import ChickenMarsalaBtn from './../recipe-buttons/italian-category-recipe/ChickenMarsalaRecipeBtn';
+import GnocchiSpinachPestoRecipeBtn from './../recipe-buttons/italian-category-recipe/GnocchiSpinachPestoRecipeBtn';
 
 const ItalianRecipeTable = () => {
     return (
@@ -23,6 +24,10 @@ const ItalianRecipeTable = () => {
                         <tr>
                             <td>Creamy Pasta and Creamy Mushrooms</td>
                             <td> <CreamyPastaAndCrunchyMushroomButton /> </td>
+                        </tr>
+                        <tr>
+                            <td>Gnocchi Spinach Pesto Pasta Recipe</td>
+                            <td> <GnocchiSpinachPestoRecipeBtn /> </td>
                         </tr>
                         <tr>
                             <td>Stuffed Shells Pasta</td>

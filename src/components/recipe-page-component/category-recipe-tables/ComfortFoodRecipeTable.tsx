@@ -8,6 +8,7 @@ import SalisburySteakBtnComponent from '../recipe-buttons/comfort-food-category-
 import CheeseSpinachQuicheRecipeBtn from '../recipe-buttons/comfort-food-category-recipe/CheeseSpinachQuicheRecipeBtn';
 import ChickenPotPieRecipeBtn from '../recipe-buttons/comfort-food-category-recipe/ChickenPotPieRecipeBtn';
 import ChickenNoodleSoupBtn from '../recipe-buttons/comfort-food-category-recipe/ChickenNoodleSoupBtn';
+import HoneyGarlicPorkRecipeBtn from '../recipe-buttons/comfort-food-category-recipe/HoneyGarlicPorkRecipeBtn';
 
 const ComfortFoodRecipeTable = () => {
     return (
@@ -45,6 +46,10 @@ const ComfortFoodRecipeTable = () => {
                     <tr>
                         <td>Chili</td>
                         <td><ChiliBtnComponent /></td>
+                    </tr>
+                    <tr>
+                        <td>Honey Garlic Pork</td>
+                        <td><HoneyGarlicPorkRecipeBtn /></td>
                     </tr>
                     <tr>
                         <td>Meatloaf</td>
