@@ -140,13 +140,15 @@ export default function MedicalOfficeTableComponent() {
     <div>
     <Row>
         <Col md={4}>
+        <AddMedicalFinanceModalComponent />
+        </Col>
+        <Col md={4}>
 
         </Col>
-        <Col md={3}>
-
+        <Col md={2}>
+          
         </Col>
-        <Col md={5}>
-          <AddMedicalFinanceModalComponent />
+        <Col md={1}>
           <ExportMedicalFinanceCSV csvData={medicalOffice.data} fileName={fileName} />
         </Col>
       </Row>

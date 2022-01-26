@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
+import '../../style-sheets/medical-finance-page.css';
 
 export default function AddMedicalOfficeModalComponent() {
 
@@ -89,27 +90,30 @@ export default function AddMedicalOfficeModalComponent() {
               <input
                 type="text"
                 placeholder="Enter Facility Name"
-                className="input"
+                className="medicalTrx-input"
                 name="name"
                 onChange={handleInputChange} /><br></br><br></br>
 
               <input
                 type="text"
                 placeholder="Address"
-                className="input"
-                name="address" onChange={handleInputChange} /><br></br><br></br>
+                className="medicalTrx-input"
+                name="address" 
+                onChange={handleInputChange} /><br></br><br></br>
 
               <input
                 type="text"
                 placeholder="City"
-                className="input"
-                name="city" onChange={handleInputChange} /><br></br><br></br>
+                className="medicalTrx-input"
+                name="city" 
+                onChange={handleInputChange} /><br></br><br></br>
 
               <select
                 id="state"
                 name="state"
                 type="number"
-                onChange={handleInputChange} >
+                onChange={handleInputChange}
+                className="medicalTrx-input" >
                 <option value="Please choose a Restaurant Type">Please Choose a State</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -173,7 +177,7 @@ export default function AddMedicalOfficeModalComponent() {
               <input
                 type="text"
                 placeholder="Zip"
-                className="input"
+                className="medicalTrx-input"
                 name="zip" onChange={handleInputChange} /><br></br><br></br>
             </div>
 
