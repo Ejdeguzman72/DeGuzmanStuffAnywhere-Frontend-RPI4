@@ -9,10 +9,10 @@ export default function AddGeneralFinanceModalComponent() {
   const initialState = {
     transaction_id: 0,
     amount: 0,
-    paymentDate: "",
-    transactionType: "",
+    payment_date: "",
     entity: "",
-    person: ""
+    transaction_type_id: 0,
+    user_id: 0
   }
 
   const [generalTransaction, setGeneralTransaction] = useState(initialState);
@@ -27,25 +27,27 @@ export default function AddGeneralFinanceModalComponent() {
     let data = {
       transaction_id: generalTransaction.transaction_id,
       amount: generalTransaction.amount,
-      paymentDate: generalTransaction.paymentDate,
-      transactionType: generalTransaction.transactionType,
+      payment_date: generalTransaction.payment_date,
       entity: generalTransaction.entity,
-      person: generalTransaction.person
+      transaction_type_id: generalTransaction.transaction_type_id,
+      user_id: generalTransaction.user_id
     };
 
-    Axios.post('http://localhost:8080/app/general-transaction/add-transaction-information', data)
+    Axios.post('http://localhost:8080/app/general-transactions/add-general-transaction-information', data)
       .then(response => {
         setGeneralTransaction({
           transasction_id: response.data.transction_id,
           amount: response.data.amount,
-          paymentDate: response.data.paymentDate,
-          transactionType: response.data.transactionType,
           entity: response.data.entity,
-          person: response.data.person
+          payment_date: response.data.payment_date,
+          transaction_type_id: response.data.transaction_type_id,
+          user_id: response.data.user_id
         })
         setSubmitted(true);
+
         console.log(data);
-        //window.location.reload();
+
+        window.location.reload();
       })
   }
 
@@ -85,70 +87,79 @@ export default function AddGeneralFinanceModalComponent() {
             </div>
           </Modal.Body>
         ) : (
-            <Modal.Body>
-              <h4>Please fill out the following information:</h4>
-              <br></br>
-              <div className="modal-container">
-                <input type="text" placeholder="Enter Amount" className="input" name="amount" onChange={handleInputChange} /><br></br><br></br>
-                {/* <input type="text" placeholder="Payment Date" className="input" name="paymentDate" onChange={handleInputChange} /><br></br><br></br> */}
-                <Form.Group controlId="paymentDate">
-                  <Form.Label>Select Date</Form.Label>
-                  <Form.Control type="date" name="paymentDate" placeholder="Date of Birth" onChange={handleInputChange} />
-                </Form.Group>
-                {/* <input type="text" placeholder="Transaction Type" className="input" name="transactionType" onChange={handleInputChange} /><br></br><br></br> */}
-                {/* <input type="text" placeholder="Entity" className="input" name="entity" onChange={handleInputChange} /><br></br><br></br> */}
-                <Form.Control as="select" name="entity" onChange={handleInputChange} >
-                  <option value="" disabled selected>Entity</option>
-                  <option value="Rent">ShopRite</option>
-                  <option value="StateFarm">Statefarm</option>
-                  <option value="AT&T">AT&T</option>
-                  <option value="Optimum">Optimum</option>
-                  <option value="PSEG">PSEG</option>
-                  <option value="Walmart">Walmart</option>
-                  <option value="99 Ranch Market">99 Ranch Market</option>
-                  <option value="Target">Target</option>
-                  <option value="Hulu">Hulu</option>
-                  <option value="Gas Station">Gas Station</option>
-                  <option value="Restuarant">Restaurant</option>
-                  <option value="Amazon">Amazon</option>
-                  <option value="Shopping Mall">Shopping Mall</option>
-                  <option value="Hmart">HMART</option>
-                </Form.Control><br></br>
-                <Form.Control as="select" name="transactionType" onChange={handleInputChange} >
-                  <option value="" disabled selected>Transaction Type</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Home Gas">Home Gas</option>
-                  <option value="Electric">Electric</option>
-                  <option value="Cable">Cable</option>
-                  <option value="Internet">Internet</option>
-                  <option value="Phones">Phones</option>
-                  <option value="Auto Insurance">Auto Insurance</option>
-                  <option value="Medical Insurance">Medical Insurance</option>
-                  <option value="Mortgage">Mortgage</option>
-                  <option value="Homeowner's Insurance">Homeowner's Insurance</option>
-                  <option value="Groceries">Grcoeries</option>
-                  <option value="Restuarant">Restaurant</option>
-                  <option value="Office Supplies">Office Supplies</option>
-                  <option value="Social">Social</option>
-                  <option value="Vacation">Vacation</option>
-                  {/* <option>Oil Change</option>
-                  <option>Brakes</option>
-                  <option>Bumper</option>
-                  <option>Car Detailing</option>
-                  <option>General Auto Maintenance</option>
-                  <option>Auto Accident</option>
-                  <option>Medical Copay</option>
-                  <option>Prescription Payment</option> */}
-                  <option value="Amazon">Amazon</option>
-                </Form.Control><br></br>
-                {/* <input type="text" placeholder="Person" className="input" name="person" onChange={handleInputChange} /><br></br><br></br> */}
-                <NameDropdown />
-                <br></br>
-                <TransactionTypeDropdown />
-              </div>
+          <Modal.Body>
+            <h4>Please fill out the following information:</h4>
+            <br></br>
+            <div className="modal-container">
 
-            </Modal.Body>
-          )}
+              <input
+                type="text"
+                placeholder="Enter Amount ($0.00)"
+                className="generalTrx-input"
+                name="amount"
+                onChange={handleInputChange} /><br></br><br></br>
+
+              <Form.Group 
+                controlId="payment_date" 
+                className="generalTrx-input"
+                >
+                <Form.Label>Select Date</Form.Label>
+                <Form.Control type="date" name="payment_date" placeholder="Payment Date (MM/DD/YYYY)" onChange={handleInputChange} />
+              </Form.Group><br></br>
+
+              <Form.Control as="select" name="entity" onChange={handleInputChange} className="generalTrx-input">
+                <option value="" disabled selected>Choose An Entity For Payment</option>
+                <option value="Rent">Rent</option>
+                <option value="StateFarm">Statefarm</option>
+                <option value="AT&T">AT&T</option>
+                <option value="Optimum">Optimum</option>
+                <option value="PSEG">PSEG</option>
+                <option value="Walmart">Walmart</option>
+                <option value="99 Ranch Market">99 Ranch Market</option>
+                <option value="Target">Target</option>
+                <option value="Hulu">Hulu</option>
+                <option value="Gas Station">Gas Station</option>
+                <option value="Restuarant">Restaurant</option>
+                <option value="Amazon">Amazon</option>
+                <option value="Shopping Mall">Shopping Mall</option>
+                <option value="Hmart">HMART</option>
+              </Form.Control><br></br>
+
+              <select
+                name="transaction_type_id"
+                type="number"
+                onChange={handleInputChange}
+                id="transaction_type_id"
+                className="generalTrx-input" >
+                <option value="Select a Transaction Type" disabled selected>Transaction Type</option>
+                <option value="1">Rent</option>
+                <option value="2">Gas</option>
+                <option value="3">Electric</option>
+                <option value="4">Cable</option>
+                <option value="5">Internet</option>
+                <option value="6">Phone</option>
+                <option value="7">Insurance</option>
+                <option value="8">Mortgage</option>
+                <option value="9">Groceries</option>
+                <option value="10">Restaurant</option>
+                <option value="11">School Supplies</option>
+                <option value="12">Social Outing</option>
+                <option value="13">Vacation Expenses</option>
+              </select><br></br><br></br>
+
+              <select
+                id="user_id"
+                name="user_id"
+                type="number"
+                onChange={handleInputChange}
+                className="generalTrx-input" >
+                <option value="Please choose a User">Please Choose a User</option>
+                <option value="2">global</option>
+              </select><br></br><br></br>
+            </div>
+
+          </Modal.Body>
+        )}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

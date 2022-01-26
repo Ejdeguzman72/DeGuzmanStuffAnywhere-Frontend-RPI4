@@ -21,7 +21,7 @@ const getSongByArtist = (artist) => {
 }
 
 const addSongInformaton = (data) => {
-    return Axios.post('http://localhost:8080/app/music/add-music', data);
+    return Axios.post('http://localhost:8080/app/music/add-song-information', data);
 }
 
 const updateSongInformation = (song_id,data) => {

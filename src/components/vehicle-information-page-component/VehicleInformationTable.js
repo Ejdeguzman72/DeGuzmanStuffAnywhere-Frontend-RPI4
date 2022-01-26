@@ -19,9 +19,9 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-import ExportCarInformationCSV from './ExportCarInfoCSV';
-import { Col,Row } from 'react-bootstrap';
-import AddCarInfoModalComponent from './AddCarInfoModalComponent';
+import ExportCarInformationCSV from './ExportVehicleInfoCSV';
+import { Col, Row } from 'react-bootstrap';
+import AddCarInfoModalComponent from './AddVehicleInfoModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -46,11 +46,11 @@ const tableIcons = {
 export default function ViewCarsTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Car ID', field: 'carid', hidden: true },
+      { title: 'Vehicle ID', field: 'vehicleId', hidden: true },
       { title: 'Make', field: 'make' },
       { title: 'Model', field: 'model' },
-      { title: 'Year', field: 'year'},
-      { title: 'Capacity', field: 'capactity' },
+      { title: 'Year', field: 'year' },
+      { title: 'Capacity', field: 'capacity' },
       { title: 'Transmission', field: 'transmission' }
     ],
   });
@@ -58,11 +58,11 @@ export default function ViewCarsTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        carid: 0,
-        make: 0,
+        vehicleId: 0,
+        make: "",
         model: "",
-        year:"",
-        capactity: 0,
+        year: "",
+        capacity: 0,
         transmission: "",
       }
     ]
@@ -75,11 +75,11 @@ export default function ViewCarsTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          carid: e1.carid,
+          vehicleId: e1.vehicleId,
           make: e1.make,
           model: e1.model,
           year: e1.year,
-          capactity: e1.capactity,
+          capacity: e1.capacity,
           transmission: e1.transmission
         });
         console.log(data);
@@ -92,7 +92,7 @@ export default function ViewCarsTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/cars/add-a-car', newData)
+    Axios.post('http://localhost:8080/app/vehicles/add-vehicle-information', newData)
       .then(res => {
         console.log(newData + "this is newData");
         let dataToAdd = [...entries.data]
@@ -104,10 +104,10 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/cars/car/${oldData.carid}`,newData)
+    Axios.put(`http://localhost:8080/app/vehicles/vehicle/${oldData.vehicleId}`, newData)
       .then(res => {
         const dataUpdate = [...entries.data];
-        const index = oldData.tabledata.car_id;
+        const index = oldData.tabledata.vehicleId;
         console.log(index + "this is index");
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
@@ -120,14 +120,16 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/cars/car/${oldData.carid}`)
+    console.log(oldData.tableData.vehicleId);
+    Axios.delete(`http://localhost:8080/app/vehicles/vehicle/${oldData.vehicleId}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.carid;
+        const index = oldData.tableData.vehicleId;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
+
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -137,14 +139,15 @@ export default function ViewCarsTableComponent() {
   return (
     <div>
       <Row>
-        <Col md={4}>
-
+        <Col md={2}>
+          < AddCarInfoModalComponent />
         </Col>
         <Col md={5}>
 
         </Col>
-        <Col md={3}>
-          < AddCarInfoModalComponent />
+        <Col md={2}>
+        </Col>
+        <Col md={2}>
           <ExportCarInformationCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>

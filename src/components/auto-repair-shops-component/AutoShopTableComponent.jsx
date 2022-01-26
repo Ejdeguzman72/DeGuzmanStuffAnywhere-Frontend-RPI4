@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import MedicalTransactionService from '../../../services/medical-transaction-service';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -20,8 +19,9 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import { Col,Row } from 'react-bootstrap';
-import ExportMedicalFinanceCSV from './ExportMedicalFinanceCSV';
-import AddMedicalFinanceModalComponent from './AddMedicalTransactionModalComponent';
+import AutoShopService from '../../services/AutoShopService'
+import AddAutoShopModalComponent from './AddAutoShopModalComponent';
+import ExportAutoShopCSV from './ExportAutoShopCSV';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,60 +43,48 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-export default function MedicalFinancePageTableComponent() {
+export default function AutoShopTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Medical Transaction ID', field: 'medical_transaction_id', hidden: true },
-      { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'medical_transaction_date' },
-      { title: 'Medical Facility', field: 'facilityName' },
-      { title: 'Address', field: 'address'},
-      { title: 'City', field: 'city'},
+      { title: 'Auto Shop ID', field: 'auto_shop_id', hidden: true },
+      { title: 'Name of Auto Shop', field: 'autoShopName' },
+      { title: 'Address', field: 'address' },
+      { title: 'City', field: 'city' },
       { title: 'State', field: 'state'},
-      { title: 'zip', field: 'zip'},
-      { title: 'Transaction Type', field: 'transaction_type_descr'},
-      { title: 'Name of User', field: 'name' },
+      { title: 'zip', field: 'zip'}
     ],
   });
 
-  const [medicalTrxData, setMedicalTrxdata] = useState({
+  const [autoShop, setAutoShop] = useState({
     data: [
       {
-        medical_transaction_id: 0,
-        amount: 0.00,
-        medical_transaction_date: "",
-        facilityName: "",
+        auto_shop_id: 0,
+        autoShopName: "",
         address: "",
         city: "",
         state: "",
         zip: "",
-        transaction_type_descr: "",
-        name: ""
       }
     ]
   });
 
-  const [fileName] = useState("Medical_Finance");
+  const [fileName] = useState("Auto_Shops");
 
   useEffect(() => {
-    MedicalTransactionService.getAllMedicalTransactions().then(response => {
+    AutoShopService.getAllAutoShops().then(response => {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          medical_transaction_id: e1.medical_transaction_id,
-          amount: e1.amount.toFixed(2),
-          medical_transaction_date: e1.medical_transaction_date,
-          facilityName: e1.facilityName,
+          auto_shop_id: e1.auto_shop_id,
+          autoShopName: e1.autoShopName,
           address: e1.address,
           city: e1.city,
           state: e1.state,
           zip: e1.zip,
-          transaction_type_descr: e1.transaction_type_descr,
-          name: e1.name
         });
         console.log(data);
       });
-      setMedicalTrxdata({ data: data });
+      setAutoShop({ data: data });
     })
       .catch(function (error) {
         console.log(error);
@@ -104,24 +92,24 @@ export default function MedicalFinancePageTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/medical-transactions/add-medical-transaction', newData)
+    AutoShopService.addAutoShop(newData)
       .then(res => {
         console.log(newData + "this is newData");
-        let dataToAdd = [...medicalTrxData.data];
+        let dataToAdd = [...autoShop.data];
         dataToAdd.push(newData);
-        setMedicalTrxdata(dataToAdd);
+        setAutoShop(dataToAdd);
         resolve();
         window.location.reload();
       });
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medical_transaction_id}`)
+    Axios.put(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.auto_shop_id}`)
       .then(res => {
-        const dataUpdate = [...medicalTrxData.data];
-        const index = oldData.tabledata.medicalTransactionId;
+        const dataUpdate = [...autoShop.data];
+        const index = oldData.tabledata.auto_shop_id;
         dataUpdate[index] = newData;
-        setMedicalTrxdata([...dataUpdate]);
+        setAutoShop([...dataUpdate]);
         resolve();
       })
       .catch(error => {
@@ -131,14 +119,14 @@ export default function MedicalFinancePageTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medical_transaction_id}`)
+    Axios.delete(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.auto_shop_id}`)
       .then(res => {
-        const dataDelete = [...medicalTrxData.data];
-        const index = oldData.tabledata.medical_transaction_id;
+        const dataDelete = [...autoShop.data];
+        const index = oldData.tabledata.auto_shop_id;
         dataDelete.splice(index, 1);
-        setMedicalTrxdata([...dataDelete]);
+        setAutoShop([...dataDelete]);
         resolve();
-        window.reload();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -150,7 +138,7 @@ export default function MedicalFinancePageTableComponent() {
     <div>
     <Row>
         <Col md={4}>
-          <AddMedicalFinanceModalComponent />
+          <AddAutoShopModalComponent />
         </Col>
         <Col md={4}>
 
@@ -159,21 +147,24 @@ export default function MedicalFinancePageTableComponent() {
 
         </Col>
         <Col md={1}>
-          <ExportMedicalFinanceCSV csvData={medicalTrxData.data} fileName={fileName} />
+          <ExportAutoShopCSV csvData={autoShop.data} fileName={fileName} />
+        </Col>
+        <Col md={1}>
+          
         </Col>
       </Row>
       <br></br>
     <Box border={3} borderRadius={16}> 
       <MaterialTable
-        title="Medical Finances"
+        title="Auto Shop"
         columns={state.columns}
-        data={medicalTrxData.data}
+        data={autoShop.data}
         icons={tableIcons}
         editable={{
-          // onRowAdd: (newData) =>
-          //   new Promise((resolve) => {
-          //     handleRowAdd(newData, resolve)
-          //   }),
+          onRowAdd: (newData) =>
+            new Promise((resolve) => {
+              handleRowAdd(newData, resolve)
+            }),
           // onRowUpdate: (newData, oldData) =>
           //   new Promise((resolve) => {
           //     handleRowUpdate(newData, oldData, resolve)

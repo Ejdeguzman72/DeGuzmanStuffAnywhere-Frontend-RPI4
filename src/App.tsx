@@ -7,13 +7,13 @@ import HomePageComponent from './components/home-page-component/home-page-compon
 import { LoginPageComponent } from './components/login-page-component/login-page-component';
 import { PhotoVideoPageComponent } from './components/photos-videos-page-component/media-page-component/photo-video-page-component';
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
-import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
 import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
 import { RecipePageComponent } from './components/recipe-page-component/main-recipe-page-component';
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
 import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
+import MedicalOfficePageComponent from './components/medical-offices/MedicalOfficePageComponent';
 import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
@@ -36,7 +36,6 @@ import { PhotoUploadPageComponent } from './components/photos-videos-page-compon
 import { VideoUploadPageComponent } from './components/photos-videos-page-component/video-upload-page-component/video-upload-page-component';
 import UtilityPageComponent from './components/utility-components/utility-page-component';
 import CreamyPastaAndCrispyMushroomsRecipePageComponent from './components/recipe-page-component/recipe-pages/italian-recipes/creamy-pasta-and-crispy-mushrooms-recipe-page';
-import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
 import AdmimPortalPageComponent from './components/admin-portal/admin-portal-page-component';
 import AddUserPageComponent from './components/admin-portal/add-user/add-user-page-component';
 import FindUserInfoPageComponent from './components/admin-portal/find-user-info/find-user-info-page-component';
@@ -47,7 +46,7 @@ import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component
 import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
 import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 import FirebasePhotoGalleryPageComponent from './components/photos-videos-page-component/firebase-photo-gallery/components/firebase-photo-gallery-page-component';
-import CarInformationPageComponent from './components/car-information-page-component/car-information-page-component';
+import CarInformationPageComponent from './components/vehicle-information-page-component/VehicleInformationPage';
 import AsianRecipeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/AsianRecipesCategoryPageComponent';
 import BarbequeCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/BarbequeCategoryPageComponent';
 import BreakfeastCategoryPageComponent from './components/recipe-page-component/category-recipe-pages/BreakfeastCategoryPageComponent';
@@ -66,7 +65,6 @@ import AddBookRecommendation from './components/book-recommendations-component/A
 import BookUpdate from './components/book-recommendations-component/BookUpdate';
 import MusicRecommendationPageComponent from './components/music-recommendations/MusicRecommendationPageComponent';
 import GymTrackerPageComponent from './components/gym-tracker/GymTrackerPageComponent';
-import GymWorkoutsPageComponent from './components/gym-tracker/gym-workouts/GyWorkoutsPageComponent';
 import { StuffedShellsRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/StuffedShellsRecipePageComponent';
 import ChickenParmesanRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/ChickenParmesanRecipePage';
 import { LecheFlanRecipePage } from './components/recipe-page-component/recipe-pages/filipino-recipes/LecheFlanRecipePage';
@@ -103,6 +101,7 @@ import EnchiladasRecipePage from './components/recipe-page-component/recipe-page
 import GnocchiSpinachPestoRecipePage from './components/recipe-page-component/recipe-pages/italian-recipes/GnocchiSpinachPestoRecipePage';
 import HoneyGarlicPorkRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/HoneyGarlicPorkRecipePage';
 import WaffleRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/WaffleRecipePage';
+import AutoShopPageComponent from './components/auto-repair-shops-component/AutoShopPageComponent';
 // import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
 // import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
 
@@ -117,112 +116,32 @@ function App() {
           <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
           {/* <Route path="register" exact component={RegisterPageComponent} /> */}
-          {
-            jwt ?
-              <Route path="/home" exact component={HomePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/media" exact component={PhotoVideoPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/music" exact component={MusicRecommendationPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/admin-portal" exact component={AdmimPortalPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/photos" exact component={PhotoPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/videos" exaxt component={VideoPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/video-uploads" exact component={VideoUploadPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/chat" exact component={ChatPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/deguzman-family-chat" exact component={ChatApplicationComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/general-finance" exact component={GeneralFinancePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/auto-finance" exact component={AutoFinancePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/view-cars" exact component={CarInformationPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/medical-finance" exact component={MedicalFinancePageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} /> : null
-          }
-
-          {/* <Route path="/birthdays" exact component={BirthdayPageComponent} /> */}
-          {
-            jwt ?
-              <Route path="/contact-info" exact component={ContactPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/utility-tracker" exact component={UtilityPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/run-tracker" exact component={RunTrackerPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/add-user" exact component={AddUserPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/find-a-user" exact component={FindUserInfoPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/approve-user" exact component={ApproveUserPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/agenda" exact component={AgendaPageApp} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} /> : null
-          }
+          <Route path="/home" exact component={HomePageComponent} />
+          <Route path="/media" exact component={PhotoVideoPageComponent} />
+          <Route path="/music" exact component={MusicRecommendationPageComponent} />
+          <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
+          <Route path="/photos" exact component={PhotoPageComponent} />
+          <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
+          <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} />
+          <Route path="/videos" exaxt component={VideoPageComponent} />
+          <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
+          <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+          <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
+          <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+          <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
+          <Route path="/auto-shops" exact component={AutoShopPageComponent} />
+          <Route path="/view-cars" exact component={CarInformationPageComponent} />
+          <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+          <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
+          <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
+          <Route path="/contact-info" exact component={ContactPageComponent} />
+          <Route path="/utility-tracker" exact component={UtilityPageComponent} />
+          <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
+          <Route path="/add-user" exact component={AddUserPageComponent} />
+          <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
+          <Route path="/approve-user" exact component={ApproveUserPageComponent} />
+          <Route path="/agenda" exact component={AgendaPageApp} />
+          <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} />
           <Route path="/recipes" exact component={RecipePageComponent} />
           <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
           <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
@@ -287,34 +206,12 @@ function App() {
           <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
           <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
           <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
-          {
-            jwt ?
-              <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/downloads" exact component={DownloadsPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/add-book-information" exact component={AddBookRecommendation} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/update-book-information" exact component={BookUpdate} /> : null
-          }
-          {
-            jwt ?
-              <Route path="/gym-tracker" exact component={GymTrackerPageComponent} /> : null
-          }
-          {
-            jwt ? 
-              <Route path="/gym-workouts" exact component={GymWorkoutsPageComponent} /> : null
-          }
+          <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
+          <Route path="/downloads" exact component={DownloadsPageComponent} />
+          <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} />
+          <Route path="/add-book-information" exact component={AddBookRecommendation} />
+          <Route path="/update-book-information" exact component={BookUpdate} />
+          <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>

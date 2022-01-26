@@ -52,20 +52,20 @@ export default function RestaurantRecommendationTableComponent() {
       { title: 'City', field: 'city' },
       { title: 'State', field: 'state' },
       { title: 'Zip Code', field: 'zip'},
-      { title: 'Restaurant Type', field: 'restaurantDescr'}
+      { title: 'Restaurant Type', field: 'descr'}
     ],
   });
 
   const [entries, setEntries] = useState({
     data: [
       {
-        restauant_id: 0,
+        restaurant_id: 0,
         name: "",
         address: "",
         city: "",
         state: "",
         zip: "",
-        restaurantDescr: "",
+        descr: "",
       }
     ]
   });
@@ -77,16 +77,17 @@ export default function RestaurantRecommendationTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          restauant_id: e1.restauant_id,
+          restaurant_id: e1.restaurant_id,
           name: e1.name,
           address: e1.address,
           city: e1.city,
           zip: e1.zip,
           state: e1.state,
-          restaurantDescr: e1.restaurantType.descr
+          descr: e1.descr
         });
       });
       setEntries({ data: data })
+      console.log(data);
     })
       .catch(function (error) {
         console.log(error);
@@ -96,7 +97,6 @@ export default function RestaurantRecommendationTableComponent() {
   const handleRowAdd = (newData, resolve) => {
     Axios.post('http://localhost:8080/app/restaurants/add-restaurant-information', newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...entries.data]
         dataToAdd.push(newData);
         setEntries(dataToAdd)
@@ -122,14 +122,15 @@ export default function RestaurantRecommendationTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/restaurants/delete-restaurant/${oldData.restaurant_id}`)
+    Axios.delete(`http://localhost:8080/app/restaurants/restaurant/${oldData.restaurant_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.restaurant_id;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
+
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -148,7 +149,7 @@ export default function RestaurantRecommendationTableComponent() {
         <Col md={2}>
 
         </Col>
-        <Col md={2}>
+        <Col md={1}>
           <AddRestaurantModalComponent />
           {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
         </Col>

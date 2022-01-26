@@ -19,7 +19,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-import ExportExerciseInfoCSV from './ExportExerciseInfoCSV';
+import AddExerciseModal from './AddExerciseInfoModal';
 import { Col,Row } from 'react-bootstrap';
 
 
@@ -46,26 +46,28 @@ const tableIcons = {
 export default function ExerciseInfoTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Exercise ID', field: 'exerciseid', hidden: true },
+      { title: 'Exercise ID', field: 'exercise_id', hidden: true },
       { title: 'Exercise Name', field: 'exerciseName' },
-      { title: 'Reps', field: 'reps' },
       { title: 'Sets', field: 'sets'},
+      { title: 'Reps', field: 'reps' },
       { title: 'Weight', field: 'weight'},
-      { title: 'Exercise Type', field: 'exerciseType' },
-      { title: 'Name', field: 'user' },
+      { title: 'Date', field: 'date'},
+      { title: 'Exercise Type', field: 'exercise_type_name' },
+      { title: 'Name', field: 'name' },
     ],
   });
 
   const [entries, setEntries] = useState({
     data: [
       {
-        exerciseid: 0,
+        exercise_id: 0,
         exerciseName: 0,
-        reps: "",
         sets: "",
+        reps: "",
         weight: "",
-        exerciseType: "",
-        user: "",
+        date: "",
+        exercise_type_name: "",
+        name: "",
       }
     ]
   });
@@ -77,13 +79,14 @@ export default function ExerciseInfoTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          exerciseid: e1.exerciseid,
+          exercise_id: e1.exercise_id,
           exerciseName: e1.exerciseName,
-          reps: e1.reps,
           sets: e1.sets,
+          reps: e1.reps,
           weight: e1.weight,
-          exerciseType: e1.exerciseType.exerciseTypeName,
-          user: e1.user.name,
+          date: e1.date,
+          exercise_type_name: e1.exercise_type_name,
+          name: e1.name
         });
       });
       setEntries({ data: data })
@@ -94,22 +97,22 @@ export default function ExerciseInfoTableComponent() {
       });
   }, []);
 
-  const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/auto-transactions/add-auto-transaction-information', newData)
-      .then(res => {
-        let dataToAdd = [...entries.data]
-        dataToAdd.push(newData);
-        setEntries(dataToAdd)
-        resolve();
-        window.location.reload();
-      })
-  }
+  // const handleRowAdd = (newData, resolve) => {
+  //   Axios.post('http://localhost:8080/app/run-tracker-app/add-run-tracker-info', newData)
+  //     .then(res => {
+  //       let dataToAdd = [...entries.data]
+  //       dataToAdd.push(newData);
+  //       setEntries(dataToAdd)
+  //       resolve();
+  //       window.location.reload();
+  //     })
+  // }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
+    Axios.put(`http://localhost:8080/app/gym-tracker/exercise/${oldData.exercise_id}`)
       .then(res => {
         const dataUpdate = [...entries.data];
-        const index = oldData.tabledata.autoTransactionId;
+        const index = oldData.tabledata.exercise_id;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
@@ -121,17 +124,18 @@ export default function ExerciseInfoTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
+    Axios.delete(`http://localhost:8080/app/gym-tracker/exercise/${oldData.exercise_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.autoTransactionId;
+        const index = oldData.tableData.exercise_id;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
+        resolve();
       });
   }
 
@@ -141,12 +145,14 @@ export default function ExerciseInfoTableComponent() {
         <Col md={4}>
 
         </Col>
-        <Col md={5}>
+        <Col md={4}>
 
         </Col>
-        <Col md={3}>
-          {/* <AddAutoTransactionModalComponent /> */}
-          <ExportExerciseInfoCSV csvData={entries.data} fileName={fileName} />
+        <Col md={2}>
+
+        </Col>
+        <Col md={1}>
+          <AddExerciseModal />
         </Col>
       </Row>
       <br></br>
@@ -157,10 +163,10 @@ export default function ExerciseInfoTableComponent() {
           columns={state.columns}
           data={entries.data}
           editable={{
-            onRowAdd: (newData) =>
-              new Promise((resolve) => {
-                handleRowAdd(newData, resolve)
-              }),
+            // onRowAdd: (newData) =>
+            //   new Promise((resolve) => {
+            //     handleRowAdd(newData, resolve)
+            //   }),
             // onRowUpdate: (newData, oldData) =>
             //   new Promise((resolve) => {
             //     handleRowUpdate(newData, oldData, resolve)

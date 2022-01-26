@@ -37,8 +37,6 @@ const AddBookRecommendation = () => {
                     descr: response.data.descr
                 });
                 setSubmitted(true);
-               
-                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -73,7 +71,7 @@ const AddBookRecommendation = () => {
                 {submitted ? (
                     <Modal.Body>
                         <div>
-                            <h4>{book.name} has been added successfully</h4>
+                            <h4>New Book entry has been added successfully</h4>
                             <Button className="btn btn-success" onClick={newBook} size="lg" variant="info">
                                 Add
                             </Button>

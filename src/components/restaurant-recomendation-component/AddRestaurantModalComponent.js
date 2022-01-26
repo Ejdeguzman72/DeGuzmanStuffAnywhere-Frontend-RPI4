@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
+import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 
 export default function AddRestaurantModalComponent(props) {
@@ -9,13 +10,13 @@ export default function AddRestaurantModalComponent(props) {
   const [submitted, setSubmitted] = useState(false);
 
   const initialState = {
-    restaurantid: 0,
+    restaurant_id: 0,
     name: "",
     address: "",
     city: "",
     state: "",
     zip: "",
-    restaurantType: null
+    restaurant_type_id: 0
   }
 
   const handleClose = () => setShow(false);
@@ -29,29 +30,31 @@ export default function AddRestaurantModalComponent(props) {
   const saveRestaurantInformation = () => {
 
     const data = {
-      restaurantid: restaurant.restaurantid,
+      restaurant_id: restaurant.restaurant_id,
       name: restaurant.name,
       address: restaurant.address,
       city: restaurant.city,
       state: restaurant.state,
       zip: restaurant.zip,
-      restaurantType: restaurant.restaurantType
+      restaurant_type_id: restaurant.restaurant_type_id
     }
 
-    Axios.post('http://localhost:8080/app/restaurants/add-restaurant-information')
+    Axios.post('http://localhost:8080/app/restaurants/add-restaurant-information', data)
       .then(response => {
+        console.log(data + " thios is data")
         setRestaurant({
-          restaurantid: response.data.restaurantid,
+          restaurant_id: response.data.restaurant_id,
           name: response.data.name,
           address: response.data.address,
           city: response.data.city,
           state: response.data.state,
           zip: response.data.zip,
-          restaurantType: response.data.restaurantType
+          restaurant_type_id: response.data.restaurant_type_id
         });
-        console.log(data);
+        console.log(data + " this is data")
         setSubmitted(true);
-        // window.location.reload();
+
+        window.location.reload();
       })
       .catch(error => (
         alert('Application is facing issue: ' + error)
@@ -74,22 +77,163 @@ export default function AddRestaurantModalComponent(props) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size="lg"
       >
         <Modal.Header closeButton>
           <Modal.Title>Add Restaurants Information</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Please fill out the following information:
-          <br></br>
-          <div className="modal-container">
-            <input type="text" placeholder="Restaurant Name" className="input" onChange={handleInputChange}/><br></br><br></br>
-            <input type="text" placeholder="Address" className="input" onChange={handleInputChange}/><br></br><br></br>
-            <input type="text" placeholder="City" className="input" onChange={handleInputChange}/><br></br><br></br>
-            <input type="text" placeholder="State" className="input" onChange={handleInputChange}/><br></br><br></br>
-            <input type="text" placeholder="Zip Code" className="input" onChange={handleInputChange}/><br></br><br></br>
-            <RestaurantTypeDropdown/>
-          </div>
-        </Modal.Body>
+        {
+          submitted ? (
+            <Modal.Body>
+              <div>
+                <h4>Restaurant Information has been added</h4>
+                <Button className="btn btn-success" onClick={newRestaurant} size="lg" variant="info">
+                  Add
+                </Button>
+              </div>
+            </Modal.Body>
+          ) : (
+            <Modal.Body size="lg">
+              Please fill out the following information:
+              <br></br>
+              <div className="modal-container">
+                <input
+                  type="text"
+                  placeholder="Restaurant Name"
+                  id="name"
+                  name="name"
+                  className="restaurant-input"
+                  value={restaurant.name}
+                  onChange={handleInputChange} />
+                <br></br><br></br>
+
+                <input
+                  type="text"
+                  placeholder="Address"
+                  id="address"
+                  name="address"
+                  className="restaurant-input"
+                  value={restaurant.address}
+                  onChange={handleInputChange} />
+                <br></br><br></br>
+
+                <input
+                  type="text"
+                  placeholder="City"
+                  id="city"
+                  name="city"
+                  className="restaurant-input"
+                  value={restaurant.city}
+                  onChange={handleInputChange} />
+                <br></br><br></br>
+
+                <select
+                  id="state"
+                  name="state"
+                  value={restaurant.state}
+                  type="number"
+                  onChange={handleInputChange} >
+                  <option value="Please choose a Restaurant Type">Please Choose a State</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Arizona">Arizona</option>
+                  <option value="Arkansas">Arkansas</option>
+                  <option value="California">California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Conneticut">Conneticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas">Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachussetts">Massachussetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>\
+                  <option value="Nevaada">Nevada</option>
+                  <option value="New Hampshire">New Hampshire</option>
+                  <option value="New Jersey">New Jersey</option>
+                  <option value="New Mexico">New Mexico</option>
+                  <option value="New York">New York</option>
+                  <option value="North Carolina">North Carolina</option>
+                  <option value="North Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="Rhode Island">Rhode Island</option>
+                  <option value="South Carolina">South Carolina</option>
+                  <option value="South Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virginia">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
+                </select><br></br><br></br>
+
+                {/* <input
+                  type="text"
+                  placeholder="State"
+                  id="state"
+                  name="state"
+                  className="restaurant-input"
+                  value={restaurant.state}
+                  onChange={handleInputChange} />
+                <br></br><br></br> */}
+
+                <input
+                  type="text"
+                  placeholder="Zip Code"
+                  id="zip"
+                  name="zip"
+                  className="restaurant-input"
+                  value={restaurant.zip}
+                  onChange={handleInputChange} />
+                <br></br><br></br>
+
+                <select
+                  id="restaurant_type_id"
+                  name="restaurant_type_id"
+                  value={restaurant.restaurant_type_id}
+                  type="number"
+                  onChange={handleInputChange} >
+                  <option value="Please choose a Restaurant Type">Please Choose a Type</option>
+                  <option value="1">American</option>
+                  <option value="2">Pizzeria</option>
+                  <option value="3">Chinese</option>
+                  <option value="4">Hispanic</option>
+                  <option value="5">Texmex</option>
+                  <option value="6">Breakfeast</option>
+                  <option value="7">Pasta</option>
+                  <option value="8">Steakhouse</option>
+                  <option value="9">Sushi</option>
+                  <option value="10">Ramen</option>
+                  <option value="11">Pho</option>
+                  <option value="12">Fast Food</option>
+                </select>
+
+                {/* <RestaurantTypeDropdown restaurant_type_id={props.restaurant_type_id}/> */}
+                <br></br>
+              </div>
+            </Modal.Body>
+          )
+        }
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

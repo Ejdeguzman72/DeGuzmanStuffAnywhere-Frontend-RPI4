@@ -1,59 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react'
 import Axios from 'axios';
+import Select from 'react-select'
 
-const RestaurantTypeDropdown = (props) => {
-    const [items, setItems] = useState({
-        type: [
-            {
-                restaurantTypeId: 0,
-                restaurantDescr: ""
-            }
-        ]
-    });
+export default class NameDropdown extends Component {
+    constructor(props) {
+        super(props);
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setItems({ ...items, [name]: value });
-        console.log(name);
-        console.log(value)
-    };
+        this.state = {
+            selectOptions: [],
+            restaurant_type_id: 0,
+            descr: ""
+        }
+    }
 
+    async getOptions() {
+        const res = await Axios.get('http://localhost:8080/app/restaurant-types/all');
+        const data = res.data;
 
-    useEffect(() => {
-        Axios.get('http://localhost:8080/app/restaurant-types/all')
-            .then(response => {
-                let data = [];
-                response.data.forEach(e1 => {
-                    data.push({
-                        type: {
-                            restaurantTypeId: e1.restaurantTypeId,
-                            restaurantDescr: e1.restaurantDescr
-                        }
-                    });
-                    console.log(data);
-                })
-                setItems({ type: data })
-            })
-            .catch((error) => {
-                console.log(error);
-                alert(`Application is facing issue: ` + error);
-            });
-    }, [])
+        const options = data.map(d => ({
+            "value": d.restaurant_type_id,
+            "label": d.descr
+        }))
 
-    return (
-        <div>
-            <select onChange={handleInputChange}>
-                <option disabled={true} >Select a Restaurant Type</option>
-                {console.log(items.type)}
-                {items.type && 
-                    items.type.map((e, index) => (
-                    <option key={index} value={JSON.stringify(e.type)} onSelect={handleInputChange}>
-                        {JSON.stringify(e.type)}
-                    </option>
-                ))}
-            </select>
-        </div>
-    )
+        this.setState({ selectOptions: options })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            restaurant_type_id: event.value,
+            descr: event.value
+        })
+    }
+
+    componentDidMount() {
+        this.getOptions();
+    }
+
+    render() {
+        console.log(this.state.selectOptions)
+
+        return (
+            <div>
+                <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
+                <p>You have selected <strong>{this.state.name}</strong> whose id is <strong>{this.state.restaurant_type_id}</strong></p>
+            </div>
+        )
+    }
 }
-
-export default RestaurantTypeDropdown;

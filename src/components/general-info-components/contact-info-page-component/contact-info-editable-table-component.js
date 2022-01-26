@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import TableBody from 'material-table';
 import ContactInfoService from '../../../services/contact-info-service';
@@ -20,6 +21,8 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
+import AddContactModalComponent from './AddContactModalComponent';
+import ExportContactInfoCSV from './ExportContactInfoCSV';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -45,22 +48,36 @@ export default function ContactInfoEditableTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        personid: 0,
-        birthdate: "",
-        email: "",
+        personId: 0,
         firstname: "",
+        middle_initial: "",
         lastname: "",
-        phone: ""
+        address01: "",
+        address02: "",
+        city: "",
+        state: "",
+        zipcode: "",
+        birthdate: "",
+        age: 0,
+        email: "",
+        phone: "",
       }
     ]
   });
 
   const [state] = React.useState({
     columns: [
-      { title: 'Person ID No:', field: 'personid', hidden: true,  headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Person ID No:', field: 'personId', hidden: true, headerStyle: { backgroundColor: '#CCD6DD' } },
       { title: 'Firstname', field: 'firstname', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Middle Initial', field: 'middle_initial', headerStyle: { backgroundColor: '#CCD6DD' } },
       { title: 'Lastname', field: 'lastname', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Address_01', field: 'address01', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Address_02', field: 'address02', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'City', field: 'city', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'State', field: 'state', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Zip', field: 'zipcode', headerStyle: { backgroundColor: '#CCD6DD' } },
       { title: 'Birth Date', field: 'birthdate', headerStyle: { backgroundColor: '#CCD6DD' } },
+      { title: 'Age', field: 'age', headerStyle: { backgroundColor: '#CCD6DD' } },
       { title: 'Email', field: 'email', headerStyle: { backgroundColor: '#CCD6DD' } },
       { title: 'Phone', field: 'phone', headerStyle: { backgroundColor: '#CCD6DD' }, }
     ]
@@ -71,12 +88,19 @@ export default function ContactInfoEditableTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          personid: e1.personid,
-          birthdate: e1.birthdate,
-          email: e1.email,
+          personId: e1.personId,
           firstname: e1.firstname,
+          middle_initial: e1.middle_initial,
           lastname: e1.lastname,
-          phone: e1.phone
+          address01: e1.address01,
+          address02: e1.address02,
+          city: e1.city,
+          state: e1.state,
+          zipcode: e1.zipcode,
+          birthdate: e1.birthdate,
+          age: e1.age,
+          email: e1.email,
+          phone: e1.phone,
         });
         console.log(data);
       });
@@ -88,62 +112,79 @@ export default function ContactInfoEditableTableComponent() {
   }, []);
 
 
-  const handleRowAdd = (newData,resolve) => {
-    if(newData.firstname === null) {
+  const handleRowAdd = (newData, resolve) => {
+    if (newData.firstname === null) {
       alert("First name entry is required");
     }
     Axios.post('http://localhost:8080/app/person-info/add-person-information', newData)
-    .then(res => {
-      console.log(newData);
-      let dataToAdd = [...entries.data];
-      dataToAdd.push(newData);
-      setEntries(dataToAdd);
-      resolve();
-      window.location.reload();
-    })
-    .catch(error => {
-      console.log(error);
-      resolve();
-    });
+      .then(res => {
+        console.log(newData);
+        let dataToAdd = [...entries.data];
+        dataToAdd.push(newData);
+        setEntries(dataToAdd);
+        resolve();
+        window.location.reload();
+      })
+      .catch(error => {
+        console.log(error);
+        resolve();
+      });
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/person-info/person/${oldData.personid}`)
-    .then(res => {
-      console.log(oldData.personid);
-      const dataDelete = [...entries.data];
-      const index = oldData.tableData.personid;
-      dataDelete.splice(index,1);
-      setEntries([...dataDelete]);
-      resolve();
-      window.location.reload();
-    })
-    .catch(error => {
-      console.log(error);
-      resolve();
-    });
+    Axios.delete(`http://localhost:8080/app/person-info/person/${oldData.personId}`)
+      .then(res => {
+        const dataDelete = [...entries.data];
+        const index = oldData.tableData.personId;
+        dataDelete.splice(index, 1);
+        setEntries([...dataDelete]);
+        resolve();
+        window.location.reload();
+      })
+      .catch(error => {
+        console.log(error);
+        resolve();
+      });
   }
 
-  const handleRowUpdate = (newData,oldData,resolve) => {
-    Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personid}`,newData)
-    .then(res => {
-      console.log(newData);
-      const dataUpdate = [...entries.data];
-      const index = oldData.tabledata.personid;
-      dataUpdate[index] = newData;
-      setEntries([...dataUpdate]);
-      resolve();
-    })
-    .catch(error => {
-      console.log(error);
-      resolve();
-      window.reload();
-    });
+  const handleRowUpdate = (newData, oldData, resolve) => {
+    Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personId}`, newData)
+      .then(res => {
+        console.log(newData);
+        const dataUpdate = [...entries.data];
+        const index = oldData.tabledata.personId;
+        dataUpdate[index] = newData;
+        setEntries([...dataUpdate]);
+        resolve();
+      })
+      .catch(error => {
+        console.log(error);
+        resolve();
+        window.reload();
+      });
   }
+
+  const [fileName, setFileName] = useState("Contact Info");
 
   return (
     <div>
-      <Box border={3} borderRadius={16}>
+      <Row>
+        <Col md={4}>
+          <AddContactModalComponent />
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+        </Col>
+        <Col md={1}>
+          <ExportContactInfoCSV csvData={entries.data} fileName={fileName} />
+        </Col>
+        <Col md={1}>
+        </Col>
+      </Row>
+      <br></br>
+      <Box border={5} borderRadius={16}>
         <MaterialTable
           title="Contact Information"
           columns={state.columns}
@@ -152,15 +193,15 @@ export default function ContactInfoEditableTableComponent() {
           editable={{
             onRowAdd: (newData) =>
               new Promise((resolve) => {
-                handleRowAdd(newData,resolve)
+                handleRowAdd(newData, resolve)
               }),
             onRowUpdate: (newData, oldData) =>
               new Promise((resolve) => {
-                handleRowUpdate(newData,oldData,resolve)
+                handleRowUpdate(newData, oldData, resolve)
               }),
             onRowDelete: (oldData) =>
               new Promise((resolve) => {
-                handleRowDelete(oldData,resolve)
+                handleRowDelete(oldData, resolve)
               }),
           }}
         />

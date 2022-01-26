@@ -1,8 +1,4 @@
-.export-btn {
-    float: right;
-}
-
-.medicalTrx-input {
+.vehicle-input {
     border: none;
     border-bottom: 2px solid black;
     text-align: center;

@@ -15,7 +15,7 @@
     font-family: fantasy;
     /* border-radius: 25px; */
     list-style: none;
-    height: 200px;
+    height: 400px;
     /* text-align: left; */
     padding: 15px;
 }
@@ -24,4 +24,11 @@
     border: none;
     border-bottom: 2px solid black;
     text-align: center;
+}
+
+.generalTrx-input {
+    border: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+    width: 400px;
 }

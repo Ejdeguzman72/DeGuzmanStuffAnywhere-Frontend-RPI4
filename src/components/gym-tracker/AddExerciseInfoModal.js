@@ -1,43 +1,68 @@
 import React, { useState } from 'react';
-import BookService from '../../services/BookService';
+import Select from 'react-select';
 import { Button, Modal } from 'react-bootstrap';
 import '../../style-sheets/book-recommendations.css';
+import Axios from 'axios';
+import { Form } from 'react-bootstrap';
 
-const AddBookRecommendation = () => {
+const exerciseOptions = [
+    { value: "1", label: "Chest" },
+    { value: "2", label: "Abs" },
+    { value: "3", label: "Biceps" },
+    { value: "4", label: "Triceps" },
+    { value: "5", label: "Legs" },
+    { value: "6", label: "Back" },
+    { value: "7", label: "Shoulders" },
+]
+
+const AddExerciseModal = () => {
     const initialState = {
-        book_id: 0,
-        name: "",
-        author: "",
-        descr:""
+        exercise_id: 0,
+        exerciseName: "",
+        sets: "",
+        reps: "",
+        weight: 0,
+        date: "",
+        exercise_type_id: 0,
+        user_id: 0
     };
 
-    const [book, setBook] = useState(initialState);
+    const [exercise, setExercise] = useState(initialState);
     const [submitted, setSubmitted] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setBook({ ...book, [name]: value });
+        setExercise({ ...exercise, [name]: value });
 
     };
 
-    const saveBook = () => {
+    const saveExercise = () => {
 
         let data = {
-            name: book.name,
-            author: book.author,
-            descr: book.descr
+            exercise_id: exercise.exercise_id,
+            exerciseName: exercise.exerciseName,
+            sets: exercise.sets,
+            reps: exercise.reps,
+            weight: exercise.weight,
+            date: exercise.date,
+            exercise_type_id: exercise.exercise_type_id,
+            user_id: exercise.user_id
         };
 
-        BookService.addBookInformation(data)
+        Axios.post('http://localhost:8080/app/gym-tracker/add-exercise-information', data)
             .then(response => {
-                setBook({
-                    book_id: response.data.book_id,
-                    name: response.data.name,
-                    author: response.data.author,
-                    descr: response.data.descr
+                setExercise({
+                    exercise_id: response.data.exercise_id,
+                    exerciseName: response.data.exerciseName,
+                    sets: response.data.sets,
+                    reps: response.data.reps,
+                    weight: response.data.weight,
+                    date: response.data.date,
+                    exercise_type_id: response.data.exercise_type_id,
+                    user_id: response.data.user_id
                 });
                 setSubmitted(true);
-               
+
                 window.location.reload();
             })
             .catch(error => {
@@ -45,8 +70,8 @@ const AddBookRecommendation = () => {
             });
     }
 
-    const newBook = () => {
-        setBook(initialState);
+    const newExercise = () => {
+        setExercise(initialState);
         setSubmitted(false);
     }
 
@@ -56,8 +81,8 @@ const AddBookRecommendation = () => {
     const handleShow = () => setShow(true);
 
     return (
-        <><Button variant="info" size="sm" onClick={handleShow}>
-            Add Book
+        <><Button variant="info" size="lg" onClick={handleShow}>
+            Add Entry
         </Button>
 
             <Modal
@@ -67,74 +92,114 @@ const AddBookRecommendation = () => {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Book</Modal.Title>
+                    <Modal.Title>Add Exercise</Modal.Title>
                 </Modal.Header>
 
                 {submitted ? (
                     <Modal.Body>
                         <div>
-                            <h4>{book.name} has been added successfully</h4>
-                            <Button className="btn btn-success" onClick={newBook} size="lg" variant="info">
+                            <h4>Entry has been added successfully</h4>
+                            <Button className="btn btn-success" onClick={newExercise} size="lg" variant="info">
                                 Add
                             </Button>
                         </div>
                     </Modal.Body>
                 ) : (
-                        <Modal.Body>
-                            Please fill out the following information:
-                            <br></br>
-                            <div className="modal-container">
-                                <div className="form-group">
-                                    <label htmlFor="name">Title</label>
-                                    <br></br>
-                                    <input
-                                        type="text"
-                                        // className="book-name-input"
-                                        id="name"
-                                        required
-                                        value={book.name}
-                                        onChange={handleInputChange}
-                                        name="name"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="author">Author</label>
-                                    <br></br>
-                                    <input
-                                        type="text"
-                                        // className="author-input"
-                                        id="author"
-                                        required
-                                        value={book.author}
-                                        onChange={handleInputChange}
-                                        name="author"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="descr">Summary</label>
-                                    <br></br>
-                                    <textarea
-                                        type="text"
-                                        // className="author-input"
-                                        id="descr"
-                                        required
-                                        value={book.descr}
-                                        onChange={handleInputChange}
-                                        name="descr"
-                                    />
-                                </div>
+                    <Modal.Body>
+                        Please fill out the following information:
+                        <br></br>
+                        <div className="modal-container">
+                            <div className="form-group">
+                                <label htmlFor="name">Exercise Name</label>
+                                <br></br>
+                                <input
+                                    type="text"
+                                    // className="book-name-input"
+                                    id="exerciseName"
+                                    required
+                                    value={exercise.exerciseName}
+                                    onChange={handleInputChange}
+                                    name="exerciseName"
+                                />
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="sets">Sets</label>
+                                <br></br>
+                                <input
+                                    type="number"
+                                    // className="author-input"
+                                    id="sets"
+                                    required
+                                    value={exercise.sets}
+                                    onChange={handleInputChange}
+                                    name="sets"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="reps">Reps</label>
+                                <br></br>
+                                <input
+                                    type="text"
+                                    // className="author-input"
+                                    id="reps"
+                                    required
+                                    value={exercise.reps}
+                                    onChange={handleInputChange}
+                                    name="reps"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="weight">Weight</label>
+                                <br></br>
+                                <input
+                                    type="text"
+                                    // className="author-input"
+                                    id="weight"
+                                    required
+                                    value={exercise.reweightps}
+                                    onChange={handleInputChange}
+                                    name="weight"
+                                />
+                            </div>
+                            <Form.Group controlId="date">
+                                <Form.Label>Select Date</Form.Label>
+                                <Form.Control type="date" name="date" placeholder="Date" onChange={handleInputChange} />
+                            </Form.Group>
+                            <select
+                                id="exercise_type_id"
+                                name="exercise_type_id"
+                                type="number"
+                                onChange={handleInputChange} >
+                                <option value="Please choose an Exercise Type">Please Choose an Exercise Type</option>
+                                <option value="1">Chest</option>
+                                <option value="2">Abs</option>
+                                <option value="3">Biceps</option>
+                                <option value="4">Triceps</option>
+                                <option value="5">Legs</option>
+                                <option value="6">Back</option>
+                                <option value="7">Legs</option>
+                            </select>
+                            <br></br><br></br>
+                            <select
+                                id="user_id"
+                                name="user_id"
+                                type="number"
+                                onChange={handleInputChange} >
+                                <option value="Please choose a User">Please Choose a User</option>
+                                <option value="2">global</option>
+                            </select>
+                        </div>
 
-                        </Modal.Body>
-                    )}
+                    </Modal.Body>
+                )}
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={saveBook}>Submit</Button>
+                    <Button variant="primary" onClick={saveExercise}>Submit</Button>
                 </Modal.Footer>
             </Modal></>
     )
 }
 
-export default AddBookRecommendation;
+export default AddExerciseModal;

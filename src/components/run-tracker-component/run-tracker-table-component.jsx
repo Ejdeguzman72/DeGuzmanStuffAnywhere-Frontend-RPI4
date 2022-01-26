@@ -47,22 +47,22 @@ export default function RunTrackerTableComponent() {
     const [entries, setEntries] = useState({
         data: [
             {
-                runid: 0,
-                runDate: "",
-                runDistance: 0,
-                runTime: 0,
-                user: ""
+                run_id: 0,
+                run_date: "",
+                run_distance: 0,
+                run_time: 0,
+                name: ""
             }
         ]
     });
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'runid', hidden: true},
-            { title: 'Date of Run', field: 'runDate' },
-            { title: 'Distance', field: 'runDistance' },
-            { title: 'Time', field: 'runTime' },
-            { title: 'User', field: 'user'}
+            { title: 'ID No:', field: 'run_id', hidden: true},
+            { title: 'Date of Run', field: 'run_date' },
+            { title: 'Distance', field: 'run_distance' },
+            { title: 'Time', field: 'run_time' },
+            { title: 'Name of User', field: 'name'}
         ]
     });
 
@@ -71,11 +71,11 @@ export default function RunTrackerTableComponent() {
             let data = [];
             response.data.forEach(e1 => {
                 data.push({
-                    runid: e1.runid,
-                    runDate: e1.runDate,
-                    runDistance: e1.runDistance,
-                    runTime: e1.runTime,
-                    user: e1.user.name
+                    run_id: e1.run_id,
+                    run_date: e1.run_date,
+                    run_distance: e1.run_distance.toFixed(2),
+                    run_time: e1.run_time,
+                    name: e1.name
                 });
                 console.log(data);
             });
@@ -103,30 +103,35 @@ export default function RunTrackerTableComponent() {
     }    
 
     const handleRowDelete = (oldData,resolve) => {
-        Axios.delete(`http://localhost:8080/app/run-tracker-app/run/${oldData.runid}`)
+        Axios.delete(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
         .then(res => {
-            console.log(`Run entry with ID: ${oldData.runid} is deleted`);
             let dataToDelete = [...entries.data];
-            const index = oldData.tabledata.runid;
+            const index = oldData.tabledata.run_id;
             dataToDelete.splice(index,1);
             setEntries(dataToDelete);
             resolve();
+
+            window.location.reload();
         })
         .catch(error => {
             console.log(error);
             resolve();
+
+            window.location.reload();
         })
     }
 
     const handleRowUpdate = (newData,oldData,resolve) => {
-        Axios.put(`http://localhost:8080/app/run-tracker-app/run/${oldData.runid}`)
+        Axios.put(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
         .then(res => {
-            console.log(`Run Entry with IDL ${oldData.runid}`);
+            console.log(`Run Entry with IDL ${oldData.run_id}`);
             let dataToUpdate = [...entries.data];
-            const index = oldData.tabledata.runid;
+            const index = oldData.tabledata.run_id;
             dataToUpdate[index] = newData;
             setEntries([...dataToUpdate]);
             resolve();
+
+            window.location().reload();
         })
         .catch(error => {
             console.log(error);

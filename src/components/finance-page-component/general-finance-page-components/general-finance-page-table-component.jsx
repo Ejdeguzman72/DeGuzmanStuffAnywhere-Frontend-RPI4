@@ -52,12 +52,12 @@ export default function GeneralFinancePageTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        transactionId: 0,
+        transaction_id: 0,
         amount: 0,
-        paymentDate: "",
-        transactionType:"",
+        payment_date: "",
         entity: "",
-        person: ""
+        transaction_type_descr: "",
+        name: ""
       }
     ]
   });
@@ -66,12 +66,12 @@ export default function GeneralFinancePageTableComponent() {
 
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'transactionId', hidden: true },
+      { title: 'Transaction ID', field: 'transaction_id', hidden: true },
       { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'paymentDate' },
+      { title: 'Payment Date', field: 'payment_date' },
       { title: 'Entity', field: 'entity' },
-      {title: 'Transaction Type', field: 'transactionType'},
-      { title: 'User', field: 'user' }
+      { title: 'Transaction Type', field: 'transaction_type_descr' },
+      { title: 'User', field: 'name' }
     ],
   });
 
@@ -81,12 +81,12 @@ export default function GeneralFinancePageTableComponent() {
         let data = [];
         response.data.forEach(e1 => {
           data.push({
-            transactionId: e1.transactionId,
-            amount: e1.amount,
-            paymentDate: e1.paymentDate,
+            transaction_id: e1.transaction_id,
+            amount: e1.amount.toFixed(2),
+            payment_date: e1.payment_date,
             entity: e1.entity,
-            transactionType: e1.transactionType.transaction_type_descr,
-            user: e1.user.name
+            transaction_type_descr: e1.transaction_type_descr,
+            name: e1.name
           });
           console.log(data);
         });
@@ -98,12 +98,10 @@ export default function GeneralFinancePageTableComponent() {
   }, []);
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    console.log(oldData.tranasctionId + "this is old data");
-    console.log(newData.tranasctionId + "this is new data");
-    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.transactionId}`, newData)
+    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.transaction_id}`, newData)
       .then(res => {
         const dataUpdate = [...entries];
-        const index = oldData.tableData.tranasctionId;
+        const index = oldData.tableData.transaction_id;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
@@ -116,11 +114,10 @@ export default function GeneralFinancePageTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData.transactionId);
-    Axios.delete(`http://localhost:8080/app/general-transaction/transaction/${oldData.transactionId}`)
+    Axios.delete(`http://localhost:8080/app/general-transactions/transaction//${oldData.transaction_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.transactionId;
+        const index = oldData.tableData.transaction_id;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
@@ -134,10 +131,7 @@ export default function GeneralFinancePageTableComponent() {
   const handleRowAdd = (newData, resolve) => {
     Axios.post("http://localhost:8080/app/general-transaction/add-transaction-information", newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...entries.data];
-        console.log(api + "this is api");
-        console.log(dataToAdd + "this is dataTo");
         dataToAdd.push(newData);
         setEntries(dataToAdd);
         resolve();
@@ -149,15 +143,15 @@ export default function GeneralFinancePageTableComponent() {
     <div>
       <Row>
         <Col md={4}>
-
-        </Col>
-        <Col md={5}>
-
-        </Col>
-        {/* <Col md={2}>
-        </Col> */}
-        <Col md={3}>
           <AddGeneralFinanceModalComponent />
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+
+        </Col>
+        <Col md={1}>
           <ExportGeneralFinanceCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>
@@ -169,18 +163,18 @@ export default function GeneralFinancePageTableComponent() {
           data={entries.data}
           icons={tableIcons}
           editable={{
-            onRowAdd: (newData) =>
-              new Promise((resolve) => {
-                handleRowAdd(newData, resolve)
-              }),
-            onRowUpdate: (newData, oldData) =>
-              new Promise((resolve) => {
-                handleRowUpdate(newData, oldData, resolve);
-              }),
-            onRowDelete: (oldData) =>
-              new Promise((resolve) => {
-                handleRowDelete(oldData, resolve);
-              })
+            // onRowAdd: (newData) =>
+            //   new Promise((resolve) => {
+            //     handleRowAdd(newData, resolve)
+            //   }),
+            // onRowUpdate: (newData, oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowUpdate(newData, oldData, resolve);
+            //   }),
+            // onRowDelete: (oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowDelete(oldData, resolve);
+            //   })
           }}
         />
       </Box>

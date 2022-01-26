@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import MedicalTransactionService from '../../../services/medical-transaction-service';
+import MedicalOfficeService from '../../services/MedicalOfficeService';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -20,8 +20,9 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import { Col,Row } from 'react-bootstrap';
-import ExportMedicalFinanceCSV from './ExportMedicalFinanceCSV';
-import AddMedicalFinanceModalComponent from './AddMedicalTransactionModalComponent';
+import ExportMedicalFinanceCSV from './ExportMedicalOfficeCSV';
+import AddMedicalFinanceModalComponent from './AddMedicalOfficeModalComponent';
+import AutoShopService from '../../services/AutoShopService'
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,60 +44,49 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-export default function MedicalFinancePageTableComponent() {
+export default function MedicalOfficeTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Medical Transaction ID', field: 'medical_transaction_id', hidden: true },
-      { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'medical_transaction_date' },
-      { title: 'Medical Facility', field: 'facilityName' },
-      { title: 'Address', field: 'address'},
-      { title: 'City', field: 'city'},
+      { title: 'Medical Office ID', field: 'medicalOfficeId', hidden: true },
+      { title: 'Name of Facility', field: 'name' },
+      { title: 'Address', field: 'address' },
+      { title: 'City', field: 'city' },
       { title: 'State', field: 'state'},
-      { title: 'zip', field: 'zip'},
-      { title: 'Transaction Type', field: 'transaction_type_descr'},
-      { title: 'Name of User', field: 'name' },
+      { title: 'zip', field: 'zip'}
     ],
   });
 
-  const [medicalTrxData, setMedicalTrxdata] = useState({
+  const [medicalOffice, setMedicalOffice] = useState({
     data: [
       {
-        medical_transaction_id: 0,
+        medicalOfficeId: 0,
         amount: 0.00,
-        medical_transaction_date: "",
-        facilityName: "",
+        name: "",
         address: "",
         city: "",
         state: "",
         zip: "",
-        transaction_type_descr: "",
-        name: ""
       }
     ]
   });
 
-  const [fileName] = useState("Medical_Finance");
+  const [fileName] = useState("Medical_Offices");
 
   useEffect(() => {
-    MedicalTransactionService.getAllMedicalTransactions().then(response => {
+    MedicalOfficeService.getAllMedicalOffices().then(response => {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          medical_transaction_id: e1.medical_transaction_id,
-          amount: e1.amount.toFixed(2),
-          medical_transaction_date: e1.medical_transaction_date,
-          facilityName: e1.facilityName,
+          medicalOfficeId: e1.medicalOfficeId,
+          name: e1.name,
           address: e1.address,
           city: e1.city,
           state: e1.state,
           zip: e1.zip,
-          transaction_type_descr: e1.transaction_type_descr,
-          name: e1.name
         });
         console.log(data);
       });
-      setMedicalTrxdata({ data: data });
+      setMedicalOffice({ data: data });
     })
       .catch(function (error) {
         console.log(error);
@@ -104,24 +94,24 @@ export default function MedicalFinancePageTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/medical-transactions/add-medical-transaction', newData)
+    MedicalOfficeService.addMedicalOffice(newData)
       .then(res => {
         console.log(newData + "this is newData");
-        let dataToAdd = [...medicalTrxData.data];
+        let dataToAdd = [...medicalOffice.data];
         dataToAdd.push(newData);
-        setMedicalTrxdata(dataToAdd);
+        setMedicalOffice(dataToAdd);
         resolve();
         window.location.reload();
       });
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medical_transaction_id}`)
+    Axios.put(`http://localhost:8080/app/medical-offices/medical-office/${oldData.medicalOfficeId}`)
       .then(res => {
-        const dataUpdate = [...medicalTrxData.data];
-        const index = oldData.tabledata.medicalTransactionId;
+        const dataUpdate = [...medicalOffice.data];
+        const index = oldData.tabledata.medicalOfficeId;
         dataUpdate[index] = newData;
-        setMedicalTrxdata([...dataUpdate]);
+        setMedicalOffice([...dataUpdate]);
         resolve();
       })
       .catch(error => {
@@ -131,14 +121,14 @@ export default function MedicalFinancePageTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/medical-transactions/medical-transaction/${oldData.medical_transaction_id}`)
+    Axios.delete(`http://localhost:8080/app/medical-offices/medical-office/${oldData.medicalOfficeId}`)
       .then(res => {
-        const dataDelete = [...medicalTrxData.data];
-        const index = oldData.tabledata.medical_transaction_id;
+        const dataDelete = [...medicalOffice.data];
+        const index = oldData.tabledata.medicalOfficeId;
         dataDelete.splice(index, 1);
-        setMedicalTrxdata([...dataDelete]);
+        setMedicalOffice([...dataDelete]);
         resolve();
-        window.reload();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -150,24 +140,22 @@ export default function MedicalFinancePageTableComponent() {
     <div>
     <Row>
         <Col md={4}>
+
+        </Col>
+        <Col md={3}>
+
+        </Col>
+        <Col md={5}>
           <AddMedicalFinanceModalComponent />
-        </Col>
-        <Col md={4}>
-
-        </Col>
-        <Col md={2}>
-
-        </Col>
-        <Col md={1}>
-          <ExportMedicalFinanceCSV csvData={medicalTrxData.data} fileName={fileName} />
+          <ExportMedicalFinanceCSV csvData={medicalOffice.data} fileName={fileName} />
         </Col>
       </Row>
       <br></br>
     <Box border={3} borderRadius={16}> 
       <MaterialTable
-        title="Medical Finances"
+        title="Medical Office"
         columns={state.columns}
-        data={medicalTrxData.data}
+        data={medicalOffice.data}
         icons={tableIcons}
         editable={{
           // onRowAdd: (newData) =>

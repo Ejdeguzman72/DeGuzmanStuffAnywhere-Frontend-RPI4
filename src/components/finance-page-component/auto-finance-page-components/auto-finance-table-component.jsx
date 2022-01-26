@@ -20,7 +20,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
-import { Col,Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import AddAutoTransactionModalComponent from '../auto-finance-page-components/AddAutoTransactionModalComponent';
 
 const tableIcons = {
@@ -46,26 +46,30 @@ const tableIcons = {
 export default function AutoFinancePageTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'autoTransactionId', hidden: true },
+      { title: 'Transaction ID', field: 'auto_transaction_id', hidden: true },
       { title: 'Amount', field: 'amount' },
-      { title: 'Repair Shop Name', field: 'autoShop' },
-      { title: 'Transaction Type', field: 'transactionType'},
-      { title: 'Car', field: 'car'},
-      { title: 'Date', field: 'autoTransactionDate' },
-      { title: 'Name', field: 'user' },
+      { title: 'Date', field: 'auto_transaction_date' },
+      { title: 'Make', field: 'make' },
+      { title: 'Model', field: 'model' },
+      { title: 'Year', field: 'year' },
+      { title: 'Auto Shop Name', field: 'auto_shop_name' },
+      { title: 'Name of User', field: 'name' },
+      { title: 'Transaction Type', field: 'transaction_type_descr' },
     ],
   });
 
   const [entries, setEntries] = useState({
     data: [
       {
-        autoTransactionId: 0,
+        auto_transaction_id: 0,
         amount: 0,
-        car: "",
-        autoShop: "",
-        user: "",
-        transactionType: "",
-        autoTransactionDate: "",
+        auto_transaction_date: "",
+        make: "",
+        model: "",
+        year: "",
+        auto_shop_name: "",
+        name: "",
+        transaction_type_descr: "",
       }
     ]
   });
@@ -77,13 +81,15 @@ export default function AutoFinancePageTableComponent() {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
-          autoTransactionId: e1.autoTransactionId,
-          autoTransactionDate: e1.autoTransactionDate,
-          car: e1.car.make + " " + e1.car.model,
-          autoShop: e1.autoShop.autoShopName,
-          amount: e1.amount,
-          transactionType: e1.transactionType.descr,
-          user: e1.user.name,
+          auto_transaction_id: e1.auto_transaction_id,
+          amount: e1.amount.toFixed(2),
+          auto_transaction_date: e1.auto_transaction_date,
+          make: e1.make,
+          model: e1.model,
+          year: e1.year,
+          auto_shop_name: e1.auto_shop_name,
+          name: e1.name,
+          transaction_type_descr: e1.transaction_type_descr,
         });
         console.log(data);
       });
@@ -142,13 +148,14 @@ export default function AutoFinancePageTableComponent() {
     <div>
       <Row>
         <Col md={4}>
-
-        </Col>
-        <Col md={5}>
-
-        </Col>
-        <Col md={3}>
           <AddAutoTransactionModalComponent />
+        </Col>
+        <Col md={4}>
+
+        </Col>
+        <Col md={2}>
+        </Col>
+        <Col md={1}>
           <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>

@@ -1,22 +1,24 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
-import ViewCarsTableComponent from './car-information-table';
+import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
+import AutoShopTableComponent from './AutoShopTableComponent';
 
-const CarInformationPageComponent = () => {
+const AutoShopPageComponent = () => {
     return (
         <div>
             <Helmet>
-                <title>View All Cars</title>
+                <title>View All Auto Shops</title>
             </Helmet>
             <div id="white-background">
+                <AutoFinanceTabsComponent />
                 <br></br>
                 <br></br>
-                <ViewCarsTableComponent/>
+                <AutoShopTableComponent />
             </div>
             <FooterComponent />
         </div>
     )
 }
 
-export default CarInformationPageComponent;
+export default AutoShopPageComponent;

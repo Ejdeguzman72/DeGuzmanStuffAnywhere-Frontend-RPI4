@@ -1,34 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react'
 import Axios from 'axios';
-import { FullscreenExit } from '@material-ui/icons';
+import Select from 'react-select'
 
-const NameDropdown = () => {
-    const [items, setItems] = useState([]);
+export default class NameDropdown extends Component {
+    constructor(props) {
+        super(props);
 
-    const handleInputChange = (event) => {
-        setItems(event.target.value)
-        console.log(event.target.value);
+        this.state = {
+            selectOptions: [],
+            user_id: 0,
+            name: ""
+        }
     }
 
-    useEffect(() => {
-        Axios.get('http://localhost:8080/app/users/all')
-            .then(response => {
-                let data = response.data
-                setItems(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    })
+    async getOptions() {
+        const res = await Axios.get('http://localhost:8080/app/users/all');
+        const data = res.data;
 
-    return (
-        <div>
-            <select onChange={handleInputChange}>
-                <option value="Select a User Type">Select a User</option>
-                {items.map((item) => <option value={item.name}>{item.name}</option>)}
-            </select>
-        </div>
-    )
+        const options = data.map(d => ({
+            "value": d.user_id,
+            "label": d.name
+        }))
+
+        this.setState({ selectOptions: options })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            user_id: event.value,
+            name: event.value
+        })
+    }
+
+    componentDidMount() {
+        this.getOptions();
+    }
+
+    render() {
+        console.log(this.state.selectOptions)
+
+        return (
+            <div>
+                <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
+                <p>You have selected <strong>{this.state.name}</strong> whose id is <strong>{this.state.user_id}</strong></p>
+            </div>
+        )
+    }
 }
-
-export default NameDropdown;

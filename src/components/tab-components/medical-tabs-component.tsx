@@ -12,10 +12,19 @@ export class MedicalTabsComponent extends React.Component<any, any> {
                                 <Nav.Item>
                                     <Nav.Link href="#medical-finance" eventKey="first" id="tabs">Medical Finance Info</Nav.Link>
                                 </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link href="#medical-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
-                                </Nav.Item>
                             </Nav>
+                        </Col>
+                    </Tab.Container>
+                </Row>
+                <Row>
+                    <Tab.Container>
+                        <Col md={6}>
+                            <Nav.Link href="#medical-offices" eventKey="third" id="tabs">Medical Offices</Nav.Link>
+                        </Col>
+                        <Col md={6}>
+                            <Nav.Item>
+                                <Nav.Link href="#medical-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
+                            </Nav.Item>
                         </Col>
                     </Tab.Container>
                 </Row>
