@@ -24,7 +24,7 @@ const DownloadsTableComponent = () => {
                     </tr>
                     <tr>
                         <td>
-                           <DSADownloadsLinkComponent />
+                          <DSAAndroidMobileLink />
                         </td>
                     </tr>
                     <tr>
@@ -34,7 +34,7 @@ const DownloadsTableComponent = () => {
                     </tr>
                     <tr>
                         <td>
-                          <DSAAndroidMobileLink />
+                           <DSADownloadsLinkComponent />
                         </td>
                     </tr>
                 </tbody>
