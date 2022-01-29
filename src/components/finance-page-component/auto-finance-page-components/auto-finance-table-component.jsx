@@ -114,7 +114,7 @@ export default function AutoFinancePageTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.autoTransactionId}`)
+    Axios.put(`http://localhost:8080/app/auto-transactions/update-auto-transaction/${oldData.auto_transaction_id}`)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.autoTransactionId;
@@ -131,13 +131,15 @@ export default function AutoFinancePageTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.autoTransactionId);
-    Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.autoTransactionId}`)
+    Axios.delete(`http://localhost:8080/app/auto-transactions/auto-transaction/${oldData.auto_transaction_id}`)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.autoTransactionId;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
+
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);

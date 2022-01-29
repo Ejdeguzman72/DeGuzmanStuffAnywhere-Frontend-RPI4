@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
 import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
 import ViewCarsTableComponent from './VehicleInformationTable';
+import VehicleList from './VehicleList';
 
 const VehicleInformationPage = () => {
     return (
@@ -15,6 +16,8 @@ const VehicleInformationPage = () => {
                 <br></br>
                 <br></br>
                 <ViewCarsTableComponent />
+                <br></br>
+                <VehicleList />
             </div>
             <FooterComponent />
         </div>

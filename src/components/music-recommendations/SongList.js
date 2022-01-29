@@ -79,10 +79,12 @@ const SongList = () => {
     }
 
     const removeAllMusic = () => {
-        MusicService.deleteAllSongs
+        MusicService.deleteAllSongs()
             .then(response => {
                 setSong(response.data);
                 console.log(response.data);
+
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);

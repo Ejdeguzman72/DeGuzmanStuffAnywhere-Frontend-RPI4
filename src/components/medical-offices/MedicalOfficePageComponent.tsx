@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { MedicalTabsComponent } from '../tab-components/medical-tabs-component';
 import MedicalOfficeTableComponent from './MedicalOfficeTableComponent';
 import { FooterComponent } from '../footer-component/footer-component';
+import MedicalOfficeList from './MedicalOfficeList';
 
 const MedicalOfficePageComponent = () => {
     return (
@@ -17,6 +18,8 @@ const MedicalOfficePageComponent = () => {
                 <MedicalTabsComponent />
                 <br></br>
                 <MedicalOfficeTableComponent />
+                <br></br>
+                <MedicalOfficeList />
             </div>
             <FooterComponent />
         </div>

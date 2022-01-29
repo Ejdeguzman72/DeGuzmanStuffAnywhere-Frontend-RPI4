@@ -8,14 +8,14 @@ import { LoginPageComponent } from './components/login-page-component/login-page
 import { PhotoVideoPageComponent } from './components/photos-videos-page-component/media-page-component/photo-video-page-component';
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
 import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
-import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-page-component';
+import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/GeneralFinancePageComponent';
 import { RecipePageComponent } from './components/recipe-page-component/main-recipe-page-component';
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
 import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
 import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
 import MedicalOfficePageComponent from './components/medical-offices/MedicalOfficePageComponent';
 import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
-import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/general-finance-upload-page-compnent';
+import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/UploadComponent';
 import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
 import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/filipino-recipes/adobo-recipe-page-component';
 import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beefaroni-recipe-page-component';

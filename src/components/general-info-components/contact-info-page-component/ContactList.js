@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import BooksService from '../../services/BookService';
+import ContactInfoService from '../../../services/ContactInfoService';
 import { Link } from 'react-router-dom';
-import AddBookRecommendation from './AddBookRecommendation';
+import { Row, Button } from 'react-bootstrap';
+import AddContactModalComponent from './AddContactModalComponent'
 import Pagination from "@material-ui/lab/Pagination";
 
-const BooksList = () => {
-    const [books, setBooks] = useState([]);
-    const [currentBook, setCurrentBook] = useState(null);
+const ContactList = () => {
+    const [persons, setPersons] = useState([]);
+    const [currentContact, setCurrentContact] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +26,7 @@ const BooksList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['title'] = searchTitle;
+            params['firstname'] = searchTitle;
         }
 
         if (page) {
@@ -39,27 +40,27 @@ const BooksList = () => {
         return params;
     }
 
-    const retrieveBooks = () => {
+    const retrieveContacts = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
-        
-        BooksService.getAllBookInformation(params)
-            .then(response => {
-                const { books, totalPages } = response.data;
 
-                setBooks(books);
+        ContactInfoService.getAllContactInfo(params)
+            .then(response => {
+                const { persons, totalPages } = response.data;
+                setPersons(persons);
                 setCount(totalPages);
-                console.log(response.data);
+
+                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    useEffect(retrieveBooks, [page, pageSize]);
+    useEffect(retrieveContacts, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveBooks();
-        setCurrentBook(null);
+        retrieveContacts();
+        setCurrentContact(null);
         setCurrentIndex(-1);
     }
 
@@ -72,16 +73,18 @@ const BooksList = () => {
         setpage(1);
     }
 
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
+    const setActiveContact = (contact, index) => {
+        setCurrentContact(contact);
         setCurrentIndex(index);
     }
 
-    const removeAllBooks = () => {
-        BooksService.deleteAllBookInformation()
+    const removeAllContacts = () => {
+        ContactInfoService.deleteAllContactInfo()
             .then(response => {
-                setBooks(response.data);
+                setPersons(response.data);
                 console.log(response.data);
+
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -89,9 +92,9 @@ const BooksList = () => {
     };
 
     const findByName = () => {
-        BooksService.findBookByName(searchTitle)
+        ContactInfoService.getSongByTitle(searchTitle)
             .then(response => {
-                setBooks(response.data);
+                setPersons(response.data);
                 console.log(response.data);
             })
     }
@@ -119,7 +122,7 @@ const BooksList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Book List</h4>
+                <h4>Contact List</h4>
 
 
                 <div className="mt-3">
@@ -146,59 +149,81 @@ const BooksList = () => {
 
 
                 <ul className="list-group">
-                    {books &&
-                        books.map((book, index) => (
+                    {persons &&
+                        persons.map((person, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveBook(book, index)}
+                                onClick={() => setActiveContact(person, index)}
                                 key={index}
                             >
-                                {book.title}
+                                {person.firstname}
                             </li>
                         ))}
                 </ul>
-                <button
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllBooks}
-                >
-                    Delete All
-                </button>
-                {/* <button
-                    className="m-3 btn btn-primary"
-                    onClick={removeAllBooks}
-                >
-                    Add Book Information
-                </button> */}
-                <AddBookRecommendation />
+                <br></br>
+                <Row>
+                    <AddContactModalComponent />
+                    <Button
+                        size="lg"
+                        className="btn-danger delete-all-btn" 
+                        onClick={removeAllContacts}
+                    >
+                        Delete All
+                    </Button>
+                </Row>
             </div>
             <div className="col-md-6">
-                {currentBook ? (
+                {currentContact ? (
                     <div>
-                        <h4>Book Information</h4>
+                        <h4>Contact Info:</h4>
                         <div>
                             <label>
-                                <strong>Title:</strong>
+                                <strong>First Name:</strong>
                             </label>{" "}
-                            {currentBook.title}
+                            {currentContact.firstname}
                         </div>
                         <div>
                             <label>
-                                <strong>Author:</strong>
+                                <strong>Middle Initial:</strong>
                             </label>{" "}
-                            {currentBook.author}
+                            {currentContact.middle_initial}
                         </div>
                         <div>
                             <label>
-                                <strong>Description:</strong>
+                                <strong>Last Name:</strong>
                             </label>{" "}
-                            {currentBook.descr}
+                            {currentContact.lastname}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Address:</strong>
+                            </label>{" "}
+                            {currentContact.address01 + ' ' + currentContact.address02 + ' ' + currentContact.city + ' ' + currentContact.state + ' ' + currentContact.zipcode}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Phone:</strong>
+                            </label>{" "}
+                            {currentContact.phone}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Email:</strong>
+                            </label>{" "}
+                            {currentContact.email}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Birthdate:</strong>
+                            </label>{" "}
+                            {currentContact.birthdate}
                         </div>
 
                         <Link
-                            to={"/update-book-information" + currentBook.book_id}
+                            to={"/update-book-information/" + currentContact.contact_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -207,7 +232,7 @@ const BooksList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a book...</p>
+                            <p>Please click on a contact...</p>
                         </div>
                     )}
             </div>
@@ -215,4 +240,4 @@ const BooksList = () => {
     )
 }
 
-export default BooksList;
+export default ContactList;

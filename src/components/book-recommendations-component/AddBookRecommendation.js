@@ -6,7 +6,7 @@ import '../../style-sheets/book-recommendations.css';
 const AddBookRecommendation = () => {
     const initialState = {
         book_id: 0,
-        name: "",
+        title: "",
         author: "",
         descr:""
     };
@@ -23,7 +23,7 @@ const AddBookRecommendation = () => {
     const saveBook = () => {
 
         let data = {
-            name: book.name,
+            title: book.title,
             author: book.author,
             descr: book.descr
         };
@@ -32,11 +32,13 @@ const AddBookRecommendation = () => {
             .then(response => {
                 setBook({
                     book_id: response.data.book_id,
-                    name: response.data.name,
+                    title: response.data.title,
                     author: response.data.author,
                     descr: response.data.descr
                 });
                 setSubmitted(true);
+               
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -71,7 +73,7 @@ const AddBookRecommendation = () => {
                 {submitted ? (
                     <Modal.Body>
                         <div>
-                            <h4>New Book entry has been added successfully</h4>
+                            <h4>{book.name} has been added successfully</h4>
                             <Button className="btn btn-success" onClick={newBook} size="lg" variant="info">
                                 Add
                             </Button>
@@ -88,11 +90,11 @@ const AddBookRecommendation = () => {
                                     <input
                                         type="text"
                                         // className="book-name-input"
-                                        id="name"
+                                        id="title"
                                         required
-                                        value={book.name}
+                                        value={book.title}
                                         onChange={handleInputChange}
-                                        name="name"
+                                        name="title"
                                     />
                                 </div>
                                 <div className="form-group">

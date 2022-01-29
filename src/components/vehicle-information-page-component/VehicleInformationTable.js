@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import CarInfoService from '../../services/car-information';
+import VehicleInformationService from '../../services/VehicleInformationService';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -71,7 +71,7 @@ export default function ViewCarsTableComponent() {
   const [fileName, setFileName] = useState("Car Information");
 
   useEffect(() => {
-    CarInfoService.GetAllCarInformation().then(response => {
+    VehicleInformationService.getAllVehicleInformation().then(response => {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
@@ -82,7 +82,6 @@ export default function ViewCarsTableComponent() {
           capacity: e1.capacity,
           transmission: e1.transmission
         });
-        console.log(data);
       });
       setEntries({ data: data })
     })
@@ -94,7 +93,6 @@ export default function ViewCarsTableComponent() {
   const handleRowAdd = (newData, resolve) => {
     Axios.post('http://localhost:8080/app/vehicles/add-vehicle-information', newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...entries.data]
         dataToAdd.push(newData);
         setEntries(dataToAdd)
@@ -108,7 +106,6 @@ export default function ViewCarsTableComponent() {
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.vehicleId;
-        console.log(index + "this is index");
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
