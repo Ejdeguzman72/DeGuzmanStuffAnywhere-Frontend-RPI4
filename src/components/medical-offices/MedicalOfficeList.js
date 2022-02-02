@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import BooksService from '../../services/BookService';
+import MedicalOfficeService from '../../services/MedicalOfficeService';
 import { Link } from 'react-router-dom';
-import AddBookRecommendation from './AddBookRecommendation';
+import AddMedicalOfficeModalComponent from './AddMedicalOfficeModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
 
-const BooksList = () => {
-    const [books, setBooks] = useState([]);
-    const [currentBook, setCurrentBook] = useState(null);
+const MedicalOfficeList = () => {
+    const [medicalOffices, setMedicalOffices] = useState([]);
+    const [currentMedicalOffice, setCurrentMedicalOffice] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +25,7 @@ const BooksList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['title'] = searchTitle;
+            params['name'] = searchTitle;
         }
 
         if (page) {
@@ -39,14 +39,14 @@ const BooksList = () => {
         return params;
     }
 
-    const retrieveBooks = () => {
+    const retrieveMedicalOffices = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        BooksService.getAllBookInformation(params)
+        MedicalOfficeService.getAllMedicalOfficeInfo(params)
             .then(response => {
-                const { books, totalPages } = response.data;
+                const { medicalOffices, totalPages } = response.data;
 
-                setBooks(books);
+                setMedicalOffices(medicalOffices);
                 setCount(totalPages);
                 console.log(response.data);
             })
@@ -55,11 +55,11 @@ const BooksList = () => {
             });
     };
 
-    useEffect(retrieveBooks, [page, pageSize]);
+    useEffect(retrieveMedicalOffices, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveBooks();
-        setCurrentBook(null);
+        retrieveMedicalOffices();
+        setCurrentMedicalOffice(null);
         setCurrentIndex(-1);
     }
 
@@ -72,15 +72,15 @@ const BooksList = () => {
         setpage(1);
     }
 
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
+    const setActiveMedicalOffice = (book, index) => {
+        setCurrentMedicalOffice(book);
         setCurrentIndex(index);
     }
 
-    const removeAllBooks = () => {
-        BooksService.deleteAllBookInformation()
+    const removeAllMedicalOffices = () => {
+        MedicalOfficeService.deleteAllMedicalOffices()
             .then(response => {
-                setBooks(response.data);
+                setMedicalOffices(response.data);
                 console.log(response.data);
             })
             .catch(error => {
@@ -89,9 +89,9 @@ const BooksList = () => {
     };
 
     const findByName = () => {
-        BooksService.findBookByName(searchTitle)
+        MedicalOfficeService.findBookByName(searchTitle)
             .then(response => {
-                setBooks(response.data);
+                setMedicalOffices(response.data);
                 console.log(response.data);
             })
     }
@@ -119,7 +119,7 @@ const BooksList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Book List</h4>
+                <h4>Medical Office List</h4>
 
 
                 <div className="mt-3">
@@ -146,23 +146,23 @@ const BooksList = () => {
 
 
                 <ul className="list-group">
-                    {books &&
-                        books.map((book, index) => (
+                    {medicalOffices &&
+                        medicalOffices.map((medicalOffice, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveBook(book, index)}
+                                onClick={() => setActiveMedicalOffice(medicalOffice, index)}
                                 key={index}
                             >
-                                {book.title}
+                                {medicalOffice.name}
                             </li>
                         ))}
                 </ul>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllBooks}
+                    onClick={removeAllMedicalOffices}
                 >
                     Delete All
                 </button>
@@ -172,33 +172,45 @@ const BooksList = () => {
                 >
                     Add Book Information
                 </button> */}
-                <AddBookRecommendation />
+                <AddMedicalOfficeModalComponent />
             </div>
             <div className="col-md-6">
-                {currentBook ? (
+                {currentMedicalOffice ? (
                     <div>
-                        <h4>Book Information</h4>
+                        <h4>Medical Office Information</h4>
                         <div>
                             <label>
-                                <strong>Title:</strong>
+                                <strong>Name of Office:</strong>
                             </label>{" "}
-                            {currentBook.title}
+                            {currentMedicalOffice.name}
                         </div>
                         <div>
                             <label>
-                                <strong>Author:</strong>
+                                <strong>Address:</strong>
                             </label>{" "}
-                            {currentBook.author}
+                            {currentMedicalOffice.address}
                         </div>
                         <div>
                             <label>
-                                <strong>Description:</strong>
+                                <strong>City:</strong>
                             </label>{" "}
-                            {currentBook.descr}
+                            {currentMedicalOffice.city}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>State:</strong>
+                            </label>{" "}
+                            {currentMedicalOffice.state}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Zip:</strong>
+                            </label>{" "}
+                            {currentMedicalOffice.zip}
                         </div>
 
                         <Link
-                            to={"/update-book-information" + currentBook.book_id}
+                            to={"/update-book-information" + currentMedicalOffice.book_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -207,7 +219,7 @@ const BooksList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a book...</p>
+                            <p>Please click on a medical office...</p>
                         </div>
                     )}
             </div>
@@ -215,4 +227,4 @@ const BooksList = () => {
     )
 }
 
-export default BooksList;
+export default MedicalOfficeList;

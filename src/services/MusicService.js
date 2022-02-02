@@ -5,7 +5,7 @@ const getAllMusic = () => {
 }
 
 const getAllMusicPagination = (params) => {
-    return Axios.get('http://localhost:8080/app/music/all-music', { params });
+    return Axios.get('http://localhost:8080/app/music/all-songs', { params });
 }
 
 const getSongById = (song_id) => {
@@ -33,7 +33,7 @@ const deleteSongInformation = (song_id) => {
 }
 
 const deleteAllSongs = () => {
-    return Axios.delete('http://localhost:8080/app/music/delete-all');
+    return Axios.delete('http://localhost:8080/app/music/delete-all-songs');
 }
 
 export default {

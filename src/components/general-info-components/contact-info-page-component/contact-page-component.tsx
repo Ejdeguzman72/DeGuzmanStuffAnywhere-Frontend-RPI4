@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../footer-component/footer-component';
 import ContactInfoEditableTableComponent from './contact-info-editable-table-component';
+import ContactList from './ContactList';
 
 export class ContactPageComponent extends React.Component<any,any> {
     render() {
@@ -14,6 +15,8 @@ export class ContactPageComponent extends React.Component<any,any> {
                     <br></br>
                     <br></br>
                     <ContactInfoEditableTableComponent />
+                    <br></br>
+                    <ContactList />
                 </div>
                 <FooterComponent />
             </div>

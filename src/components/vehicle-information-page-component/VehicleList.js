@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import BooksService from '../../services/BookService';
+import VehicleInformationService from '../../services/VehicleInformationService';
 import { Link } from 'react-router-dom';
-import AddBookRecommendation from './AddBookRecommendation';
+import AddVehicleInfoModalComponent from './AddVehicleInfoModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
 
-const BooksList = () => {
-    const [books, setBooks] = useState([]);
-    const [currentBook, setCurrentBook] = useState(null);
+const VehicleList = () => {
+    const [vehicles, setVehicles] = useState([]);
+    const [currentVehicle, setCurrentVehicle] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +25,7 @@ const BooksList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['title'] = searchTitle;
+            params['vehicles'] = searchTitle;
         }
 
         if (page) {
@@ -39,14 +39,14 @@ const BooksList = () => {
         return params;
     }
 
-    const retrieveBooks = () => {
+    const retrieveVehicles = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        BooksService.getAllBookInformation(params)
+        VehicleInformationService.getAllVehicles(params)
             .then(response => {
-                const { books, totalPages } = response.data;
+                const { vehicles, totalPages } = response.data;
 
-                setBooks(books);
+                setVehicles(vehicles);
                 setCount(totalPages);
                 console.log(response.data);
             })
@@ -55,11 +55,11 @@ const BooksList = () => {
             });
     };
 
-    useEffect(retrieveBooks, [page, pageSize]);
+    useEffect(retrieveVehicles, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveBooks();
-        setCurrentBook(null);
+        retrieveVehicles();
+        setCurrentVehicle(null);
         setCurrentIndex(-1);
     }
 
@@ -72,16 +72,18 @@ const BooksList = () => {
         setpage(1);
     }
 
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
+    const setActiveVehicle = (vehicle, index) => {
+        setCurrentVehicle(vehicle);
         setCurrentIndex(index);
     }
 
-    const removeAllBooks = () => {
-        BooksService.deleteAllBookInformation()
+    const removeAllVehicles = () => {
+        VehicleInformationService.deleteAllVehicles()
             .then(response => {
-                setBooks(response.data);
-                console.log(response.data);
+                setVehicles(response.data);
+
+
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -89,9 +91,9 @@ const BooksList = () => {
     };
 
     const findByName = () => {
-        BooksService.findBookByName(searchTitle)
+        VehicleInformationService.findBookByName(searchTitle)
             .then(response => {
-                setBooks(response.data);
+                setVehicles(response.data);
                 console.log(response.data);
             })
     }
@@ -119,7 +121,7 @@ const BooksList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Book List</h4>
+                <h4>Vehicle List</h4>
 
 
                 <div className="mt-3">
@@ -146,59 +148,64 @@ const BooksList = () => {
 
 
                 <ul className="list-group">
-                    {books &&
-                        books.map((book, index) => (
+                    {vehicles &&
+                        vehicles.map((vehicle, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveBook(book, index)}
+                                onClick={() => setActiveVehicle(vehicle, index)}
                                 key={index}
                             >
-                                {book.title}
+                                {vehicle.make + ' ' + vehicle.model + ' ' + vehicle.year}
                             </li>
                         ))}
                 </ul>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllBooks}
+                    onClick={removeAllVehicles}
                 >
                     Delete All
                 </button>
-                {/* <button
-                    className="m-3 btn btn-primary"
-                    onClick={removeAllBooks}
-                >
-                    Add Book Information
-                </button> */}
-                <AddBookRecommendation />
+                <AddVehicleInfoModalComponent />
             </div>
             <div className="col-md-6">
-                {currentBook ? (
+                {currentVehicle ? (
                     <div>
-                        <h4>Book Information</h4>
+                        <h4>Vehicle Information</h4>
                         <div>
                             <label>
-                                <strong>Title:</strong>
+                                <strong>Make:</strong>
                             </label>{" "}
-                            {currentBook.title}
+                            {currentVehicle.make}
                         </div>
                         <div>
                             <label>
-                                <strong>Author:</strong>
+                                <strong>Model:</strong>
                             </label>{" "}
-                            {currentBook.author}
+                            {currentVehicle.model}
                         </div>
                         <div>
                             <label>
-                                <strong>Description:</strong>
+                                <strong>Year:</strong>
                             </label>{" "}
-                            {currentBook.descr}
+                            {currentVehicle.year}
                         </div>
-
+                        <div>
+                            <label>
+                                <strong>Capacity:</strong>
+                            </label>{" "}
+                            {currentVehicle.capacity}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Transmission:</strong>
+                            </label>{" "}
+                            {currentVehicle.transmission}
+                        </div>
                         <Link
-                            to={"/update-book-information" + currentBook.book_id}
+                            to={"/update-book-information" + currentVehicle.vehicle_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -207,7 +214,7 @@ const BooksList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a book...</p>
+                            <p>Please click on a Vehicle...</p>
                         </div>
                     )}
             </div>
@@ -215,4 +222,4 @@ const BooksList = () => {
     )
 }
 
-export default BooksList;
+export default VehicleList;

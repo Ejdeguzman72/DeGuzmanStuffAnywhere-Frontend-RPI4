@@ -71,7 +71,7 @@ export default function AutoShopTableComponent() {
   const [fileName] = useState("Auto_Shops");
 
   useEffect(() => {
-    AutoShopService.getAllAutoShops().then(response => {
+    AutoShopService.getAllAutoShopsInfo().then(response => {
       let data = [];
       response.data.forEach(e1 => {
         data.push({
@@ -82,7 +82,6 @@ export default function AutoShopTableComponent() {
           state: e1.state,
           zip: e1.zip,
         });
-        console.log(data);
       });
       setAutoShop({ data: data });
     })
@@ -94,7 +93,6 @@ export default function AutoShopTableComponent() {
   const handleRowAdd = (newData, resolve) => {
     AutoShopService.addAutoShop(newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...autoShop.data];
         dataToAdd.push(newData);
         setAutoShop(dataToAdd);

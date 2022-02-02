@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import TableBody from 'material-table';
-import ContactInfoService from '../../../services/contact-info-service';
+import ContactInfoService from '../../../services/ContactInfoService';
 import Box from '@material-ui/core/Box';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';

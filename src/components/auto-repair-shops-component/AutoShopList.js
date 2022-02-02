@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import BooksService from '../../services/BookService';
+import AutoShopService from '../../services/AutoShopService';
 import { Link } from 'react-router-dom';
-import AddBookRecommendation from './AddBookRecommendation';
+import { Row, Button } from 'react-bootstrap';
 import Pagination from "@material-ui/lab/Pagination";
+import AddAutoShopModalComponent from './AddAutoShopModalComponent';
 
-const BooksList = () => {
-    const [books, setBooks] = useState([]);
-    const [currentBook, setCurrentBook] = useState(null);
+const AutoShopList = () => {
+    const [autoShops, setAutoShops] = useState([]);
+    const [currentShop, setCurrentShop] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
-    const [page, setpage] = useState(1);
+    const [page, setPage] = useState(1);
     const [count, setCount] = useState(0);
     const [pageSize, setPageSize] = useState(10);
 
@@ -25,7 +26,7 @@ const BooksList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['title'] = searchTitle;
+            params['autoShopName'] = searchTitle;
         }
 
         if (page) {
@@ -39,49 +40,51 @@ const BooksList = () => {
         return params;
     }
 
-    const retrieveBooks = () => {
+    const retrieveAutoShops = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        BooksService.getAllBookInformation(params)
+        AutoShopService.getAllAutoShops(params)
             .then(response => {
-                const { books, totalPages } = response.data;
-
-                setBooks(books);
+                const { autoShops, totalPages } = response.data;
+                setAutoShops(autoShops);
                 setCount(totalPages);
-                console.log(response.data);
+
+                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    useEffect(retrieveBooks, [page, pageSize]);
+    useEffect(retrieveAutoShops, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveBooks();
-        setCurrentBook(null);
+        retrieveAutoShops();
+        setCurrentShop(null);
         setCurrentIndex(-1);
     }
 
     const handlePageChange = (event, value) => {
-        setpage(value);
+        setPage(value);
     }
 
     const handlePageSizeChange = (event) => {
         setPageSize(event.target.value);
-        setpage(1);
+        setPage(1);
     }
 
-    const setActiveBook = (book, index) => {
-        setCurrentBook(book);
+    const setActiveShop = (shop, index) => {
+        setCurrentShop(shop);
         setCurrentIndex(index);
     }
 
-    const removeAllBooks = () => {
-        BooksService.deleteAllBookInformation()
+    const removeAllShops = () => {
+        AutoShopService.deleteAllShopInformation()
             .then(response => {
-                setBooks(response.data);
+                setAutoShops(response.data);
                 console.log(response.data);
+
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error);
@@ -89,9 +92,9 @@ const BooksList = () => {
     };
 
     const findByName = () => {
-        BooksService.findBookByName(searchTitle)
+        AutoShopService.getSongByTitle(searchTitle)
             .then(response => {
-                setBooks(response.data);
+                setAutoShops(response.data);
                 console.log(response.data);
             })
     }
@@ -119,7 +122,7 @@ const BooksList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Book List</h4>
+                <h4>Auto Repair Shop List</h4>
 
 
                 <div className="mt-3">
@@ -146,59 +149,68 @@ const BooksList = () => {
 
 
                 <ul className="list-group">
-                    {books &&
-                        books.map((book, index) => (
+                    {autoShops &&
+                        autoShops.map((autoShop, index) => (
                             <li
-                                className={
-                                    "list-group-item selected-book" + (index === currentIndex ? "active" : "")
-
-                                }
-                                onClick={() => setActiveBook(book, index)}
-                                key={index}
+                            className={
+                                "list-group-item selected-book" + (index === currentIndex ? "active" : "")
+                                
+                            }
+                            onClick={() => setActiveShop(autoShop, index)}
+                            key={index}
                             >
-                                {book.title}
+                                {autoShop.autoShopName}
                             </li>
                         ))}
                 </ul>
-                <button
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllBooks}
-                >
-                    Delete All
-                </button>
-                {/* <button
-                    className="m-3 btn btn-primary"
-                    onClick={removeAllBooks}
-                >
-                    Add Book Information
-                </button> */}
-                <AddBookRecommendation />
+                <br></br>
+                <Row>
+                    <AddAutoShopModalComponent />
+                    <Button
+                        size="sm"
+                        className="btn-danger delete-all-btn" 
+                        onClick={removeAllShops}
+                    >
+                        Delete All
+                    </Button>
+                </Row>
             </div>
             <div className="col-md-6">
-                {currentBook ? (
+                {currentShop ? (
                     <div>
-                        <h4>Book Information</h4>
+                        <h4>Information</h4>
                         <div>
                             <label>
-                                <strong>Title:</strong>
+                                <strong>Name:</strong>
                             </label>{" "}
-                            {currentBook.title}
+                            {currentShop.autoShopName}
                         </div>
                         <div>
                             <label>
-                                <strong>Author:</strong>
+                                <strong>Address:</strong>
                             </label>{" "}
-                            {currentBook.author}
+                            {currentShop.address}
                         </div>
                         <div>
                             <label>
-                                <strong>Description:</strong>
+                                <strong>City:</strong>
                             </label>{" "}
-                            {currentBook.descr}
+                            {currentShop.city}
                         </div>
-
+                        <div>
+                            <label>
+                                <strong>State:</strong>
+                            </label>{" "}
+                            {currentShop.state}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Zip:</strong>
+                            </label>{" "}
+                            {currentShop.zip}
+                        </div>
                         <Link
-                            to={"/update-book-information" + currentBook.book_id}
+                            to={"/update-book-information" + currentShop.auto_shop_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -207,7 +219,7 @@ const BooksList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a book...</p>
+                            <p>Please click on a tutorial...</p>
                         </div>
                     )}
             </div>
@@ -215,4 +227,4 @@ const BooksList = () => {
     )
 }
 
-export default BooksList;
+export default AutoShopList;
