@@ -25,7 +25,7 @@ const deleteBookInformation = (book_id) => {
 };
 
 const deleteAllBookInformation = () => {
-    return http.delete('/delete-book');
+    return http.delete('/delete-all-books');
 }
 
 export default {

@@ -2,7 +2,6 @@ import React from  'react';
 import Axios from 'axios';
 import { Button,Container, Form } from 'react-bootstrap';
 import '../../style-sheets/register-page.css';
-import { Link } from 'react-router-dom';
 
 export class RegisterUserComponent extends React.Component<any,any> {
     constructor(props:any) {
@@ -50,12 +49,14 @@ export class RegisterUserComponent extends React.Component<any,any> {
 
         const user = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            name: this.state.name,
+            email: this.state.email
         }
 
         const createUserResponse = await Axios({
             method: "post",
-            url: 'http://localhost:8080/register',
+            url: 'http://localhost:8080/api/auth/signup',
             headers: headers,
             data: user
         });

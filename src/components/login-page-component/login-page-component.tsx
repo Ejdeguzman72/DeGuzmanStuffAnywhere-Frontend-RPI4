@@ -32,17 +32,17 @@ export class LoginPageComponent extends React.Component<any, any> {
 
     onSubmit(event:any) {
         event.preventDefault();
-        Axios.post("http://localhost:8080/login", {
+        Axios.post("http://localhost:8080/api/auth/signin", {
             username: this.state.username,
             password: this.state.password
         }).then(res => {
-            localStorage.setItem("DeGuzmanStuffAnywhere_Token", res.data.token);
-            console.log(res.data.token);
-            this.setState({
-                shouldRedirect: true
-            });
+            if (res.data.accessToken) {
+                localStorage.setItem("DeGuzmanStuffAnywhere_Token", JSON.stringify(res.data));
+                this.setState({
+                    shouldRedirect: true
+                });
+            }
             window.location.reload();
-            console.log(res.data.token);
             alert(`${this.state.username} has logged in!`);
         }).catch(() => {
             alert("Incorrect username/password. Please try again");

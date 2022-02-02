@@ -21,7 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
 import { Col, Row } from 'react-bootstrap';
-import AddAutoTransactionModalComponent from '../auto-finance-page-components/AddAutoTransactionModalComponent';
+import AddAutoTransactionModalComponent from './AddAutoTransactionModalComponent';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
