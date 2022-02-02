@@ -116,32 +116,43 @@ function App() {
           <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
           {/* <Route path="register" exact component={RegisterPageComponent} /> */}
-          <Route path="/home" exact component={HomePageComponent} />
-          <Route path="/media" exact component={PhotoVideoPageComponent} />
-          <Route path="/music" exact component={MusicRecommendationPageComponent} />
-          <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
-          <Route path="/photos" exact component={PhotoPageComponent} />
-          <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
-          <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} />
-          <Route path="/videos" exaxt component={VideoPageComponent} />
-          <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
-          <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
-          <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
-          <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
-          <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
-          <Route path="/auto-shops" exact component={AutoShopPageComponent} />
-          <Route path="/view-cars" exact component={CarInformationPageComponent} />
-          <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
-          <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
-          <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
-          <Route path="/contact-info" exact component={ContactPageComponent} />
-          <Route path="/utility-tracker" exact component={UtilityPageComponent} />
-          <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
-          <Route path="/add-user" exact component={AddUserPageComponent} />
-          <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
-          <Route path="/approve-user" exact component={ApproveUserPageComponent} />
-          <Route path="/agenda" exact component={AgendaPageApp} />
-          <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} />
+          {
+            jwt ?
+              <div>
+                <Route path="/home" exact component={HomePageComponent} />
+                <Route path="/media" exact component={PhotoVideoPageComponent} />
+                <Route path="/music" exact component={MusicRecommendationPageComponent} />
+                <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
+                <Route path="/photos" exact component={PhotoPageComponent} />
+                <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
+                <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} />
+                <Route path="/videos" exaxt component={VideoPageComponent} />
+                <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
+                <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+                <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
+                <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+                <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
+                <Route path="/auto-shops" exact component={AutoShopPageComponent} />
+                <Route path="/view-cars" exact component={CarInformationPageComponent} />
+                <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+                <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
+                <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
+                <Route path="/contact-info" exact component={ContactPageComponent} />
+                <Route path="/utility-tracker" exact component={UtilityPageComponent} />
+                <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
+                <Route path="/add-user" exact component={AddUserPageComponent} />
+                <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
+                <Route path="/approve-user" exact component={ApproveUserPageComponent} />
+                <Route path="/agenda" exact component={AgendaPageApp} />
+                <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} />
+                <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
+                <Route path="/downloads" exact component={DownloadsPageComponent} />
+                <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} />
+                <Route path="/add-book-information" exact component={AddBookRecommendation} />
+                <Route path="/update-book-information" exact component={BookUpdate} />
+                <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
+              </div> : null
+          }
           <Route path="/recipes" exact component={RecipePageComponent} />
           <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
           <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
@@ -206,12 +217,6 @@ function App() {
           <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
           <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
           <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
-          <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
-          <Route path="/downloads" exact component={DownloadsPageComponent} />
-          <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} />
-          <Route path="/add-book-information" exact component={AddBookRecommendation} />
-          <Route path="/update-book-information" exact component={BookUpdate} />
-          <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>
