@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
 import GymTrackerTabComponent from '../tab-components/GymTrackerTabComponent';
 import ExerciseInfoTable from './ExerciseInfoTable';
+import ExerciseList from './pagination/ExerciseList';
 
 const GymTrackerPageComponent = () => {
     return (
@@ -17,6 +18,9 @@ const GymTrackerPageComponent = () => {
                 <br></br>
                 <br></br>
                 <ExerciseInfoTable />
+                <br></br>
+                <br></br>
+                <ExerciseList />
             </div>
             <FooterComponent />
         </div>

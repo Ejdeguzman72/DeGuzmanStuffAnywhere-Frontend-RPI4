@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import RestaurantTabComponent from '../tab-components/RestaurantTabComponent';
 import RestaurantRecommendationTableComponent from './RestaurantRecommendationTableComponent';
+import RestaurantList from './pagination/RestaurantList';
 
 const RestaurantRecommendationPageComponent = () => {
     return (
@@ -15,6 +16,9 @@ const RestaurantRecommendationPageComponent = () => {
                 <br></br>
                 <br></br>
                 <RestaurantRecommendationTableComponent />
+                <br></br>
+                <br></br>
+                <RestaurantList />
             </div>
         </div>
     )

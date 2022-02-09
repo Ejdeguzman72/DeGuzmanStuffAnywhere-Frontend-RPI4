@@ -4,7 +4,7 @@ import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 
-export default function AddRestaurantModalComponent(props) {
+const AddRestaurantModalComponent = (props) => {
   const [show, setShow] = useState(false);
   const [restaurant, setRestaurant] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -18,6 +18,10 @@ export default function AddRestaurantModalComponent(props) {
     zip: "",
     restaurant_type_id: 0
   }
+
+  const restaurantType = props.restaurantType;
+
+  console.log(restaurantType + " asdkjlfhaslkjfdh");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -244,3 +248,5 @@ export default function AddRestaurantModalComponent(props) {
     </>
   );
 }
+
+export default AddRestaurantModalComponent;

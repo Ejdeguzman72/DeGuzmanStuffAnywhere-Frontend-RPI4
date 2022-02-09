@@ -102,7 +102,6 @@ export default function ContactInfoEditableTableComponent() {
           email: e1.email,
           phone: e1.phone,
         });
-        console.log(data);
       });
       setEntries({ data: data });
     })
@@ -118,7 +117,6 @@ export default function ContactInfoEditableTableComponent() {
     }
     Axios.post('http://localhost:8080/app/person-info/add-person-information', newData)
       .then(res => {
-        console.log(newData);
         let dataToAdd = [...entries.data];
         dataToAdd.push(newData);
         setEntries(dataToAdd);
@@ -150,7 +148,6 @@ export default function ContactInfoEditableTableComponent() {
   const handleRowUpdate = (newData, oldData, resolve) => {
     Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personId}`, newData)
       .then(res => {
-        console.log(newData);
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.personId;
         dataUpdate[index] = newData;

@@ -88,13 +88,13 @@ export class NavBarComponent extends React.Component<any, any> {
 
                         </Nav>
                         <Form inline>
-                            {
+                            {/* {
                                 jwt ?
                                     <div>
                                         <FormControl type="text" placeholder="Search" className="mr-sm-2" id="button-margin" />
                                         <Button variant="outline-info" size="lg" id="button-margin">Search</Button>
                                     </div> : null
-                            }
+                            } */}
                             {
                                 jwt ?
                                     <Button variant="dark" size="lg" onClick={this.logout}>Logout</Button> :
