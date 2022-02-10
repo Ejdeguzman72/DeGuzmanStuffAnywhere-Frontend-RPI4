@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import RunTrackerService from '../../../services/run-tracker-service';
+import AutoTransactionService from '../../../../services/auto-transaction-service';
 import { Link } from 'react-router-dom';
-import AddRunInfoModalComponent from '../AddRunInfoModalComponent';
+import AddAutoTransactionModalComponent from '../AddAutoTransactionModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
 
-const RunTrackerList = () => {
-    const [runs, setRuns] = useState([]);
-    const [currentRun, setCurrentRun] = useState(null);
+const AutoTrxList = () => {
+    const [transactions, setTransactions] = useState([]);
+    const [currentTransaction, setCurrentTransaction] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +25,7 @@ const RunTrackerList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['runDate'] = searchTitle;
+            params['autoTransactionDate'] = searchTitle;
         }
 
         if (page) {
@@ -39,14 +39,14 @@ const RunTrackerList = () => {
         return params;
     }
 
-    const retrieveRuns = () => {
+    const retrieveTransactions = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        RunTrackerService.getAllRunsPagination(params)
+        AutoTransactionService.getAllAutoTransactionsPagination(params)
             .then(response => {
-                const { runs, totalPages } = response.data;
+                const { transactions, totalPages } = response.data;
 
-                setRuns(runs);
+                setTransactions(transactions);
                 setCount(totalPages);
                 console.log(response.data);
             })
@@ -55,11 +55,11 @@ const RunTrackerList = () => {
             });
     };
 
-    useEffect(retrieveRuns, [page, pageSize]);
+    useEffect(retrieveTransactions, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveRuns();
-        setCurrentRun(null);
+        retrieveTransactions();
+        setCurrentTransaction(null);
         setCurrentIndex(-1);
     }
 
@@ -72,15 +72,15 @@ const RunTrackerList = () => {
         setpage(1);
     }
 
-    const setActiveRun = (run, index) => {
-        setCurrentRun(run);
+    const setActiveTransactions = (transaction, index) => {
+        setCurrentTransaction(transaction);
         setCurrentIndex(index);
     }
 
-    const removeAllRuns = () => {
-        RunTrackerService.deleteAllRunsInfo()
+    const removeAllTransactions = () => {
+        AutoTransactionService.deleteAllTransactions
             .then(response => {
-                setRuns(response.data);
+                setTransactions(response.data);
 
 
                 window.location.reload();
@@ -121,8 +121,7 @@ const RunTrackerList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Run Tracker List</h4>
-
+                <h4>Auto Transaction List</h4>
 
                 <div className="mt-3">
                     {"Items per Page: "}
@@ -148,60 +147,108 @@ const RunTrackerList = () => {
 
 
                 <ul className="list-group">
-                    {runs &&
-                        runs.map((run, index) => (
+                    {transactions &&
+                        transactions.map((transaction, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveRun(run, index)}
+                                onClick={() => setActiveTransactions(transaction, index)}
                                 key={index}
                             >
-                                {'Run Time: ' + run.runTime + '  ' + 'Run Distance: ' + run.runDistance + '  ' + 'Run Date: ' + run.runDate}
+                                {'Amount: ' + transaction.amount + ' ' + 'Payment Date: ' + transaction.autoTransactionDate + 'Transaction Type: ' + transaction.transactionType.descr}
                             </li>
                         ))}
                 </ul>
                 <br></br>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllRuns}
+                    onClick={removeAllTransactions}
                 >
                     Delete All
                 </button>
-                <AddRunInfoModalComponent />
+                <AddAutoTransactionModalComponent />
             </div>
             <div className="col-md-6">
-                {currentRun ? (
+                {currentTransaction ? (
                     <div>
-                        <h4>Run Information</h4>
+                        <h4>Transaction Information</h4>
                         <hr></hr>
                         <div>
                             <label>
-                                <strong>Run Time:</strong>
+                                <strong>Amount:</strong>
                             </label>{" "}
-                            {currentRun.runTime}
+                            {currentTransaction.amount}
                         </div>
                         <div>
                             <label>
-                                <strong>Run Distance:</strong>
+                                <strong>Payment Date:</strong>
                             </label>{" "}
-                            {currentRun.runDistance}
+                            {currentTransaction.autoTransactionDate}
                         </div>
                         <div>
                             <label>
-                                <strong>Date:</strong>
+                                <strong>Make:</strong>
                             </label>{" "}
-                            {currentRun.runDate}
+                            {currentTransaction.vehicle.make}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Model:</strong>
+                            </label>{" "}
+                            {currentTransaction.vehicle.model}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Year:</strong>
+                            </label>{" "}
+                            {currentTransaction.vehicle.year}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Auto Shop Name:</strong>
+                            </label>{" "}
+                            {currentTransaction.autoShop.autoShopName}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Auto Shop Address:</strong>
+                            </label>{" "}
+                            {currentTransaction.autoShop.address}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Auto Shop City:</strong>
+                            </label>{" "}
+                            {currentTransaction.autoShop.city}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Auto Shop State:</strong>
+                            </label>{" "}
+                            {currentTransaction.autoShop.state}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Auto Shop Zip:</strong>
+                            </label>{" "}
+                            {currentTransaction.autoShop.zip}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Transaction Type:</strong>
+                            </label>{" "}
+                            {currentTransaction.transactionType.descr}
                         </div>
                         <div>
                             <label>
                                 <strong>User:</strong>
                             </label>{" "}
-                            {currentRun.user.username}
+                            {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentRun.run_id}
+                            to={"/update-book-information" + currentTransaction.auto_transaction_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -218,4 +265,4 @@ const RunTrackerList = () => {
     )
 }
 
-export default RunTrackerList;
+export default AutoTrxList;

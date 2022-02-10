@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
 import RunTrackerTableComponent from './run-tracker-table-component';
 import { RunTrackerContainerComponent } from './run-tracker-container-component';
+import RunTrackerList from './pagination/RunTrackerList';
 
 export class RunTrackerPageComponent extends React.Component<any,any> {
     render() {
@@ -18,6 +19,9 @@ export class RunTrackerPageComponent extends React.Component<any,any> {
                     <br></br>
                     <br></br>
                     <RunTrackerTableComponent />
+                    <br></br>
+                    <br></br>
+                    <RunTrackerList />
                 </div>
                 <FooterComponent />
             </div>

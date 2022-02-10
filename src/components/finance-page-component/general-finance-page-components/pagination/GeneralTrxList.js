@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import RunTrackerService from '../../../services/run-tracker-service';
+import GeneralTransactionService from './../../../../services/general-tranascttion-service';
 import { Link } from 'react-router-dom';
-import AddRunInfoModalComponent from '../AddRunInfoModalComponent';
+import AddGeneralFinanceModalComponent from '../AddGeneralFinanceModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
 
-const RunTrackerList = () => {
-    const [runs, setRuns] = useState([]);
-    const [currentRun, setCurrentRun] = useState(null);
+const GeneralTrxList = () => {
+    const [transactions, setTransactions] = useState([]);
+    const [currentTransaction, setCurrentTransaction] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +25,7 @@ const RunTrackerList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['runDate'] = searchTitle;
+            params['paymentDate'] = searchTitle;
         }
 
         if (page) {
@@ -39,14 +39,14 @@ const RunTrackerList = () => {
         return params;
     }
 
-    const retrieveRuns = () => {
+    const retrieveTransactions = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        RunTrackerService.getAllRunsPagination(params)
+        GeneralTransactionService.getAllTransactionsPagination(params)
             .then(response => {
-                const { runs, totalPages } = response.data;
+                const { transactions, totalPages } = response.data;
 
-                setRuns(runs);
+                setTransactions(transactions);
                 setCount(totalPages);
                 console.log(response.data);
             })
@@ -55,11 +55,11 @@ const RunTrackerList = () => {
             });
     };
 
-    useEffect(retrieveRuns, [page, pageSize]);
+    useEffect(retrieveTransactions, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveRuns();
-        setCurrentRun(null);
+        retrieveTransactions();
+        setCurrentTransaction(null);
         setCurrentIndex(-1);
     }
 
@@ -72,15 +72,15 @@ const RunTrackerList = () => {
         setpage(1);
     }
 
-    const setActiveRun = (run, index) => {
-        setCurrentRun(run);
+    const setActiveTransactions = (transaction, index) => {
+        setCurrentTransaction(transaction);
         setCurrentIndex(index);
     }
 
-    const removeAllRuns = () => {
-        RunTrackerService.deleteAllRunsInfo()
+    const removeAllTransactions = () => {
+        GeneralTransactionService.deleteAllTransactions
             .then(response => {
-                setRuns(response.data);
+                setTransactions(response.data);
 
 
                 window.location.reload();
@@ -121,8 +121,7 @@ const RunTrackerList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Run Tracker List</h4>
-
+                <h4>General Transaction List</h4>
 
                 <div className="mt-3">
                     {"Items per Page: "}
@@ -148,60 +147,66 @@ const RunTrackerList = () => {
 
 
                 <ul className="list-group">
-                    {runs &&
-                        runs.map((run, index) => (
+                    {transactions &&
+                        transactions.map((transaction, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveRun(run, index)}
+                                onClick={() => setActiveTransactions(transaction, index)}
                                 key={index}
                             >
-                                {'Run Time: ' + run.runTime + '  ' + 'Run Distance: ' + run.runDistance + '  ' + 'Run Date: ' + run.runDate}
+                                {'Amount: ' + transaction.amount + ' ' + 'Payment Date: ' + transaction.paymentDate + 'Transaction Type: ' + transaction.transactionType.descr}
                             </li>
                         ))}
                 </ul>
                 <br></br>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllRuns}
+                    onClick={removeAllTransactions}
                 >
                     Delete All
                 </button>
-                <AddRunInfoModalComponent />
+                <AddGeneralFinanceModalComponent />
             </div>
             <div className="col-md-6">
-                {currentRun ? (
+                {currentTransaction ? (
                     <div>
-                        <h4>Run Information</h4>
+                        <h4>Transaction Information</h4>
                         <hr></hr>
                         <div>
                             <label>
-                                <strong>Run Time:</strong>
+                                <strong>Amount:</strong>
                             </label>{" "}
-                            {currentRun.runTime}
+                            {currentTransaction.amount}
                         </div>
                         <div>
                             <label>
-                                <strong>Run Distance:</strong>
+                                <strong>Payment Date:</strong>
                             </label>{" "}
-                            {currentRun.runDistance}
+                            {currentTransaction.paymentDate}
                         </div>
                         <div>
                             <label>
-                                <strong>Date:</strong>
+                                <strong>Entity:</strong>
                             </label>{" "}
-                            {currentRun.runDate}
+                            {currentTransaction.entity}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Transaction Type:</strong>
+                            </label>{" "}
+                            {currentTransaction.transactionType.descr}
                         </div>
                         <div>
                             <label>
                                 <strong>User:</strong>
                             </label>{" "}
-                            {currentRun.user.username}
+                            {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentRun.run_id}
+                            to={"/update-book-information" + currentTransaction.transaction_id}
                             className="badge badge-warning"
                         >
                             Edit
@@ -210,7 +215,7 @@ const RunTrackerList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a run entry...</p>
+                            <p>Please click on a transaction...</p>
                         </div>
                     )}
             </div>
@@ -218,4 +223,4 @@ const RunTrackerList = () => {
     )
 }
 
-export default RunTrackerList;
+export default GeneralTrxList;

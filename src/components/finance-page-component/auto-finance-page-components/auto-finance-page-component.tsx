@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { AutoFinanceTabsComponent } from '../../tab-components/auto-finance-tabs-component';
 import AutoFinancePageTableComponent from './auto-finance-table-component';
 import { FooterComponent } from '../../footer-component/footer-component';
+import AutoTrxList from './pagination/AutoTrxList';
 
 export class AutoFinancePageComponent extends React.Component<any,any> {
     render() {
@@ -16,6 +17,9 @@ export class AutoFinancePageComponent extends React.Component<any,any> {
                     <AutoFinanceTabsComponent />
                     <br></br>
                     <AutoFinancePageTableComponent />
+                    <br></br>
+                    <br></br>
+                    <AutoTrxList />
                 </div>
                 <FooterComponent />
             </div>
