@@ -151,6 +151,70 @@ function App() {
                 <Route path="/add-book-information" exact component={AddBookRecommendation} />
                 <Route path="/update-book-information" exact component={BookUpdate} />
                 <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
+                <Route path="/recipes" exact component={RecipePageComponent} />
+                <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
+                <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
+                <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
+                <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
+                <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
+                <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
+                <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
+                <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
+                <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
+                <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
+                <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
+                <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
+                <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
+                <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
+                <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
+                <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
+                <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
+                <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
+                <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
+                <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
+                <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+                <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
+                <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
+                <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
+                <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
+                <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+                <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
+                <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
+                <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
+                <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
+                <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
+                <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
+                <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
+                <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
+                <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
+                <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
+                <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
+                <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
+                <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
+                <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
+                <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
+                <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
+                <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
+                <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
+                <Route path="/teriyaki-salmon-recipe" exact component={TeriyakiSalmonRecipePage} />
+                <Route path="/chicken-pot-pie-recipe" exact component={ChickenPotPieRecipePage} />
+                <Route path="/french-toast-recipe" exact component={FrenchToastRecipePage} />
+                <Route path="/pandesal-recipe" exact component={PandesalRecipePage} />
+                <Route path="/wonton-soup-recipe" exact component={WontonSoupRecipePage} />
+                <Route path="/chicken-noodle-soup-recipe" exact component={ChickenNoodleSoupRecipePage} />
+                <Route path="/corned-beef-recipe" exact component={CornedBeefRecipePage} />
+                <Route path="/egg-fu-yung-recipe" exact component={EggFuYungRecipePage} />
+                <Route path="/lumpia-recipe" exact component={LumpiaRecipePage} />
+                <Route path="/crispy-pata-recipe" exact component={CrispyPataRecipePage} />
+                <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
+                <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
+                <Route path="/crab-cakes-recipe" exact component={CrabCakesRecipePage} />
+                <Route path="/red-velvet-cake-recipe" exact component={RedVelvetCakeRecipePage} />
+                <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
+                <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
+                <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
+                <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
+                <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
               </div> : null
           }
           <Route path="/recipes" exact component={RecipePageComponent} />

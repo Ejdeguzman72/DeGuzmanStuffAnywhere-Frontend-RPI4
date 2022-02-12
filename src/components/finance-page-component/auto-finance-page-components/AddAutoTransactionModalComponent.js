@@ -127,8 +127,8 @@ export default function AddAutoTransactionModalComponent() {
                 id="vehicle_id"
                 className="autoTrx-input" >
                 <option value="Select a Vehicle" disabled selected>Select a Vehicle</option>
-                <option value="14">Honda Shadow 2016</option>
-                <option value="1">Ford Focus 2013</option>
+                <option value="1">Honda Shadow 2016</option>
+                <option value="1000">Ford Focus 2013</option>
               </select><br></br><br></br>
 
               <select

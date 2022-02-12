@@ -1,49 +1,40 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 import Select from 'react-select'
+import { userInfo } from 'os';
+import { Restaurant } from '@material-ui/icons';
 
-export default class NameDropdown extends Component {
-    constructor(props) {
-        super(props);
+function RestaurantTypeDropdown() {
+    const [types, setTypes] = useState([]);
+    const [singleType, setSingleType] = useState([]);
 
-        this.state = {
-            selectOptions: [],
-            restaurant_type_id: 0,
-            descr: ""
-        }
+    useEffect(function () {
+        Axios.get('http://localhost:8080/app/restaurant-types/all')
+            .then((response) => setTypes(response.data))
+            .then((error) => console.log(error));
+    }, []);
+
+    const handleChange = (event) => {
+        setSingleType(event.target.value);
+        console.log(event.target.value);
     }
 
-    async getOptions() {
-        const res = await Axios.get('http://localhost:8080/app/restaurant-types/all');
-        const data = res.data;
-
-        const options = data.map(d => ({
-            "value": d.restaurant_type_id,
-            "label": d.descr
-        }))
-
-        this.setState({ selectOptions: options })
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            restaurant_type_id: event.value,
-            descr: event.value
-        })
-    }
-
-    componentDidMount() {
-        this.getOptions();
-    }
-
-    render() {
-        console.log(this.state.selectOptions)
-
-        return (
-            <div>
-                <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
-                <p>You have selected <strong>{this.state.name}</strong> whose id is <strong>{this.state.restaurant_type_id}</strong></p>
-            </div>
-        )
-    }
+    return (
+        <select 
+            id="restaurant_type_id"
+            name="restaurant_type_id"
+            value={types.restaurant_type_id}
+            type="number"
+            onChange={handleChange}
+        >
+            <option value="0">Select A Restaurant Type</option>
+            {types.map((type) => (
+                <option key={type.restaurant_type_id} value={type.restaurant_type_id}>
+                    {type.descr}
+                </option>
+            ))}
+        </select>
+    );
 }
+
+export default RestaurantTypeDropdown;

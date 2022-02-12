@@ -4,7 +4,7 @@ import Axios from 'axios';
 import NameDropdown from '../../dropdown-components/NameDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 
-export default function AddGeneralFinanceModalComponent() {
+export default function AddGeneralFinanceModalComponent(props) {
 
   const initialState = {
     transaction_id: 0,

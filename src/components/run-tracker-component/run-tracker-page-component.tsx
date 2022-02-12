@@ -13,16 +13,19 @@ export class RunTrackerPageComponent extends React.Component<any,any> {
                    <title>Run Tracker</title> 
                 </Helmet>
                 <div id="white-background">
+                    {/* <br></br>
                     <br></br>
-                    <br></br>
-                    <RunTrackerContainerComponent />
+                    <RunTrackerContainerComponent /> */}
                     <br></br>
                     <br></br>
                     <RunTrackerTableComponent />
                     <br></br>
                     <br></br>
                     <RunTrackerList />
+                    <br></br>
+                    <br></br>
                 </div>
+                <br></br>
                 <FooterComponent />
             </div>
         )

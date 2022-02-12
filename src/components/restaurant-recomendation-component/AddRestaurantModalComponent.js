@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
+import { jwtHelper } from '../../helper/jwt';
 
-const AddRestaurantModalComponent = (props) => {
+const jwt = jwtHelper();
+
+const AddRestaurantModalComponent = ({ props }) => {
   const [show, setShow] = useState(false);
   const [restaurant, setRestaurant] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -18,10 +21,6 @@ const AddRestaurantModalComponent = (props) => {
     zip: "",
     restaurant_type_id: 0
   }
-
-  const restaurantType = props.restaurantType;
-
-  console.log(restaurantType + " asdkjlfhaslkjfdh");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -210,7 +209,7 @@ const AddRestaurantModalComponent = (props) => {
                   onChange={handleInputChange} />
                 <br></br><br></br>
 
-                <select
+                {/* <select
                   id="restaurant_type_id"
                   name="restaurant_type_id"
                   value={restaurant.restaurant_type_id}
@@ -230,8 +229,10 @@ const AddRestaurantModalComponent = (props) => {
                   <option value="11">Pho</option>
                   <option value="12">Fast Food</option>
                 </select>
-
-                {/* <RestaurantTypeDropdown restaurant_type_id={props.restaurant_type_id}/> */}
+                <br></br><br></br> */}
+                <RestaurantTypeDropdown 
+                  restaurant_type_id={props.restaurant_type_id}
+                />
                 <br></br>
               </div>
             </Modal.Body>

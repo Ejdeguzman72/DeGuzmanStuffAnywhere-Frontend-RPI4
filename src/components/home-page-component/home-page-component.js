@@ -7,7 +7,6 @@ import ControlledCarousel from './photo-slideshow-component';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
 const HomePageComponent = () => {
   return (
     <div>

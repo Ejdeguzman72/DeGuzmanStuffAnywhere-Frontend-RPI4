@@ -170,7 +170,9 @@ const RunTrackerList = () => {
                     Delete All
                 </button>
                 <AddRunInfoModalComponent />
+                <br></br>
             </div>
+            <br></br>
             <div className="col-md-6">
                 {currentRun ? (
                     <div>
