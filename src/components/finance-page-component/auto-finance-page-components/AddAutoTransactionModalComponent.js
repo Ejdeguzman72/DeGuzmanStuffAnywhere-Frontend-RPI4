@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
-import NameDropdown from '../../dropdown-components/NameDropdown';
+import NameDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 
 export default function AddAutoTransactionModalComponent() {

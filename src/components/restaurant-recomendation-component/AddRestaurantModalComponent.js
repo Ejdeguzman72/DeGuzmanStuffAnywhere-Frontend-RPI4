@@ -4,6 +4,8 @@ import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 import { jwtHelper } from '../../helper/jwt';
+import { isJSDocCommentContainingNode } from 'typescript';
+import StateDropDownComponent from '../dropdown-components/StateDropDownComponent';
 
 const jwt = jwtHelper();
 
@@ -28,6 +30,18 @@ const AddRestaurantModalComponent = ({ props }) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setRestaurant({ ...restaurant, [name]: value });
+  }
+
+  const handleStateChange = (state) => {
+    setRestaurant({
+      ...restaurant, state: state
+    })
+  }
+
+  const handleRestaurantType = (restaurant_type_id) => {
+    setRestaurant({
+      ...restaurant, restaurant_type_id: restaurant_type_id
+    });
   }
 
   const saveRestaurantInformation = () => {
@@ -187,8 +201,9 @@ const AddRestaurantModalComponent = ({ props }) => {
                   <option value="West Virginia">West Virginia</option>
                   <option value="Wisconsin">Wisconsin</option>
                   <option value="Wyoming">Wyoming</option>
-                </select><br></br><br></br>
-
+                </select>
+                {/* <StateDropDownComponent /> */}
+                <br></br><br></br>
                 {/* <input
                   type="text"
                   placeholder="State"
@@ -228,10 +243,9 @@ const AddRestaurantModalComponent = ({ props }) => {
                   <option value="10">Ramen</option>
                   <option value="11">Pho</option>
                   <option value="12">Fast Food</option>
-                </select>
-                <br></br><br></br> */}
+                </select> */}
                 <RestaurantTypeDropdown 
-                  restaurant_type_id={props.restaurant_type_id}
+                  handleRestaurantType={handleRestaurantType}
                 />
                 <br></br>
               </div>

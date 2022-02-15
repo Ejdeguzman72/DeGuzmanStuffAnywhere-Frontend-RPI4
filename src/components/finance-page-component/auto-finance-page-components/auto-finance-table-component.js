@@ -91,7 +91,6 @@ export default function AutoFinancePageTableComponent() {
           name: e1.name,
           transaction_type_descr: e1.transaction_type_descr,
         });
-        console.log(data);
       });
       setEntries({ data: data })
     })

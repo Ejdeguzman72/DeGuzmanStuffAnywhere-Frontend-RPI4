@@ -94,7 +94,6 @@ export default function MedicalFinancePageTableComponent() {
           transaction_type_descr: e1.transaction_type_descr,
           name: e1.name
         });
-        console.log(data);
       });
       setMedicalTrxdata({ data: data });
     })

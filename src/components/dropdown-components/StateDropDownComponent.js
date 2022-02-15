@@ -1,71 +1,69 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
-const StateDropDownComponent = () => {
-    const [items,setItems] = useState([
-        { label: "Choose a State", value: "Choose a State"},
-        { label: "Alabama", value: "Alabama" },
-        { label: "Alaska", value: "Alaska" },
-        { label: "Arizona", value: "Arizona" },
-        { label: "Arkansas", value: "Arkansas" },
-        { label: "California", value: "California" },
-        { label: "Colorado", value: "Colorado" },
-        { label: "Connecticut", value: "Connecticut" },
-        { label: "Delaware", value: "Delaware" },
-        { label: "Florida", value: "Florida" },
-        { label: "Georgia", value: "Georgia" },
-        { label: "Hawaii", value: "Hawaii" },
-        { label: "Idaho", value: "Idaho" },
-        { label: "Illinois", value: "Illinois" },
-        { label: "Indiana", value: "Indiana" },
-        { label: "Iowa", value: "Iowa" },
-        { label: "Kansas", value: "Kansas" },
-        { label: "Kentucky", value: "Kentucky" },
-        { label: "Louisiana", value: "Louisiana" },
-        { label: "Maine", value: "Maine" },
-        { label: "Maryland", value: "Maryland" },
-        { label: "Massachusetts", value: "Massachusetts" },
-        { label: "Michigan", value: "Michigan" },
-        { label: "Minnesota", value: "Minnesota" },
-        { label: "Mississippi", value: "Mississippi" },
-        { label: "Missouri", value: "Missouri" },
-        { label: "Montana", value: "Montana" },
-        { label: "Nebraska", value: "Nebraska" },
-        { label: "Nevada", value: "Nevada" },
-        { label: "New Hampshire", value: "New Hampshire" },
-        { label: "New Jersey", value: "New Jersey" },
-        { label: "New Mexico", value: "New Mexico" },
-        { label: "New York", value: "New York" },
-        { label: "North Carolina", value: "North Carolina" },
-        { label: "North Dakota", value: "North Dakota" },
-        { label: "Ohio", value: "Ohio" },
-        { label: "Oklahoma", value: "Oklahoma" },
-        { label: "Oregon", value: "Oregon" },
-        { label: "Pennsylvania", value: "Pennsylvania" },
-        { label: "Rhode Island", value: "Rhode Island" },
-        { label: "South Carolina", value: "South Carolina" },
-        { label: "South Dakota", value: "South Dakota" },
-        { label: "Tennessee", value: "Tennessee" },
-        { label: "Texas", value: "Texas" },
-        { label: "Utah", value: "Utah" },
-        { label: "Vermont", value: "Vermont" },
-        { label: "Virginia", value: "Virginia" },
-        { label: "Washington", value: "Washington" },
-        { label: "West Virginia", value: "West Virginia" },
-        { label: "Wisconsin", value: "Wisconsin" },
-        { label: "Wyoming", value: "Wyoming" },
-    ])
-    return (
-        <Form.Control as="select" name="state" onChange={handleInputChange} >
-            {items.map(item => (
-                <option
-                    key={item.value}
-                    value={item.value}
-                >
-                    {item.label}
-                </option>
-            ))}
-        </Form.Control>
-    )
-}
+// function StateDropDownComponent(props) {
 
-export default StateDropDownComponent;
+//     const handleInpputChange = (event) => {
+
+//     }
+
+//     return (
+//         <select
+//                   id="state"
+//                   name="state"
+//                   onChange={handleInputChange} >
+//                   <option value="Please choose a Restaurant Type">Please Choose a State</option>
+//                   <option value="Alabama">Alabama</option>
+//                   <option value="Alaska">Alaska</option>
+//                   <option value="Arizona">Arizona</option>
+//                   <option value="Arkansas">Arkansas</option>
+//                   <option value="California">California</option>
+//                   <option value="Colorado">Colorado</option>
+//                   <option value="Conneticut">Conneticut</option>
+//                   <option value="Delaware">Delaware</option>
+//                   <option value="Florida">Florida</option>
+//                   <option value="Georgia">Georgia</option>
+//                   <option value="Hawaii">Hawaii</option>
+//                   <option value="Idaho">Idaho</option>
+//                   <option value="Illinois">Illinois</option>
+//                   <option value="Indiana">Indiana</option>
+//                   <option value="Iowa">Iowa</option>
+//                   <option value="Kansas">Kansas</option>
+//                   <option value="Kentucky">Kentucky</option>
+//                   <option value="Louisiana">Louisiana</option>
+//                   <option value="Maine">Maine</option>
+//                   <option value="Maryland">Maryland</option>
+//                   <option value="Massachussetts">Massachussetts</option>
+//                   <option value="Michigan">Michigan</option>
+//                   <option value="Minnesota">Minnesota</option>
+//                   <option value="Mississippi">Mississippi</option>
+//                   <option value="Missouri">Missouri</option>
+//                   <option value="Montana">Montana</option>
+//                   <option value="Nebraska">Nebraska</option>\
+//                   <option value="Nevaada">Nevada</option>
+//                   <option value="New Hampshire">New Hampshire</option>
+//                   <option value="New Jersey">New Jersey</option>
+//                   <option value="New Mexico">New Mexico</option>
+//                   <option value="New York">New York</option>
+//                   <option value="North Carolina">North Carolina</option>
+//                   <option value="North Dakota">North Dakota</option>
+//                   <option value="Ohio">Ohio</option>
+//                   <option value="Oklahoma">Oklahoma</option>
+//                   <option value="Oregon">Oregon</option>
+//                   <option value="Pennsylvania">Pennsylvania</option>
+//                   <option value="Rhode Island">Rhode Island</option>
+//                   <option value="South Carolina">South Carolina</option>
+//                   <option value="South Dakota">South Dakota</option>
+//                   <option value="Tennessee">Tennessee</option>
+//                   <option value="Texas">Texas</option>
+//                   <option value="Utah">Utah</option>
+//                   <option value="Vermont">Vermont</option>
+//                   <option value="Virginia">Virginia</option>
+//                   <option value="Washington">Washington</option>
+//                   <option value="West Virginia">West Virginia</option>
+//                   <option value="Wisconsin">Wisconsin</option>
+//                   <option value="Wyoming">Wyoming</option>
+//                 </select>
+//     )
+// }
+
+// export default StateDropDownComponent;

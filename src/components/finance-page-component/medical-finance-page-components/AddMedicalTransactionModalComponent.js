@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import '../../../style-sheets/medical-finance-page.css';
+import UserDropdown from '../../dropdown-components/UserDropdown';
+import MedicalOfficeDropdown from '../../dropdown-components/MedicalOfficeDropdown';
 
 export default function AddMedicalFinanceModalComponent() {
 
@@ -21,6 +23,18 @@ export default function AddMedicalFinanceModalComponent() {
     const { name, value } = event.target;
     setMedicalTransaction({ ...medicalTransaction, [name]: value });
   };
+
+  const handleMedicalOffice = (medical_office_id) => {
+    setMedicalTransaction({
+      ...medicalTransaction, medical_office_id: medical_office_id
+    });
+  }
+
+  const handleUser = (user_id) => {
+    setMedicalTransaction({
+        ...medicalTransaction, user_id: user_id
+    });
+}
 
   const saveMedicalTransaction = () => {
     let data = {
@@ -103,7 +117,7 @@ export default function AddMedicalFinanceModalComponent() {
                 <Form.Control type="date" name="medical_transaction_date" placeholder="Date (MM/DD/YYYY)" onChange={handleInputChange} />
               </Form.Group>
 
-              <select 
+              {/* <select 
                 id="medical_office_id"
                 name="medical_office_id" 
                 type="number"
@@ -114,7 +128,11 @@ export default function AddMedicalFinanceModalComponent() {
                   <option value="21">Frank Mastriano</option>
                   <option value="21">Desgning Smiles</option>
                   <option value="21">Eye Care Insights: Dr. Floyd Smith Optometrist</option>
-              </select><br></br><br></br>
+              </select><br></br><br></br> */}
+
+              <MedicalOfficeDropdown 
+                handleMedicalOffice={handleMedicalOffice}
+              />
 
               <select 
                 id="transaction_type_id"
@@ -127,7 +145,7 @@ export default function AddMedicalFinanceModalComponent() {
                   <option value="21">Medical Prescription</option>
               </select><br></br><br></br>
 
-              <select
+              {/* <select
                 id="user_id"
                 name="user_id"
                 type="number"
@@ -135,7 +153,11 @@ export default function AddMedicalFinanceModalComponent() {
                 className="medicalTrx-input" >
                   <option value="Please choose a User">Please Choose a User</option>
                   <option value="2">global</option>
-              </select><br></br><br></br>
+              </select> */}
+              <UserDropdown 
+                handleUser={handleUser}
+              />
+              <br></br><br></br>
             </div>
 
           </Modal.Body>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import NameDropdown from '../dropdown-components/NameDropdown';
+import NameDropdown from '../dropdown-components/UserDropdown';
 import '../../style-sheets/run-tracker-page.css';
 import Axios from 'axios';
+import UserDropdown from '../dropdown-components/UserDropdown';
 
 export default function AddRunInfoModalComponent({ props }) {
   console.log(props + "this is props")
@@ -24,6 +25,12 @@ export default function AddRunInfoModalComponent({ props }) {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setRun({ ...run, [name]: value });
+  }
+
+  const handleUser = (user_id) => {
+    setRun({
+      ...run, user_id: user_id
+    });
   }
 
   const saveRunInformation = () => {
@@ -116,16 +123,18 @@ export default function AddRunInfoModalComponent({ props }) {
 
                 {/* <input type="text" placeholder="Date of Run" className="run-input" /><br></br><br></br> */}
 
-                <select
+                {/* <select
                   id="user_id"
                   name="user_id"
                   type="number"
                   onChange={handleInputChange} >
                   <option value="Please choose a User">Please Choose a User</option>
                   <option value="2">global</option>
-                </select>
+                </select> */}
 
-                {/* <NameDropdown /> */}
+                <UserDropdown 
+                  handleUser={handleUser}
+                />
               </div>
             </Modal.Body>
           )

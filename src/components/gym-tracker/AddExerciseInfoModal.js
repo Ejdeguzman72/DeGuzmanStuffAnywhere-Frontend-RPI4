@@ -4,16 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import '../../style-sheets/book-recommendations.css';
 import Axios from 'axios';
 import { Form } from 'react-bootstrap';
-
-const exerciseOptions = [
-    { value: "1", label: "Chest" },
-    { value: "2", label: "Abs" },
-    { value: "3", label: "Biceps" },
-    { value: "4", label: "Triceps" },
-    { value: "5", label: "Legs" },
-    { value: "6", label: "Back" },
-    { value: "7", label: "Shoulders" },
-]
+import UserDropdown from '../dropdown-components/UserDropdown';
 
 const AddExerciseModal = () => {
     const initialState = {
@@ -35,6 +26,12 @@ const AddExerciseModal = () => {
         setExercise({ ...exercise, [name]: value });
 
     };
+
+    const handleUser = (user_id) => {
+        setExercise({
+            ...exercise, user_id: user_id
+        });
+    }
 
     const saveExercise = () => {
 
@@ -180,14 +177,18 @@ const AddExerciseModal = () => {
                                 <option value="7">Legs</option>
                             </select>
                             <br></br><br></br>
-                            <select
+                            {/* <select
                                 id="user_id"
                                 name="user_id"
                                 type="number"
                                 onChange={handleInputChange} >
                                 <option value="Please choose a User">Please Choose a User</option>
                                 <option value="2">global</option>
-                            </select>
+                            </select> */}
+                            <br></br>
+                            <UserDropdown
+                                handleUser={handleUser}
+                            />
                         </div>
 
                     </Modal.Body>

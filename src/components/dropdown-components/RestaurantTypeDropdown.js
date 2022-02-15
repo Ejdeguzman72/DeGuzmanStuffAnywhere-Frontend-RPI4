@@ -4,7 +4,7 @@ import Select from 'react-select'
 import { userInfo } from 'os';
 import { Restaurant } from '@material-ui/icons';
 
-function RestaurantTypeDropdown() {
+function RestaurantTypeDropdown(props) {
     const [types, setTypes] = useState([]);
     const [singleType, setSingleType] = useState([]);
 
@@ -15,7 +15,7 @@ function RestaurantTypeDropdown() {
     }, []);
 
     const handleChange = (event) => {
-        setSingleType(event.target.value);
+        props.handleRestaurantType(event.target.value);
         console.log(event.target.value);
     }
 

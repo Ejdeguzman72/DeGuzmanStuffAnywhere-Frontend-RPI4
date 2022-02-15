@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
-import NameDropdown from '../../dropdown-components/NameDropdown';
+import NameDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
+import UserDropdown from '../../dropdown-components/UserDropdown';
 
-export default function AddGeneralFinanceModalComponent(props) {
+export default function AddGeneralFinanceModalComponent() {
 
   const initialState = {
     transaction_id: 0,
@@ -22,6 +23,12 @@ export default function AddGeneralFinanceModalComponent(props) {
     const { name, value } = event.target;
     setGeneralTransaction({ ...generalTransaction, [name]: value });
   };
+
+  const handleUser = (user_id) => {
+    setGeneralTransaction({
+      ...generalTransaction, user_id: user_id
+    })
+  }
 
   const saveGeneralTransaction = () => {
     let data = {
@@ -99,10 +106,10 @@ export default function AddGeneralFinanceModalComponent(props) {
                 name="amount"
                 onChange={handleInputChange} /><br></br><br></br>
 
-              <Form.Group 
-                controlId="payment_date" 
+              <Form.Group
+                controlId="payment_date"
                 className="generalTrx-input"
-                >
+              >
                 <Form.Label>Select Date</Form.Label>
                 <Form.Control type="date" name="payment_date" placeholder="Payment Date (MM/DD/YYYY)" onChange={handleInputChange} />
               </Form.Group><br></br>
@@ -147,7 +154,7 @@ export default function AddGeneralFinanceModalComponent(props) {
                 <option value="13">Vacation Expenses</option>
               </select><br></br><br></br>
 
-              <select
+              {/* <select
                 id="user_id"
                 name="user_id"
                 type="number"
@@ -155,7 +162,11 @@ export default function AddGeneralFinanceModalComponent(props) {
                 className="generalTrx-input" >
                 <option value="Please choose a User">Please Choose a User</option>
                 <option value="2">global</option>
-              </select><br></br><br></br>
+              </select><br></br><br></br> */}
+
+              <UserDropdown
+                handleUser={handleUser}
+              />
             </div>
 
           </Modal.Body>
