@@ -16,8 +16,6 @@ function UserDropdown(props) {
         console.log(event.target.value);
     }
 
-    {console.log(users)}
-
     return (
         <select 
             id="user_id"

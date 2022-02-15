@@ -1,8 +1,10 @@
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
-import NameDropdown from '../../dropdown-components/UserDropdown';
+import AutoRepairShopDropdown from '../../dropdown-components/AutoRepairShopDropdown';
+import UserDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
+import VehicleDropdownComponent from '../../dropdown-components/VehicleDropdownComponent';
 
 export default function AddAutoTransactionModalComponent() {
 
@@ -23,6 +25,30 @@ export default function AddAutoTransactionModalComponent() {
     const { name, value } = event.target;
     setAutoTransaction({ ...autoTransaction, [name]: value });
   };
+
+  const handleAutoShop = (auto_shop_id) => {
+    setAutoTransaction({
+      ...autoTransaction, auto_shop_id: auto_shop_id
+    })
+  }
+
+  const handleVehicle = (vehicle_id) => {
+    setAutoTransaction({
+      ...autoTransaction, vehicle_id: vehicle_id
+    })
+  }
+
+  const handleTransactionType = (transaction_type_id) => {
+    setAutoTransaction({
+      ...autoTransaction, transaction_type_id: transaction_type_id
+    })
+  }
+
+  const handleUser = (user_id) => {
+    setAutoTransaction({
+      ...autoTransaction, user_id: user_id
+    })
+  }
 
   const saveAutoTransaction = () => {
     let data = {
@@ -105,7 +131,7 @@ export default function AddAutoTransactionModalComponent() {
                 <Form.Control type="date" name="auto_transaction_date" placeholder="Date (MM/DD/YY)" onChange={handleInputChange} />
               </Form.Group>
 
-              <select
+              {/* <select
                 name="auto_shop_id"
                 type="number"
                 onChange={handleInputChange}
@@ -118,9 +144,13 @@ export default function AddAutoTransactionModalComponent() {
                 <option value="4">D&G Auto Repairs</option>
                 <option value="5">Star Auto Repair INC</option>
                 <option value="6">Pascack Automotive Repair INC</option>
-              </select><br></br><br></br>
+              </select> */}
+              <AutoRepairShopDropdown 
+                handleAutoShop={handleAutoShop}
+              />
+              <br></br><br></br>
 
-              <select
+              {/* <select
                 name="vehicle_id"
                 type="number"
                 onChange={handleInputChange}
@@ -129,9 +159,13 @@ export default function AddAutoTransactionModalComponent() {
                 <option value="Select a Vehicle" disabled selected>Select a Vehicle</option>
                 <option value="1">Honda Shadow 2016</option>
                 <option value="1000">Ford Focus 2013</option>
-              </select><br></br><br></br>
+              </select> */}
+              <VehicleDropdownComponent 
+                handleVehicle={handleVehicle}
+              />
+              <br></br><br></br>
 
-              <select
+              {/* <select
                 name="transaction_type_id"
                 type="number"
                 onChange={handleInputChange}
@@ -144,9 +178,13 @@ export default function AddAutoTransactionModalComponent() {
                 <option value="17">Car Detailing</option>
                 <option value="18">General Auto Maintenance</option>
                 <option value="19">Collision Maintenance</option>
-              </select><br></br><br></br>
+              </select> */}
+              <TransactionTypeDropdown 
+                handleTransactionType={handleTransactionType}
+              />
+              <br></br><br></br>
 
-              <select
+              {/* <select
                 id="user_id"
                 name="user_id"
                 type="number"
@@ -154,7 +192,11 @@ export default function AddAutoTransactionModalComponent() {
                 className="autoTrx-input" >
                 <option value="Please choose a User">Please Choose a User</option>
                 <option value="2">global</option>
-              </select><br></br><br></br>
+              </select> */}
+              <UserDropdown 
+                handleUser={handleUser}
+              />
+              <br></br><br></br>
             </div>
 
           </Modal.Body>

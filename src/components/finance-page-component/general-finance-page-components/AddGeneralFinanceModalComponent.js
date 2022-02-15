@@ -24,6 +24,12 @@ export default function AddGeneralFinanceModalComponent() {
     setGeneralTransaction({ ...generalTransaction, [name]: value });
   };
 
+  const handleTransactionType = (transaction_type_id) => {
+    setGeneralTransaction({
+      ...generalTransaction, transaction_type_id: transaction_type_id
+    })
+  }
+ 
   const handleUser = (user_id) => {
     setGeneralTransaction({
       ...generalTransaction, user_id: user_id
@@ -132,37 +138,10 @@ export default function AddGeneralFinanceModalComponent() {
                 <option value="Hmart">HMART</option>
               </Form.Control><br></br>
 
-              <select
-                name="transaction_type_id"
-                type="number"
-                onChange={handleInputChange}
-                id="transaction_type_id"
-                className="generalTrx-input" >
-                <option value="Select a Transaction Type" disabled selected>Transaction Type</option>
-                <option value="1">Rent</option>
-                <option value="2">Gas</option>
-                <option value="3">Electric</option>
-                <option value="4">Cable</option>
-                <option value="5">Internet</option>
-                <option value="6">Phone</option>
-                <option value="7">Insurance</option>
-                <option value="8">Mortgage</option>
-                <option value="9">Groceries</option>
-                <option value="10">Restaurant</option>
-                <option value="11">School Supplies</option>
-                <option value="12">Social Outing</option>
-                <option value="13">Vacation Expenses</option>
-              </select><br></br><br></br>
-
-              {/* <select
-                id="user_id"
-                name="user_id"
-                type="number"
-                onChange={handleInputChange}
-                className="generalTrx-input" >
-                <option value="Please choose a User">Please Choose a User</option>
-                <option value="2">global</option>
-              </select><br></br><br></br> */}
+              <TransactionTypeDropdown 
+                handleTransactionType={handleTransactionType}
+              />
+              <br></br><br></br>
 
               <UserDropdown
                 handleUser={handleUser}
