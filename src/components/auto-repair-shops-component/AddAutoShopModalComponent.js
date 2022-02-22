@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
+import StateDropDownComponent from '../dropdown-components/StateDropDownComponent';
 
 export default function AddAutoShopModalComponent() {
 
@@ -168,6 +169,7 @@ export default function AddAutoShopModalComponent() {
                 <option value="Wisconsin">Wisconsin</option>
                 <option value="Wyoming">Wyoming</option>
               </select>
+              {/* <StateDropDownComponent /> */}
               <br></br><br></br>
 
               <input

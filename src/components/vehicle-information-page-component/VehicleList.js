@@ -205,7 +205,7 @@ const VehicleList = () => {
                             {currentVehicle.transmission}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentVehicle.vehicle_id}
+                            to={"/update-vehicle/" + currentVehicle.vehicleId}
                             className="badge badge-warning"
                         >
                             Edit

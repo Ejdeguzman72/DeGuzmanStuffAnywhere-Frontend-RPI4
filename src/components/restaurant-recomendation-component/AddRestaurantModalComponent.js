@@ -4,8 +4,6 @@ import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 import { jwtHelper } from '../../helper/jwt';
-import { isJSDocCommentContainingNode } from 'typescript';
-import StateDropDownComponent from '../dropdown-components/StateDropDownComponent';
 
 const jwt = jwtHelper();
 

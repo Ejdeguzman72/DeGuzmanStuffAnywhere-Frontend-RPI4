@@ -12,9 +12,7 @@ const UtilityPageComponent = () => {
                 
             </Helmet>
             <div id="white-background">
-                <br></br>
-                <br></br>
-                <UtilityContainerComponent />
+                {/* <UtilityContainerComponent /> */}
                 <br></br>
                 <br></br>
              <UtilityTableComponent />

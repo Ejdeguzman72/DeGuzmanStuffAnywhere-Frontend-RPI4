@@ -9,7 +9,7 @@ const getAllMusicPagination = (params) => {
 }
 
 const getSongById = (song_id) => {
-    return Axios.get(`/song/${song_id}`);
+    return Axios.get(`http://localhost:8080/app/music/song/${song_id}`);
 }
 
 const getSongByTitle = (title) => {

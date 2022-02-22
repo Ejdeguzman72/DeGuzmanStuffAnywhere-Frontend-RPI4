@@ -102,8 +102,12 @@ import GnocchiSpinachPestoRecipePage from './components/recipe-page-component/re
 import HoneyGarlicPorkRecipePage from './components/recipe-page-component/recipe-pages/comfort-recipes/HoneyGarlicPorkRecipePage';
 import WaffleRecipePage from './components/recipe-page-component/recipe-pages/breakfeast-recipes/WaffleRecipePage';
 import AutoShopPageComponent from './components/auto-repair-shops-component/AutoShopPageComponent';
-// import UpdateBookPageComponent from './components/book-recommendations-component/UpdateBookPageComponent';
-// import BookRecommendationPageComponent from './components/book-recommendations-component/BookRecommendationPageComponent';
+import Song from './components/music-recommendations/Song';
+import Contact from './components/general-info-components/contact-info-page-component/Contact';
+import Restaurant from './components/restaurant-recomendation-component/Restaurant';
+import MedicalOffice from './components/medical-offices/MedicalOffice';
+import Vehicle from './components/vehicle-information-page-component/Vehicle';
+import AutoShop from './components/auto-repair-shops-component/AutoShop';
 
 const jwt = jwtHelper();
 
@@ -122,6 +126,7 @@ function App() {
                 <Route path="/home" exact component={HomePageComponent} />
                 <Route path="/media" exact component={PhotoVideoPageComponent} />
                 <Route path="/music" exact component={MusicRecommendationPageComponent} />
+                <Route path="/update-music/:song_id" exact component={Song} />
                 <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />
                 <Route path="/photos" exact component={PhotoPageComponent} />
                 <Route path="/photo-uploads" exact component={PhotoUploadPageComponent} />
@@ -133,11 +138,15 @@ function App() {
                 <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
                 <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
                 <Route path="/auto-shops" exact component={AutoShopPageComponent} />
+                <Route path="/update-autoshop/:auto_shop_id" exact component={AutoShop} />
                 <Route path="/view-cars" exact component={CarInformationPageComponent} />
+                <Route path="/update-vehicle/:vehicleId" exact component={Vehicle} />
                 <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
                 <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
                 <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
+                <Route path="/update-medical-office/:medicalOfficeId" exact component={MedicalOffice} />
                 <Route path="/contact-info" exact component={ContactPageComponent} />
+                <Route path="/update-contact/:personId" exact component={Contact} />
                 <Route path="/utility-tracker" exact component={UtilityPageComponent} />
                 <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
                 <Route path="/add-user" exact component={AddUserPageComponent} />
@@ -146,10 +155,11 @@ function App() {
                 <Route path="/agenda" exact component={AgendaPageApp} />
                 <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} />
                 <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
+                <Route path="/update-restaurant/:restaurant_id" exact component={Restaurant} />
                 <Route path="/downloads" exact component={DownloadsPageComponent} />
                 <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} />
                 <Route path="/add-book-information" exact component={AddBookRecommendation} />
-                <Route path="/update-book-information" exact component={BookUpdate} />
+                <Route path="/update-book-information/:book_id" exact component={BookUpdate} />
                 <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
                 <Route path="/recipes" exact component={RecipePageComponent} />
                 <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />

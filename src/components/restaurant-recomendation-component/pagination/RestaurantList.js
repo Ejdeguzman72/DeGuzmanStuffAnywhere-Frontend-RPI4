@@ -213,7 +213,7 @@ const RestaurantList = () => {
                             {currentRestaurant.zip}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentRestaurant.restaurant_id}
+                            to={"/update-restaurant/" + currentRestaurant.restaurant_id}
                             className="badge badge-warning"
                         >
                             Edit

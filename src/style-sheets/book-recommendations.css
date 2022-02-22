@@ -19,13 +19,14 @@
     border-color: black;
     border-style: solid;
     box-shadow: 5px 10px 18px #888888;
-    height: 60vh;
-    width: 600px;
+    height: auto;
+    width: 850px;
     overflow: auto;
     font-size: 25px;
-    background-image:  linear-gradient(#FFF5EE,silver);
+    background-image:  linear-gradient(white,silver);
     font-family: fantasy;
     border-radius: 50px;
+    text-align: center;
 }
 
 .book-name-input {

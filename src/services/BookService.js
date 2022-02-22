@@ -17,7 +17,7 @@ const addBookInformation = (data) => {
 };
 
 const updateBookInformation = (book_id,data) => {
-    return http.put(`/update-book-information/book/${book_id}`, data)
+    return http.put(`/book/${book_id}`, data)
 };
 
 const deleteBookInformation = (book_id) => {

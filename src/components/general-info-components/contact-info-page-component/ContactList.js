@@ -223,7 +223,7 @@ const ContactList = () => {
                         </div>
 
                         <Link
-                            to={"/update-book-information/" + currentContact.contact_id}
+                            to={"/update-contact/" + currentContact.personId}
                             className="badge badge-warning"
                         >
                             Edit

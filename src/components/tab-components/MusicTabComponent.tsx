@@ -11,10 +11,9 @@ const MusicTabComponent = () => {
                             <Nav.Link href="#music" eventKey="first" id="tabs">Music</Nav.Link>
                         </Nav.Item>
                     </Nav>
-                    <br></br>
                     {/* <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#add-book-information" eventKey="second" id="tabs">Add Book Recommendation</Nav.Link>
+                            <Nav.Link href="#add-song-information" eventKey="second" id="tabs">Add Music</Nav.Link>
                         </Nav.Item>
                     </Nav> */}
                 </Col>

@@ -9,8 +9,20 @@ const getAllContactInfo = (params) => {
     return Axios.get('http://localhost:8080/app/person-info/all-contacts', { params });
 }
 
-const addContactInfo = () => {
-    return Axios.post('http://localhost:8080/app/person-info/add-contact-info');
+const getContactInfoById = (person_id) => {
+    return Axios.get(`http://localhost:8080/app/person-info/person/${person_id}`);
+}
+
+const addContactInfo = (data) => {
+    return Axios.post('http://localhost:8080/app/person-info/add-contact-info', data);
+}
+
+const updateContactInfo = (person_id, data) => {
+    return Axios.put(`http://localhost:8080/app/person-info/person/${person_id}`, data);
+}
+
+const deleteContactById = (person_id) => {
+    return Axios.delete(`http://localhost:8080/app/person-info/person/${person_id}`);
 }
 
 const deleteAllContactInfo = () => {
@@ -21,5 +33,8 @@ export default {
     getContactInfo,
     deleteAllContactInfo,
     getAllContactInfo,
-    addContactInfo
+    addContactInfo,
+    getContactInfoById,
+    updateContactInfo,
+    deleteContactById
 };

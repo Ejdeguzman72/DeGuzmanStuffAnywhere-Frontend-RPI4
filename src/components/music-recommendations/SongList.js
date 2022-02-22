@@ -20,7 +20,7 @@ const SongList = () => {
         setSearchTitle(searchTitle);
     };
 
-    const pageSizes = [10,15,20];
+    const pageSizes = [10, 15, 20];
 
     const getRequestParams = (searchTitle, page, pageSize) => {
         let params = {};
@@ -122,7 +122,7 @@ const SongList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Music List</h4>
+                <h4>Music Library</h4>
 
 
                 <div className="mt-3">
@@ -159,7 +159,7 @@ const SongList = () => {
                                 onClick={() => setActiveMusic(song, index)}
                                 key={index}
                             >
-                                {song.title}
+                                {song.artist + ' ' + '- ' + song.genre}
                             </li>
                         ))}
                 </ul>
@@ -168,18 +168,17 @@ const SongList = () => {
                     <AddSongModal />
                     <Button
                         size="sm"
-                        className="btn-danger delete-all-btn" 
+                        className="btn-danger delete-all-btn"
                         onClick={removeAllMusic}
                     >
                         Delete All
                     </Button>
                 </Row>
             </div>
-            {console.log(currentSong + "sdlkfsdlkjflksdjflksdjflkj")}
             <div className="col-md-6">
                 {currentSong ? (
                     <div>
-                        <h4>Music</h4>
+                        <h4>Music Library</h4>
                         <div>
                             <label>
                                 <strong>Title:</strong>
@@ -200,18 +199,18 @@ const SongList = () => {
                         </div>
 
                         <Link
-                            to={"/update-book-information" + currentSong.book_id}
+                            to={"/update-music/" + currentSong.song_id}
                             className="badge badge-warning"
                         >
                             Edit
                         </Link>
                     </div>
                 ) : (
-                        <div>
-                            <br></br>
-                            <p>Please click on a tutorial...</p>
-                        </div>
-                    )}
+                    <div>
+                        <br></br>
+                        <p>Please click on a tutorial...</p>
+                    </div>
+                )}
             </div>
         </div>
     )

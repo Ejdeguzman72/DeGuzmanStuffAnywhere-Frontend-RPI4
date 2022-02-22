@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
-import BooksService from '../../services/BookService';
-import AddBookRecommendationTabComponent from '../tab-components/AddBookRecommendationTabComponent';
-import BookrecommendationsTabComponent from '../tab-components/BookRecommendationsTabComponent';
+import MusicService from '../../services/MusicService';
+import MusicTabComponent from './../tab-components/MusicTabComponent';
 
-const BookUpdate = props => {
-    const initialBookState = {
-        book_id: null,
+const Song = props => {
+    const initialState = {
+        song_id: null,
         title: "",
-        author: "",
-        descr: ""
+        artist: "",
+        genre: ""
     };
 
-    const [currentBook, setCurrentBook] = useState(initialBookState);
+    const [currentSong, setCurrentSong] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const getBook = (book_id) => {
-        BooksService.getBookInformationById(book_id)
+    const getSong = (song_id) => {
+        MusicService.getSongById(song_id)
             .then(response => {
-                setCurrentBook(response.data);
+                setCurrentSong(response.data);
                 console.log(response.data);
             })
             .catch(error => {
@@ -27,16 +26,16 @@ const BookUpdate = props => {
     };
 
     useEffect(() => {
-        getBook(props.match.params.book_id);
-    }, [props.match.params.book_id]);
+        getSong(props.match.params.song_id);
+    }, [props.match.params.song_id]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setCurrentBook({ ...currentBook, [name]: value });
+        setCurrentSong({ ...currentSong, [name]: value });
     };
 
-    const updateBook = () => {
-        BooksService.updateBookInformation(currentBook.book_id, currentBook)
+    const updateSong = () => {
+        MusicService.updateSongInformation(currentSong.song_id, currentSong)
             .then(response => {
                 console.log(response.data);
                 // setMessage("The book was updated successfully");
@@ -46,8 +45,8 @@ const BookUpdate = props => {
             });
     };
 
-    const deleteBook = () => {
-        BooksService.deleteBookInformation(currentBook.book_id)
+    const deleteSong = () => {
+        MusicService.deleteSongInformation(currentSong.song_id)
             .then(response => {
                 console.log(response.data);
                 props.history.push("/books");
@@ -59,45 +58,43 @@ const BookUpdate = props => {
 
     return (
         <div>
+            <br></br>
+            <MusicTabComponent />
             <div id="white-background">
-                <br></br>
-                <BookrecommendationsTabComponent />
-                <AddBookRecommendationTabComponent />
-                <br></br>
-                {currentBook ? (
+                {currentSong ? (
                     <div className="edit form">
-                        <h2>Book Recommendations</h2>
+                        <h4>Music Library</h4>
                         <form className="update-book-container">
                             <div className="form-group">
-                                <label htmlFor="name">Book Title</label>
+                                <label htmlFor="name">Song Title</label>
                                 <input
                                     type="text"
                                     className="form-control"
                                     id="title"
                                     name="title"
-                                    value={currentBook.title}
+                                    value={currentSong.title}
                                     onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="author">Author</label>
+                                <label htmlFor="author">Artist</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="author"
-                                    name="author"
-                                    value={currentBook.author}
+                                    id="artist"
+                                    name="artist"
+                                    value={currentSong.artist}
                                     onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="descr">Description</label>
-                                <textarea
+                                <label htmlFor="descr">Genre</label>
+                                <input
                                     type="text"
                                     className="form-control"
-                                    id="descr"
-                                    name="descr"
-                                    value={currentBook.descr}
+                                    id="genre"
+                                    name="genre"
+                                    value={currentSong.genre}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -105,24 +102,25 @@ const BookUpdate = props => {
                     </div>
                 ) : (
                     <div>
-                        <Button className="badge badge-danger mr-2" onClick={() => updateBook(true)}>
-                            Update
-                        </Button>
-                    </div>
-                )}
-                <br></br>
+                    <Button className="badge badge-danger mr-2" onClick={() => updateSong(true)}>
+                        Update
+                    </Button>
+                </div>
+                        )}
+
+<br></br>
                 <Row>
                     <Col md={4}>
 
                     </Col>
                     <Col md={2}>
                         <div>
-                            <Button type="submit" size="lg" variant="dark" onClick={updateBook}>Update</Button>
+                            <Button type="submit" size="lg" variant="dark" onClick={updateSong}>Update</Button>
                         </div>
                     </Col>
                     <Col md={2}>
                         <div>
-                            <Button type="submit" size="lg" variant="outline-danger" onClick={deleteBook}>
+                            <Button type="submit" size="lg" variant="outline-danger" onClick={deleteSong}>
                                 Delete
                             </Button>
                         </div>
@@ -131,10 +129,11 @@ const BookUpdate = props => {
 
                     </Col>
                 </Row>
-                <p>{message}</p>
-            </div>
+                        <p>{message}</p>
+                        </div>
         </div>
     )
 }
 
-export default BookUpdate;
+export default Song;
+

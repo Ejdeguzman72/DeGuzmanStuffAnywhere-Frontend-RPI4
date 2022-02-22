@@ -210,7 +210,7 @@ const AutoShopList = () => {
                             {currentShop.zip}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentShop.auto_shop_id}
+                            to={"/update-autoshop/" + currentShop.auto_shop_id}
                             className="badge badge-warning"
                         >
                             Edit

@@ -210,7 +210,7 @@ const MedicalOfficeList = () => {
                         </div>
 
                         <Link
-                            to={"/update-book-information" + currentMedicalOffice.book_id}
+                            to={"/update-medical-office/" + currentMedicalOffice.medicalOfficeId}
                             className="badge badge-warning"
                         >
                             Edit
