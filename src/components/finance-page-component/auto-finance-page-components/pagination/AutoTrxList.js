@@ -45,7 +45,7 @@ const AutoTrxList = () => {
         AutoTransactionService.getAllAutoTransactionsPagination(params)
             .then(response => {
                 const { transactions, totalPages } = response.data;
-
+                console.log(response.data);
                 setTransactions(transactions);
                 setCount(totalPages);
             })
@@ -247,7 +247,7 @@ const AutoTrxList = () => {
                             {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentTransaction.auto_transaction_id}
+                            to={"/update-auto-transaction/" + currentTransaction.auto_transaction_id}
                             className="badge badge-warning"
                         >
                             Edit

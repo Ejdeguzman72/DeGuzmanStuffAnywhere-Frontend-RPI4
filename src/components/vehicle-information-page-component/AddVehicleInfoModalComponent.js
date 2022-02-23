@@ -92,28 +92,29 @@ export default function AddCarInfoModalComponent() {
               <input
                 type="text"
                 placeholder="Make"
-                className="vehicle-input"
+                className="form-control"
                 name="make"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="Model"
-                className="vehicle-input"
+                className="form-control"
                 name="model"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="Year"
-                className="vehicle-input"
+                className="form-control"
                 name="year"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <select
                 id="capacity"
                 name="capacity"
                 type="number"
+                className="form-control"
                 onChange={handleInputChange} >
                 <option value="Please choose Capacity">Please Choose Capacity</option>
                 <option value="2">2</option>
@@ -121,33 +122,19 @@ export default function AddCarInfoModalComponent() {
                 <option value="6">6</option>
                 <option value="8">8</option>
               </select>
-              <br></br><br></br>
-
-              {/* <input
-                type="number"
-                placeholder="Capacity"
-                className="vehicle-input"
-                name="capacity"
-                onChange={handleInputChange} /><br></br><br></br> */}
-
+              <br></br>
 
               <select
                 id="transmission"
                 name="transmission"
                 type="text"
+                className="form-control"
                 onChange={handleInputChange} >
                 <option value="Please choose a Transmission Type">Please Choose Transmission</option>
                 <option value="Manual">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
-              <br></br><br></br>
-
-              {/* <input
-                type="text"
-                placeholder="Transmission"
-                className="vehicle-input"
-                name="transmission"
-                onChange={handleInputChange} /><br></br><br></br> */}
+              <br></br>
 
             </div>
           </Modal.Body>

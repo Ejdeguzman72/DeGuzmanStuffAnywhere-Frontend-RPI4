@@ -104,16 +104,15 @@ const AddExerciseModal = () => {
                 ) : (
                     <Modal.Body>
                         Please fill out the following information:
-                        <br></br>
                         <div className="modal-container">
                             <div className="form-group">
                                 <label htmlFor="name">Exercise Name</label>
-                                <br></br>
                                 <input
                                     type="text"
                                     // className="book-name-input"
                                     id="exerciseName"
                                     required
+                                    className="form-control"
                                     value={exercise.exerciseName}
                                     onChange={handleInputChange}
                                     name="exerciseName"
@@ -121,10 +120,9 @@ const AddExerciseModal = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="sets">Sets</label>
-                                <br></br>
                                 <input
                                     type="number"
-                                    // className="author-input"
+                                    className="form-control"
                                     id="sets"
                                     required
                                     value={exercise.sets}
@@ -134,10 +132,9 @@ const AddExerciseModal = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="reps">Reps</label>
-                                <br></br>
                                 <input
                                     type="text"
-                                    // className="author-input"
+                                    className="form-control"
                                     id="reps"
                                     required
                                     value={exercise.reps}
@@ -147,10 +144,9 @@ const AddExerciseModal = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="weight">Weight</label>
-                                <br></br>
                                 <input
                                     type="text"
-                                    // className="author-input"
+                                    className="form-control"
                                     id="weight"
                                     required
                                     value={exercise.reweightps}
@@ -166,6 +162,7 @@ const AddExerciseModal = () => {
                                 id="exercise_type_id"
                                 name="exercise_type_id"
                                 type="number"
+                                className="form-control"
                                 onChange={handleInputChange} >
                                 <option value="Please choose an Exercise Type">Please Choose an Exercise Type</option>
                                 <option value="1">Chest</option>
@@ -176,16 +173,8 @@ const AddExerciseModal = () => {
                                 <option value="6">Back</option>
                                 <option value="7">Legs</option>
                             </select>
-                            <br></br><br></br>
-                            {/* <select
-                                id="user_id"
-                                name="user_id"
-                                type="number"
-                                onChange={handleInputChange} >
-                                <option value="Please choose a User">Please Choose a User</option>
-                                <option value="2">global</option>
-                            </select> */}
                             <br></br>
+                     
                             <UserDropdown
                                 handleUser={handleUser}
                             />

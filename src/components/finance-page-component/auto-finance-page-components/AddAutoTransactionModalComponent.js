@@ -123,80 +123,37 @@ export default function AddAutoTransactionModalComponent() {
               <input
                 type="text"
                 placeholder="Enter Amount ($0.00)"
-                className="autoTrx-input"
-                name="amount" onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="amount" onChange={handleInputChange} />
+                
+                <br></br>
 
               <Form.Group controlId="auto_transaction_date">
                 <Form.Label>Select Date</Form.Label>
-                <Form.Control type="date" name="auto_transaction_date" placeholder="Date (MM/DD/YY)" onChange={handleInputChange} />
+                <Form.Control className="form-control" type="date" name="auto_transaction_date" placeholder="Date (MM/DD/YY)" onChange={handleInputChange} />
               </Form.Group>
 
-              {/* <select
-                name="auto_shop_id"
-                type="number"
-                onChange={handleInputChange}
-                className="autoTrx-input"
-                id="auto_shop_id" >
-                <option value="Select an Auto Shop" disabled selected>Select an Auto Shop</option>
-                <option value="1">Anita Tire</option>
-                <option value="2">Westwood Auto Techs</option>
-                <option value="3">M.G.H Auto Services</option>
-                <option value="4">D&G Auto Repairs</option>
-                <option value="5">Star Auto Repair INC</option>
-                <option value="6">Pascack Automotive Repair INC</option>
-              </select> */}
               <AutoRepairShopDropdown 
                 handleAutoShop={handleAutoShop}
               />
-              <br></br><br></br>
+              <br></br>
 
-              {/* <select
-                name="vehicle_id"
-                type="number"
-                onChange={handleInputChange}
-                id="vehicle_id"
-                className="autoTrx-input" >
-                <option value="Select a Vehicle" disabled selected>Select a Vehicle</option>
-                <option value="1">Honda Shadow 2016</option>
-                <option value="1000">Ford Focus 2013</option>
-              </select> */}
               <VehicleDropdownComponent 
                 handleVehicle={handleVehicle}
               />
-              <br></br><br></br>
 
-              {/* <select
-                name="transaction_type_id"
-                type="number"
-                onChange={handleInputChange}
-                id="transaction_type_id"
-                className="autoTrx-input" >
-                <option value="Select a Transaction Type" disabled selected>Transaction Type</option>
-                <option value="14">Oil Change</option>
-                <option value="15">Brakes</option>
-                <option value="16">Bumper</option>
-                <option value="17">Car Detailing</option>
-                <option value="18">General Auto Maintenance</option>
-                <option value="19">Collision Maintenance</option>
-              </select> */}
+              <br></br>
+
               <TransactionTypeDropdown 
                 handleTransactionType={handleTransactionType}
               />
-              <br></br><br></br>
 
-              {/* <select
-                id="user_id"
-                name="user_id"
-                type="number"
-                onChange={handleInputChange}
-                className="autoTrx-input" >
-                <option value="Please choose a User">Please Choose a User</option>
-                <option value="2">global</option>
-              </select> */}
+              <br></br>
+
               <UserDropdown 
                 handleUser={handleUser}
               />
-              <br></br><br></br>
+              <br></br>
             </div>
 
           </Modal.Body>

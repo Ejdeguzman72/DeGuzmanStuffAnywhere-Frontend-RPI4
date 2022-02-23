@@ -22,6 +22,7 @@ const VehicleDropdown = (props) => {
             id="vehicleId"
             name="vehicleId"
             value={vehicles.vehicleId}
+            className="form-control"
             type="number"
             onChange={handleChange}
         >

@@ -50,7 +50,7 @@ export default function ContactInfoEditableTableComponent() {
       {
         personId: 0,
         firstname: "",
-        middle_initial: "",
+        middleInitial: "",
         lastname: "",
         address01: "",
         address02: "",
@@ -67,19 +67,19 @@ export default function ContactInfoEditableTableComponent() {
 
   const [state] = React.useState({
     columns: [
-      { title: 'Person ID No:', field: 'personId', hidden: true, headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Firstname', field: 'firstname', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Middle Initial', field: 'middle_initial', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Lastname', field: 'lastname', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Address_01', field: 'address01', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Address_02', field: 'address02', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'City', field: 'city', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'State', field: 'state', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Zip', field: 'zipcode', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Birth Date', field: 'birthdate', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Age', field: 'age', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Email', field: 'email', headerStyle: { backgroundColor: '#CCD6DD' } },
-      { title: 'Phone', field: 'phone', headerStyle: { backgroundColor: '#CCD6DD' }, }
+      { title: 'Person ID No:', field: 'personId', hidden: true},
+      { title: 'Firstname', field: 'firstname'},
+      { title: 'Middle Initial', field: 'middleInitial'},
+      { title: 'Lastname', field: 'lastname'},
+      { title: 'Address_01', field: 'address01'},
+      { title: 'Address_02', field: 'address02'},
+      { title: 'City', field: 'city'},
+      { title: 'State', field: 'state'},
+      { title: 'Zip', field: 'zipcode'},
+      { title: 'Birth Date', field: 'birthdate'},
+      { title: 'Age', field: 'age'},
+      { title: 'Email', field: 'email'},
+      { title: 'Phone', field: 'phone'}
     ]
   });
 
@@ -90,7 +90,7 @@ export default function ContactInfoEditableTableComponent() {
         data.push({
           personId: e1.personId,
           firstname: e1.firstname,
-          middle_initial: e1.middle_initial,
+          middleInitial: e1.middleInitial,
           lastname: e1.lastname,
           address01: e1.address01,
           address02: e1.address02,

@@ -47,7 +47,7 @@ const Contact = props => {
         ContactService.updateContactInfo(currentContact.personId, currentContact)
             .then(response => {
                 console.log(response.data);
-                // setMessage("The book was updated successfully");
+                alert("The contact was updated successfully");
             })
             .catch(error => {
                 console.log(error);

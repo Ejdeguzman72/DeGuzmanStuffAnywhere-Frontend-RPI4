@@ -32,9 +32,9 @@ export default function AddMedicalFinanceModalComponent() {
 
   const handleUser = (user_id) => {
     setMedicalTransaction({
-        ...medicalTransaction, user_id: user_id
+      ...medicalTransaction, user_id: user_id
     });
-}
+  }
 
   const saveMedicalTransaction = () => {
     let data = {
@@ -108,10 +108,9 @@ export default function AddMedicalFinanceModalComponent() {
               <input
                 type="number"
                 placeholder="Enter Amount ($0.00)"
-                className="medicalTrx-input"
+                className="form-control"
                 name="amount"
-                onChange={handleInputChange} /><br></br><br></br>
-
+                onChange={handleInputChange} />
               <Form.Group controlId="medical_transaction_date">
                 <Form.Label>Select Date (MM/DD/YYYY)</Form.Label>
                 <Form.Control type="date" name="medical_transaction_date" placeholder="Date (MM/DD/YYYY)" onChange={handleInputChange} />
@@ -130,20 +129,21 @@ export default function AddMedicalFinanceModalComponent() {
                   <option value="21">Eye Care Insights: Dr. Floyd Smith Optometrist</option>
               </select><br></br><br></br> */}
 
-              <MedicalOfficeDropdown 
+              <MedicalOfficeDropdown
                 handleMedicalOffice={handleMedicalOffice}
               />
-
-              <select 
+              <br></br>
+              <select
                 id="transaction_type_id"
-                name="transaction_type_id" 
+                name="transaction_type_id"
                 type="number"
+                className="form-control"
                 onChange={handleInputChange}
-                className="medicalTrx-input" >
-                  <option value="" disabled selected>Select A Transaction Type:</option>
-                  <option value="20">Medical Copay</option>
-                  <option value="21">Medical Prescription</option>
-              </select><br></br><br></br>
+              >
+                <option value="" disabled selected>Select A Transaction Type:</option>
+                <option value="20">Medical Copay</option>
+                <option value="21">Medical Prescription</option>
+              </select><br></br>
 
               {/* <select
                 id="user_id"
@@ -154,10 +154,9 @@ export default function AddMedicalFinanceModalComponent() {
                   <option value="Please choose a User">Please Choose a User</option>
                   <option value="2">global</option>
               </select> */}
-              <UserDropdown 
+              <UserDropdown
                 handleUser={handleUser}
               />
-              <br></br><br></br>
             </div>
 
           </Modal.Body>

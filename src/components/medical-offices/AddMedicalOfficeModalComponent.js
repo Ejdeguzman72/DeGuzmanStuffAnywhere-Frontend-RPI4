@@ -90,30 +90,30 @@ export default function AddMedicalOfficeModalComponent() {
               <input
                 type="text"
                 placeholder="Enter Facility Name"
-                className="medicalTrx-input"
+                className="form-control"
                 name="name"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="Address"
-                className="medicalTrx-input"
-                name="address" 
-                onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="address"
+                onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="City"
-                className="medicalTrx-input"
-                name="city" 
-                onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="city"
+                onChange={handleInputChange} /><br></br>
 
               <select
                 id="state"
                 name="state"
                 type="number"
                 onChange={handleInputChange}
-                className="medicalTrx-input" >
+                className="form-control" >
                 <option value="Please choose a Restaurant Type">Please Choose a State</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -165,8 +165,7 @@ export default function AddMedicalOfficeModalComponent() {
                 <option value="West Virginia">West Virginia</option>
                 <option value="Wisconsin">Wisconsin</option>
                 <option value="Wyoming">Wyoming</option>
-              </select>
-              <br></br><br></br>
+              </select><br></br>
 
               {/* <input
                 type="text"
@@ -177,8 +176,8 @@ export default function AddMedicalOfficeModalComponent() {
               <input
                 type="text"
                 placeholder="Zip"
-                className="medicalTrx-input"
-                name="zip" onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="zip" onChange={handleInputChange} />
             </div>
 
           </Modal.Body>

@@ -108,19 +108,18 @@ export default function AddGeneralFinanceModalComponent() {
               <input
                 type="text"
                 placeholder="Enter Amount ($0.00)"
-                className="generalTrx-input"
+                className="form-control"
                 name="amount"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <Form.Group
                 controlId="payment_date"
-                className="generalTrx-input"
               >
                 <Form.Label>Select Date</Form.Label>
                 <Form.Control type="date" name="payment_date" placeholder="Payment Date (MM/DD/YYYY)" onChange={handleInputChange} />
-              </Form.Group><br></br>
+              </Form.Group>
 
-              <Form.Control as="select" name="entity" onChange={handleInputChange} className="generalTrx-input">
+              <Form.Control as="select" name="entity" onChange={handleInputChange} className="form-control">
                 <option value="" disabled selected>Choose An Entity For Payment</option>
                 <option value="Rent">Rent</option>
                 <option value="StateFarm">Statefarm</option>
@@ -141,7 +140,8 @@ export default function AddGeneralFinanceModalComponent() {
               <TransactionTypeDropdown 
                 handleTransactionType={handleTransactionType}
               />
-              <br></br><br></br>
+              
+              <br></br>
 
               <UserDropdown
                 handleUser={handleUser}

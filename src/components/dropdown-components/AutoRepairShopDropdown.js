@@ -20,6 +20,7 @@ function AutoRepairShopDropdown(props) {
         <select 
             id="auto_shop_id"
             name="auto_shop_id"
+            className="form-control"
             value={autoShops.auto_shop_id}
             type="number"
             onChange={handleChange}

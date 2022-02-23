@@ -19,6 +19,7 @@ const TransactionTypeDropdown = (props) => {
         <select 
             id="transaction_type_id"
             name="transaction_type_id"
+            className="form-control"
             value={types.transaction_type_id}
             type="number"
             onChange={handleChange}

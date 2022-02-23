@@ -22,6 +22,7 @@ function UserDropdown(props) {
             name="user_id"
             value={users.user_id}
             type="number"
+            className="form-control"
             onChange={handleChange}
         >
             <option value="0">Select A User</option>

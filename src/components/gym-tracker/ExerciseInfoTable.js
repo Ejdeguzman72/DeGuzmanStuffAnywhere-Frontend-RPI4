@@ -61,7 +61,7 @@ export default function ExerciseInfoTableComponent() {
     data: [
       {
         exercise_id: 0,
-        exerciseName: 0,
+        exerciseName: "",
         sets: "",
         reps: "",
         weight: "",

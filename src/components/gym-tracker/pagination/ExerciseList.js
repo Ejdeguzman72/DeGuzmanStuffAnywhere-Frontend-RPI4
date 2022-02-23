@@ -225,7 +225,7 @@ const ExerciseList = () => {
                             {currentExercise.user.username}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentExercise.restaurant_id}
+                            to={"/update-exercise/" + currentExercise.exerciseid}
                             className="badge badge-warning"
                         >
                             Edit

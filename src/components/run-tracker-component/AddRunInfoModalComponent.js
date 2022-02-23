@@ -15,7 +15,7 @@ export default function AddRunInfoModalComponent({ props }) {
     run_id: 0,
     runDate: "",
     runDistance: 0,
-    run_time: "",
+    runTime: "",
     user_id: 0
   }
 
@@ -38,7 +38,7 @@ export default function AddRunInfoModalComponent({ props }) {
       run_id: run.run_id,
       runDate: run.runDate,
       runDistance: run.runDistance,
-      run_time: run.run_time,
+      runTime: run.runTime,
       user_id: run.user_id
     }
 
@@ -49,7 +49,7 @@ export default function AddRunInfoModalComponent({ props }) {
           run_id: response.data.run_id,
           runDate: response.data.runDate,
           runDistance: response.data.runDistance,
-          run_time: response.data.run_time,
+          runTime: response.data.runTime,
           user_id: response.data.user_id
         });
         console.log(data);
@@ -101,36 +101,25 @@ export default function AddRunInfoModalComponent({ props }) {
                 <input 
                   type="number" 
                   placeholder="Distance (00 : 00 miles)" 
-                  className="run-input"
+                  className="form-control"
                   id="runDistance"
                   name="runDistance"
                   value={run.runDistance}
-                  onChange={handleInputChange} /><br></br><br></br>
+                  onChange={handleInputChange} /><br></br>
 
                 <input 
                   type="text" 
                   placeholder="Time (00 m : 00 s)" 
-                  className="run-input"
-                  id="run_time"
-                  name="run_time"
-                  value={run.run_time}
-                  onChange={handleInputChange} /><br></br><br></br>
+                  className="form-control"
+                  id="runTime"
+                  name="runTime"
+                  value={run.runTime}
+                  onChange={handleInputChange} /><br></br>
 
                 <Form.Group controlId="runDate">
                   <Form.Label>Select Date</Form.Label>
-                  <Form.Control type="date" name="runDate" placeholder="Date" onChange={handleInputChange} />
+                  <Form.Control type="date" name="runDate" placeholder="Date" className="form-control" onChange={handleInputChange} />
                 </Form.Group>
-
-                {/* <input type="text" placeholder="Date of Run" className="run-input" /><br></br><br></br> */}
-
-                {/* <select
-                  id="user_id"
-                  name="user_id"
-                  type="number"
-                  onChange={handleInputChange} >
-                  <option value="Please choose a User">Please Choose a User</option>
-                  <option value="2">global</option>
-                </select> */}
 
                 <UserDropdown 
                   handleUser={handleUser}

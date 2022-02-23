@@ -42,7 +42,7 @@ const MedicalOffice = props => {
         MedicalOfficeService.updateMedicalOfficeInformation(currentOffice.medicalOfficeId, currentOffice)
             .then(response => {
                 console.log(response.data);
-                alert("The book was updated successfully");
+                alert("The medical office was updated successfully");
             })
             .catch(error => {
                 console.log(error);

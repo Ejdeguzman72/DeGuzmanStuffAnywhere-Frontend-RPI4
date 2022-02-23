@@ -23,6 +23,7 @@ function RestaurantTypeDropdown(props) {
         <select 
             id="restaurant_type_id"
             name="restaurant_type_id"
+            className="form-control"
             value={types.restaurant_type_id}
             type="number"
             onChange={handleChange}

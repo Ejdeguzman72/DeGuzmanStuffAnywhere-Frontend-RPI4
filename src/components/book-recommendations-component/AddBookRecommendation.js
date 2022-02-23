@@ -89,7 +89,7 @@ const AddBookRecommendation = () => {
                                     <br></br>
                                     <input
                                         type="text"
-                                        // className="book-name-input"
+                                        className="form-control"
                                         id="title"
                                         required
                                         value={book.title}
@@ -102,7 +102,7 @@ const AddBookRecommendation = () => {
                                     <br></br>
                                     <input
                                         type="text"
-                                        // className="author-input"
+                                        className="form-control"
                                         id="author"
                                         required
                                         value={book.author}
@@ -115,7 +115,7 @@ const AddBookRecommendation = () => {
                                     <br></br>
                                     <textarea
                                         type="text"
-                                        // className="author-input"
+                                        className="form-control"
                                         id="descr"
                                         required
                                         value={book.descr}

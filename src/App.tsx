@@ -108,6 +108,11 @@ import Restaurant from './components/restaurant-recomendation-component/Restaura
 import MedicalOffice from './components/medical-offices/MedicalOffice';
 import Vehicle from './components/vehicle-information-page-component/Vehicle';
 import AutoShop from './components/auto-repair-shops-component/AutoShop';
+import Exercise from './components/gym-tracker/Exercise';
+import Run from './components/run-tracker-component/Run';
+import GeneralTransaction from './components/finance-page-component/general-finance-page-components/GeneralTransaction';
+import MedicalTransaction from './components/finance-page-component/medical-finance-page-components/MedicalTransaction';
+import AutoTranasction from './components/finance-page-component/auto-finance-page-components/AutoTransaction';
 
 const jwt = jwtHelper();
 
@@ -134,14 +139,17 @@ function App() {
                 <Route path="/videos" exaxt component={VideoPageComponent} />
                 <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
                 <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+                <Route path="/update-general-transaction/:transaction_id" exact component={GeneralTransaction} />
                 <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
                 <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+                <Route path="/update-auto-transaction/:auto_transaction_id" exact component={AutoTranasction} />
                 <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
                 <Route path="/auto-shops" exact component={AutoShopPageComponent} />
                 <Route path="/update-autoshop/:auto_shop_id" exact component={AutoShop} />
                 <Route path="/view-cars" exact component={CarInformationPageComponent} />
                 <Route path="/update-vehicle/:vehicleId" exact component={Vehicle} />
                 <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+                <Route path="/update-medical-transaction/:medical_transaction_id" exact component={MedicalTransaction} />
                 <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
                 <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
                 <Route path="/update-medical-office/:medicalOfficeId" exact component={MedicalOffice} />
@@ -149,6 +157,7 @@ function App() {
                 <Route path="/update-contact/:personId" exact component={Contact} />
                 <Route path="/utility-tracker" exact component={UtilityPageComponent} />
                 <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
+                <Route path="/update-run/:run_id" exact component={Run} />
                 <Route path="/add-user" exact component={AddUserPageComponent} />
                 <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
                 <Route path="/approve-user" exact component={ApproveUserPageComponent} />
@@ -161,6 +170,7 @@ function App() {
                 <Route path="/add-book-information" exact component={AddBookRecommendation} />
                 <Route path="/update-book-information/:book_id" exact component={BookUpdate} />
                 <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
+                <Route path="/update-exercise/:exercise_id" exact component={Exercise} />
                 <Route path="/recipes" exact component={RecipePageComponent} />
                 <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
                 <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />

@@ -62,7 +62,6 @@ const BookUpdate = props => {
             <div id="white-background">
                 <br></br>
                 <BookrecommendationsTabComponent />
-                <AddBookRecommendationTabComponent />
                 <br></br>
                 {currentBook ? (
                     <div className="edit form">

@@ -90,32 +90,27 @@ export default function AddAutoShopModalComponent() {
               <input
                 type="text"
                 placeholder="Enter Shop Name"
-                className="vehicle-input"
+                className="form-control"
                 name="autoShopName"
-                onChange={handleInputChange} /><br></br><br></br>
+                onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="Address"
-                className="vehicle-input"
-                name="address" onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="address" onChange={handleInputChange} /><br></br>
 
               <input
                 type="text"
                 placeholder="City"
-                className="vehicle-input"
-                name="city" onChange={handleInputChange} /><br></br><br></br>
-
-              {/* <input
-                type="text"
-                placeholder="State"
-                className="vehicle-input"
-                name="state" onChange={handleInputChange} /><br></br><br></br> */}
+                className="form-control"
+                name="city" onChange={handleInputChange} /><br></br>
 
               <select
                 id="state"
                 name="state"
                 type="number"
+                className="form-control"
                 onChange={handleInputChange} >
                 <option value="Please choose a Restaurant Type">Please Choose a State</option>
                 <option value="Alabama">Alabama</option>
@@ -169,14 +164,14 @@ export default function AddAutoShopModalComponent() {
                 <option value="Wisconsin">Wisconsin</option>
                 <option value="Wyoming">Wyoming</option>
               </select>
-              {/* <StateDropDownComponent /> */}
-              <br></br><br></br>
+              
+              <br></br>
 
               <input
                 type="text"
                 placeholder="Zip"
-                className="vehicle-input"
-                name="zip" onChange={handleInputChange} /><br></br><br></br>
+                className="form-control"
+                name="zip" onChange={handleInputChange} /><br></br>
             </div>
 
           </Modal.Body>

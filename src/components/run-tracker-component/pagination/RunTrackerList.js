@@ -203,7 +203,7 @@ const RunTrackerList = () => {
                             {currentRun.user.username}
                         </div>
                         <Link
-                            to={"/update-book-information" + currentRun.run_id}
+                            to={"/update-run/" + currentRun.run_id}
                             className="badge badge-warning"
                         >
                             Edit

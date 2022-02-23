@@ -8,7 +8,7 @@ const AddContactModalComponent = () => {
   const initialState = {
     personId: 0,
     firstname: "",
-    middle_initial: "",
+    middleInitial: "",
     lastname: "",
     address01: "",
     address02: "",
@@ -39,7 +39,7 @@ const AddContactModalComponent = () => {
     const data = {
       personId: contact.personId,
       firstname: contact.firstname,
-      middle_initial: contact.middle_initial,
+      middleInitial: contact.middleInitial,
       lastname: contact.lastname,
       address01: contact.address01,
       address02: contact.address02,
@@ -57,6 +57,7 @@ const AddContactModalComponent = () => {
         setContact({
           personId: response.data.personId,
           firstname: response.data.firstname,
+          middleInitial: response.data.middleInitial,
           lastname: response.data.lastname,
           address01: response.data.address01,
           address02: response.data.address02,
@@ -120,59 +121,59 @@ const AddContactModalComponent = () => {
                     placeholder="First Name"
                     name="firstname"
                     value={contact.firstname}
-                    className="contact-input"
+                    className="form-control"
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="middle_initial"
                     placeholder="Middle Initial"
-                    className="contact-input"
+                    className="form-control"
                     name="middle_initial"
-                    value={contact.middle_initial}
+                    value={contact.middleInitial}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="lastname"
                     placeholder="Last Name"
-                    className="contact-input"
+                    className="form-control"
                     name="lastname"
                     value={contact.lastname}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="address01"
                     placeholder="Address01"
-                    className="contact-input"
+                    className="form-control"
                     name="address01"
                     value={contact.address01}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="address02"
                     name="address02"
                     placeholder="Address02"
-                    className="contact-input"
+                    className="form-control"
                     value={contact.address02}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="city"
                     placeholder="City"
-                    className="contact-input"
+                    className="form-control"
                     value={contact.city}
                     name="city"
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   {/* <input
                 type="text"
@@ -189,6 +190,7 @@ const AddContactModalComponent = () => {
                     name="state"
                     value={contact.state}
                     type="number"
+                    className="form-control"
                     onChange={handleInputChange} >
                     <option value="Please choose a Restaurant Type">Please Choose a State</option>
                     <option value="Alabama">Alabama</option>
@@ -242,56 +244,56 @@ const AddContactModalComponent = () => {
                     <option value="Wisconsin">Wisconsin</option>
                     <option value="Wyoming">Wyoming</option>
                   </select>
-                  <br></br><br></br>
+                  <br></br>
                   <input
                     type="text"
                     id="zipcode"
                     placeholder="Zip Code"
-                    className="contact-input"
+                    className="form-control"
                     name="zipcode"
                     value={contact.zipcode}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="birthdate"
                     placeholder="Birthdate"
-                    className="contact-input"
+                    className="form-control"
                     name="birthdate"
                     value={contact.birthdate}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="number"
                     id="age"
                     placeholder="Age"
-                    className="contact-input"
+                    className="form-control"
                     name="age"
                     value={contact.age}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="email"
                     placeholder="Email"
-                    className="contact-input"
+                    className="form-control"
                     name="email"
                     value={contact.email}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                   <input
                     type="text"
                     id="phone"
                     placeholder="Phone"
-                    className="contact-input"
+                    className="form-control"
                     name="phone"
                     value={contact.phone}
                     onChange={handleInputChange} />
-                  <br></br><br></br>
+                  <br></br>
 
                 </div>
                 <br></br>

@@ -117,36 +117,37 @@ const AddRestaurantModalComponent = ({ props }) => {
                   placeholder="Restaurant Name"
                   id="name"
                   name="name"
-                  className="restaurant-input"
+                  className="form-control"
                   value={restaurant.name}
                   onChange={handleInputChange} />
-                <br></br><br></br>
+                <br></br>
 
                 <input
                   type="text"
                   placeholder="Address"
                   id="address"
                   name="address"
-                  className="restaurant-input"
+                  className="form-control"
                   value={restaurant.address}
                   onChange={handleInputChange} />
-                <br></br><br></br>
+                <br></br>
 
                 <input
                   type="text"
                   placeholder="City"
                   id="city"
                   name="city"
-                  className="restaurant-input"
+                  className="form-control"
                   value={restaurant.city}
                   onChange={handleInputChange} />
-                <br></br><br></br>
+                <br></br>
 
                 <select
                   id="state"
                   name="state"
                   value={restaurant.state}
                   type="number"
+                  className="form-control"
                   onChange={handleInputChange} >
                   <option value="Please choose a Restaurant Type">Please Choose a State</option>
                   <option value="Alabama">Alabama</option>
@@ -200,48 +201,19 @@ const AddRestaurantModalComponent = ({ props }) => {
                   <option value="Wisconsin">Wisconsin</option>
                   <option value="Wyoming">Wyoming</option>
                 </select>
-                {/* <StateDropDownComponent /> */}
-                <br></br><br></br>
-                {/* <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  name="state"
-                  className="restaurant-input"
-                  value={restaurant.state}
-                  onChange={handleInputChange} />
-                <br></br><br></br> */}
+
+                <br></br>
 
                 <input
                   type="text"
                   placeholder="Zip Code"
                   id="zip"
                   name="zip"
-                  className="restaurant-input"
+                  className="form-control"
                   value={restaurant.zip}
                   onChange={handleInputChange} />
-                <br></br><br></br>
-
-                {/* <select
-                  id="restaurant_type_id"
-                  name="restaurant_type_id"
-                  value={restaurant.restaurant_type_id}
-                  type="number"
-                  onChange={handleInputChange} >
-                  <option value="Please choose a Restaurant Type">Please Choose a Type</option>
-                  <option value="1">American</option>
-                  <option value="2">Pizzeria</option>
-                  <option value="3">Chinese</option>
-                  <option value="4">Hispanic</option>
-                  <option value="5">Texmex</option>
-                  <option value="6">Breakfeast</option>
-                  <option value="7">Pasta</option>
-                  <option value="8">Steakhouse</option>
-                  <option value="9">Sushi</option>
-                  <option value="10">Ramen</option>
-                  <option value="11">Pho</option>
-                  <option value="12">Fast Food</option>
-                </select> */}
+                <br></br>
+                
                 <RestaurantTypeDropdown 
                   handleRestaurantType={handleRestaurantType}
                 />

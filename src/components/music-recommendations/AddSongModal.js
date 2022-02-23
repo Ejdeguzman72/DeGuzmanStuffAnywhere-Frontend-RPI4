@@ -90,10 +90,9 @@ const AddSongModal = () => {
                         <div className="modal-container">
                             <div className="form-group">
                                 <label htmlFor="name">Title</label>
-                                <br></br>
                                 <input
                                     type="text"
-                                    // className="book-name-input"
+                                    className="form-control"
                                     id="title"
                                     required
                                     value={music.title}
@@ -103,10 +102,9 @@ const AddSongModal = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="artist">Artist</label>
-                                <br></br>
                                 <input
                                     type="text"
-                                    // className="author-input"
+                                    className="form-control"
                                     id="artist"
                                     required
                                     value={music.artist}
@@ -114,7 +112,7 @@ const AddSongModal = () => {
                                     name="artist"
                                 />
                             </div>
-                            <Form.Control as="select" name="genre" onChange={handleInputChange} >
+                            <Form.Control as="select" name="genre" className="form-control" onChange={handleInputChange} >
                                 <option value="" disabled selected>Select a genre</option>
                                 <option value="Rock">Rock</option>
                                 <option value="Pop">Country</option>

@@ -12,7 +12,7 @@ const Song = props => {
     };
 
     const [currentSong, setCurrentSong] = useState(initialState);
-    const [message, setMessage] = ("");
+    const [message, setMessage] = useState("");
 
     const getSong = (song_id) => {
         MusicService.getSongById(song_id)
@@ -38,7 +38,7 @@ const Song = props => {
         MusicService.updateSongInformation(currentSong.song_id, currentSong)
             .then(response => {
                 console.log(response.data);
-                // setMessage("The book was updated successfully");
+                alert("The song was updated successfully");
             })
             .catch(error => {
                 console.log(error);

@@ -20,6 +20,7 @@ function MedicalOfficeDropdown(props) {
         <select 
             id="medical_office_id"
             name="medical_office_id"
+            className="form-control"
             value={medicalOffices.medical_office_id}
             type="number"
             onChange={handleChange}
