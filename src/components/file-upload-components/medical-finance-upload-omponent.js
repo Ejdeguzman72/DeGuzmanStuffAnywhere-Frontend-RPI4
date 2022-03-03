@@ -111,7 +111,7 @@ export class MedicalFileUploadFiles extends React.Component {
                         {medicalFileInfos &&
                             medicalFileInfos.map((file, index) => (
                                 <li className="list-group-item" key={index}>
-                                    <a href={file.medicalTransactionFileUrl}>{file.medicalTransactionFileName}</a>
+                                    <a href={file.url}>{file.name}</a>
                                 </li>
                             ))}
                     </ul>

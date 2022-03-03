@@ -43,7 +43,7 @@ export default class FindUserInfo extends React.Component<any, any> {
 
     onSubmit = (event: any) => {
         event.preventDefault();
-        const url = `http:ec2-54-162-1-238.compute-1.amazonaws.com:8080/app/users/user/${this.state.userid}`;
+        const url = `http:localhost:8080/app/users/user/${this.state.userid}`;
         if (this.state.userid != 0) {
             Axios.get(url)
                 .then(payload => {

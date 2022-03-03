@@ -113,7 +113,7 @@ export class AutoFinanceUploadComponent extends React.Component {
                         {fileInfos &&
                             fileInfos.map((file, index) => (
                                 <li className="list-group-item" key={index}>
-                                    <a href={file.autoTrxFileUrl}>{file.autoTrxFilename}</a>
+                                    <a href={file.url}>{file.name}</a>
                                 </li>
                             ))}
                     </ul>

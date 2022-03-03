@@ -65,6 +65,13 @@ export class NavBarComponent extends React.Component<any, any> {
                             }
                             {
                                 jwt ?
+                                    <NavDropdown title="Media Files" className="navbar-item" id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="#photos" className="navbar-item">Photos</NavDropdown.Item>
+                                        <NavDropdown.Item href="#videos" className="navbar-item">Videos</NavDropdown.Item>
+                                    </NavDropdown> : null
+                            }
+                            {
+                                jwt ?
                                     <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#agenda" className="navbar-item">Agenda</NavDropdown.Item>
                                         <NavDropdown.Item href="#book-recommendations" className="navbar-item">Book Recommendations</NavDropdown.Item>

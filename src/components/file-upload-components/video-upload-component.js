@@ -83,7 +83,7 @@ const VideosUploadComponent = () => {
                             {videoFileInfos &&
                                 videoFileInfos.map((file, index) => (
                                     <li className="list-group-item" key={index}>
-                                        <a href={file.videosFileUrl}>{file.videosFilename}</a>
+                                        <a href={file.url}>{file.name}</a>
                                     </li>
                                 ))}
                         </ul>

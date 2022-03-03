@@ -11,6 +11,7 @@ const PhotoUploadComponent = () => {
 
     useEffect(() => {
         UploadPhotosService.getPhotoFiles().then((response)  => {
+            console.log(response.data)
             setFileInfos(response.data);
         });
     }, []);
@@ -48,6 +49,7 @@ const PhotoUploadComponent = () => {
             <div id="white-background">
                 <br></br>
                 <div>
+                    {console.log(currentFile + " klashglksdjfhg")}
                     {currentFile && (
                         <div className="progress">
                             <div
@@ -81,10 +83,11 @@ const PhotoUploadComponent = () => {
                     <div className="card">
                         <div className="card-header">List of Files</div>
                         <ul className="list-group list-group-flush">
+                            {console.log(fileInfos + " lksdjs;dlglsdkjfhg")}
                             {fileInfos &&
                                 fileInfos.map((file, index) => (
                                     <li className="list-group-item" key={index}>
-                                        <a href={file.photosFileUrl}>{file.photosFileName}</a>
+                                        <a href={file.url}>{file.name}</a>
                                     </li>
                                 ))}
                         </ul>
