@@ -1,0 +1,14 @@
+#social-media-background {
+    background-image: url('../assets/roystudio120900008.jpg');
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: 0;
+    height: 300vh;
+    width: 100% auto;
+    overflow-x: auto;
+    overflow-y:hidden;
+    /* position: relative; */
+  }

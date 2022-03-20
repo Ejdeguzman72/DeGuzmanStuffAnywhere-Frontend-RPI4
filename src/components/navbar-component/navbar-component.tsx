@@ -78,6 +78,7 @@ export class NavBarComponent extends React.Component<any, any> {
                                         {/* <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA- Agenda</NavDropdown.Item> */}
                                         <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                         <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
+                                        <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
                                         <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
                                         <NavDropdown.Item href="#restaurant-recommendations" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
                                         <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>

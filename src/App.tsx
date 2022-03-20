@@ -113,6 +113,7 @@ import Run from './components/run-tracker-component/Run';
 import GeneralTransaction from './components/finance-page-component/general-finance-page-components/GeneralTransaction';
 import MedicalTransaction from './components/finance-page-component/medical-finance-page-components/MedicalTransaction';
 import AutoTranasction from './components/finance-page-component/auto-finance-page-components/AutoTransaction';
+import SocialMediaPage from './components/social-media-component/SocialMediaPage';
 
 const jwt = jwtHelper();
 
@@ -171,6 +172,7 @@ function App() {
                 <Route path="/update-book-information/:book_id" exact component={BookUpdate} />
                 <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
                 <Route path="/update-exercise/:exercise_id" exact component={Exercise} />
+                <Route path="/social-media-feed" exact component={SocialMediaPage} />
                 <Route path="/recipes" exact component={RecipePageComponent} />
                 <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
                 <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
