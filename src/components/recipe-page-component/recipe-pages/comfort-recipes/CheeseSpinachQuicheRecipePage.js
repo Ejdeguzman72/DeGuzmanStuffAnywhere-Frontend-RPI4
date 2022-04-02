@@ -2,7 +2,7 @@ import React from 'react';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
-import CheeseSpinachQuicheContainer from '../../recipe-containers/comfort-food-recipe-containers/CheeseSpinachQuicheRecipeContainer';
+import CheeseSpinachQuicheContainer from '../../recipe-containers/comfort-food-recipe-containers/QuicheContainer';
 
 export class CheeseSpinachQuicheRecipePage extends React.Component {
     render() {

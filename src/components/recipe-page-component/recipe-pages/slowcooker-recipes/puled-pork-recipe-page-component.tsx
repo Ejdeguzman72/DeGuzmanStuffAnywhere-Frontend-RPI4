@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
 import { FooterComponent } from '../../../footer-component/footer-component';
-import PulledPorkRecipeContainer from '../../recipe-containers/slowcooker-container-recipes/pulled-pork-recipe-container-component';
+import PulledPorkRecipeContainer from '../../recipe-containers/slowcooker-container-recipes/PulledPorkContainer';
 
 export class PulledPorkRecipePageComponent extends React.Component<any, any> {
     render() {

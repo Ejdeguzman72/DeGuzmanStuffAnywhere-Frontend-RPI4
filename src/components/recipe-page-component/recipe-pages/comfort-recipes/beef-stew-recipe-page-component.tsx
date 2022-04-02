@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
 import { Helmet } from 'react-helmet';
-import BeefStewRecipeContainerComponent from '../../recipe-containers/comfort-food-recipe-containers/beef-stew-recipe-container-component';
+import BeefStewRecipeContainerComponent from '../../recipe-containers/comfort-food-recipe-containers/BeefstewContainer';
 import { FooterComponent } from '../../../footer-component/footer-component'
 
 export class BeefstewRecipePageComponent extends React.Component<any, any> {

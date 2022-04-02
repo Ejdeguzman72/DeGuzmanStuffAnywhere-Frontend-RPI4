@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
-import BeefaroniRecipeContainer from '../../recipe-containers/comfort-food-recipe-containers/beefaroni-recipe-container-component';
+import BeefaroniRecipeContainer from '../../recipe-containers/comfort-food-recipe-containers/BeefaroniContainer';
 import { FooterComponent } from '../../../footer-component/footer-component';
 
 

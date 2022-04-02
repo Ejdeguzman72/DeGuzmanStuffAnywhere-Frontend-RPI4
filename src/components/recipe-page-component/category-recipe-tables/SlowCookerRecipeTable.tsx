@@ -1,10 +1,10 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import BlackEyedPeasAndHamHock from '../recipe-buttons/slowcooker-category-button/black-eyed-peas-and-hamhock-recipe-btn';
+import BlackEyedPeasAndHamHock from '../recipe-buttons/slowcooker-category-button/BlackEyedPeas';
 import PotRoastBtn from '../recipe-buttons/slowcooker-category-button/pot-roast-btn-';
 import PulledPorkBtn from '../recipe-buttons/slowcooker-category-button/pulled-pork-btn-component';
 import StuffedGreenPeppersBtnComponent from '../recipe-buttons/slowcooker-category-button/stuffed-green-peppers-btn';
-import { BlackEyedPeasAndHamHockRecipePageComponent } from '../recipe-pages/slowcooker-recipes/black-eyed-peas-and-hamhocks-recipe-page-component';
+import { BlackEyedPeasAndHamHockRecipePageComponent } from '../recipe-pages/slowcooker-recipes/BlackEyedPeasPage';
 import { PotRoastRecipePageComponent } from '../recipe-pages/slowcooker-recipes/pot-roast-recipe-page-component';
 import { PulledPorkRecipePageComponent } from '../recipe-pages/slowcooker-recipes/puled-pork-recipe-page-component';
 import { StuffedGreenPeppersPageComponent } from '../recipe-pages/slowcooker-recipes/stuffed-green-peppers-recipe-page-component';

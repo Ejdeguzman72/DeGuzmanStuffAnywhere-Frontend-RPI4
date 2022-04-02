@@ -20,7 +20,7 @@ import { AutoFinanceUploadPageComponent } from './components/finance-page-compon
 import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/filipino-recipes/adobo-recipe-page-component';
 import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beefaroni-recipe-page-component';
 import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beef-stew-recipe-page-component';
-import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/black-eyed-peas-and-hamhocks-recipe-page-component';
+import { BlackEyedPeasAndHamHockRecipePageComponent } from './components/recipe-page-component/recipe-pages/slowcooker-recipes/BlackEyedPeasPage';
 import { ChiliRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/chii-recipe-page-component';
 import { FajitasRecipePageComponent } from './components/recipe-page-component/recipe-pages/hispanic-recipes/fajitas-recipe-page-component';
 import { MarinaraRecipePageComponent } from './components/recipe-page-component/recipe-pages/italian-recipes/marinara-recipe-page-component';
@@ -114,6 +114,8 @@ import GeneralTransaction from './components/finance-page-component/general-fina
 import MedicalTransaction from './components/finance-page-component/medical-finance-page-components/MedicalTransaction';
 import AutoTranasction from './components/finance-page-component/auto-finance-page-components/AutoTransaction';
 import SocialMediaPage from './components/social-media-component/SocialMediaPage';
+import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
+import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
 
 const jwt = jwtHelper();
 
@@ -131,6 +133,8 @@ function App() {
               <div>
                 <Route path="/home" exact component={HomePageComponent} />
                 <Route path="/media" exact component={PhotoVideoPageComponent} />
+                <Route path="/chatroom" exact component={ChatPageComponent} />
+                <Route path="/deguzman-family-chat" exact component={ChatApplicationComponent} />
                 <Route path="/music" exact component={MusicRecommendationPageComponent} />
                 <Route path="/update-music/:song_id" exact component={Song} />
                 <Route path="/admin-portal" exact component={AdmimPortalPageComponent} />

@@ -3,7 +3,7 @@ import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-reci
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
 import ChickenParmesanContainer from '../../recipe-containers/italian-recipe-containers/ChickenParmesanContainer';
-import GnocchiSpinachPestoRecipeContainer from '../../recipe-containers/italian-recipe-containers/GnocchiSpinachPestoPastaRecipeContainer';
+import GnocchiSpinachPestoRecipeContainer from '../../recipe-containers/italian-recipe-containers/GnocchiSpinachContainer';
 
 const GnocchiSpinachPestoRecipePage = () => {
     return (

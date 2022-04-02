@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap';
 import MarinaraRecipeBtnComponent from '../recipe-buttons/comfort-food-category-recipe/marinara-recipe-btn';
 import MeatsauceBtnComponent from '../recipe-buttons/comfort-food-category-recipe/meat-sauce-btn';
 import ChickenParmesanBtn from '../recipe-buttons/italian-category-recipe/ChickenParmesanBtn';
-import CreamyPastaAndCrunchyMushroomButton from '../recipe-buttons/italian-category-recipe/creamy-mushroom-with-crispy-mushroom-pasta';
+import CreamyPastaAndCrunchyMushroomButton from '../recipe-buttons/italian-category-recipe/CreamyMushRoomPasta';
 import MeatballBtnComponent from '../recipe-buttons/italian-category-recipe/meatballs-recipe-btn';
 import StuffedShellsRecipeBtn from './../recipe-buttons/italian-category-recipe/StuffedShellsRecipeBtn';
 import ChickenMarsalaBtn from './../recipe-buttons/italian-category-recipe/ChickenMarsalaRecipeBtn';
