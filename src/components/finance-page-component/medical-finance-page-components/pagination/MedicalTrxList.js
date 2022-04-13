@@ -3,6 +3,7 @@ import MedicalTransactionService from '../../../../services/medical-transaction-
 import { Link } from 'react-router-dom';
 import AddMedicalTransactionModalComponent from '../AddMedicalTransactionModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
+import TransactionTypeDropdown from '../../../dropdown-components/TransactionTypeDropdown';
 
 const MedicalTrxList = () => {
     const [transactions, setTransactions] = useState([]);
@@ -19,7 +20,7 @@ const MedicalTrxList = () => {
         setSearchTitle(searchTitle);
     };
 
-    const pageSizes = [10,15,20];
+    const pageSizes = [10, 15, 20];
 
     const getRequestParams = (searchTitle, page, pageSize) => {
         let params = {};
@@ -41,7 +42,7 @@ const MedicalTrxList = () => {
 
     const retrieveTransactions = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
-        
+
         MedicalTransactionService.getAllTransactionsPagination(params)
             .then(response => {
                 const { transactions, totalPages } = response.data;
@@ -113,7 +114,7 @@ const MedicalTrxList = () => {
                         <button
                             className="btn btn-outline-secondary"
                             type="button"
-                            // onClick={findByName}
+                        // onClick={findByName}
                         >
                             Search
                         </button>
@@ -157,7 +158,13 @@ const MedicalTrxList = () => {
                                 onClick={() => setActiveTransactions(transaction, index)}
                                 key={index}
                             >
-                                {'Amount: ' + transaction.amount + ' ' + 'Payment Date: ' + transaction.medical_transaction_date + 'Transaction Type: ' + transaction.transactionType.descr}
+                                <p>
+                                    <strong>Amount: </strong>{transaction.amount.toFixed(2)}{' | '}<strong>Payment Date: </strong>{transaction.medical_transaction_date}
+                                </p>
+                                <p>
+                                    <strong>Transaction Type: </strong>{transaction.transactionType.descr}{' | '}
+                                </p>
+                                <p><strong>Username: </strong>{transaction.user.username}</p>
                             </li>
                         ))}
                 </ul>
@@ -179,13 +186,13 @@ const MedicalTrxList = () => {
                             <label>
                                 <strong>Amount:</strong>
                             </label>{" "}
-                            {currentTransaction.amount}
+                            {currentTransaction.amount.toFixed(2)}
                         </div>
                         <div>
                             <label>
                                 <strong>Payment Date:</strong>
                             </label>{" "}
-                            {currentTransaction.paymentDate}
+                            {currentTransaction.medical_transaction_date}
                         </div>
                         <div>
                             <label>
@@ -213,11 +220,11 @@ const MedicalTrxList = () => {
                         </Link>
                     </div>
                 ) : (
-                        <div>
-                            <br></br>
-                            <p>Please click on a transaction...</p>
-                        </div>
-                    )}
+                    <div>
+                        <br></br>
+                        <p>Please click on a transaction...</p>
+                    </div>
+                )}
             </div>
         </div>
     )

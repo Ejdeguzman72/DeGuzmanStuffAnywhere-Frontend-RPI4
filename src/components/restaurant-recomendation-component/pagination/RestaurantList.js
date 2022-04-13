@@ -158,7 +158,7 @@ const RestaurantList = () => {
                                 onClick={() => setActiveRestaurant(restaurant, index)}
                                 key={index}
                             >
-                                {restaurant.name}
+                                <p><strong>{restaurant.name} - </strong><strong>{restaurant.restaurantType.descr}</strong></p>
                             </li>
                         ))}
                 </ul>

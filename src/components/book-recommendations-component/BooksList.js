@@ -156,7 +156,8 @@ const BooksList = () => {
                                 onClick={() => setActiveBook(book, index)}
                                 key={index}
                             >
-                                {book.title}
+                                <p><strong>Title: </strong>{book.title}</p>
+                                <p><strong>Author: </strong>{book.author}</p>
                             </li>
                         ))}
                 </ul>

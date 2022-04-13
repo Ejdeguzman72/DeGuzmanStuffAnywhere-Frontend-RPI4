@@ -158,7 +158,8 @@ const RunTrackerList = () => {
                                 onClick={() => setActiveRun(run, index)}
                                 key={index}
                             >
-                                {'Run Time: ' + run.runTime + '  ' + 'Run Distance: ' + run.runDistance + '  ' + 'Run Date: ' + run.runDate}
+                                <p><strong>{run.runTime} - {run.runDistance}miles</strong></p>
+                                <p><strong>{run.user.username}</strong></p>
                             </li>
                         ))}
                 </ul>

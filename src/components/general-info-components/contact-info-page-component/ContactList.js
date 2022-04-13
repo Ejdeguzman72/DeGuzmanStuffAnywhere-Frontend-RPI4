@@ -159,7 +159,7 @@ const ContactList = () => {
                                 onClick={() => setActiveContact(person, index)}
                                 key={index}
                             >
-                                {person.firstname}
+                                <p><strong>{person.firstname + ' ' + person.lastname}</strong></p>
                             </li>
                         ))}
                 </ul>

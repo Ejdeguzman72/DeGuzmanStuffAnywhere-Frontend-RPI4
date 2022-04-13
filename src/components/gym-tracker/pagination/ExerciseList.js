@@ -3,6 +3,7 @@ import ExerciseService from '../../../services/ExerciseService';
 import { Link } from 'react-router-dom';
 import AddExerciseModal from './../AddExerciseInfoModal';
 import Pagination from "@material-ui/lab/Pagination";
+import { Col } from 'react-bootstrap';
 
 const ExerciseList = () => {
     const [exercises, setExercises] = useState([]);
@@ -19,7 +20,7 @@ const ExerciseList = () => {
         setSearchTitle(searchTitle);
     };
 
-    const pageSizes = [10,15,20];
+    const pageSizes = [10, 15, 20];
 
     const getRequestParams = (searchTitle, page, pageSize) => {
         let params = {};
@@ -41,7 +42,7 @@ const ExerciseList = () => {
 
     const retrieveExercises = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
-        
+
         ExerciseService.getAllExerciseInformation(params)
             .then(response => {
                 const { exercises, totalPages } = response.data;
@@ -158,7 +159,15 @@ const ExerciseList = () => {
                                 onClick={() => setActiveExercise(exercise, index)}
                                 key={index}
                             >
-                                {exercise.exerciseName + ' ' + exercise.sets + ' ' + 'x' + ' ' + exercise.reps + ' ' + ' ' +  exercise.date}
+                                <p>
+                                    <strong>{exercise.exercise_name}</strong>
+                                </p>
+                                <p>
+                                    <strong>{exercise.sets} x {exercise.reps}</strong>
+                                </p>
+                                <p>
+                                    <strong>{exercise.user.username}</strong>
+                                </p>
                             </li>
                         ))}
                 </ul>
@@ -232,11 +241,11 @@ const ExerciseList = () => {
                         </Link>
                     </div>
                 ) : (
-                        <div>
-                            <br></br>
-                            <p>Please click on an exercise...</p>
-                        </div>
-                    )}
+                    <div>
+                        <br></br>
+                        <p>Please click on an exercise...</p>
+                    </div>
+                )}
             </div>
         </div>
     )

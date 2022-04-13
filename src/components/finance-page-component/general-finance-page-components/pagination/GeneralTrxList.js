@@ -157,7 +157,13 @@ const GeneralTrxList = () => {
                                 onClick={() => setActiveTransactions(transaction, index)}
                                 key={index}
                             >
-                                {'Amount: ' + transaction.amount + ' ' + 'Payment Date: ' + transaction.paymentDate + 'Transaction Type: ' + transaction.transactionType.descr}
+                                <p>
+                                    <strong>Amount: </strong>{transaction.amount.toFixed(2)}{' | '}<strong>Payment Date: </strong>{transaction.paymentDate}
+                                </p>
+                                <p>
+                                    <strong>Transaction Type: </strong>{transaction.transactionType.descr}{' | '}
+                                </p>
+                                <p><strong>Username: </strong>{transaction.user.username}</p>
                             </li>
                         ))}
                 </ul>
@@ -179,7 +185,7 @@ const GeneralTrxList = () => {
                             <label>
                                 <strong>Amount:</strong>
                             </label>{" "}
-                            {currentTransaction.amount}
+                            {currentTransaction.amount.toFixed(2)}
                         </div>
                         <div>
                             <label>

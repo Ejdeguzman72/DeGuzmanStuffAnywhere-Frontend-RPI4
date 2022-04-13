@@ -156,7 +156,13 @@ const AutoTrxList = () => {
                                 onClick={() => setActiveTransactions(transaction, index)}
                                 key={index}
                             >
-                                {'Amount: ' + transaction.amount + ' ' + 'Payment Date: ' + transaction.autoTransactionDate + 'Transaction Type: ' + transaction.transactionType.descr}
+                                <p>
+                                    <strong>Amount: </strong>{transaction.amount.toFixed(2)}{' | '}<strong>Payment Date: </strong>{transaction.autoTransactionDate}
+                                </p>
+                                <p>
+                                    <strong>Transaction Type: </strong>{transaction.transactionType.descr}{' | '}
+                                </p>
+                                <p><strong>Username: </strong>{transaction.user.username}</p>
                             </li>
                         ))}
                 </ul>
@@ -178,7 +184,7 @@ const AutoTrxList = () => {
                             <label>
                                 <strong>Amount:</strong>
                             </label>{" "}
-                            {currentTransaction.amount}
+                            {currentTransaction.amount.toFixed(2)}
                         </div>
                         <div>
                             <label>

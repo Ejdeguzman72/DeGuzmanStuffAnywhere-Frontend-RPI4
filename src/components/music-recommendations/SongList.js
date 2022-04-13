@@ -159,7 +159,8 @@ const SongList = () => {
                                 onClick={() => setActiveMusic(song, index)}
                                 key={index}
                             >
-                                {song.artist + ' ' + '- ' + song.genre}
+                                <p><strong>Title: </strong>{song.title}</p>
+                                <p><strong>Artist: </strong>{song.artist}</p>
                             </li>
                         ))}
                 </ul>

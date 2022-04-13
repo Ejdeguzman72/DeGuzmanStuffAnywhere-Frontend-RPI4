@@ -98,7 +98,7 @@ const SocialMediaList = () => {
 
     return (
         <div className="list row">
-            <div className="col-md-8">
+            <div className="col-md-6">
                 <div className="input-group mb-3">
                     <input
                         type="text"
@@ -118,7 +118,7 @@ const SocialMediaList = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-9">
                 <h4>Post List</h4>
 
 
@@ -156,7 +156,9 @@ const SocialMediaList = () => {
                                 onClick={() => setActivePost(post, index)}
                                 key={index}
                             >
-                                {post.content}
+                                <p><strong>{post.user.username}: </strong>{post.content}</p>
+                                {<br></br>}
+                                {post.createdDate}
                             </li>
                         ))}
                 </ul>
@@ -175,15 +177,21 @@ const SocialMediaList = () => {
                 </button> */}
                 <AddPost />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-2">
                 {currentPost ? (
                     <div>
                         <h4>Post</h4>
                         <div>
                             <label>
-                                <strong>Post:</strong>
+                                <strong>User:</strong>
                             </label>{" "}
-                            {currentPost.name}
+                            {currentPost.user.username}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Message:</strong>
+                            </label>{" "}
+                            {currentPost.content}
                         </div>
                         
                         <Link
