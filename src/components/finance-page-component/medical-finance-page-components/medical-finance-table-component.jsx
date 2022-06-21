@@ -55,7 +55,7 @@ export default function MedicalFinancePageTableComponent() {
       { title: 'State', field: 'state'},
       { title: 'zip', field: 'zip'},
       { title: 'Transaction Type', field: 'transaction_type_descr'},
-      { title: 'Name of User', field: 'name' },
+      { title: 'Name of User', field: 'username' },
     ],
   });
 
@@ -71,7 +71,7 @@ export default function MedicalFinancePageTableComponent() {
         state: "",
         zip: "",
         transaction_type_descr: "",
-        name: ""
+        username: ""
       }
     ]
   });
@@ -92,7 +92,7 @@ export default function MedicalFinancePageTableComponent() {
           state: e1.state,
           zip: e1.zip,
           transaction_type_descr: e1.transaction_type_descr,
-          name: e1.name
+          username: e1.username
         });
       });
       setMedicalTrxdata({ data: data });

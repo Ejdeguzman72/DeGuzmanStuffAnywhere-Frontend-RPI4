@@ -53,7 +53,7 @@ export default function AutoFinancePageTableComponent() {
       { title: 'Model', field: 'model' },
       { title: 'Year', field: 'year' },
       { title: 'Auto Shop Name', field: 'auto_shop_name' },
-      { title: 'Name of User', field: 'name' },
+      { title: 'Name of User', field: 'username' },
       { title: 'Transaction Type', field: 'transaction_type_descr' },
     ],
   });
@@ -68,7 +68,7 @@ export default function AutoFinancePageTableComponent() {
         model: "",
         year: "",
         auto_shop_name: "",
-        name: "",
+        username: "",
         transaction_type_descr: "",
       }
     ]
@@ -88,7 +88,7 @@ export default function AutoFinancePageTableComponent() {
           model: e1.model,
           year: e1.year,
           auto_shop_name: e1.auto_shop_name,
-          name: e1.name,
+          username: e1.username,
           transaction_type_descr: e1.transaction_type_descr,
         });
       });

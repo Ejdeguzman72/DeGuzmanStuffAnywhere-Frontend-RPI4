@@ -53,7 +53,7 @@ export default function ExerciseInfoTableComponent() {
       { title: 'Weight', field: 'weight'},
       { title: 'Date', field: 'date'},
       { title: 'Exercise Type', field: 'exercise_type_name' },
-      { title: 'Name', field: 'name' },
+      { title: 'Name', field: 'username' },
     ],
   });
 
@@ -67,7 +67,7 @@ export default function ExerciseInfoTableComponent() {
         weight: "",
         date: "",
         exercise_type_name: "",
-        name: "",
+        username: "",
       }
     ]
   });
@@ -86,7 +86,7 @@ export default function ExerciseInfoTableComponent() {
           weight: e1.weight,
           date: e1.date,
           exercise_type_name: e1.exercise_type_name,
-          name: e1.name
+          username: e1.username
         });
       });
       setEntries({ data: data })

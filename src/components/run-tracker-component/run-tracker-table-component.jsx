@@ -51,7 +51,7 @@ export default function RunTrackerTableComponent() {
                 run_date: "",
                 run_distance: 0,
                 run_time: 0,
-                name: ""
+                username: ""
             }
         ]
     });
@@ -62,7 +62,7 @@ export default function RunTrackerTableComponent() {
             { title: 'Date of Run', field: 'run_date' },
             { title: 'Distance', field: 'run_distance' },
             { title: 'Time', field: 'run_time' },
-            { title: 'Name of User', field: 'name'}
+            { title: 'Name of User', field: 'username'}
         ]
     });
 
@@ -75,7 +75,7 @@ export default function RunTrackerTableComponent() {
                     run_date: e1.run_date,
                     run_distance: e1.run_distance.toFixed(2),
                     run_time: e1.run_time,
-                    name: e1.name
+                    username: e1.username
                 });
                 console.log(data);
             });

@@ -57,7 +57,7 @@ export default function GeneralFinancePageTableComponent() {
         payment_date: "",
         entity: "",
         transaction_type_descr: "",
-        name: ""
+        username: ""
       }
     ]
   });
@@ -71,7 +71,7 @@ export default function GeneralFinancePageTableComponent() {
       { title: 'Payment Date', field: 'payment_date' },
       { title: 'Entity', field: 'entity' },
       { title: 'Transaction Type', field: 'transaction_type_descr' },
-      { title: 'User', field: 'name' }
+      { title: 'User', field: 'username' }
     ],
   });
 
@@ -86,7 +86,7 @@ export default function GeneralFinancePageTableComponent() {
             payment_date: e1.payment_date,
             entity: e1.entity,
             transaction_type_descr: e1.transaction_type_descr,
-            name: e1.name
+            username: e1.username
           });
           console.log(data);
         });
