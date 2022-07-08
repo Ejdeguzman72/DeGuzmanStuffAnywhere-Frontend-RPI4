@@ -96,6 +96,7 @@ export default function MedicalFinancePageTableComponent() {
         });
       });
       setMedicalTrxdata({ data: data });
+      console.log(data)
     })
       .catch(function (error) {
         console.log(error);
