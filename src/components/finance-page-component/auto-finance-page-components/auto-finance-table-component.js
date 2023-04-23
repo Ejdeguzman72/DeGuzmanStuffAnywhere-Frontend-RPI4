@@ -46,30 +46,30 @@ const tableIcons = {
 export default function AutoFinancePageTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'auto_transaction_id', hidden: true },
+      { title: 'Transaction ID', field: 'autoTrxId', hidden: false },
       { title: 'Amount', field: 'amount' },
-      { title: 'Date', field: 'auto_transaction_date' },
+      { title: 'Date', field: 'autoTrxDate' },
       { title: 'Make', field: 'make' },
       { title: 'Model', field: 'model' },
       { title: 'Year', field: 'year' },
-      { title: 'Auto Shop Name', field: 'auto_shop_name' },
+      { title: 'Auto Shop Name', field: 'autoShopName' },
       { title: 'Name of User', field: 'username' },
-      { title: 'Transaction Type', field: 'transaction_type_descr' },
+      { title: 'Transaction Type', field: 'transactionTypeDescr' },
     ],
   });
 
   const [entries, setEntries] = useState({
     data: [
       {
-        auto_transaction_id: 0,
+        autoTrxId: 0,
         amount: 0,
-        auto_transaction_date: "",
+        autoTrxDate: "",
         make: "",
         model: "",
         year: "",
-        auto_shop_name: "",
+        autoShopName: "",
         username: "",
-        transaction_type_descr: "",
+        transactionTypeDescr: "",
       }
     ]
   });
@@ -79,18 +79,19 @@ export default function AutoFinancePageTableComponent() {
   useEffect(() => {
     AutoTransactionService.getAllAutoTransactions().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
-          auto_transaction_id: e1.auto_transaction_id,
+          autoTrxId: e1.autoTrxId,
           amount: e1.amount.toFixed(2),
-          auto_transaction_date: e1.auto_transaction_date,
+          autoTrxDate: e1.autoTrxDate,
           make: e1.make,
           model: e1.model,
           year: e1.year,
-          auto_shop_name: e1.auto_shop_name,
+          autoShopName: e1.autoShopName,
           username: e1.username,
-          transaction_type_descr: e1.transaction_type_descr,
+          transactionTypeDescr: e1.transactionTypeDescr,
         });
+        console.log(data)
       });
       setEntries({ data: data })
     })

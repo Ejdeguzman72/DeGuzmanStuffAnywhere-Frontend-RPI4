@@ -73,7 +73,8 @@ export default function AutoShopTableComponent() {
   useEffect(() => {
     AutoShopService.getAllAutoShopsInfo().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      console.log(response)
+      response.data.list.forEach(e1 => {
         data.push({
           auto_shop_id: e1.auto_shop_id,
           autoShopName: e1.autoShopName,
@@ -82,6 +83,7 @@ export default function AutoShopTableComponent() {
           state: e1.state,
           zip: e1.zip,
         });
+        console.log(data);
       });
       setAutoShop({ data: data });
     })

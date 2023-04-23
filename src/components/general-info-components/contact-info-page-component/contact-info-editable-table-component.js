@@ -67,7 +67,7 @@ export default function ContactInfoEditableTableComponent() {
 
   const [state] = React.useState({
     columns: [
-      { title: 'Person ID No:', field: 'personId', hidden: true},
+      { title: 'Person ID No:', field: 'personId', hidden: false},
       { title: 'Firstname', field: 'firstname'},
       { title: 'Middle Initial', field: 'middleInitial'},
       { title: 'Lastname', field: 'lastname'},
@@ -86,7 +86,7 @@ export default function ContactInfoEditableTableComponent() {
   useEffect(() => {
     ContactInfoService.getContactInfo().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
           personId: e1.personId,
           firstname: e1.firstname,

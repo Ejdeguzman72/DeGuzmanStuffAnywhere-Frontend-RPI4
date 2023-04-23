@@ -46,15 +46,15 @@ const tableIcons = {
 export default function MedicalFinancePageTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Medical Transaction ID', field: 'medical_transaction_id', hidden: true },
+      { title: 'Medical Transaction ID', field: 'medTrxId', hidden: false },
       { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'medical_transaction_date' },
+      { title: 'Payment Date', field: 'medTrxDate' },
       { title: 'Medical Facility', field: 'facilityName' },
       { title: 'Address', field: 'address'},
       { title: 'City', field: 'city'},
       { title: 'State', field: 'state'},
       { title: 'zip', field: 'zip'},
-      { title: 'Transaction Type', field: 'transaction_type_descr'},
+      { title: 'Transaction Type', field: 'transactionTypeDescr'},
       { title: 'Name of User', field: 'username' },
     ],
   });
@@ -62,9 +62,9 @@ export default function MedicalFinancePageTableComponent() {
   const [medicalTrxData, setMedicalTrxdata] = useState({
     data: [
       {
-        medical_transaction_id: 0,
+        medTrxId: 0,
         amount: 0.00,
-        medical_transaction_date: "",
+        medTrxDate: "",
         facilityName: "",
         address: "",
         city: "",
@@ -81,17 +81,17 @@ export default function MedicalFinancePageTableComponent() {
   useEffect(() => {
     MedicalTransactionService.getAllMedicalTransactions().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
-          medical_transaction_id: e1.medical_transaction_id,
+          medTrxId: e1.medTrxId,
           amount: e1.amount.toFixed(2),
-          medical_transaction_date: e1.medical_transaction_date,
+          medTrxDate: e1.medTrxDate,
           facilityName: e1.facilityName,
           address: e1.address,
           city: e1.city,
           state: e1.state,
           zip: e1.zip,
-          transaction_type_descr: e1.transaction_type_descr,
+          transactionTypeDescr: e1.transactionTypeDescr,
           username: e1.username
         });
       });

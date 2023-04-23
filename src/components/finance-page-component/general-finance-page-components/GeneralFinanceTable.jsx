@@ -52,11 +52,11 @@ export default function GeneralFinancePageTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        transaction_id: 0,
+        genTrxId: 0,
         amount: 0,
-        payment_date: "",
+        paymentDate: "",
         entity: "",
-        transaction_type_descr: "",
+        transactionTypeDescr: "",
         username: ""
       }
     ]
@@ -66,11 +66,11 @@ export default function GeneralFinancePageTableComponent() {
 
   const [state] = React.useState({
     columns: [
-      { title: 'Transaction ID', field: 'transaction_id', hidden: true },
+      { title: 'Transaction ID', field: 'genTrxId', hidden: false },
       { title: 'Amount', field: 'amount' },
-      { title: 'Payment Date', field: 'payment_date' },
+      { title: 'Payment Date', field: 'paymentDate' },
       { title: 'Entity', field: 'entity' },
-      { title: 'Transaction Type', field: 'transaction_type_descr' },
+      { title: 'Transaction Type', field: 'transactionTypeDescr' },
       { title: 'User', field: 'username' }
     ],
   });
@@ -79,13 +79,13 @@ export default function GeneralFinancePageTableComponent() {
     GeneralTransactionService.getAllGeneralTransactions()
       .then(response => {
         let data = [];
-        response.data.forEach(e1 => {
+        response.data.list.forEach(e1 => {
           data.push({
-            transaction_id: e1.transaction_id,
+            genTrxId: e1.genTrxId,
             amount: e1.amount.toFixed(2),
-            payment_date: e1.payment_date,
+            paymentDate: e1.paymentDate,
             entity: e1.entity,
-            transaction_type_descr: e1.transaction_type_descr,
+            transactionTypeDescr: e1.transactionTypeDescr,
             username: e1.username
           });
           console.log(data);

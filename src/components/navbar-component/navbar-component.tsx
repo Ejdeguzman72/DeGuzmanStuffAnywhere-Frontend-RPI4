@@ -55,10 +55,10 @@ export class NavBarComponent extends React.Component<any, any> {
                                 jwt ?
                                     <Nav.Link href="#downloads" className="navbar-item">Downloads</Nav.Link> : null
                             }
-                            {
+                            {/* {
                                 jwt ?
                                     <Nav.Link href="#chatroom" className="navbar-item">Chatroom</Nav.Link> : null
-                            }
+                            } */}
                             {
                                 jwt ?
                                     <NavDropdown title="Finance" className="navbar-item" id="basic-nav-dropdown">
@@ -77,9 +77,7 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                     <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#agenda" className="navbar-item">Agenda</NavDropdown.Item>
                                         <NavDropdown.Item href="#book-recommendations" className="navbar-item">Book Recommendations</NavDropdown.Item>
-                                        {/* <NavDropdown.Item href="#dsa-agenda" className="navbar-item">DSA- Agenda</NavDropdown.Item> */}
                                         <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
                                         <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
                                         <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>

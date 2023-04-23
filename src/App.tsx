@@ -42,8 +42,6 @@ import FindUserInfoPageComponent from './components/admin-portal/find-user-info/
 import ApproveUserPageComponent from './components/admin-portal/approve-user/approve-user-page-component';
 import PadThaiRecipePageComponent from './components/recipe-page-component/recipe-pages/asian-recipes/pad-thai-recipe-page-component';
 import { jwtHelper } from './helper/jwt';
-import AgendaPageApp from './components/fun-apps/to-do-list/to-do-list-component-page-component';
-import DSAAgendaPageApp from './components/fun-apps/dsa-daily-agenda-component/dsa-to-do-list-component-page-component';
 import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 import FirebasePhotoGalleryPageComponent from './components/photos-videos-page-component/firebase-photo-gallery/components/firebase-photo-gallery-page-component';
 import CarInformationPageComponent from './components/vehicle-information-page-component/VehicleInformationPage';
@@ -166,8 +164,6 @@ function App() {
                 <Route path="/add-user" exact component={AddUserPageComponent} />
                 <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
                 <Route path="/approve-user" exact component={ApproveUserPageComponent} />
-                <Route path="/agenda" exact component={AgendaPageApp} />
-                <Route path="/dsa-agenda" exact component={DSAAgendaPageApp} />
                 <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
                 <Route path="/update-restaurant/:restaurant_id" exact component={Restaurant} />
                 <Route path="/downloads" exact component={DownloadsPageComponent} />

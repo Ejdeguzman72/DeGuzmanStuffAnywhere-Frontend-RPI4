@@ -46,7 +46,7 @@ const tableIcons = {
 export default function RestaurantRecommendationTableComponent() {
   const [state] = React.useState({
     columns: [
-      { title: 'Restaurant ID', field: 'restaurant_id', hidden: true },
+      { title: 'Restaurant ID', field: 'restaurantId', hidden: false },
       { title: 'Name', field: 'name' },
       { title: 'Address', field: 'address' },
       { title: 'City', field: 'city' },
@@ -59,7 +59,7 @@ export default function RestaurantRecommendationTableComponent() {
   const [entries, setEntries] = useState({
     data: [
       {
-        restaurant_id: 0,
+        restaurantId: 0,
         name: "",
         address: "",
         city: "",
@@ -75,9 +75,9 @@ export default function RestaurantRecommendationTableComponent() {
   useEffect(() => {
     RestaurantRecommendationsService.GetAllRestaurantRecommendations().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
-          restaurant_id: e1.restaurant_id,
+          restaurantId: e1.restaurantId,
           name: e1.name,
           address: e1.address,
           city: e1.city,
