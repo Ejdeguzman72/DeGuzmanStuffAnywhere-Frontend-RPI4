@@ -52,7 +52,7 @@ export default function ExerciseInfoTableComponent() {
       { title: 'Reps', field: 'reps' },
       { title: 'Weight', field: 'weight'},
       { title: 'Date', field: 'date'},
-      { title: 'Exercise Type', field: 'exercise_type_name' },
+      { title: 'Exercise Type', field: 'exerciseTypeName' },
       { title: 'Name', field: 'username' },
     ],
   });
@@ -66,7 +66,7 @@ export default function ExerciseInfoTableComponent() {
         reps: "",
         weight: "",
         date: "",
-        exercise_type_name: "",
+        exerciseTypeName: "",
         username: "",
       }
     ]
@@ -77,7 +77,7 @@ export default function ExerciseInfoTableComponent() {
   useEffect(() => {
     ExerciseService.GetAllExercise().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
           exercise_id: e1.exercise_id,
           exerciseName: e1.exerciseName,
@@ -85,7 +85,7 @@ export default function ExerciseInfoTableComponent() {
           reps: e1.reps,
           weight: e1.weight,
           date: e1.date,
-          exercise_type_name: e1.exercise_type_name,
+          exerciseTypeName: e1.exerciseTypeName,
           username: e1.username
         });
       });

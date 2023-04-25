@@ -75,7 +75,7 @@ export default function MedicalOfficeTableComponent() {
   useEffect(() => {
     MedicalOfficeService.getAllMedicalOffices().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
           medicalOfficeId: e1.medicalOfficeId,
           name: e1.name,

@@ -5,7 +5,7 @@ import '../../style-sheets/book-recommendations.css';
 
 const AddBookRecommendation = () => {
     const initialState = {
-        book_id: 0,
+        bookId: 0,
         title: "",
         author: "",
         descr:""
@@ -31,7 +31,7 @@ const AddBookRecommendation = () => {
         BookService.addBookInformation(data)
             .then(response => {
                 setBook({
-                    book_id: response.data.book_id,
+                    bookId: response.data.bookId,
                     title: response.data.title,
                     author: response.data.author,
                     descr: response.data.descr

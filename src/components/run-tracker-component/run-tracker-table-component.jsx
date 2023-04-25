@@ -47,10 +47,10 @@ export default function RunTrackerTableComponent() {
     const [entries, setEntries] = useState({
         data: [
             {
-                run_id: 0,
-                run_date: "",
-                run_distance: 0,
-                run_time: 0,
+                runId: 0,
+                runDate: "",
+                runDistance: 0,
+                runTime: 0,
                 username: ""
             }
         ]
@@ -58,10 +58,10 @@ export default function RunTrackerTableComponent() {
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'run_id', hidden: true},
-            { title: 'Date of Run', field: 'run_date' },
-            { title: 'Distance', field: 'run_distance' },
-            { title: 'Time', field: 'run_time' },
+            { title: 'ID No:', field: 'runId', hidden: true},
+            { title: 'Date of Run', field: 'runDate' },
+            { title: 'Distance', field: 'runDistance' },
+            { title: 'Time', field: 'runTime' },
             { title: 'Name of User', field: 'username'}
         ]
     });
@@ -69,12 +69,12 @@ export default function RunTrackerTableComponent() {
     useEffect(() => {
         runTrackerService.getAllRunTrackerInfo().then(response => {
             let data = [];
-            response.data.forEach(e1 => {
+            response.data.list.forEach(e1 => {
                 data.push({
-                    run_id: e1.run_id,
-                    run_date: e1.run_date,
-                    run_distance: e1.run_distance.toFixed(2),
-                    run_time: e1.run_time,
+                    runId: e1.runId,
+                    runDate: e1.runDate,
+                    runDistance: e1.runDistance.toFixed(2),
+                    runTime: e1.runTime,
                     username: e1.username
                 });
                 console.log(data);

@@ -24,7 +24,7 @@ export default function AddMedicalOfficeModalComponent() {
 
   const saveMedicalOffice = () => {
     let data = {
-      medicalOfficeID: medicalOffice.medicalOfficeId,
+      medicalOfficeId: medicalOffice.medicalOfficeId,
       name: medicalOffice.name,
       address: medicalOffice.address,
       city: medicalOffice.city,

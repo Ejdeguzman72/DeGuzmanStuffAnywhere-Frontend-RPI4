@@ -73,7 +73,7 @@ export default function ViewCarsTableComponent() {
   useEffect(() => {
     VehicleInformationService.getAllVehicleInformation().then(response => {
       let data = [];
-      response.data.forEach(e1 => {
+      response.data.list.forEach(e1 => {
         data.push({
           vehicleId: e1.vehicleId,
           make: e1.make,

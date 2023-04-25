@@ -74,7 +74,7 @@ export default function AutoFinancePageTableComponent() {
     ]
   });
 
-  const [fileName, setFileName] = useState("Auto_Transaction");
+  const [fileName] = useState("Auto_Transaction");
 
   useEffect(() => {
     AutoTransactionService.getAllAutoTransactions().then(response => {

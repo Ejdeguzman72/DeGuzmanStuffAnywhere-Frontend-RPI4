@@ -46,7 +46,7 @@ const tableIcons = {
 export default function AutoShopTableComponent() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Auto Shop ID', field: 'auto_shop_id', hidden: true },
+      { title: 'Auto Shop ID', field: 'autoShopId', hidden: true },
       { title: 'Name of Auto Shop', field: 'autoShopName' },
       { title: 'Address', field: 'address' },
       { title: 'City', field: 'city' },
@@ -58,7 +58,7 @@ export default function AutoShopTableComponent() {
   const [autoShop, setAutoShop] = useState({
     data: [
       {
-        auto_shop_id: 0,
+        autoShopId: 0,
         autoShopName: "",
         address: "",
         city: "",
@@ -76,7 +76,7 @@ export default function AutoShopTableComponent() {
       console.log(response)
       response.data.list.forEach(e1 => {
         data.push({
-          auto_shop_id: e1.auto_shop_id,
+          autoShopId: e1.autoShopId,
           autoShopName: e1.autoShopName,
           address: e1.address,
           city: e1.city,

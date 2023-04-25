@@ -48,12 +48,12 @@ export default function UtilityTableComponent() {
     const [entries, setEntries] = useState({
         data: [
             {
-                utility_id: 0,
+                utilityId: 0,
                 name: "",
                 phone: "",
                 url: "",
                 dueDate: 0,
-                utility_type_descr: ""
+                utilityTypeDescr: ""
             }
         ]
     });
@@ -62,26 +62,26 @@ export default function UtilityTableComponent() {
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'utility_id', hidden: true },
+            { title: 'ID No:', field: 'utilityId', hidden: true },
             { title: 'Entity', field: 'name' },
             { title: 'Phone Number', field: 'phone' },
             { title: 'Website Link', field: 'url' },
             { title: 'Expected Due Date', field: 'dueDate' },
-            { title: "Type Description", field: 'utility_type_descr'}
+            { title: "Type Description", field: 'utilityTypeDescr'}
         ]
     });
 
     useEffect(() => {
         UtilityTrackerService.getAllUtilityTrackerInformation().then(response => {
             let data = [];
-            response.data.forEach(e1 => {
+            response.data.list.forEach(e1 => {
                 data.push({
-                    utilityid: e1.utility_id,
+                    utilityId: e1.utilityId,
                     name: e1.name,
                     phone: e1.phone,
                     url: e1.url,
                     dueDate: e1.dueDate,
-                    utility_type_descr: e1.utility_type_descr
+                    utilityTypeDescr: e1.utilityTypeDescr
                 });
                 console.log(data);
             });

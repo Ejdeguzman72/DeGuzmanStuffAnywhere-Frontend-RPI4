@@ -13,7 +13,7 @@ const findBookByName = (name) => {
 }
 
 const addBookInformation = (data) => {
-    return http.post(`/add-book-information`,data);
+    return http.post(`/add`,data);
 };
 
 const updateBookInformation = (book_id,data) => {
