@@ -1,39 +1,49 @@
 import http from '../http-common';
 
+const getAllBooks = () => {
+    return http.get(`/all`);
+}
+
 const getAllBookInformation = (params) => {
     return http.get('/all-books', { params } );
 };
 
-const getBookInformationById = (book_id) => {
-    return http.get(`/book/${book_id}`);
+const getBooksByAuthor = (data) => {
+    return http.get(`/book/search/author`,data);
+}
+
+const getBookInformationById = (data) => {
+    return http.get(`/book/search/id`,data);
 };
 
-const findBookByName = (name) => {
-    return http.get(`/find-book-by-name/${name}`);
+const findBookByName = (data) => {
+    return http.get(`/book/search/title`,data);
 }
 
 const addBookInformation = (data) => {
     return http.post(`/add`,data);
 };
 
-const updateBookInformation = (book_id,data) => {
-    return http.put(`/book/${book_id}`, data)
+const updateBookInformation = (data) => {
+    return http.put(`/update`, data)
 };
 
-const deleteBookInformation = (book_id) => {
-    return http.delete(`/delete-book/book/${book_id}`);
+const deleteBookInformation = (data) => {
+    return http.delete(`/delete`,data);
 };
 
 const deleteAllBookInformation = () => {
-    return http.delete('/delete-all-books');
+    return http.delete('/delete-all');
 }
 
 export default {
+    getAllBooks,
     getAllBookInformation,
     getBookInformationById,
     addBookInformation,
     findBookByName,
     updateBookInformation,
     deleteBookInformation,
-    deleteAllBookInformation
+    deleteAllBookInformation,
+    getBooksByAuthor
 }

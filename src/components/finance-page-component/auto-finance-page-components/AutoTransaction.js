@@ -46,7 +46,7 @@ const AutoTransaction = props => {
     }
 
     const getTransaction = (auto_transaction_id) => {
-        AutoTransactionService.getAutoTransactionById(auto_transaction_id)
+        AutoTransactionService.getAutoTransactionDTOById(auto_transaction_id)
             .then(response => {
                 setCurrentTransaction(response.data);
                 console.log(response.data)

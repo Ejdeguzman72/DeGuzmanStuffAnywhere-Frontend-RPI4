@@ -8,26 +8,38 @@ const getAllExerciseInformation = (params) => {
     return Axios.get('http://localhost:8080/app/gym-tracker/all-exercises', { params } );
 };
 
-const getExerciseInformationById = (exercise_id) => {
-    return Axios.get(`http://localhost:8080/app/gym-tracker/exercise/${exercise_id}`);
+const getAllExercisesByUser = (data) => {
+    return Axios.get(`http://localhost:8080/app/gym-tracker/exercises/search/user`,data);
+}
+
+const getAllExercisesByType = (data) => {
+    return Axios.get(`http://localhost:8080/app/gym-tracker/exercise/search/type`,data);
+}
+
+const getExerciseInfoDTOById = (data) => {
+    return Axios.get(`http://localhost:8080/app/gym-tracker/exercise-dto/search/id`,data);
+}
+
+const getExerciseInformationById = (data) => {
+    return Axios.get(`http://localhost:8080/app/gym-tracker/exercise/search/id`,data);
 }
 
 const addExerciseInformation = (data) => {
-    return Axios.post('http://localhost:8080/app/gym-tracker/add-exercise-information',data);
+    return Axios.post('http://localhost:8080/app/gym-tracker/add',data);
 }
 
-const updateExerciseinformation = (exercise_id,data) => {
-    return Axios.put(`http://localhost:8080/app/gym-tracker/exercise/${exercise_id}`,data);
+const updateExerciseinformation = (data) => {
+    return Axios.put(`http://localhost:8080/app/gym-tracker/update`,data);
 }
 
-const deleteExercise = (exercise_id) => {
-    return Axios.delete(`http://localhost:8080/app/gym-tracker/exercise/${exercise_id}`);
+const deleteExercise = (data) => {
+    return Axios.delete(`http://localhost:8080/app/gym-tracker/delete`,data);
 }
 
 const deleteAllExercises = () => {
-    return Axios.delete('http://localhost:8080/app/gym-tracker/delete-all-exercises');
+    return Axios.delete('http://localhost:8080/app/gym-tracker/delete-all');
 }
 
 export default {
-    GetAllExercise, getAllExerciseInformation, deleteAllExercises, addExerciseInformation, updateExerciseinformation, deleteExercise, getExerciseInformationById
+    GetAllExercise, getAllExerciseInformation, getAllExercisesByType, getAllExercisesByUser, getExerciseInfoDTOById, deleteAllExercises, addExerciseInformation, updateExerciseinformation, deleteExercise, getExerciseInformationById
 }

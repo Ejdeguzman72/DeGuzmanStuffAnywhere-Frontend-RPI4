@@ -9,30 +9,50 @@ const getAllContactInfo = (params) => {
     return Axios.get('http://localhost:8080/app/person-info/all-contacts', { params });
 }
 
-const getContactInfoById = (person_id) => {
-    return Axios.get(`http://localhost:8080/app/person-info/person/${person_id}`);
+const getContactInfoById = (data) => {
+    return Axios.get(`http://localhost:8080/app/person-info/contact/id`,data);
+}
+
+const getContactsByLastName = (data) => {
+    return Axios.get(`http://localhost:8080/app/person-info/contact/lastname`,data)
+}
+
+const getContactsByEmail = (data) => {
+    return Axios.get(`http://localhost:8080/app/person-info/contact/email`,data);
+}
+
+const getContactsByPhone = (data) => {
+    return Axios.get(`http://localhost:8080/app/person-info/contact/email`,data)
+}
+
+const getContactCount = () => {
+    return Axios.get(`http://localhost:8080/app/person-info/count`);
 }
 
 const addContactInfo = (data) => {
-    return Axios.post('http://localhost:8080/app/person-info/add-contact-info', data);
+    return Axios.post('http://localhost:8080/app/person-info/add', data);
 }
 
-const updateContactInfo = (person_id, data) => {
-    return Axios.put(`http://localhost:8080/app/person-info/person/${person_id}`, data);
+const updateContactInfo = (data) => {
+    return Axios.put(`http://localhost:8080/app/person-info/update`, data);
 }
 
-const deleteContactById = (person_id) => {
-    return Axios.delete(`http://localhost:8080/app/person-info/person/${person_id}`);
+const deleteContactById = (data) => {
+    return Axios.delete(`http://localhost:8080/app/person-info/delete`);
 }
 
 const deleteAllContactInfo = () => {
-    return Axios.delete('http://localhost:8080/app/person-info/all-contacts');
+    return Axios.delete('http://localhost:8080/app/person-info/delete-all');
 }
 
 export default {
     getContactInfo,
     deleteAllContactInfo,
     getAllContactInfo,
+    getContactsByLastName,
+    getContactsByEmail,
+    getContactsByPhone,
+    getContactCount,
     addContactInfo,
     getContactInfoById,
     updateContactInfo,
