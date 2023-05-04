@@ -4,16 +4,16 @@ const getAllPosts = (params) => {
     return Axios.get('http://localhost:8080/app/posts/all-posts', { params });
 }
 
-const getPostByUser = (user_id) => {
-    return Axios.get(`http://localhost:8080/app/posts/user/${user_id}`);
+const getPostByUser = (data) => {
+    return Axios.get(`http://localhost:8080/app/posts/user`,data);
 }
 
 const addPost = (newData) => {
-    return Axios.post(`http://localhost:8080/app/posts/add-post`, newData)
+    return Axios.post(`http://localhost:8080/app/posts/add`, newData)
 }
 
-const deletePost = (post_id) => {
-    return Axios.delete(`http://localhost:8080/app/posts/post/${post_id}`);
+const deletePost = (data) => {
+    return Axios.delete(`http://localhost:8080/app/posts/delete`,data);
 }
 
 export default {

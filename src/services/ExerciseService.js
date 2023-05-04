@@ -41,5 +41,14 @@ const deleteAllExercises = () => {
 }
 
 export default {
-    GetAllExercise, getAllExerciseInformation, getAllExercisesByType, getAllExercisesByUser, getExerciseInfoDTOById, deleteAllExercises, addExerciseInformation, updateExerciseinformation, deleteExercise, getExerciseInformationById
+    GetAllExercise, 
+    getAllExerciseInformation, 
+    getAllExercisesByType, 
+    getAllExercisesByUser, 
+    getExerciseInfoDTOById, 
+    deleteAllExercises, 
+    addExerciseInformation, 
+    updateExerciseinformation, 
+    deleteExercise, 
+    getExerciseInformationById
 }

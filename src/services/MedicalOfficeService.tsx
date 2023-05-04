@@ -1,4 +1,3 @@
-import React from 'react';
 import Axios from 'axios';
 
 const getAllMedicalOffices = () => {
@@ -9,24 +8,32 @@ const getAllMedicalOfficeInfo = (params:any) => {
     return Axios.get('http://localhost:8080/app/medical-offices/all-medical-offices', {params});
 }
 
-const getMedicalOfficeById = (medicalOfficeId:any) => {
-    return Axios.get(`http://localhost:8080/app/medical-offices/medical-office/${medicalOfficeId}`);
+const getMedicalOfficesByZip = (data:any) => {
+    return Axios.get(`http://localhost:8080/app/medical-offices/offices/search/zip`,data)
 }
 
-const addMedicalOffice = (newData: any) => {
-    return Axios.post("http://localhost:8080/app/medical-offices/add-medical-office-information", newData);
+const getMedicalOfficeById = (data:any) => {
+    return Axios.get(`http://localhost:8080/app/medical-offices/offices/search/id`,data);
 }
 
-const updateMedicalOfficeInformation = (medicalOfficeId:any,data:any) => {
-    return Axios.put(`http://localhost:8080/app/medical-offices/medical-office/${medicalOfficeId}`,data);
+const getMedicalTrxCount = () => {
+    return Axios.get('http://localhost:8080/app/medical-transactions/count')
 }
 
-const deleteMedicalOffice = (medicalOfficeId:any) => {
-    return Axios.delete(`http://localhost:8080/app/medical-offices/medical-office/${medicalOfficeId}`);
+const addMedicalOffice = (newData:any) => {
+    return Axios.post("http://localhost:8080/app/medical-offices/add", newData);
+}
+
+const updateMedicalOfficeInformation = (data:any) => {
+    return Axios.put(`http://localhost:8080/app/medical-offices/update`,data);
+}
+
+const deleteMedicalOffice = (data:any) => {
+    return Axios.delete(`http://localhost:8080/app/medical-offices/delete`,data);
 }
 
 const deleteAllMedicalOffices = () => {
-    return Axios.delete('http://localhost:8080/app/medical-offices/delete-all-medical-offices');
+    return Axios.delete('http://localhost:8080/app/medical-offices/delete-all');
 }
 
 
@@ -34,8 +41,10 @@ export default {
     getAllMedicalOffices,
     addMedicalOffice,
     getAllMedicalOfficeInfo,
+    getMedicalOfficesByZip,
     deleteAllMedicalOffices,
     getMedicalOfficeById,
+    getMedicalTrxCount,
     updateMedicalOfficeInformation,
     deleteMedicalOffice
 }
