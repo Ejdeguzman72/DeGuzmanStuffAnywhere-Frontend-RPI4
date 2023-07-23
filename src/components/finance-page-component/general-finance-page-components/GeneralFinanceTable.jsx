@@ -23,6 +23,7 @@ import Box from '@material-ui/core/Box';
 import ExportGeneralFinanceCSV from './ExportGeneralFinanceCSV';
 import { Row, Col } from 'react-bootstrap';
 import AddGeneralFinanceModalComponent from '../general-finance-page-components/AddGeneralFinanceModalComponent';
+import GeneralTrxOptionsDropdown from '../../dropdown-components/GeneralTrxOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -146,7 +147,7 @@ export default function GeneralFinancePageTableComponent() {
           <AddGeneralFinanceModalComponent />
         </Col>
         <Col md={4}>
-
+          <GeneralTrxOptionsDropdown />
         </Col>
         <Col md={2}>
 

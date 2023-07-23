@@ -23,6 +23,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import AddContactModalComponent from './AddContactModalComponent';
 import ExportContactInfoCSV from './ExportContactInfoCSV';
+import ContactOptionsDropdown from '../../dropdown-components/ContactOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -170,7 +171,7 @@ export default function ContactInfoEditableTableComponent() {
           <AddContactModalComponent />
         </Col>
         <Col md={4}>
-
+          <ContactOptionsDropdown />
         </Col>
         <Col md={2}>
         </Col>

@@ -22,6 +22,7 @@ import Box from '@material-ui/core/Box';
 import ExportCarInformationCSV from './ExportVehicleInfoCSV';
 import { Col, Row } from 'react-bootstrap';
 import AddCarInfoModalComponent from './AddVehicleInfoModalComponent';
+import VehicleOptionsDropdown from '../dropdown-components/VehicleOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -139,12 +140,10 @@ export default function ViewCarsTableComponent() {
         <Col md={2}>
           < AddCarInfoModalComponent />
         </Col>
-        <Col md={5}>
-
+        <Col md={8}>
+          <VehicleOptionsDropdown />
         </Col>
-        <Col md={2}>
-        </Col>
-        <Col md={2}>
+        <Col md={1}>
           <ExportCarInformationCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>

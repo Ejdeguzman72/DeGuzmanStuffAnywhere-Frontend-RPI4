@@ -22,6 +22,7 @@ import Box from '@material-ui/core/Box';
 import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
 import { Col, Row } from 'react-bootstrap';
 import AddAutoTransactionModalComponent from './AddAutoTransactionModalComponent';
+import AutoTrxOptionsDropdown from '../../dropdown-components/AutoTrxOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -153,7 +154,7 @@ export default function AutoFinancePageTableComponent() {
           <AddAutoTransactionModalComponent />
         </Col>
         <Col md={4}>
-
+          <AutoTrxOptionsDropdown />
         </Col>
         <Col md={2}>
         </Col>

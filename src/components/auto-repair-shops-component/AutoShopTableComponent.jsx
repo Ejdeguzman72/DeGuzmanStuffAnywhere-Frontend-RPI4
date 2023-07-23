@@ -18,10 +18,11 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-import { Col,Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import AutoShopService from '../../services/AutoShopService'
 import AddAutoShopModalComponent from './AddAutoShopModalComponent';
 import ExportAutoShopCSV from './ExportAutoShopCSV';
+import SearchAutoShopDropdown from '../dropdown-components/SearchAutoShopDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -50,8 +51,8 @@ export default function AutoShopTableComponent() {
       { title: 'Name of Auto Shop', field: 'autoShopName' },
       { title: 'Address', field: 'address' },
       { title: 'City', field: 'city' },
-      { title: 'State', field: 'state'},
-      { title: 'zip', field: 'zip'}
+      { title: 'State', field: 'state' },
+      { title: 'zip', field: 'zip' }
     ],
   });
 
@@ -136,12 +137,12 @@ export default function AutoShopTableComponent() {
 
   return (
     <div>
-    <Row>
+      <Row>
         <Col md={4}>
           <AddAutoShopModalComponent />
         </Col>
         <Col md={4}>
-
+          <SearchAutoShopDropdown />
         </Col>
         <Col md={2}>
 
@@ -150,32 +151,32 @@ export default function AutoShopTableComponent() {
           <ExportAutoShopCSV csvData={autoShop.data} fileName={fileName} />
         </Col>
         <Col md={1}>
-          
+
         </Col>
       </Row>
       <br></br>
-    <Box border={3} borderRadius={16}> 
-      <MaterialTable
-        title="Auto Shop"
-        columns={state.columns}
-        data={autoShop.data}
-        icons={tableIcons}
-        editable={{
-          onRowAdd: (newData) =>
-            new Promise((resolve) => {
-              handleRowAdd(newData, resolve)
-            }),
-          // onRowUpdate: (newData, oldData) =>
-          //   new Promise((resolve) => {
-          //     handleRowUpdate(newData, oldData, resolve)
-          //   }),
-          onRowDelete: (oldData) =>
-            new Promise((resolve) => {
-              handleRowDelete(oldData, resolve)
-            }),
-        }}
-      />
-    </Box>
+      <Box border={3} borderRadius={16}>
+        <MaterialTable
+          title="Auto Shop"
+          columns={state.columns}
+          data={autoShop.data}
+          icons={tableIcons}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                handleRowAdd(newData, resolve)
+              }),
+            // onRowUpdate: (newData, oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowUpdate(newData, oldData, resolve)
+            //   }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve) => {
+                handleRowDelete(oldData, resolve)
+              }),
+          }}
+        />
+      </Box>
     </div>
   );
 }

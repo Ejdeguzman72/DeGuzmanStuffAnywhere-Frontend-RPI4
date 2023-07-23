@@ -21,6 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import AddRunInfoModalComponent from './AddRunInfoModalComponent';
 import { Row, Col} from 'react-bootstrap';
+import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -146,7 +147,7 @@ export default function RunTrackerTableComponent() {
 
         </Col>
         <Col md={4}>
-
+            <RunOptionsDropdown />
         </Col>
         <Col md={2}>
 

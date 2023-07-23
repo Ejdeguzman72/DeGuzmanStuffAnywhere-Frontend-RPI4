@@ -18,10 +18,11 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-// import ExportAutoFinanceCSV from './ExportAutoFinanceCSV';
+import ExportAutoFinanceCSV from '../finance-page-component/auto-finance-page-components/ExportAutoFinanceCSV';
 import { Col,Row } from 'react-bootstrap';
 import RestaurantRecommendationsService from '../../services/RestaurantRecommendationsService';
 import AddRestaurantModalComponent from './AddRestaurantModalComponent';
+import RestaurantOptionsDropdown from '../dropdown-components/RestaurantOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -141,17 +142,16 @@ export default function RestaurantRecommendationTableComponent() {
     <div>
       <Row>
         <Col md={4}>
-
+          <AddRestaurantModalComponent />
         </Col>
         <Col md={4}>
-
+          <RestaurantOptionsDropdown />
         </Col>
         <Col md={2}>
 
         </Col>
-        <Col md={1}>
-          <AddRestaurantModalComponent />
-          {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
+        <Col md={1}>       
+          <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} />
         </Col>
       </Row>
       <br></br>
