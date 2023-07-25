@@ -23,6 +23,7 @@ import AutoShopService from '../../services/AutoShopService'
 import AddAutoShopModalComponent from './AddAutoShopModalComponent';
 import ExportAutoShopCSV from './ExportAutoShopCSV';
 import SearchAutoShopDropdown from '../dropdown-components/SearchAutoShopDropdown';
+import AutoShopOptionsRow from '../options-row-component/AutoShopOptionsRow';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -137,7 +138,7 @@ export default function AutoShopTableComponent() {
 
   return (
     <div>
-      <Row>
+      {/* <Row>
         <Col md={4}>
           <AddAutoShopModalComponent />
         </Col>
@@ -153,7 +154,8 @@ export default function AutoShopTableComponent() {
         <Col md={1}>
 
         </Col>
-      </Row>
+      </Row> */}
+      <AutoShopOptionsRow />
       <br></br>
       <Box border={3} borderRadius={16}>
         <MaterialTable

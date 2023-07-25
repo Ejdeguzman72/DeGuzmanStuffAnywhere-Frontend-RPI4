@@ -9,8 +9,8 @@ function GeneralTrxOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/general-finance-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/general-finance-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By User</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Type</Dropdown.Item>
       </Dropdown.Menu>

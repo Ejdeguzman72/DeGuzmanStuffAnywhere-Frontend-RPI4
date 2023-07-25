@@ -10,7 +10,7 @@ export class MedicalTabsComponent extends React.Component<any, any> {
                         <Col md={12}>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link href="#medical-finance" eventKey="first" id="tabs">Medical Finance Info</Nav.Link>
+                                    <Nav.Link href="#medical-finance-table" eventKey="first" id="tabs">Medical Finance Info</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Col>
@@ -19,7 +19,7 @@ export class MedicalTabsComponent extends React.Component<any, any> {
                 <Row>
                     <Tab.Container>
                         <Col md={6}>
-                            <Nav.Link href="#medical-offices" eventKey="third" id="tabs">Medical Offices</Nav.Link>
+                            <Nav.Link href="#medical-offices-table" eventKey="third" id="tabs">Medical Offices</Nav.Link>
                         </Col>
                         <Col md={6}>
                             <Nav.Item>

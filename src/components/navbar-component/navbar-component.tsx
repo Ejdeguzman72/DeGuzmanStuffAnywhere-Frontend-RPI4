@@ -62,9 +62,9 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                     <NavDropdown title="Finance" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#auto-finance" className="navbar-item">Auto Finances</NavDropdown.Item>
-                                        <NavDropdown.Item href="#general-finance" className="navbar-item">General Finances</NavDropdown.Item>
-                                        <NavDropdown.Item href="#medical-finance" className="navbar-item">Medical Finances</NavDropdown.Item>
+                                        <NavDropdown.Item href="#auto-finance-table" className="navbar-item">Auto Finances</NavDropdown.Item>
+                                        <NavDropdown.Item href="#general-finance-table" className="navbar-item">General Finances</NavDropdown.Item>
+                                        <NavDropdown.Item href="#medical-finance-table" className="navbar-item">Medical Finances</NavDropdown.Item>
                                     </NavDropdown> : null
                             }
                             {
@@ -77,12 +77,12 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                     <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#book-recommendations" className="navbar-item">Book Recommendations</NavDropdown.Item>
-                                        <NavDropdown.Item href="#contact-info" className="navbar-item">Contact Info</NavDropdown.Item>
+                                        <NavDropdown.Item href="#book-recommendations-table" className="navbar-item">Book Recommendations</NavDropdown.Item>
+                                        <NavDropdown.Item href="#contact-info-table" className="navbar-item">Contact Info</NavDropdown.Item>
                                         <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
                                         <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
                                         <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
-                                        <NavDropdown.Item href="#restaurant-recommendations" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
+                                        <NavDropdown.Item href="#restaurant-recommendations-table" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
                                         <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                     </NavDropdown> : null

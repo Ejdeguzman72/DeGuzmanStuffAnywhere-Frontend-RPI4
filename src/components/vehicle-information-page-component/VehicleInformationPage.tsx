@@ -12,12 +12,10 @@ const VehicleInformationPage = () => {
                 <title>View All Cars</title>
             </Helmet>
             <div id="white-background">
+                <br></br>
                 <AutoFinanceTabsComponent />
                 <br></br>
-                <br></br>
                 <ViewCarsTableComponent />
-                <br></br>
-                <VehicleList />
             </div>
             <FooterComponent />
         </div>

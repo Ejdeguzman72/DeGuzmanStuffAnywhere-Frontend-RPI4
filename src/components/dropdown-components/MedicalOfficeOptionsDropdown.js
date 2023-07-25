@@ -9,8 +9,8 @@ function MedicalOfficeOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/medical-office-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/medical-office-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Zipcode</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

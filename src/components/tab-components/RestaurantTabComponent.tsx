@@ -9,7 +9,7 @@ const RestaurantTabComponent = () => {
                     <Col md={12}>
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item>
-                                <Nav.Link href="#restaurant-recommendations" eventKey="first" id="tabs">Restaurant Recommendations</Nav.Link>
+                                <Nav.Link href="#restaurant-recommendations-table" eventKey="first" id="tabs">Restaurant Recommendations</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Col>

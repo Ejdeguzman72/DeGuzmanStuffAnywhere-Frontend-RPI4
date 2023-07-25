@@ -9,8 +9,8 @@ function RestaurantOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/restaurant-recommendations-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/restaurant-recommendations-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Zipcode</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

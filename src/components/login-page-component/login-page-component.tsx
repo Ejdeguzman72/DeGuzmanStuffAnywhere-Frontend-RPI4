@@ -98,13 +98,13 @@ export class LoginPageComponent extends React.Component<any, any> {
                             </p>
                             <div className="deguzmanrecipesanywhere-btn">
                              </div>   
-                            <Button 
+                            {/* <Button 
                                 size="lg" 
                                 variant="dark"
                                 className="deguzmanrecipesanywhere-btn"
                                 >
                                     <Link className="deguzmanrecipesanywhere-btn" color="white" to="/recipes">DeGuzmanRecipesAnywhere</Link>
-                            </Button>
+                            </Button> */}
                             <br></br>
                             <Button 
                                 size="lg" 

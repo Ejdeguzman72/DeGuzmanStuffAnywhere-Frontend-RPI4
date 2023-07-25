@@ -9,8 +9,8 @@ function ContactOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/contact-info-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/contact-info-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-1">Search By Last Name</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Email</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Phone</Dropdown.Item>

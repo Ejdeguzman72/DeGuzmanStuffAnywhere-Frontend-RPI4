@@ -10,7 +10,7 @@ export class GeneralFinanceTabsComponent extends React.Component<any, any> {
             <Col md={12}>
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                  <Nav.Link href="#general-finance" eventKey="first" id="tabs">General Finance Info</Nav.Link>
+                  <Nav.Link href="#general-finance-table" eventKey="first" id="tabs">General Finance Info</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="#general-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>

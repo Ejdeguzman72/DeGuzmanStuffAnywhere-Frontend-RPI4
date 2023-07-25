@@ -10,7 +10,7 @@ export class AutoFinanceTabsComponent extends React.Component<any, any> {
                         <Col md={12}>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link href="#auto-finance" eventKey="first" id="tabs">Auto Finance Info</Nav.Link>
+                                    <Nav.Link href="#auto-finance-table" eventKey="first" id="tabs">Auto Finance Info</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link href="#auto-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
@@ -24,7 +24,7 @@ export class AutoFinanceTabsComponent extends React.Component<any, any> {
                         <Col md={6}>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link href="#view-cars" eventKey="third" id="tabs">View Cars</Nav.Link>
+                                    <Nav.Link href="#/view-cars-table" eventKey="third" id="tabs">View Cars</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Col>

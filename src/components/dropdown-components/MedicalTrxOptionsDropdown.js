@@ -9,8 +9,8 @@ function MedicalTrxOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/medical-finance-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/medical-finance-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Facility</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Type</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By User</Dropdown.Item>

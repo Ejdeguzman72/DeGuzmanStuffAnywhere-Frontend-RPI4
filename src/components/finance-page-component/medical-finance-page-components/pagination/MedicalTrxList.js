@@ -122,7 +122,7 @@ const MedicalTrxList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>General Transaction List</h4>
+                <h4>Medical Transaction List</h4>
 
                 <div className="mt-3">
                     {"Items per Page: "}

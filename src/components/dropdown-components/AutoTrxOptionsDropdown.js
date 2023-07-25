@@ -9,8 +9,8 @@ function AutoTrxOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/auto-finance-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/auto-finance-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-1">Search By Vehicle</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By User</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Type</Dropdown.Item>

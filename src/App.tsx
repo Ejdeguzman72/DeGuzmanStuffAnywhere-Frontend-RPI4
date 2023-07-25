@@ -7,16 +7,16 @@ import HomePageComponent from './components/home-page-component/home-page-compon
 import { LoginPageComponent } from './components/login-page-component/login-page-component';
 import { PhotoVideoPageComponent } from './components/photos-videos-page-component/media-page-component/photo-video-page-component';
 import { PhotoPageComponent } from './components/photos-videos-page-component/photo-page-component/photo-page-component';
-import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/contact-page-component';
-import { GeneralFinancePageComponent } from './components/finance-page-component/general-finance-page-components/GeneralFinancePageComponent';
+import { ContactPageComponent } from './components/general-info-components/contact-info-page-component/ContactInfoPage';
+import { GeneralFinanceTablePageComponent } from './components/finance-page-component/general-finance-page-components/GeneralFinanceTablePageComponent';
 import { RecipePageComponent } from './components/recipe-page-component/main-recipe-page-component';
 import { RunTrackerPageComponent } from './components/run-tracker-component/run-tracker-page-component';
-import { AutoFinancePageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-page-component';
-import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-page-component';
+import { AutoFinanceTablePageComponent } from './components/finance-page-component/auto-finance-page-components/AutoFinanceTablePageComponent';
+import { MedicalFinancePageComponent } from './components/finance-page-component/medical-finance-page-components/MedicalFinancePageComponent';
 import MedicalOfficePageComponent from './components/medical-offices/MedicalOfficePageComponent';
-import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/medical-finance-upload-page-component';
+import { MedicalFinanceUploadPageComponent } from './components/finance-page-component/medical-finance-page-components/MedicalFinanceUploadPage';
 import { GeneralFinanceUploadPageComponent } from './components/finance-page-component/general-finance-page-components/UploadComponent';
-import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/auto-finance-upload-page-component';
+import { AutoFinanceUploadPageComponent } from './components/finance-page-component/auto-finance-page-components/AutoFinanceUploadPageComponent';
 import { AdoboRecipePageComponent } from './components/recipe-page-component/recipe-pages/filipino-recipes/adobo-recipe-page-component';
 import { BeefaroniRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beefaroni-recipe-page-component';
 import { BeefstewRecipePageComponent } from './components/recipe-page-component/recipe-pages/comfort-recipes/beef-stew-recipe-page-component';
@@ -114,6 +114,14 @@ import AutoTranasction from './components/finance-page-component/auto-finance-pa
 import SocialMediaPage from './components/social-media-component/SocialMediaPage';
 import { ChatPageComponent } from './components/chat-page-component/chat-page-component';
 import ChatApplicationComponent from './components/chat-page-component/chat-application-ui/chat-application-component';
+import AutoShopGridPageComponent from './components/auto-repair-shops-component/AutoShopGridViewPage';
+import VehicleGridPage from './components/vehicle-information-page-component/VehicleGridViewPage';
+import { AutoFinanceGridPageComponent } from './components/finance-page-component/auto-finance-page-components/AutoFinanceGridPage';
+import { GeneralFinanceGridView } from './components/finance-page-component/general-finance-page-components/GeneralFinanceGridView';
+import { MedicalGridView } from './components/finance-page-component/medical-finance-page-components/MedicalTrxGridView';
+import MedicalOfficeGridPage from './components/medical-offices/MedicalOfficeGridPage';
+import RestaurantGridView from './components/restaurant-recomendation-component/RestaurantGridView';
+import { ContactGridView } from './components/general-info-components/contact-info-page-component/ContactGridView';
 
 const jwt = jwtHelper();
 
@@ -141,22 +149,32 @@ function App() {
                 <Route path="/firebase-photo-gallery" exact component={FirebasePhotoGalleryPageComponent} />
                 <Route path="/videos" exaxt component={VideoPageComponent} />
                 <Route path="/video-uploads" exact component={VideoUploadPageComponent} />
-                <Route path="/general-finance" exact component={GeneralFinancePageComponent} />
+                <Route path="/general-finance-table" exact component={GeneralFinanceTablePageComponent} />
                 <Route path="/update-general-transaction/:transaction_id" exact component={GeneralTransaction} />
                 <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
-                <Route path="/auto-finance" exact component={AutoFinancePageComponent} />
+                <Route path="/general-finance-grid" exact component={GeneralFinanceGridView} />
+              
+                <Route path="/auto-finance-table" exact component={AutoFinanceTablePageComponent} />
+                <Route path="/auto-finance-grid" exact component={AutoFinanceGridPageComponent} />
+                <Route path="/auto-shop-grid-page" exact component={AutoShopGridPageComponent} />
+
                 <Route path="/update-auto-transaction/:auto_transaction_id" exact component={AutoTranasction} />
                 <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
                 <Route path="/auto-shops" exact component={AutoShopPageComponent} />
                 <Route path="/update-autoshop/:auto_shop_id" exact component={AutoShop} />
-                <Route path="/view-cars" exact component={CarInformationPageComponent} />
+                <Route path="/view-cars-table" exact component={CarInformationPageComponent} />
+                <Route path="/view-cars-grid" exact component={VehicleGridPage} />
                 <Route path="/update-vehicle/:vehicleId" exact component={Vehicle} />
-                <Route path="/medical-finance" exact component={MedicalFinancePageComponent} />
+                <Route path="/medical-finance-table" exact component={MedicalFinancePageComponent} />
+                <Route path="/medical-finance-grid" exact component={MedicalGridView} />
                 <Route path="/update-medical-transaction/:medical_transaction_id" exact component={MedicalTransaction} />
                 <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
-                <Route path="/medical-offices" exact component={MedicalOfficePageComponent} />
+                <Route path="/medical-offices-table" exact component={MedicalOfficePageComponent} />
+                <Route path="/medical-office-grid" exact component={MedicalOfficeGridPage} />
                 <Route path="/update-medical-office/:medicalOfficeId" exact component={MedicalOffice} />
-                <Route path="/contact-info" exact component={ContactPageComponent} />
+                <Route path="/contact-info-table" exact component={ContactPageComponent} />
+                <Route path="/contact-info-grid" exact component={ContactGridView} />
+                
                 <Route path="/update-contact/:personId" exact component={Contact} />
                 <Route path="/utility-tracker" exact component={UtilityPageComponent} />
                 <Route path="/run-tracker" exact component={RunTrackerPageComponent} />
@@ -164,15 +182,82 @@ function App() {
                 <Route path="/add-user" exact component={AddUserPageComponent} />
                 <Route path="/find-a-user" exact component={FindUserInfoPageComponent} />
                 <Route path="/approve-user" exact component={ApproveUserPageComponent} />
-                <Route path="/restaurant-recommendations" exact component={RestaurantRecommendationPageComponent} />
+                <Route path="/restaurant-recommendations-table" exact component={RestaurantRecommendationPageComponent} />
+                <Route path="/restaurant-recommendations-grid" exact component={RestaurantGridView} />
+              
                 <Route path="/update-restaurant/:restaurant_id" exact component={Restaurant} />
                 <Route path="/downloads" exact component={DownloadsPageComponent} />
-                <Route path="/book-recommendations" exact component={BookRecommendationPageComponent} />
+                <Route path="/book-recommendations-table" exact component={BookRecommendationPageComponent} />
                 <Route path="/add-book-information" exact component={AddBookRecommendation} />
                 <Route path="/update-book-information/:book_id" exact component={BookUpdate} />
                 <Route path="/gym-tracker" exact component={GymTrackerPageComponent} />
                 <Route path="/update-exercise/:exercise_id" exact component={Exercise} />
                 <Route path="/social-media-feed" exact component={SocialMediaPage} />
+
+                <Route path="/recipes" exact component={RecipePageComponent} />
+                <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
+                <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
+                <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
+                <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
+                <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
+                <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
+                <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
+                <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
+                <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
+                <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
+                <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
+                <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
+                <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
+                <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
+                <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
+                <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
+                <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
+                <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
+                <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
+                <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
+                <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
+                <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
+                <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
+                <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
+                <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
+                <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
+                <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
+                <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
+                <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
+                <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
+                <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
+                <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
+                <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
+                <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
+                <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
+                <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
+                <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
+                <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
+                <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
+                <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
+                <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
+                <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
+                <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
+                <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
+                <Route path="/teriyaki-salmon-recipe" exact component={TeriyakiSalmonRecipePage} />
+                <Route path="/chicken-pot-pie-recipe" exact component={ChickenPotPieRecipePage} />
+                <Route path="/french-toast-recipe" exact component={FrenchToastRecipePage} />
+                <Route path="/pandesal-recipe" exact component={PandesalRecipePage} />
+                <Route path="/wonton-soup-recipe" exact component={WontonSoupRecipePage} />
+                <Route path="/chicken-noodle-soup-recipe" exact component={ChickenNoodleSoupRecipePage} />
+                <Route path="/corned-beef-recipe" exact component={CornedBeefRecipePage} />
+                <Route path="/egg-fu-yung-recipe" exact component={EggFuYungRecipePage} />
+                <Route path="/lumpia-recipe" exact component={LumpiaRecipePage} />
+                <Route path="/crispy-pata-recipe" exact component={CrispyPataRecipePage} />
+                <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
+                <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
+                <Route path="/crab-cakes-recipe" exact component={CrabCakesRecipePage} />
+                <Route path="/red-velvet-cake-recipe" exact component={RedVelvetCakeRecipePage} />
+                <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
+                <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
+                <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
+                <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
+                <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
                 <Route path="/recipes" exact component={RecipePageComponent} />
                 <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
                 <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
@@ -239,70 +324,7 @@ function App() {
                 <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
               </div> : null
           }
-          <Route path="/recipes" exact component={RecipePageComponent} />
-          <Route path="/asian-recipes" exact component={AsianRecipeCategoryPageComponent} />
-          <Route path="/barbeque-recipes" exact component={BarbequeCategoryPageComponent} />
-          <Route path="/breakfeast-recipes" exact component={BreakfeastCategoryPageComponent} />
-          <Route path="/comfort-food-recipes" exact component={ComfortFoodCategoryPageComponent} />
-          <Route path="/desert-recipes" exact component={DesertsCategoryPageComponent} />
-          <Route path="/pecan-pie-recipe" exact component={PecanPieRecipePage} />
-          <Route path="/filipino-recipes" exact component={FilipinoRecipesCategoryPageComponent} />
-          <Route path="/hispanic-recipes" exact component={HispanicRecipesCategoryPageComponent} />
-          <Route path="/italian-recipes" exact component={ItalianRecipeCategoryPageComponent} />
-          <Route path="/seafood-recipes" exact component={SeafoodRecipeCategoryPageComponent} />
-          <Route path="/slow-cooker-recipes" exact component={SlowCookerRecipeCategoryPageComponent} />
-          <Route path="/adobo-recipe" exact component={AdoboRecipePageComponent} />
-          <Route path="/leche-flan-recipe" exact component={LecheFlanRecipePage} />
-          <Route path="/beefaroni-recipe" exact component={BeefaroniRecipePageComponent} />
-          <Route path="/beef-stew-recipe" exact component={BeefstewRecipePageComponent} />
-          <Route path="/black-eyed-peas-and-ham-hock-recipe" exact component={BlackEyedPeasAndHamHockRecipePageComponent} />
-          <Route path="/chili-recipe" exact component={ChiliRecipePageComponent} />
-          <Route path="/fajitas-recipe" exact component={FajitasRecipePageComponent} />
-          <Route path="/marinara-recipe" exact component={MarinaraRecipePageComponent} />
-          <Route path="/meat-sauce-recipe" exact component={MeatSaucePageComponent} />
-          <Route path="/meatball-recipe" exact component={MeatballsPageComponent} />
-          <Route path="/meatloaf-recipe" exact component={MeatloadRecipePageComponent} />
-          <Route path="/pot-roast-recipe" exact component={PotRoastRecipePageComponent} />
-          <Route path="/pulled-pork-recipe" exact component={PulledPorkRecipePageComponent} />
-          <Route path="/salisbury-steaks-recipe" exact component={SalisburySteaksRecipePageComponent} />
-          <Route path="/stuffed-green-peppers-recipe" exact component={StuffedGreenPeppersPageComponent} />
-          <Route path="/stuffed-shells-recipe" exact component={StuffedShellsRecipePageComponent} />
-          <Route path="/chicken-parmesan-recipe" exact component={ChickenParmesanRecipePage} />
-          <Route path="/creamy-pasta-and-crispy-mushrooms-recipe" exact component={CreamyPastaAndCrispyMushroomsRecipePageComponent} />
-          <Route path="/pad-thai-recipe" exact component={PadThaiRecipePageComponent} />
-          <Route path="/quiche-recipe" exact component={CheeseSpinachQuicheRecipePage} />
-          <Route path="/ukoy-recipe" exact component={UkoyRecipePage} />
-          <Route path="/peking-style-porkchop-recipe" exact component={PekingStyleRecipePage} />
-          <Route path="/pan-fried-noodles-recipe" exact component={PanFriedNoodlesRecipePage} />
-          <Route path="/beef-and=broccoli-recipe" exact component={BeefAndBroccoliRecipePage} />
-          <Route path="/breakfeast-strata-recipe" exact component={BreakfeastStrataRecipePage} />
-          <Route path="/pancake-recipe" exact component={PancakeRecipePage} />
-          <Route path="/arroz-caldo-recipe" exact component={ArrozCaldoRecipePage} />
-          <Route path="/chicken-marsala-recipe" exact component={ChickenMarsalaRecipePage} />
-          <Route path="/stuffed-flounder-recipe" exact component={StuffedFlounderRecipePage} />
-          <Route path="/pineapple-upside-down-cake-recipe" exact component={PineappleUpsideDownRecipePage} />
-          <Route path="/carrot-cake-recipe" exact component={CarrotCakeRecipePage} />
-          <Route path="/sinigang-recipe" exact component={SinigangRecipePage} />
-          <Route path="/baked-red-snapper-recipe" exact component={BakedRedSnapperPage} />
-          <Route path="/teriyaki-salmon-recipe" exact component={TeriyakiSalmonRecipePage} />
-          <Route path="/chicken-pot-pie-recipe" exact component={ChickenPotPieRecipePage} />
-          <Route path="/french-toast-recipe" exact component={FrenchToastRecipePage} />
-          <Route path="/pandesal-recipe" exact component={PandesalRecipePage} />
-          <Route path="/wonton-soup-recipe" exact component={WontonSoupRecipePage} />
-          <Route path="/chicken-noodle-soup-recipe" exact component={ChickenNoodleSoupRecipePage} />
-          <Route path="/corned-beef-recipe" exact component={CornedBeefRecipePage} />
-          <Route path="/egg-fu-yung-recipe" exact component={EggFuYungRecipePage} />
-          <Route path="/lumpia-recipe" exact component={LumpiaRecipePage} />
-          <Route path="/crispy-pata-recipe" exact component={CrispyPataRecipePage} />
-          <Route path="/korean-style-ribs-recipe" exact component={KoreanStyleRibsRecipePage} />
-          <Route path="/stuffed-clams-recipe" exact component={StuffedClamsRecipePage} />
-          <Route path="/crab-cakes-recipe" exact component={CrabCakesRecipePage} />
-          <Route path="/red-velvet-cake-recipe" exact component={RedVelvetCakeRecipePage} />
-          <Route path="/chilaquiles-recipe" exact component={ChilaquilesRecipePage} />
-          <Route path="/enchiladas-recipe" exact component={EnchiladasRecipePage} />
-          <Route path="/gnocchi-spinach-pesto-recipe" exact component={GnocchiSpinachPestoRecipePage} />
-          <Route path="/honey-garlic-pork" exact component={HoneyGarlicPorkRecipePage} />
-          <Route path="/waffles-recipe" exact component={WaffleRecipePage} />
+
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>

@@ -22,7 +22,7 @@ import Box from '@material-ui/core/Box';
 import { Col,Row } from 'react-bootstrap';
 import ExportMedicalFinanceCSV from './ExportMedicalFinanceCSV';
 import AddMedicalFinanceModalComponent from './AddMedicalTransactionModalComponent';
-import MedicalOfficeOptionsDropdown from '../../dropdown-components/MedicalOfficeOptionsDropdown';
+import MedicalTrxOptionsDropdown from '../../dropdown-components/MedicalTrxOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -154,7 +154,7 @@ export default function MedicalFinancePageTableComponent() {
           <AddMedicalFinanceModalComponent />
         </Col>
         <Col md={4}>
-          <MedicalOfficeOptionsDropdown />
+          <MedicalTrxOptionsDropdown />
         </Col>
         <Col md={2}>
 

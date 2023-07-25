@@ -4,22 +4,25 @@ import { FooterComponent } from '../footer-component/footer-component';
 import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
 import AutoShopTableComponent from './AutoShopTableComponent';
 import AutoShopList from './AutoShopList';
+import AutoShopOptionsRow from '../options-row-component/AutoShopOptionsRow';
 
-const AutoShopPageComponent = () => {
+const AutoShopGridPageComponent = () => {
     return (
         <div>
             <Helmet>
-                <title>View All Auto Shops</title>
+                <title>View All Auto Shops - Grid View</title>
             </Helmet>
             <div id="white-background">
                 <br></br>
                 <AutoFinanceTabsComponent />
                 <br></br>
-                <AutoShopTableComponent />
+                <AutoShopOptionsRow />
+                <br></br>
+                <AutoShopList />
             </div>
             <FooterComponent />
         </div>
     )
 }
 
-export default AutoShopPageComponent;
+export default AutoShopGridPageComponent;

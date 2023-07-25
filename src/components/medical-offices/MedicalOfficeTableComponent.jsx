@@ -23,6 +23,7 @@ import { Col,Row } from 'react-bootstrap';
 import ExportMedicalFinanceCSV from './ExportMedicalOfficeCSV';
 import AddMedicalFinanceModalComponent from './AddMedicalOfficeModalComponent';
 import AutoShopService from '../../services/AutoShopService'
+import MedicalOfficeOptionsDropdown from '../dropdown-components/MedicalOfficeOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -143,7 +144,7 @@ export default function MedicalOfficeTableComponent() {
         <AddMedicalFinanceModalComponent />
         </Col>
         <Col md={4}>
-
+          <MedicalOfficeOptionsDropdown />
         </Col>
         <Col md={2}>
           

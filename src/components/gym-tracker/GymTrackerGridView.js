@@ -5,17 +5,15 @@ import GymTrackerTabComponent from '../tab-components/GymTrackerTabComponent';
 import ExerciseInfoTable from './ExerciseInfoTable';
 import ExerciseList from './pagination/ExerciseList';
 
-const GymTrackerPageComponent = () => {
+const GymTrackerGridView = () => {
     return (
         <div>
             <Helmet>
-                <title>Gym Tracker</title>
+                <title>Gym Tracker - Grid</title>
             </Helmet>
             <div id="white-background">
                 <br></br>
                 <GymTrackerTabComponent />
-                <br></br>
-                <ExerciseInfoTable />
                 <br></br>
                 <ExerciseList />
             </div>
@@ -24,4 +22,4 @@ const GymTrackerPageComponent = () => {
     )
 }
 
-export default GymTrackerPageComponent;
+export default GymTrackerGridView;

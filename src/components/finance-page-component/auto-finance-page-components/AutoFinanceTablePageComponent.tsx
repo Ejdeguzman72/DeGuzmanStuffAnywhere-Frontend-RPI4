@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { AutoFinanceTabsComponent } from '../../tab-components/auto-finance-tabs-component';
-import AutoFinancePageTableComponent from './auto-finance-table-component';
 import { FooterComponent } from '../../footer-component/footer-component';
 import AutoTrxList from './pagination/AutoTrxList';
+import AutoFinanceTable from './AutoFinanceTable';
 
-export class AutoFinancePageComponent extends React.Component<any,any> {
+export class AutoFinanceTablePageComponent extends React.Component<any,any> {
     render() {
         return (
             <div>
@@ -16,10 +16,7 @@ export class AutoFinancePageComponent extends React.Component<any,any> {
                     <br></br>
                     <AutoFinanceTabsComponent />
                     <br></br>
-                    <AutoFinancePageTableComponent />
-                    <br></br>
-                    <br></br>
-                    <AutoTrxList />
+                    <AutoFinanceTable />
                 </div>
                 <FooterComponent />
             </div>

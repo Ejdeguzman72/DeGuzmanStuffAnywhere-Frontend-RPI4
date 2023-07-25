@@ -20,7 +20,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import AddExerciseModal from './AddExerciseInfoModal';
-import { Col,Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
 
 const tableIcons = {
@@ -48,10 +48,10 @@ export default function ExerciseInfoTableComponent() {
     columns: [
       { title: 'Exercise ID', field: 'exercise_id', hidden: true },
       { title: 'Exercise Name', field: 'exerciseName' },
-      { title: 'Sets', field: 'sets'},
+      { title: 'Sets', field: 'sets' },
       { title: 'Reps', field: 'reps' },
-      { title: 'Weight', field: 'weight'},
-      { title: 'Date', field: 'date'},
+      { title: 'Weight', field: 'weight' },
+      { title: 'Date', field: 'date' },
       { title: 'Exercise Type', field: 'exerciseTypeName' },
       { title: 'Name', field: 'username' },
     ],
@@ -143,7 +143,7 @@ export default function ExerciseInfoTableComponent() {
     <div>
       <Row>
         <Col md={4}>
-
+          <AddExerciseModal />
         </Col>
         <Col md={4}>
           <RunOptionsDropdown />
@@ -152,7 +152,7 @@ export default function ExerciseInfoTableComponent() {
 
         </Col>
         <Col md={2}>
-          <AddExerciseModal />
+
         </Col>
       </Row>
       <br></br>

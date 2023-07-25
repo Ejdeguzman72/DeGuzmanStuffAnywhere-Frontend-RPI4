@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { FooterComponent } from '../../footer-component/footer-component';
-import ContactInfoEditableTableComponent from './contact-info-editable-table-component';
+import ContactOptionsDropdown from '../../dropdown-components/ContactOptionsDropdown';
+import ContactInfoTabs from '../../tab-components/ContactInfoTabs';
 import ContactList from './ContactList';
+import { FooterComponent } from '../../footer-component/footer-component';
 
-export class ContactPageComponent extends React.Component<any,any> {
+export class ContactGridView extends React.Component<any, any> {
     render() {
         return (
             <div>
@@ -12,9 +13,9 @@ export class ContactPageComponent extends React.Component<any,any> {
                     <title>Contact Information</title>
                 </Helmet>
                 <div id="white-background">
+                    <ContactInfoTabs />
                     <br></br>
-                    <br></br>
-                    <ContactInfoEditableTableComponent />
+                    <ContactOptionsDropdown />
                     <br></br>
                     <ContactList />
                 </div>

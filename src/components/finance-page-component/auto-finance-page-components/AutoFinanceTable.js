@@ -44,7 +44,7 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-export default function AutoFinancePageTableComponent() {
+export default function AutoFinanceTable() {
   const [state] = React.useState({
     columns: [
       { title: 'Transaction ID', field: 'autoTrxId', hidden: false },

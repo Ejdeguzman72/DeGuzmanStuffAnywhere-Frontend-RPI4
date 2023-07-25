@@ -2,24 +2,27 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
 import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
-import AutoShopTableComponent from './AutoShopTableComponent';
-import AutoShopList from './AutoShopList';
+import ViewCarsTableComponent from './VehicleInformationTable';
+import VehicleList from './VehicleList';
+import VehicleOptionsDropdown from '../dropdown-components/VehicleOptionsDropdown';
 
-const AutoShopPageComponent = () => {
+const VehicleGridPage = () => {
     return (
         <div>
             <Helmet>
-                <title>View All Auto Shops</title>
+                <title>View All Cars - Grid View</title>
             </Helmet>
             <div id="white-background">
                 <br></br>
                 <AutoFinanceTabsComponent />
                 <br></br>
-                <AutoShopTableComponent />
+                <VehicleOptionsDropdown />
+                <br></br>
+                <VehicleList />
             </div>
             <FooterComponent />
         </div>
     )
 }
 
-export default AutoShopPageComponent;
+export default VehicleGridPage;
