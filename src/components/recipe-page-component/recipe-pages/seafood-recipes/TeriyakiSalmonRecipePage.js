@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
 import TeriyakiSalmonRecipeContainer from '../../recipe-containers/seafood-recipe-containers/TeriyakiSalmonRecipeContainer';
 
-const StuffedFlounderRecipePage = () => {
+const TeriyakiSalmonRecipePage = () => {
         return (
             <div>
                 <Helmet>
@@ -25,4 +25,4 @@ const StuffedFlounderRecipePage = () => {
         )
 }
 
-export default StuffedFlounderRecipePage;
+export default TeriyakiSalmonRecipePage;

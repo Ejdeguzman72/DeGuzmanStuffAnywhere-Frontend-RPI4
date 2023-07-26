@@ -90,9 +90,9 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                     <NavDropdown title="Fitness" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#run-tracker" className="navbar-item">Run Tracker</NavDropdown.Item>
+                                        <NavDropdown.Item href="#run-tracker-table" className="navbar-item">Run Tracker</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#gym-tracker" className="navbar-item">Gym Tracker</NavDropdown.Item>
+                                        <NavDropdown.Item href="#gym-tracker-table" className="navbar-item">Gym Tracker</NavDropdown.Item>
                                     </NavDropdown> : null
                             }
 

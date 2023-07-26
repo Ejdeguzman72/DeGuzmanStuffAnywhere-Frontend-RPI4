@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../footer-component/footer-component';
 import { GeneralFinanceTabsComponent } from '../../tab-components/general-finance-tabs-components';
-import GeneralFinancePageTableComponent from './GeneralFinanceTable';
+import GeneralFinanceTable from './GeneralFinanceTable';
 import GeneralTrxList from './pagination/GeneralTrxList';
 
 export class GeneralFinanceTablePageComponent extends React.Component<any,any> {
@@ -16,7 +16,7 @@ export class GeneralFinanceTablePageComponent extends React.Component<any,any> {
                     <br></br>
                     <GeneralFinanceTabsComponent />
                     <br></br>
-                    <GeneralFinancePageTableComponent />
+                    <GeneralFinanceTable />
                 </div>
                 <FooterComponent />
             </div>

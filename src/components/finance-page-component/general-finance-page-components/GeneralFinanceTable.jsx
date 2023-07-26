@@ -49,7 +49,7 @@ const api = Axios.create({
   baseURL: 'http://localhost:8080/app/general-transactions'
 });
 
-export default function GeneralFinancePageTableComponent() {
+export default function GeneralFinanceTable() {
   const [entries, setEntries] = useState({
     data: [
       {

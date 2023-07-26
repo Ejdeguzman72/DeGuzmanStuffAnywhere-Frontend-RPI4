@@ -5,7 +5,7 @@ import { FooterComponent } from '../../../footer-component/footer-component';
 import BakedRedSnapperRecipeContainer from '../../recipe-containers/seafood-recipe-containers/BakedRedSnapperRecipeContainer';
 import StuffedClamsRecipeContainer from '../../recipe-containers/seafood-recipe-containers/StuffedClamsRecipeContainer';
 
-const BakedRedSnapperRecipePage = () => {
+const StuffedClamsRecipePage = () => {
         return (
             <div>
                 <Helmet>
@@ -26,4 +26,4 @@ const BakedRedSnapperRecipePage = () => {
         )
 }
 
-export default BakedRedSnapperRecipePage;
+export default StuffedClamsRecipePage;

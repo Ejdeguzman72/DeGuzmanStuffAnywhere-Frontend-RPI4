@@ -21,7 +21,7 @@ import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import AddExerciseModal from './AddExerciseInfoModal';
 import { Col, Row } from 'react-bootstrap';
-import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
+import GymOptionsDropdown from '../dropdown-components/GymOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -146,7 +146,7 @@ export default function ExerciseInfoTableComponent() {
           <AddExerciseModal />
         </Col>
         <Col md={4}>
-          <RunOptionsDropdown />
+          <GymOptionsDropdown />
         </Col>
         <Col md={2}>
 

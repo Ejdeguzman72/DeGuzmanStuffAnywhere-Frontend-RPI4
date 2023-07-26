@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
 import ChickenNoodleSoupContainer from '../../recipe-containers/comfort-food-recipe-containers/ChickenNoodleSoupContainer';
 
-const ChickenPotPieRecipePage = () => {
+const ChickenNoodleSoupRecipePage = () => {
         return (
             <div>
                 <Helmet>
@@ -25,4 +25,4 @@ const ChickenPotPieRecipePage = () => {
         )
 }
 
-export default ChickenPotPieRecipePage;
+export default ChickenNoodleSoupRecipePage;

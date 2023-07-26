@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import AdminPortalTabComponent from '../tab-components/admin-portal-tab-components';
-import AdminPortalPageUserTableComponent from './admin-portal-page-table-component';
+import AdminPortalPageUserTableComponent from './AdminPortalPageUserTable';
 
 export default class AdmimPortalPageComponent extends React.Component<any, any> {
     render() {

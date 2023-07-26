@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { DeGuzmanRecipeTabCompoent } from '../../../tab-components/deguzman-recipe-tab-component';
 import CornedBeefRecipeContainer from '../../recipe-containers/breakfeast-recipe-containers/CornedBeefRecipeContainer';
 
-const FrenchToastRecipePage = () => {
+const CornedBeefRecipePage = () => {
     return (
         <div>
             <Helmet>
@@ -21,4 +21,4 @@ const FrenchToastRecipePage = () => {
     )
 }
 
-export default FrenchToastRecipePage;
+export default CornedBeefRecipePage;

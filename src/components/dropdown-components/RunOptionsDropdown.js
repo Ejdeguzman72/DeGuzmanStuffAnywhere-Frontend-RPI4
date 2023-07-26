@@ -9,8 +9,8 @@ function RunOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Table View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Grid View</Dropdown.Item>
+        <Dropdown.Item href="#/run-tracker-table">Table View</Dropdown.Item>
+        <Dropdown.Item href="#/run-tracker-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By User</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

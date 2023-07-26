@@ -20,7 +20,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import AddRunInfoModalComponent from './AddRunInfoModalComponent';
-import { Row, Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
 
 const tableIcons = {
@@ -41,7 +41,7 @@ const tableIcons = {
     SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
-  };
+};
 
 export default function RunTrackerTableComponent() {
 
@@ -59,11 +59,11 @@ export default function RunTrackerTableComponent() {
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'runId', hidden: true},
+            { title: 'ID No:', field: 'runId', hidden: true },
             { title: 'Date of Run', field: 'runDate' },
             { title: 'Distance', field: 'runDistance' },
             { title: 'Time', field: 'runTime' },
-            { title: 'Name of User', field: 'username'}
+            { title: 'Name of User', field: 'username' }
         ]
     });
 
@@ -88,76 +88,76 @@ export default function RunTrackerTableComponent() {
     }, []);
 
 
-    const handleRowAdd = (newData,resolve) => {
+    const handleRowAdd = (newData, resolve) => {
         Axios.post(`http://localhost:8080/app/run-tracker-app/add-run-tracker-info`)
-        .then(res => {
-            console.log(newData);
-            let dataToAdd = [...entries.data];
-            dataToAdd.push(newData);
-            setEntries(dataToAdd);
-            resolve();
-            window.location.reload();
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }    
-
-    const handleRowDelete = (oldData,resolve) => {
-        Axios.delete(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
-        .then(res => {
-            let dataToDelete = [...entries.data];
-            const index = oldData.tabledata.run_id;
-            dataToDelete.splice(index,1);
-            setEntries(dataToDelete);
-            resolve();
-
-            window.location.reload();
-        })
-        .catch(error => {
-            console.log(error);
-            resolve();
-
-            window.location.reload();
-        })
+            .then(res => {
+                console.log(newData);
+                let dataToAdd = [...entries.data];
+                dataToAdd.push(newData);
+                setEntries(dataToAdd);
+                resolve();
+                window.location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
-    const handleRowUpdate = (newData,oldData,resolve) => {
-        Axios.put(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
-        .then(res => {
-            console.log(`Run Entry with IDL ${oldData.run_id}`);
-            let dataToUpdate = [...entries.data];
-            const index = oldData.tabledata.run_id;
-            dataToUpdate[index] = newData;
-            setEntries([...dataToUpdate]);
-            resolve();
+    const handleRowDelete = (oldData, resolve) => {
+        Axios.delete(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
+            .then(res => {
+                let dataToDelete = [...entries.data];
+                const index = oldData.tabledata.run_id;
+                dataToDelete.splice(index, 1);
+                setEntries(dataToDelete);
+                resolve();
 
-            window.location().reload();
-        })
-        .catch(error => {
-            console.log(error);
-            resolve();
-        })
+                window.location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+                resolve();
+
+                window.location.reload();
+            })
+    }
+
+    const handleRowUpdate = (newData, oldData, resolve) => {
+        Axios.put(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
+            .then(res => {
+                console.log(`Run Entry with IDL ${oldData.run_id}`);
+                let dataToUpdate = [...entries.data];
+                const index = oldData.tabledata.run_id;
+                dataToUpdate[index] = newData;
+                setEntries([...dataToUpdate]);
+                resolve();
+
+                window.location().reload();
+            })
+            .catch(error => {
+                console.log(error);
+                resolve();
+            })
     }
 
     return (
         <div>
             <Row>
-        <Col md={4}>
+                <Col md={4}>
+                    <AddRunInfoModalComponent />
+                </Col>
+                <Col md={4}>
+                    <RunOptionsDropdown />
+                </Col>
+                <Col md={2}>
 
-        </Col>
-        <Col md={4}>
-            <RunOptionsDropdown />
-        </Col>
-        <Col md={2}>
+                </Col>
+                <Col md={2}>
 
-        </Col>
-        <Col md={2}>
-          <AddRunInfoModalComponent />
-          {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
-        </Col>
-      </Row>
-      <br></br>
+                    {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
+                </Col>
+            </Row>
+            <br></br>
             <Box border={3} borderRadius={16}>
                 <MaterialTable
                     title="Run Tracker"
@@ -166,17 +166,17 @@ export default function RunTrackerTableComponent() {
                     data={entries.data}
                     editable={{
                         onRowAdd: (newData) =>
-                          new Promise((resolve) => {
-                           handleRowAdd(newData,resolve)
-                          }),
+                            new Promise((resolve) => {
+                                handleRowAdd(newData, resolve)
+                            }),
                         onRowUpdate: (newData, oldData) =>
-                          new Promise((resolve) => {
-                            handleRowUpdate(newData,oldData,resolve)
-                          }),
+                            new Promise((resolve) => {
+                                handleRowUpdate(newData, oldData, resolve)
+                            }),
                         onRowDelete: (oldData) =>
-                          new Promise((resolve) => {
-                            handleRowDelete(oldData,resolve)
-                          }),
+                            new Promise((resolve) => {
+                                handleRowDelete(oldData, resolve)
+                            }),
                     }}
                 />
             </Box>

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../../../footer-component/footer-component';
 import ChilaquilesRecipeContainer from '../../recipe-containers/hispanic-recipe-containers/ChilaquilesRecipeContainer';
 
-const ChickenMarsalaRecipePage = () => {
+const ChilaquilesRecipePage = () => {
         return (
             <div>
                 <Helmet>
@@ -25,4 +25,4 @@ const ChickenMarsalaRecipePage = () => {
         )
 }
 
-export default ChickenMarsalaRecipePage;
+export default ChilaquilesRecipePage;
