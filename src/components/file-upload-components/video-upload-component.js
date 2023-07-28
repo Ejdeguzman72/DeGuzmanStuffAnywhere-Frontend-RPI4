@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import VideoUploadService from '../../services/video-file-upload-service';
+import VideoUploadService from '../../services/VideoFileUploadService';
 
 const VideosUploadComponent = () => {
     const [selectedFiles, setSelectedFiles] = useState(undefined);

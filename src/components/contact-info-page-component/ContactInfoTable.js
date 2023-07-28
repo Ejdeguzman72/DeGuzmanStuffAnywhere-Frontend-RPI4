@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import TableBody from 'material-table';
-import ContactInfoService from '../../../services/ContactInfoService';
+import ContactInfoService from '../../services/ContactInfoService';
 import Box from '@material-ui/core/Box';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
@@ -23,7 +23,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import AddContactModalComponent from './AddContactModalComponent';
 import ExportContactInfoCSV from './ExportContactInfoCSV';
-import ContactOptionsDropdown from '../../dropdown-components/ContactOptionsDropdown';
+import ContactOptionsDropdown from '../dropdown-components/ContactOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),

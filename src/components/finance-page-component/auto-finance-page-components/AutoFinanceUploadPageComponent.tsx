@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Container } from 'react-bootstrap';
-import { AutoFinanceTabsComponent } from '../../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../../tab-components/AutoFinanceTabsComponent';
 import { AutoFinanceUploadComponent } from '../../file-upload-components/auto-finance-upload-component';
 
 export class AutoFinanceUploadPageComponent extends React.Component<any, any> {
@@ -14,6 +14,7 @@ export class AutoFinanceUploadPageComponent extends React.Component<any, any> {
                     </title>
                 </Helmet>
                 <div id="white-background">
+                    <br></br>
                     <AutoFinanceTabsComponent />
                     <Container className="container" style={{ width: "auto" }}>
                         <div style={{ margin: "20px" }}>

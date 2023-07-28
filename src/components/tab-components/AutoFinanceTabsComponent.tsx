@@ -30,7 +30,7 @@ export class AutoFinanceTabsComponent extends React.Component<any, any> {
                         </Col>
                         <Col md={6}>
                             <Nav.Item>
-                                <Nav.Link href="#auto-shops" eventKey="fourth" id="tabs">View Auto Repair Shops</Nav.Link>
+                                <Nav.Link href="#auto-shops-table" eventKey="fourth" id="tabs">View Auto Repair Shops</Nav.Link>
                             </Nav.Item>
                         </Col>
                     </Tab.Container>

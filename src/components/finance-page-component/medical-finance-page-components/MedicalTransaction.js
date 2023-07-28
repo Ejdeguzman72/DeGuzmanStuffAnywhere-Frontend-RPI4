@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import MedicalTransactionService from '../../../services/medical-transaction-service';
+import MedicalTransactionService from '../../../services/MedicalTrxService';
 import { MedicalTabsComponent } from '../../tab-components/medical-tabs-component';
 import UserDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';

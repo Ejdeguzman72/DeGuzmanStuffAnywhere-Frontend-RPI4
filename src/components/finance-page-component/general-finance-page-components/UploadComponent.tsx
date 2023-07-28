@@ -14,6 +14,7 @@ export class GeneralFinanceUploadPageComponent extends React.Component<any, any>
                     </title>
                 </Helmet>
                 <div id="white-background">
+                    <br></br>
                     <GeneralFinanceTabsComponent />
                     <Container className="container" style={{ width: "auto" }}>
                         <div style={{ margin: "20px" }}>

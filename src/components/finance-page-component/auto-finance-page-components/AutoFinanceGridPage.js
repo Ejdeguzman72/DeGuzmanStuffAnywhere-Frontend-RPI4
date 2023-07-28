@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { AutoFinanceTabsComponent } from '../../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../../tab-components/AutoFinanceTabsComponent';
 import { FooterComponent } from '../../footer-component/footer-component';
 import AutoTrxList from './pagination/AutoTrxList';
 import AutoFinanceTable from './AutoFinanceTable';

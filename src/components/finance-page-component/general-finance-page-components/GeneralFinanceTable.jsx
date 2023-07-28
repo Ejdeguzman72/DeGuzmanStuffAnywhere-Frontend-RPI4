@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import MaterialTable from 'material-table';
-import GeneralTransactionService from '../../../services/general-tranascttion-service';
+import GeneralTransactionService from '../../../services/GeneralTrxService';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';

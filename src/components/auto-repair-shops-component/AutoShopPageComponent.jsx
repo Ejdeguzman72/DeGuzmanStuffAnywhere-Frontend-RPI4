@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
-import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../tab-components/AutoFinanceTabsComponent';
 import AutoShopTableComponent from './AutoShopTableComponent';
 import AutoShopList from './AutoShopList';
 

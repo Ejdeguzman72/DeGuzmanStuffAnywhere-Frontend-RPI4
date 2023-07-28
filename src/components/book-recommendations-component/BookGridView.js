@@ -5,7 +5,7 @@ import { FooterComponent } from '../footer-component/footer-component';
 import BookrecommendationsTabComponent from '../tab-components/BookRecommendationsTabComponent';
 import BooksList from './BooksList';
 
-const BookRecommendationPageComponent = () => {
+const BookGridView = () => {
     return (
         <div>
             <Helmet>
@@ -22,4 +22,4 @@ const BookRecommendationPageComponent = () => {
     )
 }
 
-export default BookRecommendationPageComponent;
+export default BookGridView;

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
-import '../../../style-sheets/contact-info-styles.css';
+import '../../style-sheets/contact-info-styles.css';
 
 const AddContactModalComponent = () => {
 

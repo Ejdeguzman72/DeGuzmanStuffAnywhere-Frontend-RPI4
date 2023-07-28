@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import GeneralTransactionService from './../../../../services/general-tranascttion-service';
+import GeneralTransactionService from '../../../../services/GeneralTrxService';
 import { Link } from 'react-router-dom';
 import AddGeneralFinanceModalComponent from '../AddGeneralFinanceModalComponent';
 import Pagination from "@material-ui/lab/Pagination";

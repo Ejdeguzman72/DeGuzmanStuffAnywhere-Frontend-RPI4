@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import ContactInfoService from '../../../services/ContactInfoService';
 import { Link } from 'react-router-dom';
 import { Row, Button } from 'react-bootstrap';
-import AddContactModalComponent from './AddContactModalComponent'
 import Pagination from "@material-ui/lab/Pagination";
+import InventoryService from '../../services/InventoryService';
 
-const ContactList = () => {
-    const [persons, setPersons] = useState([]);
-    const [currentContact, setCurrentContact] = useState(null);
+const InventoryList = () => {
+    const [inventory, setInventory] = useState([]);
+    const [currentInventory, setCurrentInventory] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -26,7 +25,7 @@ const ContactList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['firstname'] = searchTitle;
+            params['name'] = searchTitle;
         }
 
         if (page) {
@@ -40,13 +39,13 @@ const ContactList = () => {
         return params;
     }
 
-    const retrieveContacts = () => {
+    const retrieveInventory = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
 
-        ContactInfoService.getAllContactInfo(params)
+        InventoryService.getAllInventoryPagination(params)
             .then(response => {
                 const { persons, totalPages } = response.data;
-                setPersons(persons);
+                setInventory(persons);
                 setCount(totalPages);
 
                 console.log(response.data)
@@ -56,11 +55,11 @@ const ContactList = () => {
             });
     };
 
-    useEffect(retrieveContacts, [page, pageSize]);
+    useEffect(retrieveInventory, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveContacts();
-        setCurrentContact(null);
+        retrieveInventory();
+        setCurrentInventory(null);
         setCurrentIndex(-1);
     }
 
@@ -73,15 +72,15 @@ const ContactList = () => {
         setpage(1);
     }
 
-    const setActiveContact = (contact, index) => {
-        setCurrentContact(contact);
+    const setActiveInventory = (inventory, index) => {
+        setCurrentInventory(inventory);
         setCurrentIndex(index);
     }
 
-    const removeAllContacts = () => {
-        ContactInfoService.deleteAllContactInfo()
+    const removeAllInventory = () => {
+        InventoryService.deleteAllInventory()
             .then(response => {
-                setPersons(response.data);
+                setInventory(response.data);
                 console.log(response.data);
 
                 window.location.reload();
@@ -92,9 +91,9 @@ const ContactList = () => {
     };
 
     const findByName = () => {
-        ContactInfoService.getSongByTitle(searchTitle)
+        InventoryService.findByName(searchTitle)
             .then(response => {
-                setPersons(response.data);
+                setInventory(response.data);
                 console.log(response.data);
             })
     }
@@ -122,7 +121,7 @@ const ContactList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Contact List</h4>
+                <h4>Inventory List</h4>
 
 
                 <div className="mt-3">
@@ -149,81 +148,69 @@ const ContactList = () => {
 
 
                 <ul className="list-group">
-                    {persons &&
-                        persons.map((person, index) => (
+                    {inventory &&
+                        inventory.map((inv, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveContact(person, index)}
+                                onClick={() => setActiveInventory(inv, index)}
                                 key={index}
                             >
-                                <p><strong>{person.firstname + ' ' + person.lastname}</strong></p>
+                                <p><strong>{inv.name}</strong></p>
                             </li>
                         ))}
                 </ul>
                 <br></br>
                 <Row>
-                    <AddContactModalComponent />
+                    {/* <AddContactModalComponent /> */}
                     <Button
                         size="lg"
                         className="btn-danger delete-all-btn" 
-                        onClick={removeAllContacts}
+                        onClick={removeAllInventory}
                     >
                         Delete All
                     </Button>
                 </Row>
             </div>
             <div className="col-md-6">
-                {currentContact ? (
+                {currentInventory ? (
                     <div>
-                        <h4>Contact Info:</h4>
+                        <h4>Inventory Info:</h4>
                         <div>
                             <label>
-                                <strong>First Name:</strong>
+                                <strong>Name:</strong>
                             </label>{" "}
-                            {currentContact.firstname}
+                            {currentInventory.name}
                         </div>
                         <div>
                             <label>
-                                <strong>Middle Initial:</strong>
+                                <strong>Description:</strong>
                             </label>{" "}
-                            {currentContact.middle_initial}
+                            {currentInventory.description}
                         </div>
                         <div>
                             <label>
-                                <strong>Last Name:</strong>
+                                <strong>Condition:</strong>
                             </label>{" "}
-                            {currentContact.lastname}
+                            {currentInventory.condition}
                         </div>
                         <div>
                             <label>
-                                <strong>Address:</strong>
+                                <strong>Location:</strong>
                             </label>{" "}
-                            {currentContact.address01 + ' ' + currentContact.address02 + ' ' + currentContact.city + ' ' + currentContact.state + ' ' + currentContact.zipcode}
+                            {currentInventory.location}
                         </div>
                         <div>
                             <label>
-                                <strong>Phone:</strong>
+                                <strong>Quantity:</strong>
                             </label>{" "}
-                            {currentContact.phone}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Email:</strong>
-                            </label>{" "}
-                            {currentContact.email}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Birthdate:</strong>
-                            </label>{" "}
-                            {currentContact.birthdate}
+                            {currentInventory.quantity}
                         </div>
 
                         <Link
-                            to={"/update-contact/" + currentContact.personId}
+                            to={"/update-contact/" + currentInventory.inventoryId}
                             className="badge badge-warning"
                         >
                             Edit
@@ -232,7 +219,7 @@ const ContactList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a contact...</p>
+                            <p>Please click on an item...</p>
                         </div>
                     )}
             </div>
@@ -240,4 +227,4 @@ const ContactList = () => {
     )
 }
 
-export default ContactList;
+export default InventoryList;

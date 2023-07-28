@@ -1,8 +1,8 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { ContactPageComponent } from '../general-info-components/contact-info-page-component/ContactInfoPage';
-import { ContactGridView } from '../general-info-components/contact-info-page-component/ContactGridView';
-import Contact from '../general-info-components/contact-info-page-component/Contact';
+import { ContactPageComponent } from '../contact-info-page-component/ContactInfoPage';
+import { ContactGridView } from '../contact-info-page-component/ContactGridView';
+import Contact from '../contact-info-page-component/Contact';
 
 const ContactInfoRoutes = () => {
     return (

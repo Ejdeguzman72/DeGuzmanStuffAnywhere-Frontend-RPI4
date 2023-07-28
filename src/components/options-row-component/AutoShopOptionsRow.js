@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import AddAutoShopModalComponent from '../auto-repair-shops-component/AddAutoShopModalComponent'
 import ExportAutoShopCSV from '../auto-repair-shops-component/ExportAutoShopCSV';
 import SearchAutoShopDropdown from '../dropdown-components/SearchAutoShopDropdown';
+import ExportCSV from '../auto-repair-shops-component/ExportAutoShopCSV';
 
 const AutoShopOptionsRow = (autoShop,fileName) => {
     return (
@@ -13,14 +14,11 @@ const AutoShopOptionsRow = (autoShop,fileName) => {
             <Col md={4}>
                 <SearchAutoShopDropdown />
             </Col>
+            <Col md={1}>
+
+            </Col>
             <Col md={2}>
-
-            </Col>
-            <Col md={1}>
-                {/* <ExportAutoShopCSV csvData={autoShop.data} fileName={fileName} /> */}
-            </Col>
-            <Col md={1}>
-
+                <ExportCSV />
             </Col>
         </Row>
     )

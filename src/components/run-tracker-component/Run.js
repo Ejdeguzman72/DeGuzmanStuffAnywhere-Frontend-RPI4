@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import RunTrackerService from '../../services/run-tracker-service';
+import RunTrackerService from '../../services/RunTrackerService';
 import RunTrackerTabComponent from '../tab-components/RunTrackerTabComponent';
 import UserDropdown from '../dropdown-components/UserDropdown';
 

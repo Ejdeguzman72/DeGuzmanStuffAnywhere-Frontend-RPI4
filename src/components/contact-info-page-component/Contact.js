@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
-import ContactService from '../../../services/ContactInfoService';
-import ContactInfoTabs from '../../tab-components/ContactInfoTabs';
+import ContactService from '../../services/ContactInfoService';
+import ContactInfoTabs from '../tab-components/ContactInfoTabs';
 
 const Contact = props => {
     const initialState = {

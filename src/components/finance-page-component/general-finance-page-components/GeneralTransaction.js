@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import GeneralTransactionService from '../../../services/general-tranascttion-service';
+import GeneralTransactionService from '../../../services/GeneralTrxService';
 import { GeneralFinanceTabsComponent } from '../../tab-components/general-finance-tabs-components';
 import UserDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';

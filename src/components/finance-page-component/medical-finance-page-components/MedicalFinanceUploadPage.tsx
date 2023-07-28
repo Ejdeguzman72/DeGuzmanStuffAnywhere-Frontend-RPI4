@@ -12,6 +12,7 @@ export class MedicalFinanceUploadPageComponent extends React.Component<any, any>
                     <title>Medical Finance Uploads</title>
                 </Helmet>
                 <div id="white-background">
+                    <br></br>
                     <MedicalTabsComponent />
                     <Container className="container" style={{ width: "auto" }}>
                         <div style={{ margin: "20px" }}>

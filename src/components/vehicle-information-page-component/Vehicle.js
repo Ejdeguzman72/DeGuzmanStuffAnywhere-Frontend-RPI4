@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
-import { AutoFinanceTabsComponent } from './../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../tab-components/AutoFinanceTabsComponent';
 import VehicleInformationService from '../../services/VehicleInformationService';
 
 const Vehicle = props => {

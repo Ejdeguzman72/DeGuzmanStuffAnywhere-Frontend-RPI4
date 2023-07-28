@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadGeneralFileUploadService from '../../services/general-file-uplload-services';
+import UploadGeneralFileUploadService from '../../services/GeneralFileUploadService';
 
 export class GeneralFileUploadFiles extends React.Component {
     constructor(props) {

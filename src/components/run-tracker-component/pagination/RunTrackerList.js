@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import RunTrackerService from '../../../services/run-tracker-service';
+import RunTrackerService from '../../../services/RunTrackerService';
 import { Link } from 'react-router-dom';
 import AddRunInfoModalComponent from '../AddRunInfoModalComponent';
 import Pagination from "@material-ui/lab/Pagination";

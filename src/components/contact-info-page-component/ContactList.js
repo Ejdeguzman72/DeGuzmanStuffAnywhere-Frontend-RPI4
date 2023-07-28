@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import AutoTransactionService from '../../../../services/AutoTrxService';
+import ContactInfoService from '../../services/ContactInfoService';
 import { Link } from 'react-router-dom';
-import AddAutoTransactionModalComponent from '../AddAutoTransactionModalComponent';
+import { Row, Button } from 'react-bootstrap';
+import AddContactModalComponent from './AddContactModalComponent'
 import Pagination from "@material-ui/lab/Pagination";
 
-const AutoTrxList = () => {
-    const [transactions, setTransactions] = useState([]);
-    const [currentTransaction, setCurrentTransaction] = useState(null);
+const ContactList = () => {
+    const [persons, setPersons] = useState([]);
+    const [currentContact, setCurrentContact] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +26,7 @@ const AutoTrxList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['autoTransactionDate'] = searchTitle;
+            params['firstname'] = searchTitle;
         }
 
         if (page) {
@@ -39,26 +40,27 @@ const AutoTrxList = () => {
         return params;
     }
 
-    const retrieveTransactions = () => {
+    const retrieveContacts = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
-        
-        AutoTransactionService.getAllAutoTransactionsPagination(params)
+
+        ContactInfoService.getAllContactInfo(params)
             .then(response => {
-                const { transactions, totalPages } = response.data;
-                console.log(response.data);
-                setTransactions(transactions);
+                const { persons, totalPages } = response.data;
+                setPersons(persons);
                 setCount(totalPages);
+
+                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    useEffect(retrieveTransactions, [page, pageSize]);
+    useEffect(retrieveContacts, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveTransactions();
-        setCurrentTransaction(null);
+        retrieveContacts();
+        setCurrentContact(null);
         setCurrentIndex(-1);
     }
 
@@ -71,16 +73,16 @@ const AutoTrxList = () => {
         setpage(1);
     }
 
-    const setActiveTransactions = (transaction, index) => {
-        setCurrentTransaction(transaction);
+    const setActiveContact = (contact, index) => {
+        setCurrentContact(contact);
         setCurrentIndex(index);
     }
 
-    const removeAllTransactions = () => {
-        AutoTransactionService.deleteAllTransactions
+    const removeAllContacts = () => {
+        ContactInfoService.deleteAllContactInfo()
             .then(response => {
-                setTransactions(response.data);
-
+                setPersons(response.data);
+                console.log(response.data);
 
                 window.location.reload();
             })
@@ -89,13 +91,13 @@ const AutoTrxList = () => {
             });
     };
 
-    // const findByName = () => {
-    //     RunTrackerService.findBookByName(searchTitle)
-    //         .then(response => {
-    //             setExercises(response.data);
-    //             console.log(response.data);
-    //         })
-    // }
+    const findByName = () => {
+        ContactInfoService.getSongByTitle(searchTitle)
+            .then(response => {
+                setPersons(response.data);
+                console.log(response.data);
+            })
+    }
 
     return (
         <div className="list row">
@@ -112,7 +114,7 @@ const AutoTrxList = () => {
                         <button
                             className="btn btn-outline-secondary"
                             type="button"
-                            // onClick={findByName}
+                            onClick={findByName}
                         >
                             Search
                         </button>
@@ -120,7 +122,8 @@ const AutoTrxList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Auto Transaction List</h4>
+                <h4>Contact List</h4>
+
 
                 <div className="mt-3">
                     {"Items per Page: "}
@@ -146,114 +149,81 @@ const AutoTrxList = () => {
 
 
                 <ul className="list-group">
-                    {transactions &&
-                        transactions.map((transaction, index) => (
+                    {persons &&
+                        persons.map((person, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveTransactions(transaction, index)}
+                                onClick={() => setActiveContact(person, index)}
                                 key={index}
                             >
-                                <p>
-                                    <strong>Amount: </strong>{transaction.amount.toFixed(2)}{' | '}<strong>Payment Date: </strong>{transaction.autoTransactionDate}
-                                </p>
-                                <p>
-                                    <strong>Transaction Type: </strong>{transaction.transactionType.descr}{' | '}
-                                </p>
-                                <p><strong>Username: </strong>{transaction.user.username}</p>
+                                <p><strong>{person.firstname + ' ' + person.lastname}</strong></p>
                             </li>
                         ))}
                 </ul>
                 <br></br>
-                <button
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllTransactions}
-                >
-                    Delete All
-                </button>
-                <AddAutoTransactionModalComponent />
+                <Row>
+                    <AddContactModalComponent />
+                    <Button
+                        size="lg"
+                        className="btn-danger delete-all-btn" 
+                        onClick={removeAllContacts}
+                    >
+                        Delete All
+                    </Button>
+                </Row>
             </div>
             <div className="col-md-6">
-                {currentTransaction ? (
+                {currentContact ? (
                     <div>
-                        <h4>Transaction Information</h4>
-                        <hr></hr>
+                        <h4>Contact Info:</h4>
                         <div>
                             <label>
-                                <strong>Amount:</strong>
+                                <strong>First Name:</strong>
                             </label>{" "}
-                            {currentTransaction.amount.toFixed(2)}
+                            {currentContact.firstname}
                         </div>
                         <div>
                             <label>
-                                <strong>Payment Date:</strong>
+                                <strong>Middle Initial:</strong>
                             </label>{" "}
-                            {currentTransaction.autoTransactionDate}
+                            {currentContact.middle_initial}
                         </div>
                         <div>
                             <label>
-                                <strong>Make:</strong>
+                                <strong>Last Name:</strong>
                             </label>{" "}
-                            {currentTransaction.vehicle.make}
+                            {currentContact.lastname}
                         </div>
                         <div>
                             <label>
-                                <strong>Model:</strong>
+                                <strong>Address:</strong>
                             </label>{" "}
-                            {currentTransaction.vehicle.model}
+                            {currentContact.address01 + ' ' + currentContact.address02 + ' ' + currentContact.city + ' ' + currentContact.state + ' ' + currentContact.zipcode}
                         </div>
                         <div>
                             <label>
-                                <strong>Year:</strong>
+                                <strong>Phone:</strong>
                             </label>{" "}
-                            {currentTransaction.vehicle.year}
+                            {currentContact.phone}
                         </div>
                         <div>
                             <label>
-                                <strong>Auto Shop Name:</strong>
+                                <strong>Email:</strong>
                             </label>{" "}
-                            {currentTransaction.autoShop.autoShopName}
+                            {currentContact.email}
                         </div>
                         <div>
                             <label>
-                                <strong>Auto Shop Address:</strong>
+                                <strong>Birthdate:</strong>
                             </label>{" "}
-                            {currentTransaction.autoShop.address}
+                            {currentContact.birthdate}
                         </div>
-                        <div>
-                            <label>
-                                <strong>Auto Shop City:</strong>
-                            </label>{" "}
-                            {currentTransaction.autoShop.city}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Auto Shop State:</strong>
-                            </label>{" "}
-                            {currentTransaction.autoShop.state}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Auto Shop Zip:</strong>
-                            </label>{" "}
-                            {currentTransaction.autoShop.zip}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>Transaction Type:</strong>
-                            </label>{" "}
-                            {currentTransaction.transactionType.descr}
-                        </div>
-                        <div>
-                            <label>
-                                <strong>User:</strong>
-                            </label>{" "}
-                            {currentTransaction.user.username}
-                        </div>
+
                         <Link
-                            to={"/update-auto-transaction/" + currentTransaction.auto_transaction_id}
+                            to={"/update-contact/" + currentContact.personId}
                             className="badge badge-warning"
                         >
                             Edit
@@ -262,7 +232,7 @@ const AutoTrxList = () => {
                 ) : (
                         <div>
                             <br></br>
-                            <p>Please click on a run entry...</p>
+                            <p>Please click on a contact...</p>
                         </div>
                     )}
             </div>
@@ -270,4 +240,4 @@ const AutoTrxList = () => {
     )
 }
 
-export default AutoTrxList;
+export default ContactList;

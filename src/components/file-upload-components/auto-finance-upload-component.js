@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadAutoFilesService from '../../services/auto-file-upload-services';
+import UploadAutoFilesService from '../../services/AutoFilleUploadService';
 
 export class AutoFinanceUploadComponent extends React.Component {
     constructor(props) {

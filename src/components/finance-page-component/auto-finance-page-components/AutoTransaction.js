@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import AutoTransactionService from '../../../services/auto-transaction-service';
-import { AutoFinanceTabsComponent } from '../../tab-components/auto-finance-tabs-component';
+import AutoTransactionService from '../../../services/AutoTrxService';
+import { AutoFinanceTabsComponent } from '../../tab-components/AutoFinanceTabsComponent';
 import AutoRepairShopDropdown from '../../dropdown-components/AutoRepairShopDropdown';
 import VehicleDropdownComponent from '../../dropdown-components/VehicleDropdownComponent';
 import UserDropdown from '../../dropdown-components/UserDropdown';

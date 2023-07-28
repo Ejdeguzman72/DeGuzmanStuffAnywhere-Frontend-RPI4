@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import MaterialTable from 'material-table';
-import UsersService from '../../../services/UsersInfoService';
+import Box from '@material-ui/core/Box';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -18,12 +19,14 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
-import Box from '@material-ui/core/Box';
+import InventoryExportToCSV from './InventoryExportToCsv';
+import AddInventoryModal from './AddInventoryModal';
+import InventoryOptionsDropdown from '../dropdown-components/InventoryOptionsDropdown';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-  Clear: forwardRef((props, ref ) => <Clear {...props} ref={ref} />),
+  Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
   Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
   DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
   Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
@@ -40,80 +43,75 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const api = Axios.create({
-  baseURL: 'http://localhost:8080/app/users'
-});
-
-export default function AdminPortalPendingUsersTableComponent() {
+export default function InventoryTable() {
   const [entries, setEntries] = useState({
     data: [
       {
-        userid: 0,
-        username: "",
-        password: "",
+        inventoryId: 0,
         name: "",
-        user_status: 0,
-        roleid: 0
+        description: "",
+        condition: "",
+        location: "",
+        quantity: 0
       }
     ]
   });
 
   const [state] = React.useState({
     columns: [
-      { title: 'User ID', field: 'userid'},
-      { title: 'Username', field: 'username' },
-      { title: 'Password', field: 'password', hidden: true },
-      { title: 'Name', field: 'name' },
-      { title: 'User Status', field: 'user_status' }
-    ],
+      { title: 'Inventory ID:', field: 'inventoryId', hidden: false},
+      { title: 'name', field: 'name'},
+      { title: 'Description', field: 'description'},
+      { title: 'Condition', field: 'condition'},
+      { title: 'Location', field: 'location'},
+      { title: 'Quantity', field: 'quantity'}
+    ]
   });
 
   useEffect(() => {
-    UsersService.getAllPendingUsersService()
-      .then(response => {
-        let data = [];
-        response.data.forEach(e1 => {
-          data.push({
-            userid: e1.userid,
-            username: e1.username,
-            password: e1.password,
-            name: e1.name,
-            user_status: e1.user_status,
-            role_id: e1.role_id
-          });
-          console.log(data);
+    Axios.get('http://localhost:8080/app/inventory/all').then(response => {
+      let data = [];
+      response.data.list.forEach(e1 => {
+        data.push({
+          inventoryId: e1.inventoryId,
+          name: e1.name,
+          description: e1.description,
+          condition: e1.condition,
+          location: e1.location,
+          quantity: e1.quantity
         });
-        setEntries({ data: data })
-      })
+      });
+      setEntries({ data: data });
+    })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
-  const handleRowUpdate = (newData, oldData, resolve) => {
-    console.log(oldData.userid + "this is old data");
-    console.log(newData.userid + "this is new data");
-    Axios.put(`http://localhost:8080/app/users/${newData.userid}`, newData)
+
+  const handleRowAdd = (newData, resolve) => {
+    if (newData.name === null) {
+      alert("name entry is required");
+    }
+    Axios.post('http://localhost:8080/app/inventory/add', newData)
       .then(res => {
-        const dataUpdate = [...entries];
-        const index = oldData.tableData.userid;
-        dataUpdate[index] = newData;
-        setEntries([...dataUpdate]);
+        let dataToAdd = [...entries.data];
+        dataToAdd.push(newData);
+        setEntries(dataToAdd);
         resolve();
         window.location.reload();
       })
       .catch(error => {
         console.log(error);
         resolve();
-      })
+      });
   }
 
-  // const handleRowDelete = (oldData, resolve) => {
-  //   console.log(oldData.userid);
-  //   Axios.delete(`http://localhost:8080/app/users/${oldData.userid}`)
+  // const handleRowDelete = (data, resolve) => {
+  //   Axios.delete(`http://localhost:8080/app/inventory/delete`, data)
   //     .then(res => {
   //       const dataDelete = [...entries.data];
-  //       const index = oldData.tableData.userid;
+  //       const index = data.tableData.personId;
   //       dataDelete.splice(index, 1);
   //       setEntries([...dataDelete]);
   //       resolve();
@@ -121,48 +119,68 @@ export default function AdminPortalPendingUsersTableComponent() {
   //     })
   //     .catch(error => {
   //       console.log(error);
+  //       resolve();
   //     });
   // }
 
-  // const handleRowAdd = (newData, resolve) => {
-  //   Axios.post("http://localhost:8080/app/users/add-user-information", newData)
+  // const handleRowUpdate = (newData, oldData, resolve) => {
+  //   Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personId}`, newData)
   //     .then(res => {
-  //       console.log(newData + "this is newData");
-  //       let dataToAdd = [...entries.data];
-  //       console.log(api + "this is api");
-  //       console.log(dataToAdd + "this is dataTo");
-  //       dataToAdd.push(newData);
-  //       setEntries(dataToAdd);
+  //       const dataUpdate = [...entries.data];
+  //       const index = oldData.tabledata.personId;
+  //       dataUpdate[index] = newData;
+  //       setEntries([...dataUpdate]);
   //       resolve();
-  //       window.location.reload();
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //       resolve();
+  //       window.reload();
   //     });
   // }
+
+  const [fileName, setFileName] = useState("Inventory");
 
   return (
     <div>
-      <Box border={3} borderRadius={16}>
+      <Row>
+        <Col md={4}>
+          <AddInventoryModal />
+        </Col>
+        <Col md={4}>
+        <InventoryOptionsDropdown />
+        </Col>
+        <Col md={2}>
+        </Col>
+        <Col md={1}>
+          <InventoryExportToCSV csvData={entries.data} fileName={fileName} />
+        </Col>
+        <Col md={1}>
+        </Col>
+      </Row>
+      <br></br>
+      <Box border={5} borderRadius={16}>
         <MaterialTable
-          title="Approve Users"
+          title="Contact Information"
           columns={state.columns}
           data={entries.data}
           icons={tableIcons}
           editable={{
-        //     onRowAdd: (newData) =>
-        //       new Promise((resolve) => {
-        //         handleRowAdd(newData, resolve)
-        //       }),
-            onRowUpdate: (newData, oldData) =>
+            onRowAdd: (newData) =>
               new Promise((resolve) => {
-                handleRowUpdate(newData, oldData, resolve);
+                handleRowAdd(newData, resolve)
               }),
-        //     onRowDelete: (oldData) =>
-        //       new Promise((resolve) => {
-        //         handleRowDelete(oldData, resolve);
-        //       })
+            // onRowUpdate: (newData, oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowUpdate(newData, oldData, resolve)
+            //   }),
+            // onRowDelete: (oldData) =>
+            //   new Promise((resolve) => {
+            //     handleRowDelete(oldData, resolve)
+            //   }),
           }}
         />
       </Box>
-
     </div>
   )
 }

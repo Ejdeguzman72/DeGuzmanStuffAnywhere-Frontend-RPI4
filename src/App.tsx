@@ -16,6 +16,8 @@ import AdminRoutes from './components/route-components/AdminRoutes';
 import AutomotiveRoutes from './components/route-components/AutomotiveRoutes';
 import ContactInfoRoutes from './components/route-components/ContactInfoRoutes';
 import MusicRoutes from './components/route-components/MusicRoutes';
+import BookRoutes from './components/route-components/BookRoutes';
+import InventoryRoutes from './components/route-components/InventoryRoutes';
 
 const jwt = jwtHelper();
 
@@ -32,6 +34,8 @@ function App() {
               <div>
                 <Route path="/home" exact component={HomePageComponent} />
                 <AdminRoutes />
+                <InventoryRoutes />
+                <BookRoutes />
                 <ContactInfoRoutes />
                 <MediaRoutes />
                 <FinanceRoutes />

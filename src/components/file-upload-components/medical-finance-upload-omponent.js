@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadMedicalFileUploadService from '../../services/medical-file-upload-service';
+import UploadMedicalFileUploadService from '../../services/MedicalFileUploadService';
 
 export class MedicalFileUploadFiles extends React.Component {
     constructor(props) {

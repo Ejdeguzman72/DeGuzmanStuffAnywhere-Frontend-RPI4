@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import MaterialTable from 'material-table';
-import UtilityTrackerService from '../../services/utility-tracker-service';
+import UtilityTrackerService from '../../services/UtilityTrackerService';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';

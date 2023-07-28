@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MedicalTransactionService from '../../../../services/medical-transaction-service';
+import MedicalTransactionService from '../../../../services/MedicalTrxService';
 import { Link } from 'react-router-dom';
 import AddMedicalTransactionModalComponent from '../AddMedicalTransactionModalComponent';
 import Pagination from "@material-ui/lab/Pagination";

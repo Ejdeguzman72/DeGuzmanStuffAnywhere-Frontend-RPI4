@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FooterComponent } from '../footer-component/footer-component';
-import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../tab-components/AutoFinanceTabsComponent';
 import ViewCarsTableComponent from './VehicleInformationTable';
 import VehicleList from './VehicleList';
 import VehicleOptionsDropdown from '../dropdown-components/VehicleOptionsDropdown';

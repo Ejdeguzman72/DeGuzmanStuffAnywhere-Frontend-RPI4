@@ -32,7 +32,7 @@ export default function AddAutoShopModalComponent() {
       zip: autoShop.zip
     };
 
-    Axios.post('http://localhost:8080/app/auto-repair-shops/add-auto-shop', data)
+    Axios.post('http://localhost:8080/app/auto-repair-shops/add', data)
       .then(response => {
         setAutoShop({
           autoShopId: response.data.autoShopId,

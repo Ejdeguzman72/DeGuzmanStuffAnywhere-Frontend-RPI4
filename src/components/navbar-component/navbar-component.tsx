@@ -55,6 +55,10 @@ export class NavBarComponent extends React.Component<any, any> {
                                 jwt ?
                                     <Nav.Link href="#downloads" className="navbar-item">Downloads</Nav.Link> : null
                             }
+                            {
+                                jwt ?
+                                    <Nav.Link href="#inventory-table" className="navbar-item">Inventory</Nav.Link> : null
+                            }
                             {/* {
                                 jwt ?
                                     <Nav.Link href="#chatroom" className="navbar-item">Chatroom</Nav.Link> : null

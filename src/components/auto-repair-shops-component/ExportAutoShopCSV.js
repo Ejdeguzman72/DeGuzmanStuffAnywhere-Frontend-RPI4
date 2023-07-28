@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 import { Button } from 'react-bootstrap';
 import '../../style-sheets/general-finance-page.css';
 
-const ExportMedicalOfficeCSV = ({csvData,fileName}) => {
+const ExportCSV = ({csvData,fileName}) => {
 
     const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
     const fileExtension = '.xlsx';
@@ -18,8 +18,8 @@ const ExportMedicalOfficeCSV = ({csvData,fileName}) => {
     }
 
     return (
-        <Button variant="info" className="export-btn" size="lg" onClick={(e) => exportToCSV(csvData,fileName)} >Export</Button>
+        <Button variant="info" className="export-btn" size="lg" onClick={(e) => exportToCSV(csvData,fileName)} >Export CSV</Button>
     )
 }
 
-export default ExportMedicalOfficeCSV;
+export default ExportCSV;

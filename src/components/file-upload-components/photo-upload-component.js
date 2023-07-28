@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import UploadPhotosService from '../../services/photo-file-upload-services';
+import UploadPhotosService from '../../services/PhotoFileUploadService';
 
 const PhotoUploadComponent = () => {
     const [selectedFiles, setSelectedFiles] = useState(undefined);

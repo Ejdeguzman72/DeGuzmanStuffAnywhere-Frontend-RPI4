@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import AutoShopService from '../../services/AutoShopService';
-import { AutoFinanceTabsComponent } from '../tab-components/auto-finance-tabs-component';
+import { AutoFinanceTabsComponent } from '../tab-components/AutoFinanceTabsComponent';
 
 const AutoShop = props => {
     const initialState = {
