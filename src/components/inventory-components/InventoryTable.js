@@ -155,8 +155,6 @@ export default function InventoryTable() {
         <Col md={1}>
           <InventoryExportToCSV csvData={entries.data} fileName={fileName} />
         </Col>
-        <Col md={1}>
-        </Col>
       </Row>
       <br></br>
       <Box border={5} borderRadius={16}>

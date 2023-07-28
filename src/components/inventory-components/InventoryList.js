@@ -5,7 +5,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import InventoryService from '../../services/InventoryService';
 
 const InventoryList = () => {
-    const [inventory, setInventory] = useState([]);
+    const [items, setInventory] = useState([]);
     const [currentInventory, setCurrentInventory] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
@@ -72,8 +72,8 @@ const InventoryList = () => {
         setpage(1);
     }
 
-    const setActiveInventory = (inventory, index) => {
-        setCurrentInventory(inventory);
+    const setActiveInventory = (items, index) => {
+        setCurrentInventory(items);
         setCurrentIndex(index);
     }
 
@@ -148,17 +148,17 @@ const InventoryList = () => {
 
 
                 <ul className="list-group">
-                    {inventory &&
-                        inventory.map((inv, index) => (
+                    {items &&
+                        items.map((item, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveInventory(inv, index)}
+                                onClick={() => setActiveInventory(item, index)}
                                 key={index}
                             >
-                                <p><strong>{inv.name}</strong></p>
+                                <p><strong>{item.name}</strong></p>
                             </li>
                         ))}
                 </ul>
