@@ -147,7 +147,6 @@ const ContactList = () => {
                     />
                 </div>
 
-
                 <ul className="list-group">
                     {persons &&
                         persons.map((person, index) => (

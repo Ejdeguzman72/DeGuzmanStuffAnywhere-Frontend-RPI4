@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Row, Button } from 'react-bootstrap';
 import Pagination from "@material-ui/lab/Pagination";
 import InventoryService from '../../services/InventoryService';
+import AddInventoryModal from './AddInventoryModal';
 
 const InventoryList = () => {
-    const [items, setInventory] = useState([]);
+    const [inventorys, setInventorys] = useState([]);
     const [currentInventory, setCurrentInventory] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
@@ -45,7 +46,7 @@ const InventoryList = () => {
         InventoryService.getAllInventoryPagination(params)
             .then(response => {
                 const { persons, totalPages } = response.data;
-                setInventory(persons);
+                setInventorys(persons);
                 setCount(totalPages);
 
                 console.log(response.data)
@@ -72,15 +73,15 @@ const InventoryList = () => {
         setpage(1);
     }
 
-    const setActiveInventory = (items, index) => {
-        setCurrentInventory(items);
+    const setActiveInventory = (item, index) => {
+        setCurrentInventory(item);
         setCurrentIndex(index);
     }
 
     const removeAllInventory = () => {
         InventoryService.deleteAllInventory()
             .then(response => {
-                setInventory(response.data);
+                setInventorys(response.data);
                 console.log(response.data);
 
                 window.location.reload();
@@ -93,7 +94,7 @@ const InventoryList = () => {
     const findByName = () => {
         InventoryService.findByName(searchTitle)
             .then(response => {
-                setInventory(response.data);
+                setInventorys(response.data);
                 console.log(response.data);
             })
     }
@@ -146,25 +147,10 @@ const InventoryList = () => {
                     />
                 </div>
 
-
-                <ul className="list-group">
-                    {items &&
-                        items.map((item, index) => (
-                            <li
-                                className={
-                                    "list-group-item selected-book" + (index === currentIndex ? "active" : "")
-
-                                }
-                                onClick={() => setActiveInventory(item, index)}
-                                key={index}
-                            >
-                                <p><strong>{item.name}</strong></p>
-                            </li>
-                        ))}
-                </ul>
+               {inventorys}
                 <br></br>
                 <Row>
-                    {/* <AddContactModalComponent /> */}
+                    <AddInventoryModal />
                     <Button
                         size="lg"
                         className="btn-danger delete-all-btn" 

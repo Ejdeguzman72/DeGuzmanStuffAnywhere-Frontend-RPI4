@@ -9,7 +9,6 @@ function BookOptionsDropdown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/book-recommendations-table">Table View</Dropdown.Item>
         <Dropdown.Item href="#/book-recommendations-grid">Grid View</Dropdown.Item>
         <Dropdown.Item href="#/action-1">Search By Author</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Search By Title</Dropdown.Item>

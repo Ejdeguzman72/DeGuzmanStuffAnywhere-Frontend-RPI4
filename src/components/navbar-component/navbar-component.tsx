@@ -81,7 +81,7 @@ export class NavBarComponent extends React.Component<any, any> {
                             {
                                 jwt ?
                                     <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#book-recommendations-table" className="navbar-item">Book Recommendations</NavDropdown.Item>
+                                        <NavDropdown.Item href="#book-recommendations-grid" className="navbar-item">Book Recommendations</NavDropdown.Item>
                                         <NavDropdown.Item href="#contact-info-table" className="navbar-item">Contact Info</NavDropdown.Item>
                                         <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
                                         <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
