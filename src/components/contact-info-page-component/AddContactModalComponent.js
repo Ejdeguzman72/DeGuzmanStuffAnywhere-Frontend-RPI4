@@ -52,7 +52,7 @@ const AddContactModalComponent = () => {
       phone: contact.phone
     }
 
-    Axios.post('http://localhost:8080/app/person-info/add-person-information', data)
+    Axios.post('http://localhost:8080/app/person-info/add', data)
       .then(response => {
         setContact({
           personId: response.data.personId,

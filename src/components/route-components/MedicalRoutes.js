@@ -8,7 +8,7 @@ const MedicalRoutes = () => {
     return (
         <HashRouter>
             <Switch>
-            <Route path="/medical-offices-table" exact component={MedicalOfficePageComponent} />
+                <Route path="/medical-office-table" exact component={MedicalOfficePageComponent} />
                 <Route path="/medical-office-grid" exact component={MedicalOfficeGridPage} />
                 <Route path="/update-medical-office/:medicalOfficeId" exact component={MedicalOffice} />
             </Switch>

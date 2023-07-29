@@ -19,7 +19,7 @@ export class MedicalTabsComponent extends React.Component<any, any> {
                 <Row>
                     <Tab.Container>
                         <Col md={6}>
-                            <Nav.Link href="#medical-offices-table" eventKey="third" id="tabs">Medical Offices</Nav.Link>
+                            <Nav.Link href="#medical-office-table" eventKey="third" id="tabs">Medical Offices</Nav.Link>
                         </Col>
                         <Col md={6}>
                             <Nav.Item>
