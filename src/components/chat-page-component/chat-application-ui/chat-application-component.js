@@ -27,7 +27,6 @@ export default class ChatApplicationComponent extends React.Component {
     }
 
     sendMessage = (event) => {
-        // event.preventDefault();
         this.clientRef.sendMessage('/app/user-all', JSON.stringify({
             name: this.state.name,
             message: this.state.typedMessage,

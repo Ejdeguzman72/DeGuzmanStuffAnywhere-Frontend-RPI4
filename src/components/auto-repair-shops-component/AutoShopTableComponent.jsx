@@ -164,10 +164,6 @@ export default function AutoShopTableComponent() {
               new Promise((resolve) => {
                 handleRowAdd(newData, resolve)
               }),
-            // onRowUpdate: (newData, oldData) =>
-            //   new Promise((resolve) => {
-            //     handleRowUpdate(newData, oldData, resolve)
-            //   }),
             onRowDelete: (oldData) =>
               new Promise((resolve) => {
                 handleRowDelete(oldData, resolve)
