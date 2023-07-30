@@ -8,12 +8,12 @@ import UserDropdown from '../../dropdown-components/UserDropdown';
 export default function AddGeneralFinanceModalComponent() {
 
   const initialState = {
-    transaction_id: 0,
+    genTrxId: 0,
     amount: 0,
-    payment_date: "",
+    paymentDate: "",
     entity: "",
-    transaction_type_id: 0,
-    user_id: 0
+    trxTypeId: 0,
+    userId: 0
   }
 
   const [generalTransaction, setGeneralTransaction] = useState(initialState);
@@ -24,37 +24,37 @@ export default function AddGeneralFinanceModalComponent() {
     setGeneralTransaction({ ...generalTransaction, [name]: value });
   };
 
-  const handleTransactionType = (transaction_type_id) => {
+  const handleTransactionType = (trxTypeId) => {
     setGeneralTransaction({
-      ...generalTransaction, transaction_type_id: transaction_type_id
+      ...generalTransaction, trxTypeId: trxTypeId
     })
   }
  
-  const handleUser = (user_id) => {
+  const handleUser = (userId) => {
     setGeneralTransaction({
-      ...generalTransaction, user_id: user_id
+      ...generalTransaction, userId: userId
     })
   }
 
   const saveGeneralTransaction = () => {
     let data = {
-      transaction_id: generalTransaction.transaction_id,
+      genTrxId: generalTransaction.genTrxId,
       amount: generalTransaction.amount,
-      payment_date: generalTransaction.payment_date,
+      paymentDate: generalTransaction.paymentDate,
       entity: generalTransaction.entity,
-      transaction_type_id: generalTransaction.transaction_type_id,
-      user_id: generalTransaction.user_id
+      trxTypeId: generalTransaction.trxTypeId,
+      userId: generalTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/general-transactions/add-general-transaction-information', data)
+    Axios.post('http://localhost:8080/app/general-transactions/add', data)
       .then(response => {
         setGeneralTransaction({
-          transasction_id: response.data.transction_id,
+          genTrxId: response.data.genTrxId,
           amount: response.data.amount,
           entity: response.data.entity,
-          payment_date: response.data.payment_date,
-          transaction_type_id: response.data.transaction_type_id,
-          user_id: response.data.user_id
+          paymentDate: response.data.paymentDate,
+          trxTypeId: response.data.trxTypeId,
+          userId: response.data.userId
         })
         setSubmitted(true);
 
@@ -113,10 +113,10 @@ export default function AddGeneralFinanceModalComponent() {
                 onChange={handleInputChange} /><br></br>
 
               <Form.Group
-                controlId="payment_date"
+                controlId="paymentDate"
               >
                 <Form.Label>Select Date</Form.Label>
-                <Form.Control type="date" name="payment_date" placeholder="Payment Date (MM/DD/YYYY)" onChange={handleInputChange} />
+                <Form.Control type="date" name="paymentDate" placeholder="Payment Date (MM/DD/YYYY)" onChange={handleInputChange} />
               </Form.Group>
 
               <Form.Control as="select" name="entity" onChange={handleInputChange} className="form-control">

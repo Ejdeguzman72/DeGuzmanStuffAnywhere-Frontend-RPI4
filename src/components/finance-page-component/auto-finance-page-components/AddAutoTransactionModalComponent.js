@@ -9,13 +9,13 @@ import VehicleDropdownComponent from '../../dropdown-components/VehicleDropdownC
 export default function AddAutoTransactionModalComponent() {
 
   const initialState = {
-    auto_transaction_id: 0,
+    autoTrxId: 0,
     amount: 0,
-    auto_transaction_date: "",
-    auto_shop_id: 0,
-    vehicle_id: 0,
-    transaction_type_id: 0,
-    person: ""
+    autoTrxDate: "",
+    autoShopId: 0,
+    vehicleId: 0,
+    trxTypeId: 0,
+    userId: 0
   }
 
   const [autoTransaction, setAutoTransaction] = useState(initialState);
@@ -26,51 +26,51 @@ export default function AddAutoTransactionModalComponent() {
     setAutoTransaction({ ...autoTransaction, [name]: value });
   };
 
-  const handleAutoShop = (auto_shop_id) => {
+  const handleAutoShop = (autoShopId) => {
     setAutoTransaction({
-      ...autoTransaction, auto_shop_id: auto_shop_id
+      ...autoTransaction, autoShopId: autoShopId
     })
   }
 
-  const handleVehicle = (vehicle_id) => {
+  const handleVehicle = (vehicleId) => {
     setAutoTransaction({
-      ...autoTransaction, vehicle_id: vehicle_id
+      ...autoTransaction, vehicleId: vehicleId
     })
   }
 
-  const handleTransactionType = (transaction_type_id) => {
+  const handleTransactionType = (trxTypeId) => {
     setAutoTransaction({
-      ...autoTransaction, transaction_type_id: transaction_type_id
+      ...autoTransaction, trxTypeId: trxTypeId
     })
   }
 
-  const handleUser = (user_id) => {
+  const handleUser = (userId) => {
     setAutoTransaction({
-      ...autoTransaction, user_id: user_id
+      ...autoTransaction, userId: userId
     })
   }
 
   const saveAutoTransaction = () => {
     let data = {
-      auto_transaction_id: autoTransaction.auto_transaction_id,
+      autoTrxId: autoTransaction.autoTrxId,
       amount: autoTransaction.amount,
-      auto_transaction_date: autoTransaction.auto_transaction_date,
-      auto_shop_id: autoTransaction.auto_shop_id,
-      vehicle_id: autoTransaction.vehicle_id,
-      transaction_type_id: autoTransaction.transaction_type_id,
-      user_id: autoTransaction.user_id
+      autoTrxDate: autoTransaction.autoTrxDate,
+      autoShopId: autoTransaction.autoShopId,
+      vehicleId: autoTransaction.vehicleId,
+      trxTypeId: autoTransaction.trxTypeId,
+      userId: autoTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/auto-transactions/add-auto-transaction-information', data)
+    Axios.post('http://localhost:8080/app/auto-transactions/add', data)
       .then(response => {
         setAutoTransaction({
-          auto_transaction_id: response.data.auto_transaction_id,
+          autoTrxId: response.data.autoTrxId,
           amount: response.data.amount,
-          auto_transaction_date: response.data.auto_transaction_date,
-          auto_shop_id: response.data.auto_shop_id,
-          vehicle_id: response.data.vehicle_id,
-          transaction_type_id: response.data.transaction_type_id,
-          user_id: response.data.user_id
+          autoTrxDate: response.data.autoTrxDate,
+          autoShopId: response.data.autoShopId,
+          vehicleId: response.data.vehicleId,
+          trxTypeId: response.data.trxTypeId,
+          userId: response.data.userId
         });
         setSubmitted(true);
 
@@ -128,9 +128,9 @@ export default function AddAutoTransactionModalComponent() {
                 
                 <br></br>
 
-              <Form.Group controlId="auto_transaction_date">
+              <Form.Group controlId="autoTrxDate">
                 <Form.Label>Select Date</Form.Label>
-                <Form.Control className="form-control" type="date" name="auto_transaction_date" placeholder="Date (MM/DD/YY)" onChange={handleInputChange} />
+                <Form.Control className="form-control" type="date" name="autoTrxDate" placeholder="Date (MM/DD/YY)" onChange={handleInputChange} />
               </Form.Group>
 
               <AutoRepairShopDropdown 

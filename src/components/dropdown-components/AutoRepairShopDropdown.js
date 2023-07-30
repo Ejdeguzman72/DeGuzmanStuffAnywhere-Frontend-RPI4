@@ -7,7 +7,7 @@ function AutoRepairShopDropdown(props) {
 
     useEffect(function () {
         Axios.get('http://localhost:8080/app/auto-repair-shops/all')
-            .then((response) => setAutoShops(response.data))
+            .then((response) => setAutoShops(response.data.list))
             .then((error) => console.log(error));
     }, []);
 
@@ -18,16 +18,16 @@ function AutoRepairShopDropdown(props) {
 
     return (
         <select 
-            id="auto_shop_id"
-            name="auto_shop_id"
+            id="autoShopId"
+            name="autoShopId"
             className="form-control"
-            value={autoShops.auto_shop_id}
+            value={autoShops.autoShopId}
             type="number"
             onChange={handleChange}
         >
             <option value="0">Select an Auto Repair Shop</option>
             {autoShops.map((autoShop) => (
-                <option key={autoShop.auto_shop_id} value={autoShop.auto_shop_id}>
+                <option key={autoShop.autoShopId} value={autoShop.autoShopId}>
                     {autoShop.address}
                 </option>
             ))}

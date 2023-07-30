@@ -8,14 +8,14 @@ import UserDropdown from '../dropdown-components/UserDropdown';
 
 const AddExerciseModal = () => {
     const initialState = {
-        exercise_id: 0,
+        exerciseId: 0,
         exerciseName: "",
         sets: "",
         reps: "",
         weight: 0,
         date: "",
-        exercise_type_id: 0,
-        user_id: 0
+        exerciseTypeId: 0,
+        userId: 0
     };
 
     const [exercise, setExercise] = useState(initialState);
@@ -27,36 +27,36 @@ const AddExerciseModal = () => {
 
     };
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setExercise({
-            ...exercise, user_id: user_id
+            ...exercise, userId: userId
         });
     }
 
     const saveExercise = () => {
 
         let data = {
-            exercise_id: exercise.exercise_id,
+            exerciseId: exercise.exerciseId,
             exerciseName: exercise.exerciseName,
             sets: exercise.sets,
             reps: exercise.reps,
             weight: exercise.weight,
             date: exercise.date,
-            exercise_type_id: exercise.exercise_type_id,
-            user_id: exercise.user_id
+            exerciseTypeId: exercise.exerciseTypeId,
+            userId: exercise.userId
         };
 
-        Axios.post('http://localhost:8080/app/gym-tracker/add-exercise-information', data)
+        Axios.post('http://localhost:8080/app/gym-tracker/add', data)
             .then(response => {
                 setExercise({
-                    exercise_id: response.data.exercise_id,
+                    exerciseId: response.data.exerciseId,
                     exerciseName: response.data.exerciseName,
                     sets: response.data.sets,
                     reps: response.data.reps,
                     weight: response.data.weight,
                     date: response.data.date,
-                    exercise_type_id: response.data.exercise_type_id,
-                    user_id: response.data.user_id
+                    exerciseTypeId: response.data.exerciseTypeId,
+                    userId: response.data.userId
                 });
                 setSubmitted(true);
 
@@ -159,8 +159,8 @@ const AddExerciseModal = () => {
                                 <Form.Control type="date" name="date" placeholder="Date" onChange={handleInputChange} />
                             </Form.Group>
                             <select
-                                id="exercise_type_id"
-                                name="exercise_type_id"
+                                id="exerciseTypeId"
+                                name="exerciseTypeId"
                                 type="number"
                                 className="form-control"
                                 onChange={handleInputChange} >

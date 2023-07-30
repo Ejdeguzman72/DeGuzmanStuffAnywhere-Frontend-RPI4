@@ -10,19 +10,19 @@ function RestaurantTypeDropdown(props) {
 
     useEffect(function () {
         Axios.get('http://localhost:8080/app/restaurant-types/all')
-            .then((response) => setTypes(response.data))
+            .then((response) => setTypes(response.data.list))
             .then((error) => console.log(error));
     }, []);
 
     const handleChange = (event) => {
         props.handleRestaurantType(event.target.value);
-        console.log(event.target.value);
+        console.log("Value: " + event.target.value);
     }
 
     return (
         <select 
-            id="restaurant_type_id"
-            name="restaurant_type_id"
+            id="restaurantTypeId"
+            name="restaurantTypeId"
             className="form-control"
             value={types.restaurant_type_id}
             type="number"
@@ -30,7 +30,7 @@ function RestaurantTypeDropdown(props) {
         >
             <option value="0">Select A Restaurant Type</option>
             {types.map((type) => (
-                <option key={type.restaurant_type_id} value={type.restaurant_type_id}>
+                <option key={type.restaurantTypeId} value={type.restaurantTypeId}>
                     {type.descr}
                 </option>
             ))}

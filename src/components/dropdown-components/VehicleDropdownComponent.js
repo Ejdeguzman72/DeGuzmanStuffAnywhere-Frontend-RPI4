@@ -7,7 +7,7 @@ const VehicleDropdown = (props) => {
 
     useEffect(() => {
         Axios.get('http://localhost:8080/app/vehicles/all')
-            .then((response) => setVehicles(response.data))
+            .then((response) => setVehicles(response.data.list))
             .then((error) => console.log(error));
     }, [])
 
@@ -29,7 +29,7 @@ const VehicleDropdown = (props) => {
             <option value="0">Select A Vehicle</option>
             {vehicles.map((vehicle) => (
                 <option key={vehicle.vehicleId} value={vehicle.vehicleId}>
-                    {vehicle.make}
+                    {vehicle.year + ' ' + vehicle.make + ' ' + vehicle.model + ' '}
                 </option>
             ))}
         </select>

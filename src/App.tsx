@@ -18,6 +18,7 @@ import ContactInfoRoutes from './components/route-components/ContactInfoRoutes';
 import MusicRoutes from './components/route-components/MusicRoutes';
 import BookRoutes from './components/route-components/BookRoutes';
 import InventoryRoutes from './components/route-components/InventoryRoutes';
+import MedicalRoutes from './components/route-components/MedicalRoutes';
 
 const jwt = jwtHelper();
 
@@ -38,6 +39,7 @@ function App() {
                 <BookRoutes />
                 <ContactInfoRoutes />
                 <MediaRoutes />
+                <MedicalRoutes />
                 <FinanceRoutes />
                 <FitnessRoutes />
                 <AutomotiveRoutes />

@@ -13,6 +13,8 @@ import { MedicalGridView } from '../finance-page-component/medical-finance-page-
 import MedicalTransaction from '../finance-page-component/medical-finance-page-components/MedicalTransaction';
 import { MedicalFinanceUploadPageComponent } from '../finance-page-component/medical-finance-page-components/MedicalFinanceUploadPage';
 import { GeneralFinanceTablePageComponent } from '../finance-page-component/general-finance-page-components/GeneralFinanceTablePageComponent';
+import MedicalOfficePageComponent from '../medical-offices/MedicalOfficePageComponent';
+import MedicalOfficeGridPage from '../medical-offices/MedicalOfficeGridPage';
 
 const FinanceRoutes = () => {
     return (

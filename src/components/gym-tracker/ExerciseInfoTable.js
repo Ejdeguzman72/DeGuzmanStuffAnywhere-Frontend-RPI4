@@ -22,6 +22,7 @@ import Box from '@material-ui/core/Box';
 import AddExerciseModal from './AddExerciseInfoModal';
 import { Col, Row } from 'react-bootstrap';
 import GymOptionsDropdown from '../dropdown-components/GymOptionsDropdown';
+import ExportToCSV from './ExportToCsv';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -148,11 +149,11 @@ export default function ExerciseInfoTableComponent() {
         <Col md={4}>
           <GymOptionsDropdown />
         </Col>
-        <Col md={2}>
+        <Col md={1}>
 
         </Col>
         <Col md={2}>
-
+          <ExportToCSV />
         </Col>
       </Row>
       <br></br>

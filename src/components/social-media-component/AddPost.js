@@ -9,7 +9,7 @@ export default function AddPost() {
    postId: 0,
    content: "",
    createdDate: "",
-   user_id: 0
+   userId: 0
   }
 
   const [post, setPost] = useState(initialState);
@@ -25,16 +25,16 @@ export default function AddPost() {
       postId: post.psotId,
       content: post.content,
       createdDate: post.createdDate,
-      user_id: post.user_id
+      userId: post.userId
     };
 
-    Axios.post('http://localhost:8080/app/posts/add-post', data)
+    Axios.post('http://localhost:8080/app/posts/add', data)
       .then(response => {
         setPost({
             psotId: response.data.postId,
             content: response.data.content,
             createdDate: response.data.createdDate,
-            user_id: response.data.user_id
+            userId: response.data.userId
         });
         setSubmitted(true);
         console.log(data);

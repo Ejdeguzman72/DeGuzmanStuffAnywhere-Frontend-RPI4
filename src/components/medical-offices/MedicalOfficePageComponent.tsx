@@ -10,7 +10,7 @@ const MedicalOfficePageComponent = () => {
         <div>
             <Helmet>
                 <title>
-                    Medical Finance
+                    Medical Office
                 </title>
             </Helmet>
             <div id="white-background">
@@ -18,8 +18,6 @@ const MedicalOfficePageComponent = () => {
                 <MedicalTabsComponent />
                 <br></br>
                 <MedicalOfficeTableComponent />
-                <br></br>
-                <MedicalOfficeList />
             </div>
             <FooterComponent />
         </div>

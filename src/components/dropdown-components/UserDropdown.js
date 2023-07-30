@@ -7,7 +7,7 @@ function UserDropdown(props) {
 
     useEffect(function () {
         Axios.get('http://localhost:8080/app/users/all')
-            .then((response) => setUsers(response.data))
+            .then((response) => setUsers(response.data.list))
             .then((error) => console.log(error));
     }, []);
 
@@ -18,16 +18,16 @@ function UserDropdown(props) {
 
     return (
         <select 
-            id="user_id"
-            name="user_id"
-            value={users.user_id}
+            id="userId"
+            name="userId"
+            value={users.userId}
             type="number"
             className="form-control"
             onChange={handleChange}
         >
             <option value="0">Select A User</option>
             {users.map((user) => (
-                <option key={user.user_id} value={user.user_id}>
+                <option key={user.userId} value={user.userId}>
                     {user.username}
                 </option>
             ))}

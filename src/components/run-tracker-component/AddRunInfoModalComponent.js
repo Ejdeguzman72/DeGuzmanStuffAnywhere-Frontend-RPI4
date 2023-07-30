@@ -12,11 +12,11 @@ export default function AddRunInfoModalComponent({ props }) {
   const [submitted, setSubmitted] = useState(false);
 
   const initialState = {
-    run_id: 0,
+    runId: 0,
     runDate: "",
     runDistance: 0,
     runTime: "",
-    user_id: 0
+    userId: 0
   }
 
   const handleClose = () => setShow(false);
@@ -27,30 +27,30 @@ export default function AddRunInfoModalComponent({ props }) {
     setRun({ ...run, [name]: value });
   }
 
-  const handleUser = (user_id) => {
+  const handleUser = (userId) => {
     setRun({
-      ...run, user_id: user_id
+      ...run, userId: userId
     });
   }
 
   const saveRunInformation = () => {
     const data = {
-      run_id: run.run_id,
+      runId: run.runId,
       runDate: run.runDate,
       runDistance: run.runDistance,
       runTime: run.runTime,
-      user_id: run.user_id
+      userId: run.userId
     }
 
-    Axios.post('http://localhost:8080/app/run-tracker-app/add-run-tracker-info', data)
+    Axios.post('http://localhost:8080/app/run-tracker-app/add', data)
       .then(response => {
         console.log(data + " this is data");
         setRun({
-          run_id: response.data.run_id,
+          runId: response.data.runId,
           runDate: response.data.runDate,
           runDistance: response.data.runDistance,
           runTime: response.data.runTime,
-          user_id: response.data.user_id
+          userId: response.data.userId
         });
         console.log(data);
         setSubmitted(true);

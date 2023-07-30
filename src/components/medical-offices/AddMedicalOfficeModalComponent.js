@@ -32,7 +32,7 @@ export default function AddMedicalOfficeModalComponent() {
       zip: medicalOffice.zip
     };
 
-    Axios.post('http://localhost:8080/app/medical-offices/add-medical-office-information', data)
+    Axios.post('http://localhost:8080/app/medical-offices/add', data)
       .then(response => {
         setMedicalOffice({
           medicalOfficeId: response.data.medicalOfficeId,

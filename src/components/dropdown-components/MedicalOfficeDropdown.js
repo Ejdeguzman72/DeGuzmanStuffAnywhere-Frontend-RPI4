@@ -7,7 +7,7 @@ function MedicalOfficeDropdown(props) {
 
     useEffect(function () {
         Axios.get('http://localhost:8080/app/medical-offices/all')
-            .then((response) => setMedicalOffices(response.data))
+            .then((response) => setMedicalOffices(response.data.list))
             .then((error) => console.log(error));
     }, []);
 
@@ -18,10 +18,10 @@ function MedicalOfficeDropdown(props) {
 
     return (
         <select 
-            id="medical_office_id"
-            name="medical_office_id"
+            id="medicalOfficeId"
+            name="medicalOfficeId"
             className="form-control"
-            value={medicalOffices.medical_office_id}
+            value={medicalOffices.medicalOfficeId}
             type="number"
             onChange={handleChange}
         >

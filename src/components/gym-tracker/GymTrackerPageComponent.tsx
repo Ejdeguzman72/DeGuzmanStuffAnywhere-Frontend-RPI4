@@ -16,8 +16,6 @@ const GymTrackerPageComponent = () => {
                 <GymTrackerTabComponent />
                 <br></br>
                 <ExerciseInfoTable />
-                <br></br>
-                <ExerciseList />
             </div>
             <FooterComponent />
         </div>

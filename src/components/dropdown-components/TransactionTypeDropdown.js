@@ -7,7 +7,7 @@ const TransactionTypeDropdown = (props) => {
 
     useEffect(() => {
         Axios.get('http://localhost:8080/app/transaction-types/all')
-            .then((response) => setTypes(response.data))
+            .then((response) => setTypes(response.data.list))
             .then((error) => console.log(error));
     }, [])
 
@@ -17,17 +17,17 @@ const TransactionTypeDropdown = (props) => {
 
     return (
         <select 
-            id="transaction_type_id"
-            name="transaction_type_id"
+            id="trxTypeId"
+            name="trxTypeId"
             className="form-control"
-            value={types.transaction_type_id}
+            value={types.trxTypeId}
             type="number"
             onChange={handleChange}
         >
             <option value="0">Select A Transaction Type</option>
             {types.map((type) => (
-                <option key={type.transaction_type_id} value={type.transaction_type_id}>
-                    {type.transaction_type_descr}
+                <option key={type.trxTypeId} value={type.trxTypeId}>
+                    {type.trxTypeDescr}
                 </option>
             ))}
         </select>

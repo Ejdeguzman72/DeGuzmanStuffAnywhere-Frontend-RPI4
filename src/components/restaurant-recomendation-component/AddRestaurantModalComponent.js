@@ -13,13 +13,13 @@ const AddRestaurantModalComponent = ({ props }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const initialState = {
-    restaurant_id: 0,
+    restaurauntId: 0,
     name: "",
     address: "",
     city: "",
     state: "",
     zip: "",
-    restaurant_type_id: 0
+    restaurantTypeId: 0
   }
 
   const handleClose = () => setShow(false);
@@ -36,35 +36,35 @@ const AddRestaurantModalComponent = ({ props }) => {
     })
   }
 
-  const handleRestaurantType = (restaurant_type_id) => {
+  const handleRestaurantType = (restaurantTypeId) => {
     setRestaurant({
-      ...restaurant, restaurant_type_id: restaurant_type_id
+      ...restaurant, restaurantTypeId: restaurantTypeId
     });
   }
 
   const saveRestaurantInformation = () => {
 
     const data = {
-      restaurant_id: restaurant.restaurant_id,
+      restaurantId: restaurant.restaurantId,
       name: restaurant.name,
       address: restaurant.address,
       city: restaurant.city,
       state: restaurant.state,
       zip: restaurant.zip,
-      restaurant_type_id: restaurant.restaurant_type_id
+      restaurantTypeId: restaurant.restaurantTypeId
     }
 
-    Axios.post('http://localhost:8080/app/restaurants/add-restaurant-information', data)
+    Axios.post('http://localhost:8080/app/restaurants/add', data)
       .then(response => {
         console.log(data + " thios is data")
         setRestaurant({
-          restaurant_id: response.data.restaurant_id,
+          restaurantId: response.data.restaurantId,
           name: response.data.name,
           address: response.data.address,
           city: response.data.city,
           state: response.data.state,
           zip: response.data.zip,
-          restaurant_type_id: response.data.restaurant_type_id
+          restaurantTypeId: response.data.restaurantTypeId
         });
         console.log(data + " this is data")
         setSubmitted(true);

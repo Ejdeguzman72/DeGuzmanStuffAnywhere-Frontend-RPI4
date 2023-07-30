@@ -70,7 +70,7 @@ const AddContactModalComponent = () => {
           phone: response.data.phone
         });
         setSubmitted(true);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch(error => (
         alert('Application is facing issue: ' + error)

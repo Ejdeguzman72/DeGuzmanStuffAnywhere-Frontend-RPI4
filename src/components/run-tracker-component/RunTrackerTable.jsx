@@ -89,7 +89,7 @@ export default function RunTrackerTableComponent() {
 
 
     const handleRowAdd = (newData, resolve) => {
-        Axios.post(`http://localhost:8080/app/run-tracker-app/add-run-tracker-info`)
+        Axios.post(`http://localhost:8080/app/run-tracker-app/add`)
             .then(res => {
                 console.log(newData);
                 let dataToAdd = [...entries.data];

@@ -4,16 +4,17 @@ import Axios from 'axios';
 import '../../../style-sheets/medical-finance-page.css';
 import UserDropdown from '../../dropdown-components/UserDropdown';
 import MedicalOfficeDropdown from '../../dropdown-components/MedicalOfficeDropdown';
+import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 
 export default function AddMedicalFinanceModalComponent() {
 
   const initialState = {
-    medical_transaction_id: 0,
+    medTrxId: 0,
     amount: 0,
-    medical_transaction_date: "",
-    medical_office_id: 0,
-    transaction_type_id: 0,
-    user_id: 0
+    medTrxDate: "",
+    medicalOfficeId: 0,
+    trxTypeId: 0,
+    userId: 0
   }
 
   const [medicalTransaction, setMedicalTransaction] = useState(initialState);
@@ -24,37 +25,43 @@ export default function AddMedicalFinanceModalComponent() {
     setMedicalTransaction({ ...medicalTransaction, [name]: value });
   };
 
-  const handleMedicalOffice = (medical_office_id) => {
+  const handleMedicalOffice = (medicalOfficeId) => {
     setMedicalTransaction({
-      ...medicalTransaction, medical_office_id: medical_office_id
+      ...medicalTransaction, medicalOfficeId: medicalOfficeId
     });
   }
 
-  const handleUser = (user_id) => {
+  const handleTransactionType = (trxTypeId) => {
     setMedicalTransaction({
-      ...medicalTransaction, user_id: user_id
+      ...medicalTransaction, trxTypeId: trxTypeId
+    })
+  }
+
+  const handleUser = (userId) => {
+    setMedicalTransaction({
+      ...medicalTransaction, userId: userId
     });
   }
 
   const saveMedicalTransaction = () => {
     let data = {
-      medical_transaction_id: medicalTransaction.medical_transaction_id,
+      medicalOfficeId: medicalTransaction.medicalOfficeId,
       amount: medicalTransaction.amount,
-      medical_transaction_date: medicalTransaction.medical_transaction_date,
-      medical_office_id: medicalTransaction.medical_office_id,
-      transaction_type_id: medicalTransaction.transaction_type_id,
-      user_id: medicalTransaction.user_id
+      medTrxDate: medicalTransaction.medTrxDate,
+      medicalOfficeId: medicalTransaction.medicalOfficeId,
+      trxTypeId: medicalTransaction.trxTypeId,
+      userId: medicalTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/medical-transactions/add-medical-transaction', data)
+    Axios.post('http://localhost:8080/app/medical-transactions/add', data)
       .then(response => {
         setMedicalTransaction({
-          medical_transaction_id: response.data.medicamedical_transaction_idlTransactionId,
+          medicalOfficeId: response.data.medicalOfficeId,
           amount: response.data.amount,
-          medical_transaction_date: response.data.medical_transaction_date,
-          medical_office_id: response.data.medical_office_id,
-          transaction_type_id: response.data.transaction_type_id,
-          user_id: response.data.user_id
+          medTrxDate: response.data.medTrxDate,
+          medicalOfficeId: response.data.medicalOfficeId,
+          trxTypeId: response.data.trxTypeId,
+          userId: response.data.userId
         });
         setSubmitted(true);
 
@@ -116,44 +123,14 @@ export default function AddMedicalFinanceModalComponent() {
                 <Form.Control type="date" name="medical_transaction_date" placeholder="Date (MM/DD/YYYY)" onChange={handleInputChange} />
               </Form.Group>
 
-              {/* <select 
-                id="medical_office_id"
-                name="medical_office_id" 
-                type="number"
-                onChange={handleInputChange}
-                className="medicalTrx-input" >
-                  <option value="" disabled selected>Select A Medical Office:</option>
-                  <option value="20">Hackensack University Medical Center</option>
-                  <option value="21">Frank Mastriano</option>
-                  <option value="21">Desgning Smiles</option>
-                  <option value="21">Eye Care Insights: Dr. Floyd Smith Optometrist</option>
-              </select><br></br><br></br> */}
-
               <MedicalOfficeDropdown
                 handleMedicalOffice={handleMedicalOffice}
               />
               <br></br>
-              <select
-                id="transaction_type_id"
-                name="transaction_type_id"
-                type="number"
-                className="form-control"
-                onChange={handleInputChange}
-              >
-                <option value="" disabled selected>Select A Transaction Type:</option>
-                <option value="20">Medical Copay</option>
-                <option value="21">Medical Prescription</option>
-              </select><br></br>
+              <TransactionTypeDropdown 
+                handleTransactionType={handleTransactionType}
+              /><br></br>
 
-              {/* <select
-                id="user_id"
-                name="user_id"
-                type="number"
-                onChange={handleInputChange}
-                className="medicalTrx-input" >
-                  <option value="Please choose a User">Please Choose a User</option>
-                  <option value="2">global</option>
-              </select> */}
               <UserDropdown
                 handleUser={handleUser}
               />
