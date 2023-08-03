@@ -8,28 +8,28 @@ const getAllBookInformation = (params) => {
     return http.get('/all-books', { params } );
 };
 
-const getBooksByAuthor = (data) => {
-    return http.get(`/book/search/author`,data);
+const getBooksByAuthor = (author) => {
+    return http.get(`/book/search/author/${author}`);
 }
 
-const getBookInformationById = (data) => {
-    return http.get(`/book/search/id`,data);
+const getBookInformationById = (bookId) => {
+    return http.get(`/book/search/id/${bookId}`);
 };
 
-const findBookByName = (data) => {
-    return http.get(`/book/search/title`,data);
+const findBookByName = (title) => {
+    return http.get(`/book/search/title/${title}`);
 }
 
 const addBookInformation = (data) => {
     return http.post(`/add`,data);
 };
 
-const updateBookInformation = (data) => {
-    return http.put(`/update`, data)
+const updateBookInformation = (bookId,book) => {
+    return http.put(`/update/${bookId}`, book)
 };
 
-const deleteBookInformation = (data) => {
-    return http.delete(`/delete`,data);
+const deleteBookInformation = (bookId) => {
+    return http.delete(`/delete/${bookId}`);
 };
 
 const deleteAllBookInformation = () => {

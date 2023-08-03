@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import MaterialTable from 'material-table';
 import TableBody from 'material-table';
 import ContactInfoService from '../../services/ContactInfoService';
@@ -66,6 +66,10 @@ export default function ContactInfoEditableTableComponent() {
     ]
   });
 
+  const [deleteId, setDeleteId] = useState({
+    id: 0
+  })
+
   const [state] = React.useState({
     columns: [
       { title: 'Person ID No:', field: 'personId', hidden: false},
@@ -131,10 +135,12 @@ export default function ContactInfoEditableTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/person-info/person/${oldData.personId}`)
+    console.log(oldData.personId)
+
+    Axios.delete(`http://localhost:8080/app/person-info/delete/${oldData.personId}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.personId;
+        const index = oldData.personId;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();
@@ -158,7 +164,7 @@ export default function ContactInfoEditableTableComponent() {
       .catch(error => {
         console.log(error);
         resolve();
-        window.reload();
+        window.location.reload();
       });
   }
 

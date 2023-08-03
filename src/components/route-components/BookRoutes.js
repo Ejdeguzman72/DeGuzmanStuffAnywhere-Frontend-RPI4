@@ -12,7 +12,7 @@ const BookRoutes = () => {
                 <Route path="/book-recommendations-table" exact component={BookTablePage} />
                 <Route path="/book-recommendations-grid" exact component={BookRecommendationPageComponent} />
                 <Route path="/add-book-information" exact component={AddBookRecommendation} />
-                <Route path="/update-book-information/:book_id" exact component={BookUpdate} />
+                <Route path="/update-book-information/:bookId" exact component={BookUpdate} />
             </Switch>
         </HashRouter>
     )

@@ -9,8 +9,8 @@ const getAllContactInfo = (params) => {
     return Axios.get('http://localhost:8080/app/person-info/all-contacts', { params });
 }
 
-const getContactInfoById = (data) => {
-    return Axios.get(`http://localhost:8080/app/person-info/contact/id`,data);
+const getContactInfoById = (personId) => {
+    return Axios.get(`http://localhost:8080/app/person-info/contact/id/${personId}`);
 }
 
 const getContactsByLastName = (data) => {
@@ -33,12 +33,12 @@ const addContactInfo = (data) => {
     return Axios.post('http://localhost:8080/app/person-info/add', data);
 }
 
-const updateContactInfo = (data) => {
-    return Axios.put(`http://localhost:8080/app/person-info/update`, data);
+const updateContactInfo = (personId, data) => {
+    return Axios.put(`http://localhost:8080/app/person-info/update/${personId}`, data);
 }
 
-const deleteContactById = (data) => {
-    return Axios.delete(`http://localhost:8080/app/person-info/delete`);
+const deleteContactById = (personId) => {
+    return Axios.delete(`http://localhost:8080/app/person-info/delete/${personId}`);
 }
 
 const deleteAllContactInfo = () => {

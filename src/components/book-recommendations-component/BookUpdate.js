@@ -6,7 +6,7 @@ import BookrecommendationsTabComponent from '../tab-components/BookRecommendatio
 
 const BookUpdate = props => {
     const initialBookState = {
-        book_id: null,
+        bookId: null,
         title: "",
         author: "",
         descr: ""
@@ -15,11 +15,11 @@ const BookUpdate = props => {
     const [currentBook, setCurrentBook] = useState(initialBookState);
     const [message, setMessage] = ("");
 
-    const getBook = (book_id) => {
-        BooksService.getBookInformationById(book_id)
+    const getBook = (bookId) => {
+        BooksService.getBookInformationById(bookId)
             .then(response => {
-                setCurrentBook(response.data);
-                console.log(response.data);
+                setCurrentBook(response.data.book);
+                console.log(response.data.book);
             })
             .catch(error => {
                 console.log(error);
@@ -27,8 +27,8 @@ const BookUpdate = props => {
     };
 
     useEffect(() => {
-        getBook(props.match.params.book_id);
-    }, [props.match.params.book_id]);
+        getBook(props.match.params.bookId);
+    }, [props.match.params.bookId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -36,10 +36,11 @@ const BookUpdate = props => {
     };
 
     const updateBook = () => {
-        BooksService.updateBookInformation(currentBook.book_id, currentBook)
+        BooksService.updateBookInformation(currentBook.bookId, currentBook)
             .then(response => {
                 console.log(response.data);
                 // setMessage("The book was updated successfully");
+                alert("The book was updated successfully");
             })
             .catch(error => {
                 console.log(error);
@@ -47,10 +48,10 @@ const BookUpdate = props => {
     };
 
     const deleteBook = () => {
-        BooksService.deleteBookInformation(currentBook.book_id)
+        BooksService.deleteBookInformation(currentBook.bookId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/books");
+                props.history.push("/book-recommendations-grid");
             })
             .catch(error => {
                 console.log(error);

@@ -5,7 +5,7 @@ import { AutoFinanceTabsComponent } from '../tab-components/AutoFinanceTabsCompo
 
 const AutoShop = props => {
     const initialState = {
-        auto_shop_id: 0,
+        autoShopId: 0,
         autoShopName: "",
         address: "",
         city: "",
@@ -16,11 +16,10 @@ const AutoShop = props => {
     const [currentShop, setCurrentShop] = useState(initialState);
     const [message, setMessage] = useState("");
 
-    const getShop = (auto_shop_id) => {
-        AutoShopService.getAutoShopById(auto_shop_id)
+    const getShop = (autoShopId) => {
+        AutoShopService.getAutoShopById(autoShopId)
             .then(response => {
-                setCurrentShop(response.data);
-                console.log(response.data);
+                setCurrentShop(response.data.autoShop);
             })
             .catch(error => {
                 console.log(error);
@@ -28,8 +27,8 @@ const AutoShop = props => {
     };
 
     useEffect(() => {
-        getShop(props.match.params.auto_shop_id);
-    }, [props.match.params.auto_shop_id]);
+        getShop(props.match.params.autoShopId);
+    }, [props.match.params.autoShopId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -37,9 +36,8 @@ const AutoShop = props => {
     };
 
     const updateShop = () => {
-        AutoShopService.updateAutoShop(currentShop.auto_shop_id, currentShop)
+        AutoShopService.updateAutoShop(currentShop.autoShopId, currentShop)
             .then(response => {
-                console.log(response.data);
                 alert("The Auto repair shop was updated successfully");
             })
             .catch(error => {
@@ -48,10 +46,9 @@ const AutoShop = props => {
     };
 
     const deleteShop = () => {
-        AutoShopService.deleteAutoShop(currentShop.auto_shop_id)
+        AutoShopService.deleteAutoShop(currentShop.autoShopId)
             .then(response => {
-                console.log(response.data);
-                props.history.push("/auto-shops");
+                props.history.push("/auto-shops-grid");
             })
             .catch(error => {
                 console.log(error);

@@ -199,7 +199,7 @@ const BooksList = () => {
                         </div>
 
                         <Link
-                            to={"/update-book-information/" + currentBook.book_id}
+                            to={"/update-book-information/" + currentBook.bookId}
                             className="badge badge-warning"
                         >
                             Edit

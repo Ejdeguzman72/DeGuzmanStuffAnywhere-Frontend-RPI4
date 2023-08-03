@@ -13,7 +13,7 @@ const AutomotiveRoutes = () => {
             <Switch>
                 <Route path="/auto-shops-table" exact component={AutoShopPageComponent} />
                 <Route path="/auto-shops-grid" exact component={AutoShopGridPageComponent} />
-                <Route path="/update-autoshop/:auto_shop_id" exact component={AutoShop} />
+                <Route path="/update-autoshop/:autoShopId" exact component={AutoShop} />
                 <Route path="/view-cars-table" exact component={VehicleInformationPage} />
                 <Route path="/view-cars-grid" exact component={VehicleGridPage} />
                 <Route path="/update-vehicle/:vehicleId" exact component={Vehicle} />

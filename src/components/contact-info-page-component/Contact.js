@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Row } from 'react-bootstrap';
 import ContactService from '../../services/ContactInfoService';
 import ContactInfoTabs from '../tab-components/ContactInfoTabs';
 
@@ -26,8 +26,8 @@ const Contact = props => {
     const getContact = (personId) => {
         ContactService.getContactInfoById(personId)
             .then(response => {
-                setCurrentContact(response.data);
-                console.log(response.data);
+                setCurrentContact(response.data.person);
+                console.log(response.data.person);
             })
             .catch(error => {
                 console.log(error);
@@ -58,7 +58,7 @@ const Contact = props => {
         ContactService.deleteContactById(currentContact.personId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/contact-info");
+                props.history.push("/contact-info-table");
             })
             .catch(error => {
                 console.log(error);

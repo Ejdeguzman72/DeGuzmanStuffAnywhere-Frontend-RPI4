@@ -75,7 +75,6 @@ export default function AutoShopTableComponent() {
   useEffect(() => {
     AutoShopService.getAllAutoShopsInfo().then(response => {
       let data = [];
-      console.log(response)
       response.data.list.forEach(e1 => {
         data.push({
           autoShopId: e1.autoShopId,
@@ -85,7 +84,6 @@ export default function AutoShopTableComponent() {
           state: e1.state,
           zip: e1.zip,
         });
-        console.log(data);
       });
       setAutoShop({ data: data });
     })

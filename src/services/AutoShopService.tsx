@@ -8,16 +8,16 @@ const getAllAutoShopsInfo = () => {
     return Axios.get('http://localhost:8080/app/auto-repair-shops/all');
 }
 
-const getAutoShopsByZip = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/auto-repair-shops/all/search/zip`,data);
+const getAutoShopsByZip = (zip:any) => {
+    return Axios.get(`http://localhost:8080/app/auto-repair-shops/all/search/zip/${zip}`);
 }
 
-const getAutoShopById = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/id`,data);
+const getAutoShopById = (autoShopId:any) => {
+    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/id/${autoShopId}`);
 }
 
-const searchAutoShopByName = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/name`,data);
+const searchAutoShopByName = (name:any) => {
+    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/name${name}`);
 }
 
 const getAutoShopCount = () => {
@@ -28,12 +28,12 @@ const addAutoShop = (newData: any) => {
     return Axios.post("http://localhost:8080/app/auto-repair-shops/add", newData);
 }
 
-const updateAutoShop = (data:any) => {
-    return Axios.put(`http://localhost:8080/app/auto-repair-shops/update`,data);
+const updateAutoShop = (autoShopId:any, autoShop:any) => {
+    return Axios.put(`http://localhost:8080/app/auto-repair-shops/update/${autoShopId}`,autoShop);
 }
 
-const deleteAutoShop = (data:any) => {
-    return Axios.delete(`http://localhost:8080/app/auto-repair-shops/delete`);
+const deleteAutoShop = (autoShopId:any) => {
+    return Axios.delete(`http://localhost:8080/app/auto-repair-shops/delete/${autoShopId}`);
 }
 
 const deleteAllShopInformation = () => {
