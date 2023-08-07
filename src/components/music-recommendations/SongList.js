@@ -48,7 +48,6 @@ const SongList = () => {
                 const { songs, totalPages } = response.data;
                 setSong(songs);
                 setCount(totalPages);
-                console.log(response.data + "skjdhfkjsdhfkjskjdfh");
             })
             .catch(error => {
                 console.log(error);
@@ -200,7 +199,7 @@ const SongList = () => {
                         </div>
 
                         <Link
-                            to={"/update-music/" + currentSong.song_id}
+                            to={"/update-music/" + currentSong.songId}
                             className="badge badge-warning"
                         >
                             Edit

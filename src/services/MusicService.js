@@ -8,20 +8,20 @@ const getAllMusicPagination = (params) => {
     return Axios.get('http://localhost:8080/app/music/all-songs', { params });
 }
 
-const getSongById = (data) => {
-    return Axios.get(`http://localhost:8080/app/music/song/id`,data);
+const getSongById = (songId) => {
+    return Axios.get(`http://localhost:8080/app/music/song/id/${songId}`);
 }
 
 const getSongByTitle = (title) => {
     return Axios.get(`http://localhost:8080/app/music/song/title/${title}`);
 }
 
-const getSongByArtist = (data) => {
-    return Axios.get(`http://localhost:8080/app/music/all/artist`,data);
+const getSongByArtist = (artist) => {
+    return Axios.get(`http://localhost:8080/app/music/all/artist/${artist}`,);
 }
 
-const getSongsByGenre = (data) => {
-    return Axios.get(`http://localhost:8080/app/music/all/genre`,data)
+const getSongsByGenre = (genre) => {
+    return Axios.get(`http://localhost:8080/app/music/all/genre/${genre}`)
 }
 
 const getSongCount = () => {
@@ -29,15 +29,15 @@ const getSongCount = () => {
 }
 
 const addSongInformaton = (data) => {
-    return Axios.post('http://localhost:8080/app/music/add-song-information', data);
+    return Axios.post('http://localhost:8080/app/music/add', data);
 }
 
-const updateSongInformation = (data) => {
-    return Axios.put(`http://localhost:8080/app/music/update`,data);
+const updateSongInformation = (songId,data) => {
+    return Axios.put(`http://localhost:8080/app/music/update/${songId}`,data);
 }
 
-const deleteSongInformation = (data) => {
-    return Axios.delete(`http://localhost:8080/app/music/delete`,data);
+const deleteSongInformation = (songId) => {
+    return Axios.delete(`http://localhost:8080/app/music/delete/${songId}`);
 }
 
 const deleteAllSongs = () => {

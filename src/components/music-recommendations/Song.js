@@ -5,7 +5,7 @@ import MusicTabComponent from './../tab-components/MusicTabComponent';
 
 const Song = props => {
     const initialState = {
-        song_id: null,
+        songId: null,
         title: "",
         artist: "",
         genre: ""
@@ -14,11 +14,10 @@ const Song = props => {
     const [currentSong, setCurrentSong] = useState(initialState);
     const [message, setMessage] = useState("");
 
-    const getSong = (song_id) => {
-        MusicService.getSongById(song_id)
+    const getSong = (songId) => {
+        MusicService.getSongById(songId)
             .then(response => {
-                setCurrentSong(response.data);
-                console.log(response.data);
+                setCurrentSong(response.data.song);
             })
             .catch(error => {
                 console.log(error);
@@ -26,8 +25,8 @@ const Song = props => {
     };
 
     useEffect(() => {
-        getSong(props.match.params.song_id);
-    }, [props.match.params.song_id]);
+        getSong(props.match.params.songId);
+    }, [props.match.params.songId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -35,7 +34,7 @@ const Song = props => {
     };
 
     const updateSong = () => {
-        MusicService.updateSongInformation(currentSong.song_id, currentSong)
+        MusicService.updateSongInformation(currentSong.songId, currentSong)
             .then(response => {
                 console.log(response.data);
                 alert("The song was updated successfully");
@@ -46,10 +45,10 @@ const Song = props => {
     };
 
     const deleteSong = () => {
-        MusicService.deleteSongInformation(currentSong.song_id)
+        MusicService.deleteSongInformation(currentSong.songId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/books");
+                props.history.push("/music");
             })
             .catch(error => {
                 console.log(error);

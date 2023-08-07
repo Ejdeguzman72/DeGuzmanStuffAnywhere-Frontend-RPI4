@@ -8,7 +8,7 @@ const MusicRoutes = () => {
         <HashRouter>
             <Switch>
                 <Route path="/music" exact component={MusicRecommendationPageComponent} />
-                <Route path="/update-music/:song_id" exact component={Song} />
+                <Route path="/update-music/:songId" exact component={Song} />
             </Switch>
         </HashRouter>
     )
