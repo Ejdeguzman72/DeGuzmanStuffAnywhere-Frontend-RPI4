@@ -24,7 +24,7 @@ const FinanceRoutes = () => {
                 <Route path="/auto-finance-grid" exact component={AutoFinanceGridPageComponent} />
 
                 <Route path="/general-finance-table" exact component={GeneralFinanceTablePageComponent} />
-                <Route path="/update-general-transaction/:transaction_id" exact component={GeneralTransaction} />
+                <Route path="/update-general-transaction/:genTrxId" exact component={GeneralTransaction} />
                 <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
                 <Route path="/general-finance-grid" exact component={GeneralFinanceGridView} />
 

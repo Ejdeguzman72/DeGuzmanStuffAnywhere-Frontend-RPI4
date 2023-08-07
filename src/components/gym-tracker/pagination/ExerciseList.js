@@ -3,7 +3,6 @@ import ExerciseService from '../../../services/ExerciseService';
 import { Link } from 'react-router-dom';
 import AddExerciseModal from './../AddExerciseInfoModal';
 import Pagination from "@material-ui/lab/Pagination";
-import { Col } from 'react-bootstrap';
 
 const ExerciseList = () => {
     const [exercises, setExercises] = useState([]);
@@ -73,8 +72,8 @@ const ExerciseList = () => {
         setpage(1);
     }
 
-    const setActiveExercise = (restaurant, index) => {
-        setCurrentExercise(restaurant);
+    const setActiveExercise = (exercise, index) => {
+        setCurrentExercise(exercise);
         setCurrentIndex(index);
     }
 
@@ -160,7 +159,7 @@ const ExerciseList = () => {
                                 key={index}
                             >
                                 <p>
-                                    <strong>{exercise.exercise_name}</strong>
+                                    <strong>{exercise.exerciseName}</strong>
                                 </p>
                                 <p>
                                     <strong>{exercise.sets} x {exercise.reps}</strong>
@@ -234,7 +233,7 @@ const ExerciseList = () => {
                             {currentExercise.user.username}
                         </div>
                         <Link
-                            to={"/update-exercise/" + currentExercise.exerciseid}
+                            to={"/update-exercise/" + currentExercise.exerciseId}
                             className="badge badge-warning"
                         >
                             Edit

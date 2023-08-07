@@ -8,7 +8,7 @@ const GymTrackerTabComponent = () => {
                 <Col md={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link href="#gym-tracker" eventKey="first" id="tabs">Gym Tracker</Nav.Link>
+                            <Nav.Link href="#gym-tracker-table" eventKey="first" id="tabs">Gym Tracker</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>

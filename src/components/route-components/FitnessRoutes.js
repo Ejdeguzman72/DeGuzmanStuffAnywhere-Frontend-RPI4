@@ -13,7 +13,7 @@ const FitnessRoutes = () => {
             <Switch>
                 <Route path="/gym-tracker-table" exact component={GymTrackerPageComponent} />
                 <Route path="/gym-tracker-grid" exact component={GymTrackerGridView} />
-                <Route path="/update-exercise/:exercise_id" exact component={Exercise} />
+                <Route path="/update-exercise/:exerciseId" exact component={Exercise} />
 
                 <Route path="/run-tracker-table" exact component={RunTrackerPageComponent} />
                 <Route path="/run-tracker-grid" exact component={RunTrackerGrid} />

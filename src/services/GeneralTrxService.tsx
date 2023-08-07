@@ -16,24 +16,24 @@ const getAllTransactionsByUser = (data:any) => {
     return Axios.get(`http://localhost:8080/app/general-transactions/search/user`,data)
 }
 
-const getGeneralTransactionDTOById = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/general-transactions/tranasction-dto/search/id`,data)
+const getGeneralTransactionDTOById = (genTrxId:any) => {
+    return Axios.get(`http://localhost:8080/app/general-transactions/tranasction-dto/search/id/${genTrxId}`)
 }
 
-const getTransactionById = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/general-transactions/transaction/search/id`,data);
+const getTransactionById = (genTrxId:any) => {
+    return Axios.get(`http://localhost:8080/app/general-transactions/transaction/search/id/${genTrxId}`);
 }
 
 const addGeneralTransactionInformation = (newData:any) => {
     return Axios.post("http://localhost:8080/app/general-transactions/add", newData);
 }
 
-const updateTransactionInformation = (data:any) => {
-    return Axios.put(`http://localhost:8080/app/general-transactions/update`,data);
+const updateTransactionInformation = (genTrxId:any,data:any) => {
+    return Axios.put(`http://localhost:8080/app/general-transactions/update/${genTrxId}`,data);
 }
 
-const deleteTransaction = (data:any) => {
-    return Axios.delete(`http://localhost:8080/app/general-transactions/delete`,data);
+const deleteTransaction = (genTrxId:any) => {
+    return Axios.delete(`http://localhost:8080/app/general-transactions/delete/${genTrxId}`);
 }
 
 const deleteAllTransactions = () => {

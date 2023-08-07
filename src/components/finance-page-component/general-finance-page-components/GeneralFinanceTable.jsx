@@ -89,20 +89,20 @@ export default function GeneralFinanceTable() {
             transactionTypeDescr: e1.transactionTypeDescr,
             username: e1.username
           });
-          console.log(data);
+          // console.log(data);
         });
         setEntries({ data: data })
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.transaction_id}`, newData)
+    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.genTrxId}`, newData)
       .then(res => {
         const dataUpdate = [...entries];
-        const index = oldData.tableData.transaction_id;
+        const index = oldData.tableData.genTrxId;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
@@ -115,10 +115,10 @@ export default function GeneralFinanceTable() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/general-transactions/transaction//${oldData.transaction_id}`)
+    Axios.delete(`http://localhost:8080/app/general-transactions/transaction//${oldData.genTrxId}`)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.transaction_id;
+        const index = oldData.tableData.genTrxId;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();

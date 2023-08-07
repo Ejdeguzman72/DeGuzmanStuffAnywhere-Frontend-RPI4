@@ -19,8 +19,7 @@ const Vehicle = props => {
     const getVehicle = (vehicleId) => {
         VehicleInformationService.getVehicleInformationById(vehicleId)
             .then(response => {
-                setCurrentVehicle(response.data);
-                console.log(response.data);
+                setCurrentVehicle(response.data.vehicle);
             })
             .catch(error => {
                 console.log(error);
@@ -51,7 +50,7 @@ const Vehicle = props => {
         VehicleInformationService.deleteVehicle(currentVehicle.vehicleId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/vehicles");
+                props.history.push("/view-cars-grid");
             })
             .catch(error => {
                 console.log(error);

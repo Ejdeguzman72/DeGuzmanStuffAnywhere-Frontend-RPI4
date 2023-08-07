@@ -7,31 +7,31 @@ import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDr
 
 const GeneralTransaction = props => {
     const initialState = {
-        transaction_id: 0,
+        genTrxId: 0,
         amount: 0,
-        payment_date: "",
+        paymentDate: "",
         entity: "",
-        transaction_type_id: 0,
-        user_id: 0
+        trxTypeId: 0,
+        userId: 0
     };
 
     const [currentTransaction, setCurrentTransaction] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleTransactionType = (transaction_type_id) => {
+    const handleTransactionType = (trxTypeId) => {
         setCurrentTransaction({
-            ...currentTransaction, transaction_type_id: transaction_type_id
+            ...currentTransaction, trxTypeId: trxTypeId
         })
     }
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setCurrentTransaction({
-            ...currentTransaction, user_id: user_id
+            ...currentTransaction, userId: userId
         });
     }
 
-    const getTransaction = (transaction_id) => {
-        GeneralTransactionService.getTransactionById(transaction_id)
+    const getTransaction = (genTrxId) => {
+        GeneralTransactionService.getTransactionById(genTrxId)
             .then(response => {
                 setCurrentTransaction(response.data);
                 console.log(response.data)
@@ -42,8 +42,8 @@ const GeneralTransaction = props => {
     };
 
     useEffect(() => {
-        getTransaction(props.match.params.transaction_id);
-    }, [props.match.params.transaction_id]);
+        getTransaction(props.match.params.genTrxId);
+    }, [props.match.params.genTrxId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -51,7 +51,7 @@ const GeneralTransaction = props => {
     };
 
     const updateTransaction = () => {
-        GeneralTransactionService.updateTransactionInformation(currentTransaction.transaction_id, currentTransaction)
+        GeneralTransactionService.updateTransactionInformation(currentTransaction.genTrxId, currentTransaction)
             .then(response => {
                 console.log(response.data);
                 alert("The transaction was updated successfully");
@@ -62,10 +62,10 @@ const GeneralTransaction = props => {
     };
 
     const deleteTransaction = () => {
-        GeneralTransactionService.deleteTransaction(currentTransaction.transaction_id)
+        GeneralTransactionService.deleteTransaction(currentTransaction.genTrxId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/general-finance");
+                props.history.push("/general-finance-table");
             })
             .catch(error => {
                 console.log(error);
@@ -112,13 +112,13 @@ const GeneralTransaction = props => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="transaction_type_id">Transaction Type</label>
+                                <label htmlFor="trxTypeId">Transaction Type</label>
                                 <TransactionTypeDropdown
                                     handleTransactionType={handleTransactionType}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="user_id">User</label>
+                                <label htmlFor="userId">User</label>
                                 <UserDropdown
                                     handleUser={handleUser}
                                 />

@@ -6,35 +6,35 @@ import UserDropdown from '../dropdown-components/UserDropdown';
 
 const Exercise = props => {
     const initialState = {
-        exercise_id: 0,
+        exerciseId: 0,
         exerciseName: "",
         sets: "",
         reps: "",
         weight: "",
         date: "",
-        exercise_type_id: 0,
-        user_id: 0,
+        exerciseTypeId: 0,
+        userId: 0,
     };
 
     const [currentExercise, setCurrentExercise] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleExerciseType = (exercise_type_id) => {
+    const handleExerciseType = (exerciseTypeId) => {
         setCurrentExercise({
-            ...currentExercise, exercise_type_id: exercise_type_id
+            ...currentExercise, exerciseTypeId: exerciseTypeId
         })
     }
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setCurrentExercise({
-            ...currentExercise, user_id: user_id
+            ...currentExercise, userId: userId
         });
     }
 
-    const getExercise = (exercise_id) => {
-        ExerciseService.getExerciseInformationById(exercise_id)
+    const getExercise = (exerciseId) => {
+        ExerciseService.getExerciseInformationById(exerciseId)
             .then(response => {
-                setCurrentExercise(response.data);
+                setCurrentExercise(response.data.exercise);
                 console.log(response.data)
             })
             .catch(error => {
@@ -43,8 +43,8 @@ const Exercise = props => {
     };
 
     useEffect(() => {
-        getExercise(props.match.params.exercise_id);
-    }, [props.match.params.exercise_id]);
+        getExercise(props.match.params.exerciseId);
+    }, [props.match.params.exerciseId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -52,7 +52,7 @@ const Exercise = props => {
     };
 
     const updateExercise = () => {
-        ExerciseService.updateExerciseinformation(currentExercise.exercise_id, currentExercise)
+        ExerciseService.updateExerciseinformation(currentExercise.exerciseId, currentExercise)
             .then(response => {
                 console.log(response.data);
                 alert("The exercise was updated successfully");
@@ -63,10 +63,10 @@ const Exercise = props => {
     };
 
     const deleteContact = () => {
-        ExerciseService.deleteExercise(currentExercise.exercise_id)
+        ExerciseService.deleteExercise(currentExercise.exerciseId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/gym-tracker");
+                props.history.push("/gym-tracker-grid");
             })
             .catch(error => {
                 console.log(error);
@@ -88,9 +88,9 @@ const Exercise = props => {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="exercise_name"
-                                    name="exercise_name"
-                                    value={currentExercise.exercise_name}
+                                    id="exerciseName"
+                                    name="exerciseName"
+                                    value={currentExercise.exerciseName}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -132,10 +132,10 @@ const Exercise = props => {
                                 <Form.Control type="date" name="date" placeholder="Date" onChange={handleInputChange} />
                             </Form.Group>
                             <div className="form-group">
-                                <label htmlFor="exercise_type_id">Exercise Type</label><br></br>
+                                <label htmlFor="exerciseTypeId">Exercise Type</label><br></br>
                                 <select
-                                    id="exercise_type_id"
-                                    name="exercise_type_id"
+                                    id="exerciseTypeId"
+                                    name="exerciseTypeId"
                                     type="number"
                                     className="form-control"
                                     onChange={handleInputChange} >
@@ -150,7 +150,7 @@ const Exercise = props => {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="user_id">User</label>
+                                <label htmlFor="userId">User</label>
                                 <UserDropdown
                                     handleUser={handleUser}
                                 />

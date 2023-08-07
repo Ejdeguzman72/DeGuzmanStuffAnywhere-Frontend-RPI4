@@ -9,11 +9,11 @@ const getAllVehicles = (params:any) => {
 }
 
 const getVehicleInformationById = (vehicleId:any) => {
-    return Axios.get(`http://localhost:8080/app/vehicles/vehicle/${vehicleId}`);
+    return Axios.get(`http://localhost:8080/app/vehicles/vehicle/id/${vehicleId}`);
 }
 
 const updateVehicleInformation = (vehicleId:any,data:any) => {
-    return Axios.put(`http://localhost:8080/app/vehicles/vehicle/${vehicleId}`,data);
+    return Axios.put(`http://localhost:8080/app/vehicles/update/${vehicleId}`,data);
 }
 
 const deleteAllVehicles = () => {
@@ -21,7 +21,7 @@ const deleteAllVehicles = () => {
 }
 
 const deleteVehicle = (vehicleId:any) => {
-    return Axios.delete(`http://localhost:8080/app/vehicles/vehicle/${vehicleId}`);
+    return Axios.delete(`http://localhost:8080/app/vehicles/delete/${vehicleId}`);
 }
 
 export default {

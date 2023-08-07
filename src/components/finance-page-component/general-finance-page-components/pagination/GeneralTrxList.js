@@ -185,6 +185,7 @@ const GeneralTrxList = () => {
                             <label>
                                 <strong>Amount:</strong>
                             </label>{" "}
+                            {console.log(currentTransaction)}
                             {currentTransaction.amount.toFixed(2)}
                         </div>
                         <div>
@@ -212,7 +213,7 @@ const GeneralTrxList = () => {
                             {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-general-transaction/" + currentTransaction.transaction_id}
+                            to={"/update-general-transaction/" + currentTransaction.transacion_id}
                             className="badge badge-warning"
                         >
                             Edit
