@@ -12,6 +12,10 @@ const getVehicleInformationById = (vehicleId:any) => {
     return Axios.get(`http://localhost:8080/app/vehicles/vehicle/id/${vehicleId}`);
 }
 
+const addVehicleInformation = (data:any) => {
+    return Axios.post(`http://localhost:8080/app/vehicles/add`,data);
+}
+
 const updateVehicleInformation = (vehicleId:any,data:any) => {
     return Axios.put(`http://localhost:8080/app/vehicles/update/${vehicleId}`,data);
 }
@@ -28,6 +32,7 @@ export default {
     getAllVehicleInformation,
     getAllVehicles,
     deleteAllVehicles,
+    addVehicleInformation,
     getVehicleInformationById,
     updateVehicleInformation,
     deleteVehicle

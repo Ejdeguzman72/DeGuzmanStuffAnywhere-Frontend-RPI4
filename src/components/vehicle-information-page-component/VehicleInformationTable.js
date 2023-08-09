@@ -92,7 +92,7 @@ export default function ViewCarsTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/vehicles/add', newData)
+    VehicleInformationService.add
       .then(res => {
         let dataToAdd = [...entries.data]
         dataToAdd.push(newData);
@@ -103,13 +103,14 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/vehicles/update/{vehicleId}`, newData)
+    Axios.put(`http://localhost:8080/app/vehicles/update/${oldData.vehicleId}`, newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.vehicleId;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
@@ -155,10 +156,10 @@ export default function ViewCarsTableComponent() {
           columns={state.columns}
           data={entries.data}
           editable={{
-            // onRowAdd: (newData) =>
-            //   new Promise((resolve) => {
-            //     handleRowAdd(newData, resolve)
-            //   }),
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                handleRowAdd(newData, resolve)
+              }),
             onRowUpdate: (newData, oldData) =>
               new Promise((resolve) => {
                 handleRowUpdate(newData, oldData, resolve)
