@@ -36,7 +36,6 @@ const Song = props => {
     const updateSong = () => {
         MusicService.updateSongInformation(currentSong.songId, currentSong)
             .then(response => {
-                console.log(response.data);
                 alert("The song was updated successfully");
             })
             .catch(error => {
@@ -47,7 +46,6 @@ const Song = props => {
     const deleteSong = () => {
         MusicService.deleteSongInformation(currentSong.songId)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/music");
             })
             .catch(error => {

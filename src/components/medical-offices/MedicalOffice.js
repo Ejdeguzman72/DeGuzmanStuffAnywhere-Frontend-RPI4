@@ -40,7 +40,6 @@ const MedicalOffice = props => {
     const updateOffice = () => {
         MedicalOfficeService.updateMedicalOfficeInformation(currentOffice.medicalOfficeId, currentOffice)
             .then(response => {
-                console.log(response.data);
                 alert("The medical office was updated successfully");
             })
             .catch(error => {
@@ -51,7 +50,6 @@ const MedicalOffice = props => {
     const deleteOffice = () => {
         MedicalOfficeService.deleteMedicalOffice(currentOffice.medicalOfficeId)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/medical-offices-grid");
             })
             .catch(error => {

@@ -37,7 +37,6 @@ export default function AddPost() {
             userId: response.data.userId
         });
         setSubmitted(true);
-        console.log(data);
       })
   }
 

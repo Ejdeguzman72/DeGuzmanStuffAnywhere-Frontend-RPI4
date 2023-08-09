@@ -19,7 +19,6 @@ const BookUpdate = props => {
         BooksService.getBookInformationById(bookId)
             .then(response => {
                 setCurrentBook(response.data.book);
-                console.log(response.data.book);
             })
             .catch(error => {
                 console.log(error);
@@ -38,7 +37,6 @@ const BookUpdate = props => {
     const updateBook = () => {
         BooksService.updateBookInformation(currentBook.bookId, currentBook)
             .then(response => {
-                console.log(response.data);
                 // setMessage("The book was updated successfully");
                 alert("The book was updated successfully");
             })
@@ -50,7 +48,6 @@ const BookUpdate = props => {
     const deleteBook = () => {
         BooksService.deleteBookInformation(currentBook.bookId)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/book-recommendations-grid");
             })
             .catch(error => {

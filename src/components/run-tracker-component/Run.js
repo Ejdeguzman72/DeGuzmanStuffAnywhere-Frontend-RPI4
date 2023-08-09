@@ -6,27 +6,26 @@ import UserDropdown from '../dropdown-components/UserDropdown';
 
 const Run = props => {
     const initialState = {
-        run_id: 0,
-        run_date: "",
-        run_distance: 0,
+        runId: 0,
+        runDate: "",
+        runDistance: 0,
         runTime: 0,
-        user_id: 0
+        userId: 0
     };
 
     const [currentRun, setCurrentRun] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setCurrentRun({
-            ...currentRun, user_id: user_id
+            ...currentRun, userId: userId
         });
     }
 
-    const getRun = (run_id) => {
-        RunTrackerService.getRunTrackerById(run_id)
+    const getRun = (runId) => {
+        RunTrackerService.getRunTrackerById(runId)
             .then(response => {
-                setCurrentRun(response.data);
-                console.log(response.data)
+                setCurrentRun(response.data.run);
             })
             .catch(error => {
                 console.log(error);
@@ -34,8 +33,8 @@ const Run = props => {
     };
 
     useEffect(() => {
-        getRun(props.match.params.run_id);
-    }, [props.match.params.run_id]);
+        getRun(props.match.params.runId);
+    }, [props.match.params.runId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -43,9 +42,8 @@ const Run = props => {
     };
 
     const updateRun = () => {
-        RunTrackerService.updateRunInformation(currentRun.run_id, currentRun)
+        RunTrackerService.updateRunInformation(currentRun.runId, currentRun)
             .then(response => {
-                console.log(response.data);
                 alert("The run was updated successfully");
             })
             .catch(error => {
@@ -54,10 +52,9 @@ const Run = props => {
     };
 
     const deleteRun = () => {
-        RunTrackerService.deleteRun(currentRun.run_id)
+        RunTrackerService.deleteRun(currentRun.runId)
             .then(response => {
-                console.log(response.data);
-                props.history.push("/run-tracker");
+                props.history.push("/run-tracker-grid");
             })
             .catch(error => {
                 console.log(error);
@@ -100,17 +97,6 @@ const Run = props => {
                                     id="runTime"
                                     name="runTime"
                                     value={currentRun.runTime}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="user_id">User</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="user_id"
-                                    name="user_id"
-                                    value={currentRun.run_id}
                                     onChange={handleInputChange}
                                 />
                             </div>

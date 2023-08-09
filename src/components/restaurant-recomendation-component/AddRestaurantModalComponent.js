@@ -56,7 +56,6 @@ const AddRestaurantModalComponent = ({ props }) => {
 
     Axios.post('http://localhost:8080/app/restaurants/add', data)
       .then(response => {
-        console.log(data + " thios is data")
         setRestaurant({
           restaurantId: response.data.restaurantId,
           name: response.data.name,
@@ -66,7 +65,6 @@ const AddRestaurantModalComponent = ({ props }) => {
           zip: response.data.zip,
           restaurantTypeId: response.data.restaurantTypeId
         });
-        console.log(data + " this is data")
         setSubmitted(true);
 
         window.location.reload();

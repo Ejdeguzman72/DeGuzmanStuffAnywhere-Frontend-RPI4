@@ -83,7 +83,6 @@ export default function MedicalOfficeTableComponent() {
           state: e1.state,
           zip: e1.zip,
         });
-        console.log(data);
       });
       setMedicalOffice({ data: data });
     })
@@ -95,7 +94,6 @@ export default function MedicalOfficeTableComponent() {
   const handleRowAdd = (newData, resolve) => {
     MedicalOfficeService.addMedicalOffice(newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...medicalOffice.data];
         dataToAdd.push(newData);
         setMedicalOffice(dataToAdd);
@@ -120,7 +118,6 @@ export default function MedicalOfficeTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData)
     MedicalOfficeService.deleteMedicalOffice(oldData.medicalOfficeId)
       .then(res => {
         const dataDelete = [...medicalOffice.data];

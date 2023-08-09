@@ -27,7 +27,6 @@ const Contact = props => {
         ContactService.getContactInfoById(personId)
             .then(response => {
                 setCurrentContact(response.data.person);
-                console.log(response.data.person);
             })
             .catch(error => {
                 console.log(error);
@@ -46,7 +45,6 @@ const Contact = props => {
     const updateContact = () => {
         ContactService.updateContactInfo(currentContact.personId, currentContact)
             .then(response => {
-                console.log(response.data);
                 alert("The contact was updated successfully");
             })
             .catch(error => {
@@ -57,7 +55,6 @@ const Contact = props => {
     const deleteContact = () => {
         ContactService.deleteContactById(currentContact.personId)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/contact-info-grid");
             })
             .catch(error => {

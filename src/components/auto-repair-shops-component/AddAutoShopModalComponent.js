@@ -43,7 +43,6 @@ export default function AddAutoShopModalComponent() {
           zip: response.data.zip
         });
         setSubmitted(true);
-        console.log(data);
       })
   }
 

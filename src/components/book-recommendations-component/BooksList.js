@@ -48,7 +48,6 @@ const BooksList = () => {
 
                 setBooks(books);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -81,7 +80,6 @@ const BooksList = () => {
         BooksService.deleteAllBookInformation()
             .then(response => {
                 setBooks(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -92,7 +90,6 @@ const BooksList = () => {
         BooksService.findBookByName(searchTitle)
             .then(response => {
                 setBooks(response.data);
-                console.log(response.data);
             })
     }
 

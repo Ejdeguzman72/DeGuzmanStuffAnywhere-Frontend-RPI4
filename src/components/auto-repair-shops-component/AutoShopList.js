@@ -48,8 +48,6 @@ const AutoShopList = () => {
                 const { autoShops, totalPages } = response.data;
                 setAutoShops(autoShops);
                 setCount(totalPages);
-
-                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
@@ -82,7 +80,6 @@ const AutoShopList = () => {
         AutoShopService.deleteAllShopInformation()
             .then(response => {
                 setAutoShops(response.data);
-                console.log(response.data);
 
                 window.location.reload();
             })
@@ -95,7 +92,6 @@ const AutoShopList = () => {
         AutoShopService.getSongByTitle(searchTitle)
             .then(response => {
                 setAutoShops(response.data);
-                console.log(response.data);
             })
     }
 

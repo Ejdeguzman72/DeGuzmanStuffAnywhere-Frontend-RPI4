@@ -48,7 +48,6 @@ const RestaurantList = () => {
 
                 setRestaurants(restaurants);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -94,7 +93,6 @@ const RestaurantList = () => {
         RestaurantRecommendationService.findBookByName(searchTitle)
             .then(response => {
                 setRestaurants(response.data);
-                console.log(response.data);
             })
     }
 

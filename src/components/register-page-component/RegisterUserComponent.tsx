@@ -61,8 +61,6 @@ export class RegisterUserComponent extends React.Component<any,any> {
             data: user
         });
 
-        console.log(createUserResponse.data + " This is data");
-
         this.setState({
             ...this.state,
             username: this.state.username,

@@ -135,7 +135,6 @@ export default function ContactInfoEditableTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    console.log(oldData.personId)
 
     Axios.delete(`http://localhost:8080/app/person-info/delete/${oldData.personId}`)
       .then(res => {

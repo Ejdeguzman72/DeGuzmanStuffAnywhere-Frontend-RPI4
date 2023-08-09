@@ -48,7 +48,6 @@ const SocialMediaList = () => {
 
                 setPosts(posts);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -81,7 +80,6 @@ const SocialMediaList = () => {
         PostsService.deleteAllPosts()
             .then(response => {
                 setPosts(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -92,7 +90,6 @@ const SocialMediaList = () => {
         PostsService.getPostByUser(user_id)
             .then(response => {
                 setPosts(response.data);
-                console.log(response.data);
             })
     }
 

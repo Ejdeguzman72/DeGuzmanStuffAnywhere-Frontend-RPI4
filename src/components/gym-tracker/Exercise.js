@@ -35,7 +35,6 @@ const Exercise = props => {
         ExerciseService.getExerciseInformationById(exerciseId)
             .then(response => {
                 setCurrentExercise(response.data.exercise);
-                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
@@ -54,7 +53,6 @@ const Exercise = props => {
     const updateExercise = () => {
         ExerciseService.updateExerciseinformation(currentExercise.exerciseId, currentExercise)
             .then(response => {
-                console.log(response.data);
                 alert("The exercise was updated successfully");
             })
             .catch(error => {
@@ -65,7 +63,6 @@ const Exercise = props => {
     const deleteContact = () => {
         ExerciseService.deleteExercise(currentExercise.exerciseId)
             .then(response => {
-                console.log(response.data);
                 props.history.push("/gym-tracker-grid");
             })
             .catch(error => {

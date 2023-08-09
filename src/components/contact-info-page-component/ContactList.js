@@ -48,8 +48,6 @@ const ContactList = () => {
                 const { persons, totalPages } = response.data;
                 setPersons(persons);
                 setCount(totalPages);
-
-                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
@@ -82,7 +80,6 @@ const ContactList = () => {
         ContactInfoService.deleteAllContactInfo()
             .then(response => {
                 setPersons(response.data);
-                console.log(response.data);
 
                 window.location.reload();
             })
@@ -95,7 +92,6 @@ const ContactList = () => {
         ContactInfoService.getSongByTitle(searchTitle)
             .then(response => {
                 setPersons(response.data);
-                console.log(response.data);
             })
     }
 

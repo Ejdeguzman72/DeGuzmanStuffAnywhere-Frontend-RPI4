@@ -89,7 +89,6 @@ export default function BookTable() {
   const handleRowAdd = (newData, resolve) => {
     BookService.addBookInformation(newData)
       .then(res => {
-        console.log(newData + "this is newData");
         let dataToAdd = [...books.data];
         dataToAdd.push(newData);
         setBooks(dataToAdd);

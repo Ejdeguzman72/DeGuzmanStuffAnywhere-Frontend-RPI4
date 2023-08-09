@@ -30,7 +30,6 @@ export default class NameComponent extends React.Component<any, any> {
         });
 
         this.props.setName(this.state.name)
-        console.log(this.state.name + "slkdjflksdjf");
     }
 
     setEnteredName = (event: any) => {

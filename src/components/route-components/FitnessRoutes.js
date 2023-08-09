@@ -17,7 +17,7 @@ const FitnessRoutes = () => {
 
                 <Route path="/run-tracker-table" exact component={RunTrackerPageComponent} />
                 <Route path="/run-tracker-grid" exact component={RunTrackerGrid} />
-                <Route path="/update-run/:run_id" exact component={Run} />
+                <Route path="/update-run/:runId" exact component={Run} />
             </Switch>
         </HashRouter>
     )

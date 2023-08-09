@@ -73,7 +73,6 @@ const SongList = () => {
 
     const setActiveMusic = (music, index) => {
         setCurrentSong(music);
-        console.log(music + " this is the music");
         setCurrentIndex(index);
     }
 
@@ -81,8 +80,6 @@ const SongList = () => {
         MusicService.deleteAllSongs()
             .then(response => {
                 setSong(response.data);
-                console.log(response.data);
-
                 window.location.reload();
             })
             .catch(error => {
@@ -94,7 +91,6 @@ const SongList = () => {
         MusicService.getSongByTitle(searchTitle)
             .then(response => {
                 setSong(response.data);
-                console.log(response.data);
             })
     }
 

@@ -22,6 +22,7 @@ import Box from '@material-ui/core/Box';
 import AddRunInfoModalComponent from './AddRunInfoModalComponent';
 import { Row, Col } from 'react-bootstrap';
 import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
+import ExportBookToCSV from '../book-recommendations-component/ExportBookToCSV';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -67,6 +68,8 @@ export default function RunTrackerTableComponent() {
         ]
     });
 
+    const [fileName,setFileName] = useState("RUN_TRACKER")
+
     useEffect(() => {
         runTrackerService.getAllRunTrackerInfo().then(response => {
             let data = [];
@@ -78,7 +81,6 @@ export default function RunTrackerTableComponent() {
                     runTime: e1.runTime,
                     username: e1.username
                 });
-                console.log(data);
             });
             setEntries({ data: data })
         })
@@ -88,26 +90,26 @@ export default function RunTrackerTableComponent() {
     }, []);
 
 
-    const handleRowAdd = (newData, resolve) => {
-        Axios.post(`http://localhost:8080/app/run-tracker-app/add`)
-            .then(res => {
-                console.log(newData);
-                let dataToAdd = [...entries.data];
-                dataToAdd.push(newData);
-                setEntries(dataToAdd);
-                resolve();
-                window.location.reload();
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
+    // const handleRowAdd = (newData, resolve) => {
+    //     Axios.post(`http://localhost:8080/app/run-tracker-app/add`)
+    //         .then(res => {
+    //             console.log(newData);
+    //             let dataToAdd = [...entries.data];
+    //             dataToAdd.push(newData);
+    //             setEntries(dataToAdd);
+    //             resolve();
+    //             window.location.reload();
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // }
 
     const handleRowDelete = (oldData, resolve) => {
-        Axios.delete(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
+        runTrackerService.deleteRun(oldData.runId)
             .then(res => {
                 let dataToDelete = [...entries.data];
-                const index = oldData.tabledata.run_id;
+                const index = oldData.tabledata.runId;
                 dataToDelete.splice(index, 1);
                 setEntries(dataToDelete);
                 resolve();
@@ -123,9 +125,8 @@ export default function RunTrackerTableComponent() {
     }
 
     const handleRowUpdate = (newData, oldData, resolve) => {
-        Axios.put(`http://localhost:8080/app/run-tracker-app/run/${oldData.run_id}`)
+        runTrackerService.updateRunInformation(oldData.runId, newData)
             .then(res => {
-                console.log(`Run Entry with IDL ${oldData.run_id}`);
                 let dataToUpdate = [...entries.data];
                 const index = oldData.tabledata.run_id;
                 dataToUpdate[index] = newData;
@@ -153,8 +154,7 @@ export default function RunTrackerTableComponent() {
 
                 </Col>
                 <Col md={2}>
-
-                    {/* <ExportAutoFinanceCSV csvData={entries.data} fileName={fileName} /> */}
+                    <ExportBookToCSV csvData={entries.data} fileName={fileName} />
                 </Col>
             </Row>
             <br></br>
@@ -165,14 +165,14 @@ export default function RunTrackerTableComponent() {
                     icons={tableIcons}
                     data={entries.data}
                     editable={{
-                        onRowAdd: (newData) =>
-                            new Promise((resolve) => {
-                                handleRowAdd(newData, resolve)
-                            }),
-                        onRowUpdate: (newData, oldData) =>
-                            new Promise((resolve) => {
-                                handleRowUpdate(newData, oldData, resolve)
-                            }),
+                        // onRowAdd: (newData) =>
+                        //     new Promise((resolve) => {
+                        //         handleRowAdd(newData, resolve)
+                        //     }),
+                        // onRowUpdate: (newData, oldData) =>
+                        //     new Promise((resolve) => {
+                        //         handleRowUpdate(newData, oldData, resolve)
+                        //     }),
                         onRowDelete: (oldData) =>
                             new Promise((resolve) => {
                                 handleRowDelete(oldData, resolve)

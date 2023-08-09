@@ -48,7 +48,6 @@ const RunTrackerList = () => {
 
                 setRuns(runs);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -204,7 +203,7 @@ const RunTrackerList = () => {
                             {currentRun.user.username}
                         </div>
                         <Link
-                            to={"/update-run/" + currentRun.run_id}
+                            to={"/update-run/" + currentRun.runId}
                             className="badge badge-warning"
                         >
                             Edit

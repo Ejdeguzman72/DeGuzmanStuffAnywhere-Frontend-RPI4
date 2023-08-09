@@ -46,7 +46,6 @@ const Restaurant = props => {
     const updateContact = () => {
         RestaurantRecommendationService.updateRestaurantInformation(currentRestaurant.restaurantId, currentRestaurant)
             .then(response => {
-                console.log(response.data);
                 alert("The restaurant was updated successfully");
             })
             .catch(error => {

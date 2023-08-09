@@ -43,7 +43,6 @@ export default function AddMedicalOfficeModalComponent() {
           zip: response.data.zip
         });
         setSubmitted(true);
-        console.log(data);
       })
   }
 
