@@ -28,12 +28,12 @@ const FinanceRoutes = () => {
                 <Route path="/general-finance-uploads" exact component={GeneralFinanceUploadPageComponent} />
                 <Route path="/general-finance-grid" exact component={GeneralFinanceGridView} />
 
-                <Route path="/update-auto-transaction/:auto_transaction_id" exact component={AutoTransaction} />
+                <Route path="/update-auto-transaction/:autoTrxId" exact component={AutoTransaction} />
                 <Route path="/auto-finance-uploads" exact component={AutoFinanceUploadPageComponent} />
 
                 <Route path="/medical-finance-table" exact component={MedicalFinancePageComponent} />
                 <Route path="/medical-finance-grid" exact component={MedicalGridView} />
-                <Route path="/update-medical-transaction/:medical_transaction_id" exact component={MedicalTransaction} />
+                <Route path="/update-medical-transaction/:medTrxId" exact component={MedicalTransaction} />
                 <Route path="/medical-finance-uploads" exact component={MedicalFinanceUploadPageComponent} />
             </Switch>
         </HashRouter>

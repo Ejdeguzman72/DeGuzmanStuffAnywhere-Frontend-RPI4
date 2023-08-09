@@ -11,8 +11,6 @@ const VehicleDropdown = (props) => {
             .then((error) => console.log(error));
     }, [])
 
-    {console.log(vehicles)}
-
     const handleChange = (event) => {
         props.handleVehicle(event.target.value)
     }

@@ -13,7 +13,6 @@ function UserDropdown(props) {
 
     const handleChange = (event) => {
         props.handleUser(event.target.value);
-        console.log(event.target.value);
     }
 
     return (

@@ -213,7 +213,7 @@ const MedicalTrxList = () => {
                             {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-medical-transaction/" + currentTransaction.medical_transaction_id}
+                            to={"/update-medical-transaction/" + currentTransaction.medTrxId}
                             className="badge badge-warning"
                         >
                             Edit

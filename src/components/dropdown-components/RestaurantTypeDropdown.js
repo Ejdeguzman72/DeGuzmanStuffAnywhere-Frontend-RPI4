@@ -16,7 +16,6 @@ function RestaurantTypeDropdown(props) {
 
     const handleChange = (event) => {
         props.handleRestaurantType(event.target.value);
-        console.log("Value: " + event.target.value);
     }
 
     return (

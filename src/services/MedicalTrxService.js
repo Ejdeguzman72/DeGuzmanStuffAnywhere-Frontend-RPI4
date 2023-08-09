@@ -4,39 +4,39 @@ const getAllMedicalTransactions = () => {
     return Axios.get('http://localhost:8080/app/medical-transactions/all');
 }
 
-const getAllTransactionsPagination = (params:any) => {
+const getAllTransactionsPagination = (params) => {
     return Axios.get('http://localhost:8080/app/medical-transactions/all-transactions', { params });
 }
 
-const getTransactionsByFacility = (data:any) => {
+const getTransactionsByFacility = (data) => {
     return Axios.get(`http://localhost:8080/app/medical-transactions/transactions/search/facility`,data)
 }
 
-const getTransactionsByType = (data:any) => {
+const getTransactionsByType = (data) => {
     return Axios.get(`http://localhost:8080/app/medical-transactions/transactions/search/type`,data)
 }
 
-const getTransactionsByUser = (data:any) => {
+const getTransactionsByUser = (data) => {
     return Axios.get(`http://localhost:8080/app/medical-transactions/transactions/search/user`,data)
 }
 
-const getTransactionById = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/medical-transactions/transaction/search/id`,data);
+const getTransactionById = (medTrxId) => {
+    return Axios.get(`http://localhost:8080/app/medical-transactions/transaction/search/id/${medTrxId}`);
 } 
 
-const getTransactionDTOById = (data:any) => {
-    return Axios.get('http://localhost:8080/app/medical-transactions/transaction-dto/search/id',data)
+const getTransactionDTOById = (medTrxId) => {
+    return Axios.get(`http://localhost:8080/app/medical-transactions/transaction-dto/search/id/${medTrxId}`)
 }
 
-const addMedicalTransaction = (data:any) => {
+const addMedicalTransaction = (data) => {
     return Axios.post(`http://localhost:8080/app/medical-transactions/add`,data);
 }
 
-const updateMedicalTransaction = (data:any) => {
-    return Axios.put(`http://localhost:8080/app/medical-transactions/update`,data);
+const updateMedicalTransaction = (medTrxId,data) => {
+    return Axios.put(`http://localhost:8080/app/medical-transactions/update/${medTrxId}`,data);
 }
 
-const deleteMedicalTransaction = (data:any) => {
+const deleteMedicalTransaction = (data) => {
     return Axios.delete(`http://localhost:8080/app/medical-transactions/delete`,data)
 }
 

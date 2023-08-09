@@ -33,7 +33,7 @@ const GeneralTransaction = props => {
     const getTransaction = (genTrxId) => {
         GeneralTransactionService.getTransactionById(genTrxId)
             .then(response => {
-                setCurrentTransaction(response.data);
+                setCurrentTransaction(response.data.transaction);
                 console.log(response.data)
             })
             .catch(error => {

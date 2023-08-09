@@ -13,7 +13,6 @@ function AutoRepairShopDropdown(props) {
 
     const handleChange = (event) => {
         props.handleAutoShop(event.target.value);
-        console.log(event.target.value);
     }
 
     return (

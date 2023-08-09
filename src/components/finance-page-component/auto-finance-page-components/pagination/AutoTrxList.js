@@ -73,6 +73,7 @@ const AutoTrxList = () => {
 
     const setActiveTransactions = (transaction, index) => {
         setCurrentTransaction(transaction);
+        console.log(transaction)
         setCurrentIndex(index);
     }
 
@@ -253,7 +254,7 @@ const AutoTrxList = () => {
                             {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-auto-transaction/" + currentTransaction.auto_transaction_id}
+                            to={"/update-auto-transaction/" + currentTransaction.autoTrxId}
                             className="badge badge-warning"
                         >
                             Edit

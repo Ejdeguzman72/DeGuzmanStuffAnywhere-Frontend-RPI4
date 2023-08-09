@@ -13,7 +13,6 @@ function MedicalOfficeDropdown(props) {
 
     const handleChange = (event) => {
         props.handleMedicalOffice(event.target.value);
-        console.log(event.target.value);
     }
 
     return (

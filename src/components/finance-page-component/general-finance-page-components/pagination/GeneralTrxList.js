@@ -213,7 +213,7 @@ const GeneralTrxList = () => {
                             {currentTransaction.user.username}
                         </div>
                         <Link
-                            to={"/update-general-transaction/" + currentTransaction.transacion_id}
+                            to={"/update-general-transaction/" + currentTransaction.genTrxId}
                             className="badge badge-warning"
                         >
                             Edit

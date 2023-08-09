@@ -9,46 +9,46 @@ import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDr
 
 const AutoTransaction = props => {
     const initialState = {
-        auto_transaction_id: 0,
+        autoTrxId: 0,
         amount: 0,
-        auto_transaction_date: "",
-        vehicle_id: 0,
-        auto_shop_id: 0,
-        transaction_type_id: 0,
-        user_id: 0,
+        autoTrxDate: "",
+        vehicleId: 0,
+        autoShopId: 0,
+        trxTypeId: 0,
+        userId: 0,
     };
 
     const [currentTransaction, setCurrentTransaction] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleTransactionType = (transaction_type_id) => {
+    const handleTransactionType = (trxTypeId) => {
         setCurrentTransaction({
-            ...currentTransaction, transaction_type_id: transaction_type_id
+            ...currentTransaction, trxTypeId: trxTypeId
         })
     }
 
-    const handleAutoShop = (auto_shop_id) => {
+    const handleAutoShop = (autoShopId) => {
         setCurrentTransaction({
-            ...currentTransaction, auto_shop_id: auto_shop_id
+            ...currentTransaction, autoShopId: autoShopId
         })
     }
 
-    const handleVehicle = (vehicle_id) => {
+    const handleVehicle = (vehicleId) => {
         setCurrentTransaction({
-            ...currentTransaction, vehicle_id: vehicle_id
+            ...currentTransaction, vehicleId: vehicleId
         });
     }
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setCurrentTransaction({
-            ...currentTransaction, user_id: user_id
+            ...currentTransaction, userId: userId
         });
     }
 
-    const getTransaction = (auto_transaction_id) => {
-        AutoTransactionService.getAutoTransactionDTOById(auto_transaction_id)
+    const getTransaction = (autoTrxId) => {
+        AutoTransactionService.getAutoTransactionDTOById(autoTrxId)
             .then(response => {
-                setCurrentTransaction(response.data);
+                setCurrentTransaction(response.data.transaction);
                 console.log(response.data)
             })
             .catch(error => {
@@ -57,8 +57,8 @@ const AutoTransaction = props => {
     };
 
     useEffect(() => {
-        getTransaction(props.match.params.auto_transaction_id);
-    }, [props.match.params.auto_transaction_id]);
+        getTransaction(props.match.params.autoTrxId);
+    }, [props.match.params.autoTrxId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -66,7 +66,7 @@ const AutoTransaction = props => {
     };
 
     const updateTransaction = () => {
-        AutoTransactionService.updateAutoTransaction(currentTransaction.auto_transaction_id, currentTransaction)
+        AutoTransactionService.updateAutoTransaction(currentTransaction.autoTrxId, currentTransaction)
             .then(response => {
                 console.log(response.data);
                 alert("The transaction was updated successfully");
@@ -77,10 +77,10 @@ const AutoTransaction = props => {
     };
 
     const deleteTransaction = () => {
-        AutoTransactionService.deleteAutoTransaction(currentTransaction.auto_transaction_id)
+        AutoTransactionService.deleteAutoTransaction(currentTransaction.autoTrxId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/auto-finance");
+                props.history.push("/auto-finance-table");
             })
             .catch(error => {
                 console.log(error);
@@ -104,37 +104,37 @@ const AutoTransaction = props => {
                                     className="form-control"
                                     id="amount"
                                     name="amount"
-                                    value={currentTransaction.amount}
+                                    value={currentTransaction.amount.toFixed(2)}
                                     onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="auto_transaction_date">Payment Date</label>
-                                <Form.Group controlId="auto_transaction_date">
+                                <label htmlFor="autoTrxDate">Payment Date</label>
+                                <Form.Group controlId="autoTrxDate">
                                     <Form.Label>Select Date</Form.Label>
-                                    <Form.Control type="date" name="auto_transaction_date" placeholder="Date" onChange={handleInputChange} />
+                                    <Form.Control type="date" name="autoTrxDate" placeholder="Date" onChange={handleInputChange} />
                                 </Form.Group>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="auto_shop_id">Auto Repair Shop</label>
+                                <label htmlFor="autoShopId">Auto Repair Shop</label>
                                 <AutoRepairShopDropdown
                                     handleAutoShop={handleAutoShop}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="vehicle_id">Vehicle</label>
+                                <label htmlFor="vehicleId">Vehicle</label>
                                 <VehicleDropdownComponent
                                     handleVehicle={handleVehicle}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="transaction_type_id">Transaction Type</label>
+                                <label htmlFor="trxTypeId">Transaction Type</label>
                                 <TransactionTypeDropdown
                                     handleTransactionType={handleTransactionType}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="user_id">User</label>
+                                <label htmlFor="userId">User</label>
                                 <UserDropdown
                                     handleUser={handleUser}
                                 />

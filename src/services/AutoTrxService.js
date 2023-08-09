@@ -22,12 +22,12 @@ const getAutoTrxByTrxType = (data) => {
     return Axios.get(`http://localhost:8080/app/auto-transactions/transactions/search/type`,data);
 }
 
-const getAutoTransactionDTOById = (data) => {
-    return Axios.get(`http://localhost:8080/app/auto-transactions/transaction-dto/search/id`,data);
+const getAutoTransactionDTOById = (autoTrxId) => {
+    return Axios.get(`http://localhost:8080/app/auto-transactions/transaction-dto/search/id/${autoTrxId}`);
 }
 
-const getAutoTransactionById = (data) => {
-    return Axios.get(`http://localhost:8080/app/auto-transactions/transaction/search/id`,data);
+const getAutoTransactionById = (autoTrxId) => {
+    return Axios.get(`http://localhost:8080/app/auto-transactions/transaction/search/id/${autoTrxId}`);
 }
 
 const getTrxCount = () => {
@@ -38,12 +38,12 @@ const addAutoTransactionInformation = (newData) => {
     return Axios.post('http://localhost:8080/app/auto-transactions/add',newData);
 }
 
-const updateAutoTransaction = (data) => {
-    return Axios.put(`http://localhost:8080/app/auto-transactions/update`,data);
+const updateAutoTransaction = (autoTrxId,data) => {
+    return Axios.put(`http://localhost:8080/app/auto-transactions/update/${autoTrxId}`,data);
 }
 
-const deleteAutoTransaction = (data) => {
-    return Axios.delete(`http://localhost:8080/app/auto-transactions/delete`,data);
+const deleteAutoTransaction = (autoTrxId) => {
+    return Axios.delete(`http://localhost:8080/app/auto-transactions/delete/${autoTrxId}`);
 }
 
 const deleteAllTransactions = () => {

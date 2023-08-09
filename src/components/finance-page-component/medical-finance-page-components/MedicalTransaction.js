@@ -8,39 +8,39 @@ import MedicalOfficeDropdown from '../../dropdown-components/MedicalOfficeDropdo
 
 const MedicalTransaction = props => {
     const initialState = {
-        medical_transaction_id: 0,
+        medTrxId: 0,
         amount: 0,
-        medical_transaction_date: "",
-        medical_office_id: 0,
-        transaction_type_id: 0,
-        user_id: 0
+        medTrxDate: "",
+        medicalOfficeId: 0,
+        trxTypeId: 0,
+        userId: 0
     };
 
     const [currentTransaction, setCurrentTransaction] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleMedicalOffice = (medical_office_id) => {
+    const handleMedicalOffice = (medicalOfficeId) => {
         setCurrentTransaction({
-            ...currentTransaction, medical_office_id: medical_office_id
+            ...currentTransaction, medicalOfficeId: medicalOfficeId
         });
     }
 
-    const handleTransactionType = (transaction_type_id) => {
+    const handleTransactionType = (trxTypeId) => {
         setCurrentTransaction({
-            ...currentTransaction, transaction_type_id: transaction_type_id
+            ...currentTransaction, trxTypeId: trxTypeId
         })
     }
 
-    const handleUser = (user_id) => {
+    const handleUser = (userId) => {
         setCurrentTransaction({
-            ...currentTransaction, user_id: user_id
+            ...currentTransaction, userId: userId
         });
     }
 
-    const getMedicalTransaction = (medical_transaction_id) => {
-        MedicalTransactionService.getTransactionById(medical_transaction_id)
+    const getMedicalTransaction = (medTrxId) => {
+        MedicalTransactionService.getTransactionById(medTrxId)
             .then(response => {
-                setCurrentTransaction(response.data);
+                setCurrentTransaction(response.data.transaction);
                 console.log(response.data)
             })
             .catch(error => {
@@ -49,8 +49,8 @@ const MedicalTransaction = props => {
     };
 
     useEffect(() => {
-        getMedicalTransaction(props.match.params.medical_transaction_id);
-    }, [props.match.params.medical_transaction_id]);
+        getMedicalTransaction(props.match.params.medTrxId);
+    }, [props.match.params.medTrxId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -58,7 +58,7 @@ const MedicalTransaction = props => {
     };
 
     const updateMedicalTransaction = () => {
-        MedicalTransactionService.updateMedicalTransaction(currentTransaction.medical_transaction_id, currentTransaction)
+        MedicalTransactionService.updateMedicalTransaction(currentTransaction.medTrxId, currentTransaction)
             .then(response => {
                 console.log(response.data);
                 alert("The transaction was updated successfully");
@@ -69,10 +69,10 @@ const MedicalTransaction = props => {
     };
 
     const deleteMedicalTransaction = () => {
-        MedicalTransactionService.deleteMedicalTransaction(currentTransaction.medical_transaction_id)
+        MedicalTransactionService.deleteMedicalTransaction(currentTransaction.medTrxId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/medical-finance");
+                props.history.push("/medical-finance-table");
             })
             .catch(error => {
                 console.log(error);
@@ -96,31 +96,31 @@ const MedicalTransaction = props => {
                                     className="form-control"
                                     id="amount"
                                     name="amount"
-                                    value={currentTransaction.amount}
+                                    value={currentTransaction.amount.toFixed(2)}
                                     onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="medical_transaction_date">Payment Date</label>
-                                <Form.Group controlId="medical_transaction_date">
+                                <label htmlFor="medTrxDate">Payment Date</label>
+                                <Form.Group controlId="medTrxDate">
                                     <Form.Label>Select Date</Form.Label>
-                                    <Form.Control type="date" name="medical_transaction_date" placeholder="Date" onChange={handleInputChange} />
+                                    <Form.Control type="date" name="medTrxDate" placeholder="Date" onChange={handleInputChange} />
                                 </Form.Group>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="entity">Entity</label>
+                                <label htmlFor="medicalOfficeId">Entity</label>
                                 <MedicalOfficeDropdown
                                     handleMedicalOffice={handleMedicalOffice}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="transaction_type_id">Transaction Type</label>
+                                <label htmlFor="trxTypeId">Transaction Type</label>
                                 <TransactionTypeDropdown
                                     handleTransactionType={handleTransactionType}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="user_id">User</label>
+                                <label htmlFor="userId">User</label>
                                 <UserDropdown
                                     handleUser={handleUser}
                                 />

@@ -5,6 +5,7 @@ import '../../../style-sheets/medical-finance-page.css';
 import UserDropdown from '../../dropdown-components/UserDropdown';
 import MedicalOfficeDropdown from '../../dropdown-components/MedicalOfficeDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
+import MedicalTransactionService from '../../../services/MedicalTrxService';
 
 export default function AddMedicalFinanceModalComponent() {
 
@@ -29,6 +30,7 @@ export default function AddMedicalFinanceModalComponent() {
     setMedicalTransaction({
       ...medicalTransaction, medicalOfficeId: medicalOfficeId
     });
+    console.log(medicalOfficeId)
   }
 
   const handleTransactionType = (trxTypeId) => {
@@ -45,7 +47,6 @@ export default function AddMedicalFinanceModalComponent() {
 
   const saveMedicalTransaction = () => {
     let data = {
-      medicalOfficeId: medicalTransaction.medicalOfficeId,
       amount: medicalTransaction.amount,
       medTrxDate: medicalTransaction.medTrxDate,
       medicalOfficeId: medicalTransaction.medicalOfficeId,
@@ -56,7 +57,6 @@ export default function AddMedicalFinanceModalComponent() {
     Axios.post('http://localhost:8080/app/medical-transactions/add', data)
       .then(response => {
         setMedicalTransaction({
-          medicalOfficeId: response.data.medicalOfficeId,
           amount: response.data.amount,
           medTrxDate: response.data.medTrxDate,
           medicalOfficeId: response.data.medicalOfficeId,
@@ -118,9 +118,9 @@ export default function AddMedicalFinanceModalComponent() {
                 className="form-control"
                 name="amount"
                 onChange={handleInputChange} />
-              <Form.Group controlId="medical_transaction_date">
+              <Form.Group controlId="medTrxDate">
                 <Form.Label>Select Date (MM/DD/YYYY)</Form.Label>
-                <Form.Control type="date" name="medical_transaction_date" placeholder="Date (MM/DD/YYYY)" onChange={handleInputChange} />
+                <Form.Control type="date" name="medTrxDate" placeholder="Date (MM/DD/YYYY)" onChange={handleInputChange} />
               </Form.Group>
 
               <MedicalOfficeDropdown
