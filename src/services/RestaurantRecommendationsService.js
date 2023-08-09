@@ -21,12 +21,12 @@ const getRestaurantsByDescr = (data) => {
     return Axios.get(`http://localhost:8080/app/restaurants/all/search/descr`,data)
 }
 
-const getRestaurantById = (data) => {
-    return Axios.get(`http://localhost:8080/app/restaurants/restaurant/search/id`,data);
+const getRestaurantById = (restaurantId) => {
+    return Axios.get(`http://localhost:8080/app/restaurants/restaurant/search/id/${restaurantId}`);
 }
 
-const getRestaurantsDTOById = (data) => {
-    return Axios.get(`http://localhost:8080/app/restaurants/restaurant-dto/search/id`,data)
+const getRestaurantsDTOById = (restaurantId) => {
+    return Axios.get(`http://localhost:8080/app/restaurants/restaurant-dto/search/id/${restaurantId}`)
 }
 
 const getRestaurantByName = (data) => {
@@ -41,12 +41,12 @@ const addRestaurantInformation = (data) => {
     return Axios.post('http://localhost:8080/app/restaurants/add',data);
 }
 
-const updateRestaurantInformation = (data) => {
-    return Axios.put(`http://localhost:8080/app/restaurants/update`,data);
+const updateRestaurantInformation = (restaurantId,data) => {
+    return Axios.put(`http://localhost:8080/app/restaurants/update/${restaurantId}`,data);
 }
 
-const deleteRestaurantInformation = (data) => {
-    return Axios.delete(`http://localhost:8080/app/restaurants/delete`,data);
+const deleteRestaurantInformation = (restaurantId) => {
+    return Axios.delete(`http://localhost:8080/app/restaurants/delete/${restaurantId}`);
 }
 
 const deleteAllRestaurants = () => {

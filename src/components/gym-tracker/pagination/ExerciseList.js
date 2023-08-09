@@ -48,7 +48,6 @@ const ExerciseList = () => {
 
                 setExercises(exercises);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -94,7 +93,6 @@ const ExerciseList = () => {
         ExerciseService.findBookByName(searchTitle)
             .then(response => {
                 setExercises(response.data);
-                console.log(response.data);
             })
     }
 

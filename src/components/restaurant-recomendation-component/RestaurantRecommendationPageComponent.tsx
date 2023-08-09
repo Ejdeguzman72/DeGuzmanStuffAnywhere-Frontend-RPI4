@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import RestaurantTabComponent from '../tab-components/RestaurantTabComponent';
 import RestaurantRecommendationTableComponent from './RestaurantRecommendationTableComponent';
 import RestaurantList from './pagination/RestaurantList';
+import RestaurantOptionsDropdown from '../dropdown-components/RestaurantOptionsDropdown';
 
 const RestaurantRecommendationPageComponent = () => {
     return (
@@ -14,11 +15,8 @@ const RestaurantRecommendationPageComponent = () => {
                 <br></br>
                 <RestaurantTabComponent />
                 <br></br>
-                <br></br>
                 <RestaurantRecommendationTableComponent />
                 <br></br>
-                <br></br>
-                <RestaurantList />
             </div>
         </div>
     )

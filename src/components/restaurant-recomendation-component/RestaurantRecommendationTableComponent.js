@@ -88,7 +88,6 @@ export default function RestaurantRecommendationTableComponent() {
         });
       });
       setEntries({ data: data })
-      console.log(data);
     })
       .catch(function (error) {
         console.log(error);
@@ -107,11 +106,10 @@ export default function RestaurantRecommendationTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/restaurants/update-restaurat/${oldData.restaurant_id}`)
+    RestaurantRecommendationsService.updateRestaurantInformation(oldData.restaurantId)
       .then(res => {
         const dataUpdate = [...entries.data];
-        const index = oldData.tabledata.restaurant_id;
-        console.log(index + "this is index")
+        const index = oldData.tabledata.restaurantId;
         dataUpdate[index] = newData;
         setEntries([...dataUpdate]);
         resolve();
@@ -123,7 +121,7 @@ export default function RestaurantRecommendationTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/restaurants/restaurant/${oldData.restaurant_id}`)
+    RestaurantRecommendationsService.deleteRestaurantInformation(oldData.restaurantId)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.restaurant_id;

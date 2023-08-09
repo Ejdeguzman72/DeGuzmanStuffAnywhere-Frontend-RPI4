@@ -10,7 +10,7 @@ const RestaurantRecommendationRoutes = () => {
             <Switch>
                 <Route path="/restaurant-recommendations-table" exact component={RestaurantRecommendationPageComponent} />
                 <Route path="/restaurant-recommendations-grid" exact component={RestaurantGridView} />
-                <Route path="/update-restaurant/:restaurant_id" exact component={Restaurant} />
+                <Route path="/update-restaurant/:restaurantId" exact component={Restaurant} />
             </Switch>
         </HashRouter>
     )

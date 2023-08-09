@@ -6,29 +6,28 @@ import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdow
 
 const Restaurant = props => {
     const initialState = {
-        restaurant_id: 0,
+        restaurantId: 0,
         name: "",
         address: "",
         city: "",
         state: "",
         zip: "",
-        descr: ""
+        restaurantTypeId: 0
     };
 
     const [currentRestaurant, setCurrentRestaurant] = useState(initialState);
     const [message, setMessage] = ("");
 
-    const handleRestaurantType = (restaurant_type_id) => {
+    const handleRestaurantType = (restaurantTypeId) => {
         setCurrentRestaurant({
-            ...currentRestaurant, restaurant_type_id: restaurant_type_id
+            ...currentRestaurant, restaurantTypeId: restaurantTypeId
         });
     }
 
-    const getRestaurant = (restaurant_id) => {
-        RestaurantRecommendationService.getRestaurantById(restaurant_id)
+    const getRestaurant = (restaurantId) => {
+        RestaurantRecommendationService.getRestaurantById(restaurantId)
             .then(response => {
-                setCurrentRestaurant(response.data);
-                console.log(restaurant_id + "skljasdhfalskdjhfaslkjdfh");
+                setCurrentRestaurant(response.data.restaurant);
             })
             .catch(error => {
                 console.log(error);
@@ -36,8 +35,8 @@ const Restaurant = props => {
     };
 
     useEffect(() => {
-        getRestaurant(props.match.params.restaurant_id);
-    }, [props.match.params.restaurant_id]);
+        getRestaurant(props.match.params.restaurantId);
+    }, [props.match.params.restaurantId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -45,7 +44,7 @@ const Restaurant = props => {
     };
 
     const updateContact = () => {
-        RestaurantRecommendationService.updateRestaurantInformation(currentRestaurant.restaurant_id, currentRestaurant)
+        RestaurantRecommendationService.updateRestaurantInformation(currentRestaurant.restaurantId, currentRestaurant)
             .then(response => {
                 console.log(response.data);
                 alert("The restaurant was updated successfully");
@@ -56,10 +55,9 @@ const Restaurant = props => {
     };
 
     const deleteContact = () => {
-        RestaurantRecommendationService.deleteRestaurantInformation(currentRestaurant.restaurant_id)
+        RestaurantRecommendationService.deleteRestaurantInformation(currentRestaurant.restaurantId)
             .then(response => {
-                console.log(response.data);
-                props.history.push("/restaurant-recommendations");
+                props.history.push("/restaurant-recommendations-grid");
             })
             .catch(error => {
                 console.log(error);

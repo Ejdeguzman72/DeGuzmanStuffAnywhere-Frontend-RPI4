@@ -58,7 +58,7 @@ const Contact = props => {
         ContactService.deleteContactById(currentContact.personId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/contact-info-table");
+                props.history.push("/contact-info-grid");
             })
             .catch(error => {
                 console.log(error);
