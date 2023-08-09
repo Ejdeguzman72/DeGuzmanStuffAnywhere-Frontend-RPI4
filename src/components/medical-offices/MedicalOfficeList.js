@@ -48,7 +48,6 @@ const MedicalOfficeList = () => {
 
                 setMedicalOffices(medicalOffices);
                 setCount(totalPages);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -81,7 +80,6 @@ const MedicalOfficeList = () => {
         MedicalOfficeService.deleteAllMedicalOffices()
             .then(response => {
                 setMedicalOffices(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -92,7 +90,6 @@ const MedicalOfficeList = () => {
         MedicalOfficeService.findBookByName(searchTitle)
             .then(response => {
                 setMedicalOffices(response.data);
-                console.log(response.data);
             })
     }
 

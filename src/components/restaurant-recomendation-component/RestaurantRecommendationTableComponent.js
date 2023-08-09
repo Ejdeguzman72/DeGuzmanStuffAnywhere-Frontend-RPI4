@@ -124,7 +124,7 @@ export default function RestaurantRecommendationTableComponent() {
     RestaurantRecommendationsService.deleteRestaurantInformation(oldData.restaurantId)
       .then(res => {
         const dataDelete = [...entries.data];
-        const index = oldData.tableData.restaurant_id;
+        const index = oldData.tableData.restaurantId;
         dataDelete.splice(index, 1);
         setEntries([...dataDelete]);
         resolve();

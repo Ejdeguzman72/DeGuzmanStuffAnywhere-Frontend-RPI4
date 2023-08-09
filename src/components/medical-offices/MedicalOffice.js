@@ -21,8 +21,7 @@ const MedicalOffice = props => {
     const getOffice = (medicalOfficeId) => {
         MedicalOfficeService.getMedicalOfficeById(medicalOfficeId)
             .then(response => {
-                setCurrentOffice(response.data);
-                console.log(response.data);
+                setCurrentOffice(response.data.medicalOffice);
             })
             .catch(error => {
                 console.log(error);
@@ -53,7 +52,7 @@ const MedicalOffice = props => {
         MedicalOfficeService.deleteMedicalOffice(currentOffice.medicalOfficeId)
             .then(response => {
                 console.log(response.data);
-                props.history.push("/medical-offices");
+                props.history.push("/medical-offices-grid");
             })
             .catch(error => {
                 console.log(error);

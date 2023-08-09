@@ -4,32 +4,32 @@ const getAllMedicalOffices = () => {
     return Axios.get('http://localhost:8080/app/medical-offices/all');
 }
 
-const getAllMedicalOfficeInfo = (params:any) => {
+const getAllMedicalOfficeInfo = (params) => {
     return Axios.get('http://localhost:8080/app/medical-offices/all-medical-offices', {params});
 }
 
-const getMedicalOfficesByZip = (data:any) => {
+const getMedicalOfficesByZip = (data) => {
     return Axios.get(`http://localhost:8080/app/medical-offices/offices/search/zip`,data)
 }
 
-const getMedicalOfficeById = (data:any) => {
-    return Axios.get(`http://localhost:8080/app/medical-offices/offices/search/id`,data);
+const getMedicalOfficeById = (medicalOfficeId) => {
+    return Axios.get(`http://localhost:8080/app/medical-offices/offices/search/id/${medicalOfficeId}`);
 }
 
 const getMedicalTrxCount = () => {
     return Axios.get('http://localhost:8080/app/medical-transactions/count')
 }
 
-const addMedicalOffice = (newData:any) => {
+const addMedicalOffice = (newData) => {
     return Axios.post("http://localhost:8080/app/medical-offices/add", newData);
 }
 
-const updateMedicalOfficeInformation = (data:any) => {
-    return Axios.put(`http://localhost:8080/app/medical-offices/update`,data);
+const updateMedicalOfficeInformation = (medicalOfficeId,data) => {
+    return Axios.put(`http://localhost:8080/app/medical-offices/update/${medicalOfficeId}`,data);
 }
 
-const deleteMedicalOffice = (data:any) => {
-    return Axios.delete(`http://localhost:8080/app/medical-offices/delete`,data);
+const deleteMedicalOffice = (medicalOfficeId) => {
+    return Axios.delete(`http://localhost:8080/app/medical-offices/delete/${medicalOfficeId}`);
 }
 
 const deleteAllMedicalOffices = () => {

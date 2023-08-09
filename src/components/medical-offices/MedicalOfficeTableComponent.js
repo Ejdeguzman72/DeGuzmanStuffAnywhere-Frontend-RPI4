@@ -17,12 +17,10 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import Axios from 'axios';
 import Box from '@material-ui/core/Box';
 import { Col,Row } from 'react-bootstrap';
 import ExportMedicalFinanceCSV from './ExportMedicalOfficeCSV';
 import AddMedicalFinanceModalComponent from './AddMedicalOfficeModalComponent';
-import AutoShopService from '../../services/AutoShopService'
 import MedicalOfficeOptionsDropdown from '../dropdown-components/MedicalOfficeOptionsDropdown';
 
 const tableIcons = {
@@ -107,7 +105,7 @@ export default function MedicalOfficeTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/medical-offices/medical-office/${oldData.medicalOfficeId}`)
+    MedicalOfficeService.updateMedicalOffice(oldData.medicalOfficeId)
       .then(res => {
         const dataUpdate = [...medicalOffice.data];
         const index = oldData.tabledata.medicalOfficeId;
@@ -122,10 +120,11 @@ export default function MedicalOfficeTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/medical-offices/medical-office/${oldData.medicalOfficeId}`)
+    console.log(oldData)
+    MedicalOfficeService.deleteMedicalOffice(oldData.medicalOfficeId)
       .then(res => {
         const dataDelete = [...medicalOffice.data];
-        const index = oldData.tabledata.medicalOfficeId;
+        const index = medicalOffice.medicalOfficeId
         dataDelete.splice(index, 1);
         setMedicalOffice([...dataDelete]);
         resolve();
