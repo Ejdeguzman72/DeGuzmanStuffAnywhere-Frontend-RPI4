@@ -103,7 +103,7 @@ export default function MedicalOfficeTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    MedicalOfficeService.updateMedicalOffice(oldData.medicalOfficeId)
+    MedicalOfficeService.updateMedicalOfficeInformation(oldData.medicalOfficeId)
       .then(res => {
         const dataUpdate = [...medicalOffice.data];
         const index = oldData.tabledata.medicalOfficeId;

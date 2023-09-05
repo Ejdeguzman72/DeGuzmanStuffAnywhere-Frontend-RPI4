@@ -22,6 +22,7 @@ import Axios from 'axios';
 import InventoryExportToCSV from './InventoryExportToCsv';
 import AddInventoryModal from './AddInventoryModal';
 import InventoryOptionsDropdown from '../dropdown-components/InventoryOptionsDropdown';
+import InventoryService from '../../services/InventoryService';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -69,7 +70,7 @@ export default function InventoryTable() {
   });
 
   useEffect(() => {
-    Axios.get('http://localhost:8080/app/inventory/all').then(response => {
+    InventoryService.getAllInventory().then(response => {
       let data = [];
       response.data.list.forEach(e1 => {
         data.push({
@@ -93,7 +94,7 @@ export default function InventoryTable() {
     if (newData.name === null) {
       alert("name entry is required");
     }
-    Axios.post('http://localhost:8080/app/inventory/add', newData)
+    InventoryService.addInventoryInformation(newData)
       .then(res => {
         let dataToAdd = [...entries.data];
         dataToAdd.push(newData);

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
+import authHeader from '../../services/AuthHeader';
 
 function UserDropdown(props) {
     const [users, setUsers] = useState([]);
     const [singleUser, setSingleUser] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8080/app/users/all')
+        Axios.get('http://localhost:8080/app/users/all', { headers: authHeader() })
             .then((response) => setUsers(response.data.list))
             .then((error) => console.log(error));
     }, []);

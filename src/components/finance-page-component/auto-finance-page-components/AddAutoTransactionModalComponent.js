@@ -5,6 +5,7 @@ import AutoRepairShopDropdown from '../../dropdown-components/AutoRepairShopDrop
 import UserDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 import VehicleDropdownComponent from '../../dropdown-components/VehicleDropdownComponent';
+import AutoTrxService from '../../../services/AutoTrxService';
 
 export default function AddAutoTransactionModalComponent() {
 
@@ -61,7 +62,7 @@ export default function AddAutoTransactionModalComponent() {
       userId: autoTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/auto-transactions/add', data)
+    AutoTrxService.addAutoTransactionInformation(data)
       .then(response => {
         setAutoTransaction({
           autoTrxId: response.data.autoTrxId,

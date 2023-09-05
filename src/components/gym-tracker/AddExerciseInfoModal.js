@@ -5,6 +5,7 @@ import '../../style-sheets/book-recommendations.css';
 import Axios from 'axios';
 import { Form } from 'react-bootstrap';
 import UserDropdown from '../dropdown-components/UserDropdown';
+import ExerciseService from '../../services/ExerciseService';
 
 const AddExerciseModal = () => {
     const initialState = {
@@ -46,7 +47,7 @@ const AddExerciseModal = () => {
             userId: exercise.userId
         };
 
-        Axios.post('http://localhost:8080/app/gym-tracker/add', data)
+        ExerciseService.addExerciseInformation(data)
             .then(response => {
                 setExercise({
                     exerciseId: response.data.exerciseId,

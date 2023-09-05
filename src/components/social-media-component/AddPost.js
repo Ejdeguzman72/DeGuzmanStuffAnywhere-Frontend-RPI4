@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import '../../style-sheets/medical-finance-page.css';
+import postService from '../../services/post-service';
 
 export default function AddPost() {
 
@@ -28,7 +29,7 @@ export default function AddPost() {
       userId: post.userId
     };
 
-    Axios.post('http://localhost:8080/app/posts/add', data)
+    postService.addPost(data)
       .then(response => {
         setPost({
             psotId: response.data.postId,

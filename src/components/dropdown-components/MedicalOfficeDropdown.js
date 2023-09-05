@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
+import authHeader from '../../services/AuthHeader';
 
 function MedicalOfficeDropdown(props) {
     const [medicalOffices, setMedicalOffices] = useState([]);
     const [singleMedicalOffice, setSingleMedicalOffice] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8080/app/medical-offices/all')
+        Axios.get('http://localhost:8080/app/medical-offices/all', { headers: authHeader() })
             .then((response) => setMedicalOffices(response.data.list))
             .then((error) => console.log(error));
     }, []);

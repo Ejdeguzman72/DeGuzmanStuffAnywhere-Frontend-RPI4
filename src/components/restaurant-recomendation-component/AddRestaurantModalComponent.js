@@ -4,6 +4,7 @@ import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/restaurant-recs-styles.css';
 import RestaurantTypeDropdown from '../dropdown-components/RestaurantTypeDropdown';
 import { jwtHelper } from '../../helper/jwt';
+import RestaurantRecommendationsService from '../../services/RestaurantRecommendationsService';
 
 const jwt = jwtHelper();
 
@@ -54,7 +55,7 @@ const AddRestaurantModalComponent = ({ props }) => {
       restaurantTypeId: restaurant.restaurantTypeId
     }
 
-    Axios.post('http://localhost:8080/app/restaurants/add', data)
+    RestaurantRecommendationsService.addRestaurantInformation(data)
       .then(response => {
         setRestaurant({
           restaurantId: response.data.restaurantId,

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
+import React, { useState} from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
 import Axios from 'axios';
-import NameDropdown from '../../dropdown-components/UserDropdown';
 import TransactionTypeDropdown from '../../dropdown-components/TransactionTypeDropdown';
 import UserDropdown from '../../dropdown-components/UserDropdown';
+import GeneralTrxService from '../../../services/GeneralTrxService';
 
 export default function AddGeneralFinanceModalComponent() {
 
@@ -46,7 +46,7 @@ export default function AddGeneralFinanceModalComponent() {
       userId: generalTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/general-transactions/add', data)
+    GeneralTrxService.addGeneralTransactionInformation(data)
       .then(response => {
         setGeneralTransaction({
           genTrxId: response.data.genTrxId,

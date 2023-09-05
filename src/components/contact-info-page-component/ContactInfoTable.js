@@ -120,7 +120,7 @@ export default function ContactInfoEditableTableComponent() {
     if (newData.firstname === null) {
       alert("First name entry is required");
     }
-    Axios.post('http://localhost:8080/app/person-info/add-person-information', newData)
+    ContactInfoService.addContactInfo(data)
       .then(res => {
         let dataToAdd = [...entries.data];
         dataToAdd.push(newData);
@@ -136,7 +136,7 @@ export default function ContactInfoEditableTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
 
-    Axios.delete(`http://localhost:8080/app/person-info/delete/${oldData.personId}`)
+    ContactInfoService.deleteContactById(oldData.personId)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.personId;
@@ -152,7 +152,7 @@ export default function ContactInfoEditableTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personId}`, newData)
+    ContactInfoService.updateContactInfo(oldData.personId, newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.personId;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import NameDropdown from '../dropdown-components/UserDropdown';
+import RunTrackerService from '../../services/RunTrackerService';
 import '../../style-sheets/run-tracker-page.css';
 import Axios from 'axios';
 import UserDropdown from '../dropdown-components/UserDropdown';
@@ -41,7 +41,7 @@ export default function AddRunInfoModalComponent({ props }) {
       userId: run.userId
     }
 
-    Axios.post('http://localhost:8080/app/run-tracker-app/add', data)
+    RunTrackerService.addRunInfo(data)
       .then(response => {
         setRun({
           runId: response.data.runId,

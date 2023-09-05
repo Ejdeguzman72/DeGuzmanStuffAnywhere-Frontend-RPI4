@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col } from 'react-bootstrap';
 import Axios from 'axios';
 import '../../style-sheets/vehicle-styles.css';
+import VehicleInformationService from '../../services/VehicleInformationService';
 
 export default function AddCarInfoModalComponent() {
 
@@ -31,7 +32,7 @@ export default function AddCarInfoModalComponent() {
       transmission: car.transmission
     };
 
-    Axios.post('http://localhost:8080/app/vehicles/add', data)
+    VehicleInformationService.addVehicleInformation(data)
       .then(response => {
         setCar({
           car_id: response.data.car_id,

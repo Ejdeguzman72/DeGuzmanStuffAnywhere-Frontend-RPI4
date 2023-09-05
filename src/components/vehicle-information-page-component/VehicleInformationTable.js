@@ -103,7 +103,7 @@ export default function ViewCarsTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/vehicles/update/${oldData.vehicleId}`, newData)
+    VehicleInformationService.updateVehicleInformation(oldData.vehicleId,newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.vehicleId;
@@ -120,7 +120,7 @@ export default function ViewCarsTableComponent() {
 
   const handleRowDelete = (oldData, resolve) => {
     console.log(oldData.tableData.vehicleId);
-    Axios.delete(`http://localhost:8080/app/vehicles/delete/${oldData.vehicleId}`)
+    VehicleInformationService.deleteVehicle(oldData.vehicleId)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.vehicleId;

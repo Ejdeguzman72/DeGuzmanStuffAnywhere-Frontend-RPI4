@@ -54,7 +54,7 @@ export default function AddMedicalFinanceModalComponent() {
       userId: medicalTransaction.userId
     };
 
-    Axios.post('http://localhost:8080/app/medical-transactions/add', data)
+    MedicalTransactionService.addMedicalTransaction(data)
       .then(response => {
         setMedicalTransaction({
           amount: response.data.amount,

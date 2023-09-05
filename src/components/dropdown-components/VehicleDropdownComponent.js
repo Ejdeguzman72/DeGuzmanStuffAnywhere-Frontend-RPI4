@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import authHeader from '../../services/AuthHeader';
 
 const VehicleDropdown = (props) => {
     const [vehicles, setVehicles] = useState([]);
     const [singleVehicle, setSingleVehicle] = useState([]);
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/vehicles/all')
+        Axios.get('http://localhost:8080/app/vehicles/all', { headers: authHeader() })
             .then((response) => setVehicles(response.data.list))
             .then((error) => console.log(error));
     }, [])

@@ -98,19 +98,19 @@ export default function ExerciseInfoTableComponent() {
       });
   }, []);
 
-  // const handleRowAdd = (newData, resolve) => {
-  //   Axios.post('http://localhost:8080/app/run-tracker-app/add-run-tracker-info', newData)
-  //     .then(res => {
-  //       let dataToAdd = [...entries.data]
-  //       dataToAdd.push(newData);
-  //       setEntries(dataToAdd)
-  //       resolve();
-  //       window.location.reload();
-  //     })
-  // }
+  const handleRowAdd = (newData, resolve) => {
+    ExerciseService.addExerciseInformation(newData)
+      .then(res => {
+        let dataToAdd = [...entries.data]
+        dataToAdd.push(newData);
+        setEntries(dataToAdd)
+        resolve();
+        window.location.reload();
+      })
+  }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/gym-tracker/exercise/${oldData.exercise_id}`)
+    ExerciseService.updateExerciseinformation(oldData.exercise_id,newData)
       .then(res => {
         const dataUpdate = [...entries.data];
         const index = oldData.tabledata.exercise_id;
@@ -125,7 +125,7 @@ export default function ExerciseInfoTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/gym-tracker/exercise/${oldData.exercise_id}`)
+    ExerciseService.deleteExercise(oldData.exercise_id)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.exercise_id;

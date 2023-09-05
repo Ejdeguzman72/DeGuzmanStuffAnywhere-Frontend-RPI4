@@ -1,7 +1,8 @@
 import Axios from 'axios';
+import authHeader from './AuthHeader';
 
 const getAllPosts = (params) => {
-    return Axios.get('http://localhost:8080/app/posts/all-posts', { params });
+    return Axios.get('http://localhost:8080/app/posts/all-posts', { headers: authHeader(), params });
 }
 
 const getPostByUser = (data) => {

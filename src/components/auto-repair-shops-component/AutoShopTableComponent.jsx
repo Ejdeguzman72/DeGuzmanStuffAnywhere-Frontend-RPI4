@@ -119,10 +119,10 @@ export default function AutoShopTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.auto_shop_id}`)
+    Axios.delete(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.autoShopId}`)
       .then(res => {
         const dataDelete = [...autoShop.data];
-        const index = oldData.tabledata.auto_shop_id;
+        const index = oldData.tabledata.autoShopId;
         dataDelete.splice(index, 1);
         setAutoShop([...dataDelete]);
         resolve();

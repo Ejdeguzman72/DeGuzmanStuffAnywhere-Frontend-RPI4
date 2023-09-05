@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
+import authHeader from '../../services/AuthHeader';
 
 function AutoRepairShopDropdown(props) {
     const [autoShops, setAutoShops] = useState([]);
     const [singleAutoShop, setSingleAutoShop] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8080/app/auto-repair-shops/all')
+        Axios.get('http://localhost:8080/app/auto-repair-shops/all',{ headers: authHeader() })
             .then((response) => setAutoShops(response.data.list))
             .then((error) => console.log(error));
     }, []);

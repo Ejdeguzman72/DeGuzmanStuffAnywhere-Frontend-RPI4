@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-const uploadvideoFile = (file: any,onUploadProgress: any) => {
+const uploadvideoFile = (file,onUploadProgress) => {
     let formData = new FormData();
 
     formData.append("file",file);

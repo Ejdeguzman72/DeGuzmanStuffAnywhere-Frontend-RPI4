@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/contact-info-styles.css';
+import InventoryService from '../../services/InventoryService';
 
 const AddInventoryModal = () => {
 
@@ -37,7 +38,7 @@ const AddInventoryModal = () => {
      quantity: inventory.quantity
     }
 
-    Axios.post('http://localhost:8080/app/inventory/add', data)
+    InventoryService.addInventoryInformation(data)
       .then(response => {
         setInventory({
           name: response.data.name,

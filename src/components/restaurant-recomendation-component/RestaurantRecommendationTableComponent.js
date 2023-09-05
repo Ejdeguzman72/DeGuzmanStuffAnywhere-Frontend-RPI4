@@ -95,7 +95,7 @@ export default function RestaurantRecommendationTableComponent() {
   }, []);
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post('http://localhost:8080/app/restaurants/add', newData)
+    RestaurantRecommendationsService.addRestaurantInformation(newData)
       .then(res => {
         let dataToAdd = [...entries.data]
         dataToAdd.push(newData);

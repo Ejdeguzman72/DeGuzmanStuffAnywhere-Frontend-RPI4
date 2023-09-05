@@ -99,7 +99,7 @@ export default function GeneralFinanceTable() {
   }, []);
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/general-transaction/transaction/${newData.genTrxId}`, newData)
+    GeneralTransactionService.updateTransactionInformation(oldData.genTrxId, newData)
       .then(res => {
         const dataUpdate = [...entries];
         const index = oldData.tableData.genTrxId;
@@ -115,7 +115,7 @@ export default function GeneralFinanceTable() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/general-transactions/transaction//${oldData.genTrxId}`)
+    GeneralTransactionService.deleteTransaction(oldData.genTrxId)
       .then(res => {
         const dataDelete = [...entries.data];
         const index = oldData.tableData.genTrxId;
@@ -130,7 +130,7 @@ export default function GeneralFinanceTable() {
   }
 
   const handleRowAdd = (newData, resolve) => {
-    Axios.post("http://localhost:8080/app/general-transaction/add-transaction-information", newData)
+    GeneralTransactionService.addGeneralTransactionInformation(newData)
       .then(res => {
         let dataToAdd = [...entries.data];
         dataToAdd.push(newData);

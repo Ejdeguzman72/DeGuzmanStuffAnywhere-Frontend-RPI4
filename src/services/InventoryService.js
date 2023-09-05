@@ -1,11 +1,12 @@
 import Axios from 'axios';
+import authHeader from './AuthHeader';
 
 const getAllInventory = () => {
-    return Axios.get('http://localhost:8080/app/inventory/all');
+    return Axios.get('http://localhost:8080/app/inventory/all', { headers: authHeader() });
 }
 
 const getAllInventoryPagination = (params) => {
-    return Axios.get('http://localhost:8080/app/inventory/all-inventory', { params } );
+    return Axios.get('http://localhost:8080/app/inventory/all-inventory', { headers: authHeader(), params } );
 };
 
 const getAllInventoryByLocation = (data) => {

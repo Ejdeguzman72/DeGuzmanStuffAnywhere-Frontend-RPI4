@@ -200,16 +200,16 @@ const ContactList = () => {
                         </div>
                         <div>
                             <label>
-                                <strong>Phone:</strong>
-                            </label>{" "}
-                            {currentContact.phone}
-                        </div>
-                        <div>
-                            <label>
                                 <strong>Email:</strong>
                             </label>{" "}
                             {currentContact.email}
                         </div>
+                        <div>
+                            <label>
+                                <strong>Phone:</strong>
+                            </label>{" "}
+                            {currentContact.phone}
+                        </div>              
                         <div>
                             <label>
                                 <strong>Birthdate:</strong>

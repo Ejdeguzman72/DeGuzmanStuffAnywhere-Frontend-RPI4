@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
-import StateDropDownComponent from '../dropdown-components/StateDropDownComponent';
+import AuthShopService from '../../services/AutoShopService';
 
 export default function AddAutoShopModalComponent() {
 
@@ -32,7 +32,7 @@ export default function AddAutoShopModalComponent() {
       zip: autoShop.zip
     };
 
-    Axios.post('http://localhost:8080/app/auto-repair-shops/add', data)
+    AuthShopService.addAutoShop(data)
       .then(response => {
         setAutoShop({
           autoShopId: response.data.autoShopId,

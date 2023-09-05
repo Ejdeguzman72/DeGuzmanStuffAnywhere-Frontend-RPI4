@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import '../../style-sheets/medical-finance-page.css';
+import MedicalOfficeService from '../../services/MedicalOfficeService';
 
 export default function AddMedicalOfficeModalComponent() {
 
@@ -32,7 +33,7 @@ export default function AddMedicalOfficeModalComponent() {
       zip: medicalOffice.zip
     };
 
-    Axios.post('http://localhost:8080/app/medical-offices/add', data)
+    MedicalOfficeService.addMedicalOffice(data)
       .then(response => {
         setMedicalOffice({
           medicalOfficeId: response.data.medicalOfficeId,

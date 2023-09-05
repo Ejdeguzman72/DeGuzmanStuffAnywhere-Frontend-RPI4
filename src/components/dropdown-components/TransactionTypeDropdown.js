@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import authHeader from '../../services/AuthHeader';
 
 const TransactionTypeDropdown = (props) => {
     const [types, setTypes] = useState([]);
     const [singleType, setSingleType] = useState([]);
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/transaction-types/all')
+        Axios.get('http://localhost:8080/app/transaction-types/all', { headers: authHeader() })
             .then((response) => setTypes(response.data.list))
             .then((error) => console.log(error));
     }, [])

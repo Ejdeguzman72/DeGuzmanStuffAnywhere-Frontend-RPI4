@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Row, Col, Form } from 'react-bootstrap';
 import '../../style-sheets/contact-info-styles.css';
+import ContactInfoService from '../../services/ContactInfoService';
 
 const AddContactModalComponent = () => {
 
@@ -52,7 +53,7 @@ const AddContactModalComponent = () => {
       phone: contact.phone
     }
 
-    Axios.post('http://localhost:8080/app/person-info/add', data)
+    ContactInfoService.addContactInfo(data)
       .then(response => {
         setContact({
           personId: response.data.personId,
