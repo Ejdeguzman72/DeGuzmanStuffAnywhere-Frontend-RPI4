@@ -120,7 +120,7 @@ export default function ContactInfoEditableTableComponent() {
     if (newData.firstname === null) {
       alert("First name entry is required");
     }
-    ContactInfoService.addContactInfo(data)
+    ContactInfoService.addContactInfo(newData)
       .then(res => {
         let dataToAdd = [...entries.data];
         dataToAdd.push(newData);

@@ -9,28 +9,28 @@ const getAllInventoryPagination = (params) => {
     return Axios.get('http://localhost:8080/app/inventory/all-inventory', { headers: authHeader(), params } );
 };
 
-const getAllInventoryByLocation = (data) => {
-    return Axios.get(`http://localhost:8080/app/inventory/exercises/search/user`,data);
+const getAllInventoryByLocation = (location) => {
+    return Axios.get(`http://localhost:8080/app/inventory/exercises/search/user/${location}`, { headers: authHeader() });
 }
 
-const getAllInventoryByCondition = (data) => {
-    return Axios.get(`http://localhost:8080/app/inventory/exercise/search/type`,data);
+const getAllInventoryByCondition = (condition) => {
+    return Axios.get(`http://localhost:8080/app/inventory/exercise/search/type/${condition}`), { headers: authHeader() };
 }
 
 const addInventoryInformation = (data) => {
-    return Axios.post('http://localhost:8080/app/inventory/add',data);
+    return Axios.post('http://localhost:8080/app/inventory/add',data, { headers: authHeader() });
 }
 
 const updateInventoryInformation = (data) => {
-    return Axios.put(`http://localhost:8080/app/inventory/update`,data);
+    return Axios.put(`http://localhost:8080/app/inventory/update`,data, { headers: authHeader() });
 }
 
 const deleteInventory = (data) => {
-    return Axios.delete(`http://localhost:8080/app/inventory/delete`,data);
+    return Axios.delete(`http://localhost:8080/app/inventory/delete`,data, { headers: authHeader() });
 }
 
 const deleteAllInventory = () => {
-    return Axios.delete('http://localhost:8080/app/inventory/delete-all');
+    return Axios.delete('http://localhost:8080/app/inventory/delete-all', { headers: authHeader() });
 }
 
 export default {

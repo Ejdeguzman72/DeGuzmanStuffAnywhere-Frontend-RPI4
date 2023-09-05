@@ -30,7 +30,7 @@ const getSongCount = () => {
 }
 
 const addSongInformaton = (data) => {
-    return Axios.post('http://localhost:8080/app/music/add', data, { headers: authHeader() });
+    return Axios.post('http://localhost:8080/app/music/add-song-information', data, { headers: authHeader() });
 }
 
 const updateSongInformation = (songId,data) => {
