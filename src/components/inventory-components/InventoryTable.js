@@ -83,6 +83,7 @@ export default function InventoryTable() {
         });
       });
       setEntries({ data: data });
+      console.log(data)
     })
       .catch(function (error) {
         console.log(error);

@@ -6,6 +6,7 @@ import VehicleInformationPage from '../vehicle-information-page-component/Vehicl
 import VehicleGridPage from '../vehicle-information-page-component/VehicleGridViewPage';
 import Vehicle from '../vehicle-information-page-component/Vehicle';
 import AutoShopGridPageComponent from '../auto-repair-shops-component/AutoShopGridViewPage';
+import SearchAutoShopPage from '../auto-repair-shops-component/SearchAutoShopPage';
 
 const AutomotiveRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AutomotiveRoutes = () => {
                 <Route path="/auto-shops-table" exact component={AutoShopPageComponent} />
                 <Route path="/auto-shops-grid" exact component={AutoShopGridPageComponent} />
                 <Route path="/update-autoshop/:autoShopId" exact component={AutoShop} />
+                <Route path="/search-auto-shop" exact component={SearchAutoShopPage} />
                 <Route path="/view-cars-table" exact component={VehicleInformationPage} />
                 <Route path="/view-cars-grid" exact component={VehicleGridPage} />
                 <Route path="/update-vehicle/:vehicleId" exact component={Vehicle} />

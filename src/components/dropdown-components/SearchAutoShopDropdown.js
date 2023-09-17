@@ -11,8 +11,7 @@ function AutoShopOptionsDropdown() {
       <Dropdown.Menu>
         <Dropdown.Item href="#/auto-shops-table">Table View</Dropdown.Item>
         <Dropdown.Item href="#/auto-shops-grid">Grid View</Dropdown.Item>
-        <Dropdown.Item href="#/action-1">Search By Name</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Search By Zip</Dropdown.Item>
+        <Dropdown.Item href="#/search-auto-shop">Search Shops</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

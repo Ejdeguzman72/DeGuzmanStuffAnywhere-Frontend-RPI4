@@ -60,6 +60,25 @@
   color: black;
 }
 
+.search-container {
+  padding: 10px;
+  margin: 0;
+  font-family: fantasy;
+  border-color: black;
+  border-style: solid;
+  color: black;
+  background-image:  linear-gradient(#FFF5EE,silver);
+  height: auto;
+  font-family: fantasy;
+  border-radius: 25px;
+  list-style: none;
+  text-align: left;
+}
+
+.search-container-input {
+  box-shadow: 5px 10px 18px #888888;
+}
+
 /* ------------------------------------------------------NavBar CSS----------------------------------------------------------- */
 
 .navbar-item {
@@ -147,3 +166,4 @@
 .deguzmanrecipesanywhere-btn {
   color: 'white'
 }
+
