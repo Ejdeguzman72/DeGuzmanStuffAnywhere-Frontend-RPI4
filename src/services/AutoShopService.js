@@ -18,7 +18,7 @@ const getAutoShopById = (autoShopId) => {
 }
 
 const searchAutoShopByName = (name) => {
-    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/name${name}`, { headers: authHeader() });
+    return Axios.get(`http://localhost:8080/app/auto-repair-shops/repair-shop/search/name/${name}`, { headers: authHeader() });
 }
 
 const getAutoShopCount = () => {

@@ -6,7 +6,16 @@ import AutoShop from './AutoShop';
 
 const SearchAutoShopForm = () => {
 
-    const [autoshop, setAutoShop] = useState([]);
+    const initialState = {
+        autoShopId: 0,
+        autoShopName: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+    }
+
+    const [autoshop, setAutoShop] = useState(initialState);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -25,7 +34,7 @@ const SearchAutoShopForm = () => {
     };
 
     const getAutoShopByName = (autoShopName) => {
-        AutoShopService.getAutoShopByName(autoShopName)
+        AutoShopService.searchAutoShopByName(autoShopName)
             .then(response => {
                 setAutoShop(response.data.list);
                 console.log(autoshop)
@@ -33,7 +42,7 @@ const SearchAutoShopForm = () => {
             .catch(error => {
                 console.log(error)
             });
-        }
+    }
 
     return (
         <div id="white-background">
@@ -43,18 +52,27 @@ const SearchAutoShopForm = () => {
                     <Col md={1}></Col>
                     <Col md={5}>
                         <Form>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Group className="mb-3" controlId="zip">
                                 <Form.Label>Search Zip Code</Form.Label>
-                                <Form.Control className="search-container-input" type="zip" placeholder="Enter Zip Code" onChange={handleInputChange} />
+                                <input
+                                    type="text"
+                                    placeholder="Zip"
+                                    className="form-control"
+                                    name="zip" onChange={handleInputChange} /><br></br>
                             </Form.Group>
                         </Form>
                         <Button variant="info" onClick={getAutoShopsByZip}>Submit</Button>
                     </Col>
                     <Col md={5}>
                         <Form>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Group className="mb-3" controlId="autoShopName">
                                 <Form.Label>Search By Name</Form.Label>
-                                <Form.Control className="search-container-input"type="autoShopName" placeholder="Enter Auto Repair Shop Name" onChange={handleInputChange} />
+                                <input
+                                    type="text"
+                                    placeholder="Enter Shop Name"
+                                    className="form-control"
+                                    name="autoShopName"
+                                    onChange={handleInputChange} /><br></br>
                             </Form.Group>
                         </Form>
                         <Button variant="info" onClick={getAutoShopByName}>Submit</Button>
