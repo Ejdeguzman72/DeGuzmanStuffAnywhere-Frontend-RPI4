@@ -99,7 +99,7 @@
   z-index: -1;
   margin: 0;
   height: 200vh;
-  width: 100% auto;
+  width: auto;
   overflow-x: auto;
   overflow-y:hidden;
   /* position: relative; */
@@ -165,5 +165,11 @@
 
 .deguzmanrecipesanywhere-btn {
   color: 'white'
+}
+
+.newsroom-container {
+  padding: 0;
+  margin: 0 auto;
+  font-size: 30px;
 }
 

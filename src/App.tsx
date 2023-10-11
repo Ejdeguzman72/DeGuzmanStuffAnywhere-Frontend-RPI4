@@ -31,6 +31,7 @@ function App() {
         <Switch>
           <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
+          <NewsRoomRoutes />
           {
             jwt ?
               <div>
@@ -41,7 +42,6 @@ function App() {
                 <ContactInfoRoutes />
                 <MediaRoutes />
                 <MedicalRoutes />
-                <NewsRoomRoutes />
                 <FinanceRoutes />
                 <FitnessRoutes />
                 <AutomotiveRoutes />
