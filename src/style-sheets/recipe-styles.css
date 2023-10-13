@@ -8,260 +8,37 @@
     text-align: center;
 }
 
-.adobo-recipe-container {
-    width: auto;
+.recipe-tab {
+    font-size: 25px;
+    border-style: solid;
+    border-color: black;
+    border-radius: '200px';
+    color: white !important;
+    text-decoration: none;
+    opacity: 0.9;
+    background-color: #202020;
+    text-decoration: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    text-decoration: none;
+    color: white !important;
+  }
+
+  .recipe-modal-container {
+    /* width: auto; */
     font-family: fantasy;
     overflow: auto;
     border-color: black;
     border-style: solid;
     color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
+    text-align: left;
+    background-image: url('../assets/roystudio120900008.jpg');
     height: auto;
     font-family: fantasy;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     list-style: none;
-    text-align: left;
-}
-
-.beef-stew-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.beefaroni-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.black-eyed-peas-and-hamhocks-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.chili-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.fajitas-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.marinara-sauce-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style-type: none;
-    text-align: left;
-    text-align: left;
-}
-
-.meat-sauce-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style-type: none;
-    text-align: left;
-    text-align: left;
-}
-
-
-.meatball-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.meatloaf-recipe-contianer {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.pot-roast-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.pulled-pork-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.salisbury-steaks-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.stuffed-green-peppers-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.creamy-pasta-and-crispy-mushrooms {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.pad-thai-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
-
-.pecan-pie-recipe-container {
-    width: auto;
-    font-family: fantasy;
-    overflow: auto;
-    border-color: black;
-    border-style: solid;
-    color: black;
-    background-image:  linear-gradient(#FFF5EE,silver);
-    height: auto;
-    font-family: fantasy;
-    border-radius: 25px;
-    list-style: none;
-    text-align: left;
-}
+    height: 400px;
+    /* text-align: left; */
+    padding: 15px;
+  }

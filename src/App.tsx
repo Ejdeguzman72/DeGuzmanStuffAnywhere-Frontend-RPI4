@@ -2,7 +2,7 @@ import React from 'react';
 import './style-sheets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBarComponent } from './components/navbar-component/navbar-component';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 import HomePageComponent from './components/home-page-component/home-page-component';
 import { LoginPageComponent } from './components/login-page-component/login-page-component';
 import { jwtHelper } from './helper/jwt';
@@ -31,26 +31,25 @@ function App() {
         <Switch>
           <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
-          <NewsRoomRoutes />
+          <RecipeRoutes />
           {
             jwt ?
-              <div>
+            <div>
                 <Route path="/home" exact component={HomePageComponent} />
                 <AdminRoutes />
                 <InventoryRoutes />
                 <BookRoutes />
                 <ContactInfoRoutes />
                 <MediaRoutes />
+                <NewsRoomRoutes />
                 <MedicalRoutes />
                 <FinanceRoutes />
                 <FitnessRoutes />
                 <AutomotiveRoutes />
                 <MusicRoutes />
                 <RestaurantRecommendationRoutes />
-                <RecipeRoutes />
               </div> : null
           }
-
           <Route component={LoginPageComponent} />
         </Switch>
       </HashRouter>
