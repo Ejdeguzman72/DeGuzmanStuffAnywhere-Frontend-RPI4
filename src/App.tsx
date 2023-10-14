@@ -31,10 +31,9 @@ function App() {
         <Switch>
           <Route path="/register" exact component={RegisterPageComponent} />
           <Route path="/login" exact component={LoginPageComponent} />
-          <RecipeRoutes />
           {
             jwt ?
-            <div>
+              <div>
                 <Route path="/home" exact component={HomePageComponent} />
                 <AdminRoutes />
                 <InventoryRoutes />
@@ -47,6 +46,7 @@ function App() {
                 <FitnessRoutes />
                 <AutomotiveRoutes />
                 <MusicRoutes />
+                <RecipeRoutes />
                 <RestaurantRecommendationRoutes />
               </div> : null
           }

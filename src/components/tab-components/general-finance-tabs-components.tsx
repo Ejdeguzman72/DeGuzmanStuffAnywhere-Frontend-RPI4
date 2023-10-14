@@ -12,9 +12,6 @@ export class GeneralFinanceTabsComponent extends React.Component<any, any> {
                 <Nav.Item>
                   <Nav.Link href="#general-finance-table" eventKey="first" id="tabs">General Finance Info</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href="#general-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
-                </Nav.Item>
               </Nav>
             </Col>
           </Tab.Container>

@@ -21,11 +21,6 @@ export class MedicalTabsComponent extends React.Component<any, any> {
                         <Col md={6}>
                             <Nav.Link href="#medical-office-table" eventKey="third" id="tabs">Medical Offices</Nav.Link>
                         </Col>
-                        <Col md={6}>
-                            <Nav.Item>
-                                <Nav.Link href="#medical-finance-uploads" eventKey="second" id="tabs">Uploads</Nav.Link>
-                            </Nav.Item>
-                        </Col>
                     </Tab.Container>
                 </Row>
             </div>

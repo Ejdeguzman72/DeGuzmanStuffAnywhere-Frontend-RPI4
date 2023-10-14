@@ -45,8 +45,8 @@ const InventoryList = () => {
 
         InventoryService.getAllInventoryPagination(params)
             .then(response => {
-                const { persons, totalPages } = response.data;
-                setInventorys(persons);
+                const { inventorys, totalPages } = response.data;
+                setInventorys(inventorys);
                 setCount(totalPages);
 
                 console.log(response.data)
@@ -82,7 +82,6 @@ const InventoryList = () => {
         InventoryService.deleteAllInventory()
             .then(response => {
                 setInventorys(response.data);
-                console.log(response.data);
 
                 window.location.reload();
             })
@@ -147,7 +146,21 @@ const InventoryList = () => {
                     />
                 </div>
 
-               {inventorys}
+                <ul className="list-group">
+                    {inventorys &&
+                        inventorys.map((inventory, index) => (
+                            <li
+                                className={
+                                    "list-group-item selected-book" + (index === currentIndex ? "active" : "")
+
+                                }
+                                onClick={() => setActiveInventory(inventory, index)}
+                                key={index}
+                            >
+                                <p><strong>{inventory.name}</strong></p>
+                            </li>
+                        ))}
+                </ul>
                 <br></br>
                 <Row>
                     <AddInventoryModal />

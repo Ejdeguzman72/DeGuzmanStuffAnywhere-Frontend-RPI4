@@ -76,3 +76,15 @@
     outline: auto #17f;
     box-shadow: 0px 2px 6px 2px #0002;
   }
+
+  .news-pagination {
+    display: inline;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+    font-family: fantasy;
+  }
+
+  .page-number {
+    font-family: fantasy;
+  }

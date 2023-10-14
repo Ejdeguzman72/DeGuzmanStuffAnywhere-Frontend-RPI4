@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function NewsItem({ item }) {
     const separateWords = s => s.replace(/[A-Z][a-z]+/g, '$& ').trim();
@@ -17,7 +18,9 @@ function NewsItem({ item }) {
             <p className="description">
                 {item.description}
             </p>
-            <p>{item.url}</p>
+            <a href={item.url}>
+                <p>{item.url}</p>
+            </a>
             <div className="meta">
                 <span>{formatDate(item.publishedAt)}</span>
                 {/* <span className="provider">

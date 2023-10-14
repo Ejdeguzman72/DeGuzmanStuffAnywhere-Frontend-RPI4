@@ -40,6 +40,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -72,7 +73,7 @@
   border-color: black;
   border-style: solid;
   color: black;
-  background-image:  linear-gradient(#FFF5EE,silver);
+  background-image: linear-gradient(#FFF5EE, silver);
   height: auto;
   font-family: fantasy;
   border-radius: 25px;
@@ -106,7 +107,7 @@
   height: 300vh;
   width: auto;
   overflow-x: auto;
-  overflow-y:hidden;
+  overflow-y: hidden;
   /* position: relative; */
 }
 
@@ -121,7 +122,7 @@
   height: 350vh auto;
   width: auto;
   overflow-x: auto;
-  overflow-y:hidden;
+  overflow-y: hidden;
   /* position: relative; */
 }
 
@@ -193,3 +194,19 @@
   font-size: 30px;
 }
 
+.news-pagination {
+  display: inline;
+  list-style: none;
+}
+
+.list-item-pagination {
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 50px;
+}
+
+.page-number {
+  font-family: fantasy;
+}

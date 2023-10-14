@@ -15,32 +15,25 @@ const NewsroomPageComponent = () => {
                 <title>DSA Newsroom</title>
             </Helmet>
             <div id="white-background">
-                <Row>
+                <br></br>
+                {/* <Row>
                     <Col md={4}>
                         <JokeContainer />
                     </Col>
                     <Col md={4}>
-                        <div className="newsroom-container">
-                            <DateContainer />
-                        </div>
+                        <DateContainer />
                     </Col>
-                    <Col md={1}>
-
-                    </Col>
-                    <Col md={1}>
-
-                    </Col>
-                    <Col md={2}>
+                    <Col md={4}>
                         <WeatherContainer />
                     </Col>
-                </Row>
+                </Row> */}
                 <Container fluid="true">
                     <Row>
                         <Col sm={3}></Col>
                         <Col sm={6}>
-                        <div>
-                            <NewsfeedComponent />
-                        </div>
+                            <div>
+                                <NewsfeedComponent />
+                            </div>
                         </Col>
                         <Col sm={3}></Col>
                     </Row>

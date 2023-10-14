@@ -57,10 +57,6 @@ export class NavBarComponent extends React.Component<any, any> {
                             }
                             {
                                 jwt ?
-                                    <Nav.Link href="#downloads" className="navbar-item">Downloads</Nav.Link> : null
-                            }
-                            {
-                                jwt ?
                                     <Nav.Link href="#inventory-table" className="navbar-item">Inventory</Nav.Link> : null
                             }
                             {
@@ -73,25 +69,18 @@ export class NavBarComponent extends React.Component<any, any> {
                             }
                             {
                                 jwt ?
-                                    <NavDropdown title="Media Files" className="navbar-item" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#photos" className="navbar-item">Photos</NavDropdown.Item>
-                                        <NavDropdown.Item href="#videos" className="navbar-item">Videos</NavDropdown.Item>
+                                    <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="#book-recommendations-grid" className="navbar-item">Book Recommendations</NavDropdown.Item>
+                                        <NavDropdown.Item href="#contact-info-table" className="navbar-item">Contact Info</NavDropdown.Item>
+                                        <NavDropdown.Item href="#downloads" className="navbar-item">Downloads</NavDropdown.Item>
+                                        <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
+                                        <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
+                                        <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
+                                        <NavDropdown.Item href="#restaurant-recommendations-table" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
+                                        <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
+                                        <NavDropdown.Divider />
                                     </NavDropdown> : null
                             }
-                            {/* {
-                                jwt ? */}
-                            <NavDropdown title="More Apps" className="navbar-item" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#book-recommendations-grid" className="navbar-item">Book Recommendations</NavDropdown.Item>
-                                <NavDropdown.Item href="#contact-info-table" className="navbar-item">Contact Info</NavDropdown.Item>
-                                <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
-                                <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
-                                <NavDropdown.Item href="#recipes" className="navbar-item">Recipes</NavDropdown.Item>
-                                <NavDropdown.Item href="#restaurant-recommendations-table" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
-                                <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                            </NavDropdown>
-                            {/* : null
-                            } */}
                             {
                                 jwt ?
                                     <NavDropdown title="Fitness" className="navbar-item" id="basic-nav-dropdown">
