@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer-component/footer-component';
 import RecipeCategoriesMainTab from '../tab-components/RecipeCategoriesMainTab';
 import MainRecipePageTab from '../tab-components/recipe-tabs/MainRecipePageTab';
 import '../../style-sheets/recipe-styles.css'
+import { RecipeNotesContainerComponent } from './RecipeNotesContainer';
 
 const RecipeCategoriesPage = () => {
     return (
@@ -15,6 +16,8 @@ const RecipeCategoriesPage = () => {
                 <br></br>
                 <MainRecipePageTab />
                 <br></br>
+                <RecipeNotesContainerComponent />
+                <hr></hr>
                 <RecipeCategoriesMainTab />
             </div>
             <FooterComponent />
