@@ -20,6 +20,7 @@ import BookRoutes from './components/route-components/BookRoutes';
 import InventoryRoutes from './components/route-components/InventoryRoutes';
 import MedicalRoutes from './components/route-components/MedicalRoutes';
 import NewsRoomRoutes from './components/route-components/NewsroomRoutes';
+import EntertainmentRoutes from './components/route-components/EntertainmentRoutes';
 
 const jwt = jwtHelper();
 
@@ -39,6 +40,7 @@ function App() {
                 <InventoryRoutes />
                 <BookRoutes />
                 <ContactInfoRoutes />
+                <EntertainmentRoutes />
                 <MediaRoutes />
                 <NewsRoomRoutes />
                 <MedicalRoutes />

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import RunTrackerService from '../../../services/RunTrackerService';
+import CardioTrackerService from '../../../services/CardioTrackerService';
 import { Link } from 'react-router-dom';
-import AddRunInfoModalComponent from '../AddRunInfoModalComponent';
+import AddCardioInfoModalComponent from '../AddCardioInfoModalComponent';
 import Pagination from "@material-ui/lab/Pagination";
 
-const RunTrackerList = () => {
-    const [runs, setRuns] = useState([]);
-    const [currentRun, setCurrentRun] = useState(null);
+const CardioTrackerList = () => {
+    const [entries, setEntries] = useState([]);
+    const [currentEntry, setCurrentEntry] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
 
@@ -25,7 +25,7 @@ const RunTrackerList = () => {
         let params = {};
 
         if (searchTitle) {
-            params['runDate'] = searchTitle;
+            params['cDate'] = searchTitle;
         }
 
         if (page) {
@@ -39,14 +39,14 @@ const RunTrackerList = () => {
         return params;
     }
 
-    const retrieveRuns = () => {
+    const retrieveCardio = () => {
         const params = getRequestParams(searchTitle, page, pageSize);
         
-        RunTrackerService.getAllRunsPagination(params)
+        CardioTrackerService.getAllCardioPagination(params)
             .then(response => {
-                const { runs, totalPages } = response.data;
-
-                setRuns(runs);
+                const { entries, totalPages } = response.data;
+                console.log(response.data)
+                setEntries(entries);
                 setCount(totalPages);
             })
             .catch(error => {
@@ -54,11 +54,11 @@ const RunTrackerList = () => {
             });
     };
 
-    useEffect(retrieveRuns, [page, pageSize]);
+    useEffect(retrieveCardio, [page, pageSize]);
 
     const refreshList = () => {
-        retrieveRuns();
-        setCurrentRun(null);
+        retrieveCardio();
+        setCurrentEntry(null);
         setCurrentIndex(-1);
     }
 
@@ -71,17 +71,15 @@ const RunTrackerList = () => {
         setpage(1);
     }
 
-    const setActiveRun = (run, index) => {
-        setCurrentRun(run);
+    const setActiveCardio = (cardio, index) => {
+        setCurrentEntry(cardio);
         setCurrentIndex(index);
     }
 
-    const removeAllRuns = () => {
-        RunTrackerService.deleteAllRunsInfo()
+    const removeAllCardio = () => {
+        CardioTrackerService.deleteAllCardioInfo()
             .then(response => {
-                setRuns(response.data);
-
-
+                setEntries(response.data);
                 window.location.reload();
             })
             .catch(error => {
@@ -120,7 +118,7 @@ const RunTrackerList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4>Run Tracker List</h4>
+                <h4>Cardio Tracker</h4>
 
 
                 <div className="mt-3">
@@ -147,63 +145,69 @@ const RunTrackerList = () => {
 
 
                 <ul className="list-group">
-                    {runs &&
-                        runs.map((run, index) => (
+                    {entries &&
+                        entries.map((entry, index) => (
                             <li
                                 className={
                                     "list-group-item selected-book" + (index === currentIndex ? "active" : "")
 
                                 }
-                                onClick={() => setActiveRun(run, index)}
+                                onClick={() => setActiveCardio(entry, index)}
                                 key={index}
                             >
-                                <p><strong>{run.runTime} - {run.runDistance}miles</strong></p>
-                                <p><strong>{run.user.username}</strong></p>
+                                <p><strong>{entry.cTime} - {entry.cDistance}miles</strong></p>
+                                <p><strong>{entry.user.username}</strong></p>
                             </li>
                         ))}
                 </ul>
                 <br></br>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllRuns}
+                    onClick={removeAllCardio}
                 >
                     Delete All
                 </button>
-                <AddRunInfoModalComponent />
+                <AddCardioInfoModalComponent />
                 <br></br>
             </div>
             <br></br>
             <div className="col-md-6">
-                {currentRun ? (
+                {currentEntry ? (
                     <div>
-                        <h4>Run Information</h4>
+                        <h4>Cardio Information</h4>
                         <hr></hr>
                         <div>
                             <label>
-                                <strong>Run Time:</strong>
+                                <strong>Time:</strong>
                             </label>{" "}
-                            {currentRun.runTime}
+                            {currentEntry.cTime}
                         </div>
                         <div>
                             <label>
-                                <strong>Run Distance:</strong>
+                                <strong>Distance:</strong>
                             </label>{" "}
-                            {currentRun.runDistance}
+                            {currentEntry.cDistance}
                         </div>
                         <div>
                             <label>
                                 <strong>Date:</strong>
                             </label>{" "}
-                            {currentRun.runDate}
+                            {currentEntry.cDate}
                         </div>
                         <div>
                             <label>
                                 <strong>User:</strong>
                             </label>{" "}
-                            {currentRun.user.username}
+                            {currentEntry.user.username}
+                        </div>
+                        <div>
+                            <label>
+                                <strong>Type:</strong>
+                            </label>{" "}
+                            {currentEntry.cardioType.descr}
                         </div>
                         <Link
-                            to={"/update-run/" + currentRun.runId}
+                            to={"/update-run/" + currentEntry.cardioId}
                             className="badge badge-warning"
                         >
                             Edit
@@ -220,4 +224,4 @@ const RunTrackerList = () => {
     )
 }
 
-export default RunTrackerList;
+export default CardioTrackerList;

@@ -14,7 +14,7 @@ const getAllExercisesByUser = (userId) => {
 }
 
 const getAllExercisesByType = (exerciseTypeId) => {
-    return Axios.get(`http://localhost:8080/app/gym-tracker/exercise/search/type/${exerciseTypeId}`, { headers: authHeader() });
+    return Axios.get(`http://localhost:8080/app/gym-tracker/exercises/search/type/${exerciseTypeId}`, { headers: authHeader() });
 }
 
 const getExerciseInfoDTOById = (exerciseId) => {

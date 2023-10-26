@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function RunOptionsDropdown() {
+function CardioOptionsDropdown() {
   return (
     <Dropdown>
       <Dropdown.Toggle variant="info" id="dropdown-basic" size="lg">
@@ -17,4 +17,4 @@ function RunOptionsDropdown() {
   );
 }
 
-export default RunOptionsDropdown;
+export default CardioOptionsDropdown;

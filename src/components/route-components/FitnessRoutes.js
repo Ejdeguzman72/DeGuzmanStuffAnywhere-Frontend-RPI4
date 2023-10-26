@@ -3,9 +3,9 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import GymTrackerPageComponent from '../gym-tracker/GymTrackerPageComponent';
 import GymTrackerGridView from '../gym-tracker/GymTrackerGridView';
 import Exercise from '../gym-tracker/Exercise';
-import { RunTrackerPageComponent } from '../run-tracker-component/RunTrackerPage';
-import { RunTrackerGrid } from '../run-tracker-component/RunTrackerGrid';
-import Run from '../run-tracker-component/Run';
+import { CardioTrackerPageComponent } from '../run-tracker-component/CardioTrackerPage';
+import { CardioTrackerGrid } from '../run-tracker-component/CardioTrackerGrid';
+import Cardio from '../run-tracker-component/Cardio';
 
 const FitnessRoutes = () => {
     return (
@@ -15,9 +15,9 @@ const FitnessRoutes = () => {
                 <Route path="/gym-tracker-grid" exact component={GymTrackerGridView} />
                 <Route path="/update-exercise/:exerciseId" exact component={Exercise} />
 
-                <Route path="/run-tracker-table" exact component={RunTrackerPageComponent} />
-                <Route path="/run-tracker-grid" exact component={RunTrackerGrid} />
-                <Route path="/update-run/:runId" exact component={Run} />
+                <Route path="/run-tracker-table" exact component={CardioTrackerPageComponent} />
+                <Route path="/run-tracker-grid" exact component={CardioTrackerGrid} />
+                <Route path="/update-run/:runId" exact component={Cardio} />
             </Switch>
         </HashRouter>
     )

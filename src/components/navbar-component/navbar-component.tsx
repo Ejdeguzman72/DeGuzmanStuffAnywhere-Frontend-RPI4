@@ -69,23 +69,25 @@ export class NavBarComponent extends React.Component<any, any> {
                                         <NavDropdown.Item href="#book-recommendations-grid" className="navbar-item">Book Recommendations</NavDropdown.Item>
                                         <NavDropdown.Item href="#contact-info-table" className="navbar-item">Contact Info</NavDropdown.Item>
                                         <NavDropdown.Item href="#downloads" className="navbar-item">Downloads</NavDropdown.Item>
-                                        <NavDropdown.Item href="#inventory-table" className="navbar-item">Inventory</NavDropdown.Item>
+                                        <NavDropdown.Item href="#entertainment-page" className="navbar-item">Entertainment Library</NavDropdown.Item>
+                                        <NavDropdown.Item href="#gym-tracker-table" className="navbar-item">Fitness</NavDropdown.Item>
+                                        <NavDropdown.Item href="#inventory-table" className="navbar-item">Garage Inventory</NavDropdown.Item>
                                         <NavDropdown.Item href="#music" className="navbar-item">Music</NavDropdown.Item>
                                         <NavDropdown.Item href="#social-media-feed" className="navbar-item">Social Media</NavDropdown.Item>
-                                        <NavDropdown.Item href="#/recipe-categories" className="navbar-item">Recipes</NavDropdown.Item>
-                                        <NavDropdown.Item href="#restaurant-recommendations-table" className="navbar-item">Restaurant Recommendations</NavDropdown.Item>
-                                        <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utility Tracker</NavDropdown.Item>
+                                        <NavDropdown.Item href="#recipe-categories" className="navbar-item">Recipes</NavDropdown.Item>
+                                        <NavDropdown.Item href="#restaurant-recommendations-table" className="navbar-item">Restaurants</NavDropdown.Item>
+                                        <NavDropdown.Item href="#utility-tracker" className="navbar-item">Utilities</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                     </NavDropdown> : null
                             }
-                            {
+                            {/* {
                                 jwt ?
                                     <NavDropdown title="Fitness" className="navbar-item" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#run-tracker-table" className="navbar-item">Run Tracker</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="#gym-tracker-table" className="navbar-item">Gym Tracker</NavDropdown.Item>
                                     </NavDropdown> : null
-                            }
+                            } */}
 
                         </Nav>
                         <Form inline>

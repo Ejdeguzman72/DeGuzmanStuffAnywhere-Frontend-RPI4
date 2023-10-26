@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
-import RunTrackerService from '../../services/RunTrackerService';
-import RunTrackerTabComponent from '../tab-components/RunTrackerTabComponent';
+import CardioTrackerService from '../../services/CardioTrackerService';
+import RunTrackerTabComponent from '../tab-components/CardioTrackerTabComponent';
 import UserDropdown from '../dropdown-components/UserDropdown';
 
-const Run = props => {
+const Cardio = props => {
     const initialState = {
-        runId: 0,
-        runDate: "",
-        runDistance: 0,
-        runTime: 0,
-        userId: 0
+        cardioId: 0,
+        cDate: "",
+        cDistance: 0,
+        cTime: 0,
+        userId: 0,
+        cardioTypeId: 0
     };
 
-    const [currentRun, setCurrentRun] = useState(initialState);
+    const [currentCardio, setCurrentCardio] = useState(initialState);
     const [message, setMessage] = ("");
 
     const handleUser = (userId) => {
-        setCurrentRun({
-            ...currentRun, userId: userId
+        setCurrentCardio({
+            ...currentCardio, userId: userId
         });
     }
 
-    const getRun = (runId) => {
-        RunTrackerService.getRunTrackerById(runId)
+    const getCardio = (cardioId) => {
+        CardioTrackerService.getCardioTrackerById(cardioId)
             .then(response => {
-                setCurrentRun(response.data.run);
+                setCurrentCardio(response.data.cardio);
             })
             .catch(error => {
                 console.log(error);
@@ -33,26 +34,26 @@ const Run = props => {
     };
 
     useEffect(() => {
-        getRun(props.match.params.runId);
-    }, [props.match.params.runId]);
+        getCardio(props.match.params.cardioId);
+    }, [props.match.params.cardioId]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setCurrentRun({ ...currentRun, [name]: value });
+        setCurrentCardio({ ...currentCardio, [name]: value });
     };
 
-    const updateRun = () => {
-        RunTrackerService.updateRunInformation(currentRun.runId, currentRun)
+    const updateCardio = () => {
+        CardioTrackerService.updateCardioInformation(currentCardio.cardioId, currentCardio)
             .then(response => {
-                alert("The run was updated successfully");
+                alert("The cardio was updated successfully");
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    const deleteRun = () => {
-        RunTrackerService.deleteRun(currentRun.runId)
+    const deleteCardio = () => {
+        CardioTrackerService.deleteCardio(currentCardio.cardioId)
             .then(response => {
                 props.history.push("/run-tracker-grid");
             })
@@ -67,36 +68,36 @@ const Run = props => {
             <RunTrackerTabComponent />
             <div id="white-background">
                 <br></br>
-                {currentRun ? (
+                {currentCardio ? (
                     <div className="edit form">
-                        <h4>Run Tracker Info</h4>
+                        <h4>Cardio Tracker Info</h4>
                         <form className="update-book-container">
                             <div className="form-group">
-                                <label htmlFor="runDate">Date of Run</label>
-                                <Form.Group controlId="runDate">
+                                <label htmlFor="cDate">Date</label>
+                                <Form.Group controlId="cDate">
                                 <Form.Label>Select Date</Form.Label>
-                                <Form.Control type="date" name="runDate" placeholder="Date" onChange={handleInputChange} />
+                                <Form.Control type="date" name="cDate" placeholder="Date" onChange={handleInputChange} />
                             </Form.Group>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="runDistance">Distance</label>
+                                <label htmlFor="cDistance">Distance</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="runDistance"
-                                    name="runDistance"
-                                    value={currentRun.runDistance}
+                                    id="cDistance"
+                                    name="cDistance"
+                                    value={currentCardio.cDistance}
                                     onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="runTime">Time</label>
+                                <label htmlFor="cTime">Time</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="runTime"
-                                    name="runTime"
-                                    value={currentRun.runTime}
+                                    id="cTime"
+                                    name="cTime"
+                                    value={currentCardio.cTime}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -110,7 +111,7 @@ const Run = props => {
                     </div>
                 ) : (
                     <div>
-                        <Button className="badge badge-danger mr-2" onClick={() => updateRun(true)}>
+                        <Button className="badge badge-danger mr-2" onClick={() => updateCardio(true)}>
                             Update
                         </Button>
                     </div>
@@ -123,12 +124,12 @@ const Run = props => {
                     </Col>
                     <Col md={2}>
                         <div>
-                            <Button type="submit" size="lg" variant="dark" onClick={updateRun}>Update</Button>
+                            <Button type="submit" size="lg" variant="dark" onClick={updateCardio}>Update</Button>
                         </div>
                     </Col>
                     <Col md={2}>
                         <div>
-                            <Button type="submit" size="lg" variant="outline-danger" onClick={deleteRun}>
+                            <Button type="submit" size="lg" variant="outline-danger" onClick={deleteCardio}>
                                 Delete
                             </Button>
                         </div>
@@ -143,5 +144,5 @@ const Run = props => {
     )
 }
 
-export default Run;;
+export default Cardio;
 

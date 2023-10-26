@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import runTrackerService from '../../services/RunTrackerService';
+import CardioTrackerService from '../../services/CardioTrackerService';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -19,9 +19,9 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Axios from 'axios';
 import Box from '@material-ui/core/Box';
-import AddRunInfoModalComponent from './AddRunInfoModalComponent';
+import AddCardioInfoModalComponent from './AddCardioInfoModalComponent';
 import { Row, Col } from 'react-bootstrap';
-import RunOptionsDropdown from '../dropdown-components/RunOptionsDropdown';
+import RunOptionsDropdown from '../dropdown-components/CardioOptionsDropdown';
 import ExportBookToCSV from '../book-recommendations-component/ExportBookToCSV';
 
 const tableIcons = {
@@ -44,42 +44,45 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-export default function RunTrackerTableComponent() {
+export default function CardioTrackerTableComponent() {
 
     const [entries, setEntries] = useState({
         data: [
             {
-                runId: 0,
-                runDate: "",
-                runDistance: 0,
-                runTime: 0,
-                username: ""
+                cardioId: 0,
+                cDate: "",
+                cDistance: 0,
+                cTime: 0,
+                username: "",
+                descr: ""
             }
         ]
     });
 
     const [state] = React.useState({
         columns: [
-            { title: 'ID No:', field: 'runId', hidden: true },
-            { title: 'Date of Run', field: 'runDate' },
-            { title: 'Distance', field: 'runDistance' },
-            { title: 'Time', field: 'runTime' },
-            { title: 'Name of User', field: 'username' }
+            { title: 'ID No:', field: 'cardioId', hidden: true },
+            { title: 'Date', field: 'cDate' },
+            { title: 'Distance', field: 'cDistance' },
+            { title: 'Time', field: 'cTime' },
+            { title: 'Name of User', field: 'username' },
+            { title: 'Type', field: 'descr'}
         ]
     });
 
-    const [fileName,setFileName] = useState("RUN_TRACKER")
+    const [fileName,setFileName] = useState("CARDIO_TRACKER")
 
     useEffect(() => {
-        runTrackerService.getAllRunTrackerInfo().then(response => {
+        CardioTrackerService.getAllCardioTrackerInfo().then(response => {
             let data = [];
             response.data.list.forEach(e1 => {
                 data.push({
-                    runId: e1.runId,
-                    runDate: e1.runDate,
-                    runDistance: e1.runDistance.toFixed(2),
-                    runTime: e1.runTime,
-                    username: e1.username
+                    cardioId: e1.cardioId,
+                    cDate: e1.cDate,
+                    cDistance: e1.cDistance.toFixed(2),
+                    cTime: e1.cTime,
+                    username: e1.username,
+                    descr: e1.descr
                 });
             });
             setEntries({ data: data })
@@ -89,27 +92,11 @@ export default function RunTrackerTableComponent() {
             })
     }, []);
 
-
-    // const handleRowAdd = (newData, resolve) => {
-    //     Axios.post(`http://localhost:8080/app/run-tracker-app/add`)
-    //         .then(res => {
-    //             console.log(newData);
-    //             let dataToAdd = [...entries.data];
-    //             dataToAdd.push(newData);
-    //             setEntries(dataToAdd);
-    //             resolve();
-    //             window.location.reload();
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
-
     const handleRowDelete = (oldData, resolve) => {
-        runTrackerService.deleteRun(oldData.runId)
+        CardioTrackerService.deleteCardio(oldData.cardioId)
             .then(res => {
                 let dataToDelete = [...entries.data];
-                const index = oldData.tabledata.runId;
+                const index = oldData.tabledata.cardioId;
                 dataToDelete.splice(index, 1);
                 setEntries(dataToDelete);
                 resolve();
@@ -124,28 +111,11 @@ export default function RunTrackerTableComponent() {
             })
     }
 
-    const handleRowUpdate = (newData, oldData, resolve) => {
-        runTrackerService.updateRunInformation(oldData.runId, newData)
-            .then(res => {
-                let dataToUpdate = [...entries.data];
-                const index = oldData.tabledata.run_id;
-                dataToUpdate[index] = newData;
-                setEntries([...dataToUpdate]);
-                resolve();
-
-                window.location().reload();
-            })
-            .catch(error => {
-                console.log(error);
-                resolve();
-            })
-    }
-
     return (
         <div>
             <Row>
                 <Col md={4}>
-                    <AddRunInfoModalComponent />
+                    <AddCardioInfoModalComponent />
                 </Col>
                 <Col md={4}>
                     <RunOptionsDropdown />
@@ -160,7 +130,7 @@ export default function RunTrackerTableComponent() {
             <br></br>
             <Box border={3} borderRadius={16}>
                 <MaterialTable
-                    title="Run Tracker"
+                    title="Cardio Tracker"
                     columns={state.columns}
                     icons={tableIcons}
                     data={entries.data}
