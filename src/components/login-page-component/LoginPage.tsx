@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const jwt = jwtHelper;
 
-export class LoginPageComponent extends React.Component<any, any> {
+export class LoginPage extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
@@ -98,13 +98,13 @@ export class LoginPageComponent extends React.Component<any, any> {
                             </p>
                             <div className="deguzmanrecipesanywhere-btn">
                              </div>   
-                            {/* <Button 
+                            <Button 
                                 size="lg" 
                                 variant="dark"
-                                className="deguzmanrecipesanywhere-btn"
+                                className="dsa-recipes-online-btn"
                                 >
-                                    <Link className="deguzmanrecipesanywhere-btn" color="white" to="/recipes">DeGuzmanRecipesAnywhere</Link>
-                            </Button> */}
+                                    <Link className="dsa-recipes-online-btn" color="white" to="/dsa-recipes-online">DeGuzmanRecipesAnywhere</Link>
+                            </Button>
                             <br></br>
                             <Button 
                                 size="lg" 

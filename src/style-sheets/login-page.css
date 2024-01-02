@@ -35,9 +35,14 @@
 
 hr {
     color: black;
-    border-top: 3px double #8c8b8b; 
+    border-top: 3px double #8c8b8b;
 }
 
 .register-btn {
     color: white;
+}
+
+.dsa-recipes-online-btn {
+    text-decoration: none;
+    background-color: 'black';
 }

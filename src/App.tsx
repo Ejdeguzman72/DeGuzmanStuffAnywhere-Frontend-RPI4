@@ -2,9 +2,9 @@ import React from 'react';
 import './style-sheets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBarComponent } from './components/navbar-component/navbar-component';
-import { HashRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import HomePageComponent from './components/home-page-component/home-page-component';
-import { LoginPageComponent } from './components/login-page-component/login-page-component';
+import { LoginPage } from './components/login-page-component/LoginPage';
 import { jwtHelper } from './helper/jwt';
 import { RegisterPageComponent } from './components/register-page-component/register-page-component';
 import FinanceRoutes from './components/route-components/FinanceRoutes';
@@ -21,6 +21,8 @@ import InventoryRoutes from './components/route-components/InventoryRoutes';
 import MedicalRoutes from './components/route-components/MedicalRoutes';
 import NewsRoomRoutes from './components/route-components/NewsroomRoutes';
 import EntertainmentRoutes from './components/route-components/EntertainmentRoutes';
+import LandingPage from './dsa-recipes/page/LandingPage';
+import HomePage from './dsa-recipes/page/HomePage';
 
 const jwt = jwtHelper();
 
@@ -31,7 +33,9 @@ function App() {
         <NavBarComponent />
         <Switch>
           <Route path="/register" exact component={RegisterPageComponent} />
-          <Route path="/login" exact component={LoginPageComponent} />
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/dsa-recipes-online" exact component={LandingPage} />
+          <Route path="/recipes-home" exact component={HomePage} />
           {
             jwt ?
               <div>
@@ -52,7 +56,7 @@ function App() {
                 <RestaurantRecommendationRoutes />
               </div> : null
           }
-          <Route component={LoginPageComponent} />
+          <Route component={LoginPage} />
         </Switch>
       </HashRouter>
     </div>
