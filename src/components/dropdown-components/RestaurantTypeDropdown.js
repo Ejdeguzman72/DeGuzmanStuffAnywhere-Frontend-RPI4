@@ -7,7 +7,7 @@ function RestaurantTypeDropdown(props) {
     const [singleType, setSingleType] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8080/app/restaurant-types/all', { headers: authHeader() })
+        Axios.get('http://192.168.1.36:8080/app/restaurant-types/all', { headers: authHeader() })
             .then((response) => setTypes(response.data.list))
             .then((error) => console.log(error));
     }, []);

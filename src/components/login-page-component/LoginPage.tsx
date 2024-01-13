@@ -32,7 +32,7 @@ export class LoginPage extends React.Component<any, any> {
 
     onSubmit(event:any) {
         event.preventDefault();
-        Axios.post("http://localhost:8080/api/auth/signin", {
+        Axios.post("http://192.168.1.36:8080/api/auth/signin", {
             username: this.state.username,
             password: this.state.password
         }).then(res => {

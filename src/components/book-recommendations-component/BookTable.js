@@ -98,7 +98,7 @@ export default function BookTable() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/books/add`,newData)
+    Axios.put(`http://192.168.1.36:8080/app/books/add`,newData)
       .then(res => {
         const dataUpdate = [...books.data];
         const index = oldData.tabledata.bookId;
@@ -113,7 +113,7 @@ export default function BookTable() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/books/delete`,oldData)
+    Axios.delete(`http://192.168.1.36:8080/app/books/delete`,oldData)
       .then(res => {
         const dataDelete = [...books.data];
         const index = oldData.tabledata.bookId;

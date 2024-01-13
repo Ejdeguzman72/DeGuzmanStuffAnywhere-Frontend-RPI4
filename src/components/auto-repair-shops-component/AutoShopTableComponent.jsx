@@ -104,7 +104,7 @@ export default function AutoShopTableComponent() {
   }
 
   const handleRowUpdate = (newData, oldData, resolve) => {
-    Axios.put(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.auto_shop_id}`)
+    Axios.put(`http://192.168.1.36:8080/app/auto-repair-shops/repair-shop/${oldData.auto_shop_id}`)
       .then(res => {
         const dataUpdate = [...autoShop.data];
         const index = oldData.tabledata.auto_shop_id;
@@ -119,7 +119,7 @@ export default function AutoShopTableComponent() {
   }
 
   const handleRowDelete = (oldData, resolve) => {
-    Axios.delete(`http://localhost:8080/app/auto-repair-shops/repair-shop/${oldData.autoShopId}`)
+    Axios.delete(`http://192.168.1.36:8080/app/auto-repair-shops/repair-shop/${oldData.autoShopId}`)
       .then(res => {
         const dataDelete = [...autoShop.data];
         const index = oldData.tabledata.autoShopId;

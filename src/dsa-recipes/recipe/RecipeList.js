@@ -31,6 +31,7 @@ const RecipeList = ({ recipes }) => {
                         key={index}
                         active={index + 1 === currentPage}
                         onClick={() => handlePagination(index + 1)}
+                        className="pagination-btn"
                     >
                         {index + 1}
                     </Pagination.Item>

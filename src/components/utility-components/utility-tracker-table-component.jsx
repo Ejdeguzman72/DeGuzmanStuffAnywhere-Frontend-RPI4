@@ -93,7 +93,7 @@ export default function UtilityTableComponent() {
     }, []);
 
     const handleRowAdd = (newData, resolve) => {
-        Axios.post(`http://localhost:8080/app/utility-information/add-utility-information`, newData)
+        Axios.post(`http://192.168.1.36:8080/app/utility-information/add-utility-information`, newData)
         .then(res => {
             console.log(newData);
             let dataToAdd = [...entries.data];
@@ -108,7 +108,7 @@ export default function UtilityTableComponent() {
     }
 
     const handleRowDelete = (oldData, resolve) => {
-        Axios.delete(`http://localhost:8080/app/utility-information/utility/${oldData.utilityid}`)
+        Axios.delete(`http://192.168.1.36:8080/app/utility-information/utility/${oldData.utilityid}`)
         .then(res => {
             console.log(oldData.utilityid);
             let dataToDelete = [...entries.data];
@@ -124,7 +124,7 @@ export default function UtilityTableComponent() {
     }
 
     const handleRowUpdate = (newData,oldData,resolve) => {
-        Axios.put(`http://localhost:8080/app/utility-information/utility/${oldData.utilityid}`)
+        Axios.put(`http://192.168.1.36:8080/app/utility-information/utility/${oldData.utilityid}`)
         .then(res => {
             console.log(oldData.utilityid);
             let dataToUpdate = [...entries.data];

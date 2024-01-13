@@ -46,7 +46,7 @@ const tableIcons = {
 };
 
 const api = Axios.create({
-  baseURL: 'http://localhost:8080/app/general-transactions'
+  baseURL: 'http://192.168.1.36:8080/app/general-transactions'
 });
 
 export default function GeneralFinanceTable() {

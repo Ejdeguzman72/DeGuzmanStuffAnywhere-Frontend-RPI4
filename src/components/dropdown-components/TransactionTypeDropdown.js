@@ -7,7 +7,7 @@ const TransactionTypeDropdown = (props) => {
     const [singleType, setSingleType] = useState([]);
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/app/transaction-types/all', { headers: authHeader() })
+        Axios.get('http://192.168.1.36:8080/app/transaction-types/all', { headers: authHeader() })
             .then((response) => setTypes(response.data.list))
             .then((error) => console.log(error));
     }, [])

@@ -6,7 +6,7 @@ const uploadvideoFile = (file,onUploadProgress) => {
 
     formData.append("file",file);
 
-    return Axios.post("http://localhost:8080/app/video-uploads/upload", formData, {
+    return Axios.post("http://192.168.1.36:8080/app/video-uploads/upload", formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
@@ -15,7 +15,7 @@ const uploadvideoFile = (file,onUploadProgress) => {
 };
 
 const getVideos = () => {
-    return Axios.get("http://localhost:8080/app/video-uploads/files");
+    return Axios.get("http://192.168.1.36:8080/app/video-uploads/files");
 }
 
 export default {

@@ -110,7 +110,7 @@ export default function InventoryTable() {
   }
 
   // const handleRowDelete = (data, resolve) => {
-  //   Axios.delete(`http://localhost:8080/app/inventory/delete`, data)
+  //   Axios.delete(`http://192.168.1.36:8080/app/inventory/delete`, data)
   //     .then(res => {
   //       const dataDelete = [...entries.data];
   //       const index = data.tableData.personId;
@@ -126,7 +126,7 @@ export default function InventoryTable() {
   // }
 
   // const handleRowUpdate = (newData, oldData, resolve) => {
-  //   Axios.put(`http://localhost:8080/app/person-info/person/${oldData.personId}`, newData)
+  //   Axios.put(`http://192.168.1.36:8080/app/person-info/person/${oldData.personId}`, newData)
   //     .then(res => {
   //       const dataUpdate = [...entries.data];
   //       const index = oldData.tabledata.personId;

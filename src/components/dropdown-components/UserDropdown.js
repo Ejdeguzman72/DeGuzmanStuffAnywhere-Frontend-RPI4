@@ -7,7 +7,7 @@ function UserDropdown(props) {
     const [singleUser, setSingleUser] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8080/app/users/all', { headers: authHeader() })
+        Axios.get('http://192.168.1.36:8080/app/users/all', { headers: authHeader() })
             .then((response) => setUsers(response.data.list))
             .then((error) => console.log(error));
     }, []);

@@ -7,7 +7,7 @@ class UploadMedicalFileUploadService {
 
         formData.append("file", file);
 
-        return Axios.post("http://localhost:8080/app/medical-transaction-documents/upload", formData, {
+        return Axios.post("http://192.168.1.36:8080/app/medical-transaction-documents/upload", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
@@ -16,7 +16,7 @@ class UploadMedicalFileUploadService {
     }
 
     getMedicalFiles() {
-        return Axios.get('http://localhost:8080/app/medical-transaction-documents/files');
+        return Axios.get('http://192.168.1.36:8080/app/medical-transaction-documents/files');
     }
 }
 

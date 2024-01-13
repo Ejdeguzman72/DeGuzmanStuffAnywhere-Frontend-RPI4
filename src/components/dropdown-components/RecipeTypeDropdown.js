@@ -6,7 +6,7 @@ function RecipeTypeDropdown(props) {
     const [singleType, setSingleType] = useState([]);
 
     useEffect(function () {
-        Axios.get('http://localhost:8081/app/recipe-types/all')
+        Axios.get('http://192.168.1.36:8080/app/recipe-types/all')
             .then((response) => setTypes(response.data.list))
             .catch((error) => {
                 return "Error: " + error

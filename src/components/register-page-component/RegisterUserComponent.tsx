@@ -56,7 +56,7 @@ export class RegisterUserComponent extends React.Component<any,any> {
 
         const createUserResponse = await Axios({
             method: "post",
-            url: 'http://localhost:8080/api/auth/signup',
+            url: 'http://192.168.1.36:8080/api/auth/signup',
             headers: headers,
             data: user
         });

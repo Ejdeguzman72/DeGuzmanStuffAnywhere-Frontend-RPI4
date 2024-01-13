@@ -289,3 +289,9 @@
   height: auto;
   overflow-y: scroll;
 }
+
+.pagination-btn {
+  font-family: fantasy;
+  background-color: black !important;
+  color: black;
+}
